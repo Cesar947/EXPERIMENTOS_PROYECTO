@@ -1,6 +1,7 @@
 import Home from "./view/Home.vue";
 import Register from "./view/Register.vue";
 import Login from "./view/Login.vue";
+import Search from "./view/Search.vue";
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -10,10 +11,18 @@ export default new Router({
     mode: "history",
     routes: [
         {
-            path: '/',
+            path: '/home',
             name: 'Home',
-            component: Home
+            component: Home,
+            children: [
+                {
+                    path: 'search',
+                    component: Search
+                }
+            ]
         },
+
+        
         {
             path: '/register',
             name: 'Register',

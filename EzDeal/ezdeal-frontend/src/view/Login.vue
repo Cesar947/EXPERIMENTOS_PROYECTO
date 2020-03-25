@@ -6,11 +6,11 @@
       <p>Encuentra todo tipo de servicios</p>
     </div>
     <div class="form">
-      <input type="text" placeholder="Usuario" />
-      <input type="password" placeholder="Contraseña" />
+      <input v-model="username" type="text" placeholder="Usuario" />
+      <input v-model="password" type="password" placeholder="Contraseña" />
 
-      <button>Ingresar</button>
-      <a v-on:click="goToRegister()">Aun no tienes cuenta? Regístrate</a>
+      <button v-on:click="login">Ingresar</button>
+      <a v-on:click="goToRegister">Aun no tienes cuenta? Regístrate</a>
     </div>
   </div>
 </template>
@@ -18,9 +18,23 @@
 <script>
 export default {
   name: "Login",
-   methods: {
-    goToRegister: function () {
+  data: function() {
+    return {
+      username: "",
+      password: ""
+    };
+  },
+  methods: {
+    goToRegister: function() {
       this.$router.push("/register");
+    },
+    login: function() {
+
+      // this camp will have logic of authenticate
+      this.$router.push("/home/search");
+
+      console.log("username",this.username);
+      console.log("password",this.password);
     }
   }
 };
@@ -36,7 +50,7 @@ export default {
   flex-direction: column;
 }
 
-.header {
+.login-container .header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,20 +58,20 @@ export default {
   margin-top: -64px;
   margin-bottom: 128px;
 }
-.header p {
+.login-container .header p {
   color: #858585;
   font-weight: 400;
 }
 
-.header h1 {
+.login-container .header h1 {
   margin: 16px 0 8px 0;
 }
-.form {
+.login-container .form {
   display: flex;
   flex-direction: column;
 }
 
-.form input {
+.login-container .form input {
   width: 320px;
   border-radius: 8px;
   border: none;
@@ -70,7 +84,7 @@ export default {
   transition: all 0.2s ease-in-out;
 }
 
-.form button {
+.login-container .form button {
   padding: 18px 96px;
   border: none;
   background: #5f6caf;
@@ -81,11 +95,11 @@ export default {
   font-size: 18px;
 }
 
-.form input:focus {
+.login-container .form input:focus {
   border: 1px solid #5f6caf;
 }
 
-.form a {
+.login-container .form a {
   margin-top: 48px;
   font-weight: 400;
   font-size: 16px;
