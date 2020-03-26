@@ -1,0 +1,16 @@
+  Formato Json de Usuario
+
+  {
+        "id": 1,
+        "rol": "A",
+        "email": "cpizarrollanos@gmail.com",
+        "contrasena": "xdxdxd5000",
+        "nombres": "César Alejandro",
+        "apellidos": "Pizarro Llanos",
+        "telefonoFijo": "7662341",
+        "telefonoCelular": "987654321",
+        "urlContacto": "www.facebook.com/c",
+        "distrito": "Magdalena del Mar",
+        "direccion": "Av. Cacao 305",
+        "provincia": "Lima"
+    }

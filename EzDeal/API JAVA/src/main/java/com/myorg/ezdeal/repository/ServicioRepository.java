@@ -11,6 +11,6 @@ import java.util.List;
 public interface ServicioRepository extends JpaRepository<Servicio, Integer> {
 
 
-    @Query("SELECT s FROM Servicio s order by s.fechaPublicaicon desc")
+    @Query("SELECT s FROM Servicio s order by s.fechaPublicacion desc")
     List<Servicio> listarServicios() throws Exception;
 }
