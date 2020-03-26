@@ -45,7 +45,7 @@ public class ServicioServiceImpl  implements ServicioService {
 
     public static Date ParseFecha(String fecha)
     {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
         Date fechaDate = null;
         try {
             fechaDate = formato.parse(fecha);
