@@ -26,11 +26,11 @@ public class Servicio {
     private String titulo;
 
     @ManyToOne
-    @Column(name="anunciante_id")
+    @JoinColumn(name="anunciante_id")
     private Usuario anunciante;
 
     @ManyToOne
-    @Column(name="tipo_servicio_id")
+    @JoinColumn(name="tipo_servicio_id")
     private TipoServicio tipoServicio;
 
     @Column(name="imagen")

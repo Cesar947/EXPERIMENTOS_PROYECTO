@@ -29,12 +29,12 @@ public class Reseña {
     private double valoracion;
 
     @ManyToOne
-    @Column(name="servicio_id")
+    @JoinColumn(name="servicio_id")
     private Servicio servicio;
 
 
     @ManyToOne
-    @Column(name="cliente_id")
+    @JoinColumn(name="cliente_id")
     private Usuario cliente;
 
 }

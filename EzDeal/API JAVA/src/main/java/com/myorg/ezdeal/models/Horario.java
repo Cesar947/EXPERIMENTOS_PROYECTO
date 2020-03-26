@@ -31,7 +31,7 @@ public class Horario {
     private Time horaCierre;
 
     @ManyToOne
-    @Column(name="servicio_id")
+    @JoinColumn(name="servicio_id")
     private Servicio servicio;
 
 

@@ -4,10 +4,7 @@ package com.myorg.ezdeal.controller;
 import com.myorg.ezdeal.models.Usuario;
 import com.myorg.ezdeal.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -25,5 +22,10 @@ public class UsuarioController {
 
         usuario.setRol('C');
         return this.usuarioService.registrarUsuario(usuario);
+    }
+
+    @GetMapping("/")
+    public String HolaMundo(){
+        return "Hola Mundo";
     }
 }
