@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -46,6 +47,9 @@ public class Servicio {
 
     @Column(name="valoracion")
     private double valoracion;
+
+    @Column(name="fecha_publicacion")
+    private Date fechaPublicaicon;
 
 
 }

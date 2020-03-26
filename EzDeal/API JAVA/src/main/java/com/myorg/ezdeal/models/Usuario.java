@@ -21,6 +21,9 @@ public class Usuario {
     @Column(name= "usuario_id")
     private Integer id;
 
+    @Column(name="rol")
+    private char rol;
+
     @Column(name="email")
     private String email;
 
@@ -44,6 +47,12 @@ public class Usuario {
 
     @Column(name="distrito")
     private String distrito;
+
+    @Column(name="direccion")
+    private String direccion;
+
+    @Column(name="provincia")
+    private String provincia;
 
 
 }
