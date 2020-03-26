@@ -6,6 +6,8 @@ import com.myorg.ezdeal.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
@@ -22,4 +24,10 @@ public class UsuarioServiceImpl implements UsuarioService {
          return this.usuarioRepository.save(usuario);
 
     }
+
+    @Override
+    public List<Usuario> listarUsuarios() throws Exception{
+        return this.usuarioRepository.findAll();
+    }
+
 }

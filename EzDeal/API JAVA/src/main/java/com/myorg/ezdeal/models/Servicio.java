@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.Calendar;
 
 @Data
 @AllArgsConstructor
@@ -49,7 +49,9 @@ public class Servicio {
     private double valoracion;
 
     @Column(name="fecha_publicacion")
-    private Date fechaPublicaicon;
+    @Temporal(TemporalType.DATE)
+    private Calendar fechaPublicaicon;
+
 
 
 }
