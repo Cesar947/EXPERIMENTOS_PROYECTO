@@ -45,4 +45,10 @@ public class UsuarioController {
     public List<Usuario> listarUsuarios() throws Exception{
          return this.usuarioService.listarUsuarios();
     }
+
+    @GetMapping("/{id}")
+    public Usuario listarUsuarios(@PathVariable Integer id) throws Exception{
+        return this.usuarioService.verPerfil(id);
+    }
+
 }

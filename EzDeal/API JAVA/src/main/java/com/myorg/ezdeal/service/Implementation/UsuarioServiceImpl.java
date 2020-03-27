@@ -30,4 +30,9 @@ public class UsuarioServiceImpl implements UsuarioService {
         return this.usuarioRepository.findAll();
     }
 
+    @Override
+    public Usuario verPerfil(Integer id) throws Exception{
+        return this.usuarioRepository.findById(id).get();
+    }
+
 }

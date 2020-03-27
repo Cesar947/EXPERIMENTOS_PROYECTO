@@ -7,6 +7,8 @@ import com.myorg.ezdeal.repository.ServicioRepository;
 import com.myorg.ezdeal.repository.TipoServicioRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
 import com.myorg.ezdeal.service.ServicioService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -15,26 +17,33 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@Slf4j
 public class ServicioServiceImpl  implements ServicioService {
 
     private ServicioRepository servicioRepository;
     private UsuarioRepository usuarioRepository;
     private TipoServicioRepository tipoServicioRepository;
 
-
-    private ServicioServiceImpl(ServicioRepository servicioRepository){
+    @Autowired
+    private ServicioServiceImpl(ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, TipoServicioRepository tipoServicioRepository){
         this.servicioRepository = servicioRepository;
+        this.usuarioRepository = usuarioRepository;
+        this.tipoServicioRepository = tipoServicioRepository;
     }
 
     @Override
     public Servicio publicarServicio(Servicio servicio, Integer anuncianteId, Integer tipoServicioId, String fecha) throws Exception{
-
-       Usuario anunciante = usuarioRepository.findById(anuncianteId).get();
-       servicio.setAnunciante(anunciante);
+       log.info("***************************");
+       Usuario user = usuarioRepository.findById(anuncianteId).get();
+       log.info("***************************");
+       log.info(user.getNombres());
+       servicio.setAnunciante(user);
        TipoServicio tipoServicio = tipoServicioRepository.findById(tipoServicioId).get();
        servicio.setTipoServicio(tipoServicio);
-       Date fechaConvertida = ParseFecha(fecha);
-       servicio.setFechaPublicacion(fechaConvertida);
+       Date fechaConvert = ParseFecha(fecha);
+       log.info(fechaConvert.toString());
+       servicio.setFechaPublicacion(fechaConvert);
+
        return this.servicioRepository.save(servicio);
     }
 
@@ -45,7 +54,7 @@ public class ServicioServiceImpl  implements ServicioService {
 
     public static Date ParseFecha(String fecha)
     {
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         Date fechaDate = null;
         try {
             fechaDate = formato.parse(fecha);

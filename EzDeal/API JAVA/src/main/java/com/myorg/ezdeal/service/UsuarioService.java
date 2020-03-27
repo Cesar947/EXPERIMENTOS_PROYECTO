@@ -11,4 +11,6 @@ public interface UsuarioService {
 
     //Método de pruebas
     List<Usuario> listarUsuarios() throws Exception;
+
+    Usuario verPerfil(Integer id) throws Exception;
 }

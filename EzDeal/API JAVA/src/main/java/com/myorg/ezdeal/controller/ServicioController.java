@@ -2,6 +2,7 @@ package com.myorg.ezdeal.controller;
 
 import com.myorg.ezdeal.models.Servicio;
 import com.myorg.ezdeal.service.ServicioService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/servicios")
+@Slf4j
 public class ServicioController {
 
     private ServicioService servicioService;
@@ -25,10 +27,15 @@ public class ServicioController {
                                      @RequestParam(value="fechaPub", required = true) String fecha) throws Exception{
 
 
+        log.info("***********************");
+        log.info(tipoServicioId.toString());
+        log.info(anuncianteId.toString());
+        log.info(fecha);
+
         return this.servicioService.publicarServicio(servicio, anuncianteId, tipoServicioId, fecha);
     }
 
-    @GetMapping("/anuncios")
+    @GetMapping("/")
     public List<Servicio> listarServicios() throws Exception{
         return this.servicioService.listarServicios();
     }
