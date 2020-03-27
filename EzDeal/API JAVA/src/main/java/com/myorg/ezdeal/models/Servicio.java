@@ -6,7 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Data
 @AllArgsConstructor
@@ -49,8 +50,7 @@ public class Servicio {
     private double valoracion;
 
     @Column(name="fecha_publicacion")
-    @Temporal(TemporalType.DATE)
-    private Date fechaPublicacion;
+    private LocalDate fechaPublicacion;
 
 
 

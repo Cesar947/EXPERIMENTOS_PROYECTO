@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class ServicioServiceImpl  implements ServicioService {
     }
 
     @Override
-    public Servicio publicarServicio(Servicio servicio, Integer anuncianteId, Integer tipoServicioId, String fecha) throws Exception{
+    public Servicio publicarServicio(Servicio servicio, Integer anuncianteId, Integer tipoServicioId) throws Exception{
        log.info("***************************");
        Usuario user = usuarioRepository.findById(anuncianteId).get();
        log.info("***************************");
@@ -40,9 +41,10 @@ public class ServicioServiceImpl  implements ServicioService {
        servicio.setAnunciante(user);
        TipoServicio tipoServicio = tipoServicioRepository.findById(tipoServicioId).get();
        servicio.setTipoServicio(tipoServicio);
-       Date fechaConvert = ParseFecha(fecha);
-       log.info(fechaConvert.toString());
-       servicio.setFechaPublicacion(fechaConvert);
+       servicio.setFechaPublicacion(LocalDate.now());
+       log.info("***************************");
+       log.info(servicio.toString());
+       log.info("***************************");
 
        return this.servicioRepository.save(servicio);
     }

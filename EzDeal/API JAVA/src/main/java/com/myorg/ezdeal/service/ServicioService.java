@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ServicioService {
 
-    Servicio publicarServicio(Servicio servicio, Integer anuncianteId, Integer tipoServicioId, String fecha) throws Exception;
+    Servicio publicarServicio(Servicio servicio, Integer anuncianteId, Integer tipoServicioId) throws Exception;
     List<Servicio> listarServicios() throws Exception;
 }

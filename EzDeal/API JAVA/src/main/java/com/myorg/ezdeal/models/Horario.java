@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Data
@@ -25,12 +26,10 @@ public class Horario {
     private String dia;
 
     @Column(name="hora_apertura")
-    @Temporal(TemporalType.TIME)
-    private Date horaApertura;
+    private LocalTime horaApertura;
 
     @Column(name="hora_cierre")
-    @Temporal(TemporalType.TIME)
-    private Date horaCierre;
+    private LocalTime horaCierre;
 
     @ManyToOne
     @JoinColumn(name="servicio_id")

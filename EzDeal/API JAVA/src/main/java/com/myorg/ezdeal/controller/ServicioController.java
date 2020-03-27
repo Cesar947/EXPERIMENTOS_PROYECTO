@@ -23,19 +23,17 @@ public class ServicioController {
     @RequestMapping(path="/publicar", method = RequestMethod.POST)
     public Servicio publicarServicio(@RequestBody Servicio servicio,
                                      @RequestParam(value = "tipoServicioId" , required = true) Integer tipoServicioId,
-                                     @RequestParam(value="anuncianteId", required = true) Integer anuncianteId,
-                                     @RequestParam(value="fechaPub", required = true) String fecha) throws Exception{
+                                     @RequestParam(value="anuncianteId", required = true) Integer anuncianteId) throws Exception{
 
 
         log.info("***********************");
         log.info(tipoServicioId.toString());
         log.info(anuncianteId.toString());
-        log.info(fecha);
 
-        return this.servicioService.publicarServicio(servicio, anuncianteId, tipoServicioId, fecha);
+        return this.servicioService.publicarServicio(servicio, anuncianteId, tipoServicioId);
     }
 
-    @GetMapping("/")
+    @GetMapping("/anuncios")
     public List<Servicio> listarServicios() throws Exception{
         return this.servicioService.listarServicios();
     }
