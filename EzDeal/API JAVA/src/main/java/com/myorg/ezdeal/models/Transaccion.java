@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @AllArgsConstructor
@@ -37,5 +39,16 @@ public class Transaccion {
 
     @Column(name="costo_final")
     private double costoFinal;
+
+    @Column(name="fecha_transaccion")
+    private LocalDate fechaTransaccion;
+
+    @Column(name="hora_pactada", nullable=true)
+    private LocalTime horaPactada;
+
+    @Column(name="fecha_pactada", nullable=true)
+    private LocalDate fechaPactada;
+
+
 
 }

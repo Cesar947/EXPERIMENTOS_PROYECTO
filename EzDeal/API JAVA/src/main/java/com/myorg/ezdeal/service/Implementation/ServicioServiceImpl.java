@@ -34,17 +34,12 @@ public class ServicioServiceImpl  implements ServicioService {
 
     @Override
     public Servicio publicarServicio(Servicio servicio, Integer anuncianteId, Integer tipoServicioId) throws Exception{
-       log.info("***************************");
        Usuario user = usuarioRepository.findById(anuncianteId).get();
-       log.info("***************************");
-       log.info(user.getNombres());
        servicio.setAnunciante(user);
        TipoServicio tipoServicio = tipoServicioRepository.findById(tipoServicioId).get();
        servicio.setTipoServicio(tipoServicio);
        servicio.setFechaPublicacion(LocalDate.now());
-       log.info("***************************");
-       log.info(servicio.toString());
-       log.info("***************************");
+
 
        return this.servicioRepository.save(servicio);
     }

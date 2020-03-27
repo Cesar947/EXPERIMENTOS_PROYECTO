@@ -52,6 +52,8 @@ public class Servicio {
     @Column(name="fecha_publicacion")
     private LocalDate fechaPublicacion;
 
+    @Column(name="disponible_express")
+    private boolean disponibleExpress;
 
 
 }
