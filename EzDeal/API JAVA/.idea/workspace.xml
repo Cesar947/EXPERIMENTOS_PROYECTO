@@ -2,6 +2,109 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9645cfde-3a1b-468b-9e68-4e3960d89fe7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Horario.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Inconveniente.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/TipoServicio.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/ITransaccionRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/Controllers/ValuesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/EzDeal.Api.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/Properties/launchSettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/Startup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/appsettings.Development.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/appsettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Api.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Api.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Api.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Api.runtimeconfig.dev.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Api.runtimeconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Domain.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Domain.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Repository.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Repository.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Service.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Service.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.RazorAssemblyInfo.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.RazorAssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.RazorTargetAssemblyInfo.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.csproj.CopyComplete" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.csprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/EzDeal.Api.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/Debug/netcoreapp2.2/project.razor.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/EzDeal.Api.csproj.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/EzDeal.Api.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/EzDeal.Api.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/EzDeal.Api.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Api/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/Class1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/EzDeal.Domain.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/bin/Debug/netstandard2.0/EzDeal.Domain.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/bin/Debug/netstandard2.0/EzDeal.Domain.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/bin/Debug/netstandard2.0/EzDeal.Domain.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/Debug/netstandard2.0/EzDeal.Domain.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/Debug/netstandard2.0/EzDeal.Domain.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/Debug/netstandard2.0/EzDeal.Domain.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/Debug/netstandard2.0/EzDeal.Domain.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/Debug/netstandard2.0/EzDeal.Domain.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/Debug/netstandard2.0/EzDeal.Domain.csprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/Debug/netstandard2.0/EzDeal.Domain.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/Debug/netstandard2.0/EzDeal.Domain.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/EzDeal.Domain.csproj.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/EzDeal.Domain.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/EzDeal.Domain.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/EzDeal.Domain.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Domain/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/Class1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/EzDeal.Repository.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Domain.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Domain.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Repository.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Repository.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Repository.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/Debug/netstandard2.0/EzDeal.Repository.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/Debug/netstandard2.0/EzDeal.Repository.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/Debug/netstandard2.0/EzDeal.Repository.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/Debug/netstandard2.0/EzDeal.Repository.csproj.CopyComplete" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/Debug/netstandard2.0/EzDeal.Repository.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/Debug/netstandard2.0/EzDeal.Repository.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/Debug/netstandard2.0/EzDeal.Repository.csprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/Debug/netstandard2.0/EzDeal.Repository.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/Debug/netstandard2.0/EzDeal.Repository.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/EzDeal.Repository.csproj.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/EzDeal.Repository.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/EzDeal.Repository.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/EzDeal.Repository.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Repository/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/Class1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/EzDeal.Service.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/bin/Debug/netstandard2.0/EzDeal.Domain.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/bin/Debug/netstandard2.0/EzDeal.Domain.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/bin/Debug/netstandard2.0/EzDeal.Repository.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/bin/Debug/netstandard2.0/EzDeal.Repository.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/bin/Debug/netstandard2.0/EzDeal.Service.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/bin/Debug/netstandard2.0/EzDeal.Service.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/bin/Debug/netstandard2.0/EzDeal.Service.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/Debug/netstandard2.0/EzDeal.Service.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/Debug/netstandard2.0/EzDeal.Service.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/Debug/netstandard2.0/EzDeal.Service.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/Debug/netstandard2.0/EzDeal.Service.csproj.CopyComplete" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/Debug/netstandard2.0/EzDeal.Service.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/Debug/netstandard2.0/EzDeal.Service.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/Debug/netstandard2.0/EzDeal.Service.csprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/Debug/netstandard2.0/EzDeal.Service.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/Debug/netstandard2.0/EzDeal.Service.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/EzDeal.Service.csproj.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/EzDeal.Service.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/EzDeal.Service.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/EzDeal.Service.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API .NET/EzDeal.Service/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EzDeal-ProcesoDeSolicitud.bpm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Api.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Api.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Api/bin/Debug/netcoreapp2.2/EzDeal.Domain.dll" afterDir="false" />
@@ -22,8 +125,10 @@
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Api/obj/EzDeal.Api.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Api/obj/EzDeal.Api.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Api/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Anuncio.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Reseña.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Reseña.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Servicio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Servicio.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Solicitud.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Solicitud.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Transacción.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Usuario.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/Usuario.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/bin/Debug/netstandard2.0/EzDeal.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/bin/Debug/netstandard2.0/EzDeal.Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/bin/Debug/netstandard2.0/EzDeal.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/bin/Debug/netstandard2.0/EzDeal.Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/obj/Debug/netstandard2.0/EzDeal.Domain.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/obj/Debug/netstandard2.0/EzDeal.Domain.assets.cache" afterDir="false" />
@@ -35,6 +140,12 @@
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/obj/EzDeal.Domain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/obj/EzDeal.Domain.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/obj/EzDeal.Domain.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/obj/EzDeal.Domain.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Domain/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/Context/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/Context/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/IAnuncioRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/IServicioRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/ISolicitudRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/Implementacion/AnuncioRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/Implementacion/ServicioRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/ViewModel/AnuncioViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/ViewModel/ServicioViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/ViewModel/SolicitudViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/ViewModel/TransaccionViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Repository.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../.NET Trabajo Previo/Backend/EzDeal.Repository/bin/Debug/netstandard2.0/EzDeal.Repository.dll" afterDir="false" />
@@ -124,8 +235,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/myorg/ezdeal/models/Servicio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="54" column="40" lean-forward="true" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+            <state relative-caret-position="550">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -484,12 +595,12 @@
       <workItem from="1585247782209" duration="6597000" />
       <workItem from="1585262872951" duration="6962000" />
       <workItem from="1585329579157" duration="9561000" />
-      <workItem from="1585365264858" duration="3984000" />
+      <workItem from="1585365264858" duration="4328000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53822000" />
+    <option name="totallyTimeSpent" value="54166000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -998,8 +1109,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/myorg/ezdeal/models/Servicio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="54" column="40" lean-forward="true" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+        <state relative-caret-position="550">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
