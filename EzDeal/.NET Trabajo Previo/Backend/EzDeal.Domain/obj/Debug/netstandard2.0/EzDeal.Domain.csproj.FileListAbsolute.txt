@@ -79,3 +79,12 @@ D:\5TO CICLO\APLICACIONES WEB\TRABAJO FINAL - APLICACIONES WEB - WS51\new\Backen
 D:\5TO CICLO\APLICACIONES WEB\TRABAJO FINAL - APLICACIONES WEB - WS51\new\Backend\EzDeal.Domain\obj\Debug\netstandard2.0\EzDeal.Domain.AssemblyInfo.cs
 D:\5TO CICLO\APLICACIONES WEB\TRABAJO FINAL - APLICACIONES WEB - WS51\new\Backend\EzDeal.Domain\obj\Debug\netstandard2.0\EzDeal.Domain.dll
 D:\5TO CICLO\APLICACIONES WEB\TRABAJO FINAL - APLICACIONES WEB - WS51\new\Backend\EzDeal.Domain\obj\Debug\netstandard2.0\EzDeal.Domain.pdb
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Domain\bin\Debug\netstandard2.0\EzDeal.Domain.deps.json
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Domain\bin\Debug\netstandard2.0\EzDeal.Domain.dll
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Domain\bin\Debug\netstandard2.0\EzDeal.Domain.pdb
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Domain\obj\Debug\netstandard2.0\EzDeal.Domain.csprojAssemblyReference.cache
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Domain\obj\Debug\netstandard2.0\EzDeal.Domain.csproj.CoreCompileInputs.cache
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Domain\obj\Debug\netstandard2.0\EzDeal.Domain.AssemblyInfoInputs.cache
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Domain\obj\Debug\netstandard2.0\EzDeal.Domain.AssemblyInfo.cs
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Domain\obj\Debug\netstandard2.0\EzDeal.Domain.dll
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Domain\obj\Debug\netstandard2.0\EzDeal.Domain.pdb

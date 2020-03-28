@@ -6,15 +6,14 @@ namespace EzDeal.Repository.Context
     public class ApplicationDbContext : DbContext
     {
 
-        public DbSet<Anuncio> Anuncios {get; set;}
+        public DbSet<Servicio> Servicios {get; set;}
         public DbSet<Reseña> Reseñas {get; set;}
-      
-        public DbSet<Servicio> Servicios {get;set;}
-        
-        public DbSet<Solicitud> Solicitudes{get; set;}
-        
+        public DbSet<TipoServicio> TipoServicios {get;set;}
+        public DbSet<Transaccion> Transacciones{get; set;}
         public DbSet<Usuario> Usuarios {get; set;}
-        //public DbSet<HorarioAtencion> HorarioAtencion {get; set;}
+        public DbSet<Inconveniente> Inconvenientes {get; set;}
+        public DbSet<Horario> Horarios {get; set;}
+        
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
         : base(options)
@@ -24,7 +23,7 @@ namespace EzDeal.Repository.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Anuncio>()
+            modelBuilder.Entity<Servicio>()
                     .Property(p => p.Titulo)
                     .HasColumnName("titulo")
                     .HasMaxLength(50)

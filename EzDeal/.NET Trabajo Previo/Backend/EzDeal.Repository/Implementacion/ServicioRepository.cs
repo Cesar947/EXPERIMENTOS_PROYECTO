@@ -8,21 +8,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EzDeal.Repository.Implementacion
 {
-   public class AnuncioRepository : IAnuncioRepository
+   public class ServicioRepository : IServicioRepository
     {
 
         private ApplicationDbContext context;
 
-        public AnuncioRepository(ApplicationDbContext context)
+        public ServicioRepository(ApplicationDbContext context)
         {
             this.context = context;
         }
-        public Anuncio Get(int id)
+        public Servicio Get(int id)
         {
-            var result = new Anuncio();
+            var result = new Servicio();
             try
             {
-                result = context.Anuncios.Single(x => x.Id == id);
+                result = context.Servicios.Single(x => x.Id == id);
             }
 
             catch (System.Exception)

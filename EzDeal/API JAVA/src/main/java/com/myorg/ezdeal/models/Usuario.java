@@ -39,8 +39,8 @@ public class Usuario {
     @Column(name="telefono_fijo")
     private String telefonoFijo;
 
-    @Column(name="telefono_celular")
-    private String telefonoCelular;
+    @Column(name="celular")
+    private String celular;
 
     @Column(name="url_contacto")
     private String urlContacto;

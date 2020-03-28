@@ -4,8 +4,8 @@ using EzDeal.Repository.ViewModel;
 
 namespace EzDeal.Repository
 {
-    public interface ISolicitudRepository : IRepository<Solicitud>
+    public interface IServicioRepository: IRepository<Servicio>
     {
-        IEnumerable<SolicitudViewModel> GetAllSolicitudes();
+        IEnumerable<ServicioViewModel> GetAllAnuncios ();
     }
 }
