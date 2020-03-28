@@ -2,7 +2,6 @@
   <div class="login-container">
     <div class="header">
       <img src="../assets/Logo.svg" alt="" />
-      <h1>Ez Deal</h1>
       <p>Encuentra todo tipo de servicios</p>
     </div>
     <div class="form">
@@ -10,7 +9,8 @@
       <input v-model="password" type="password" placeholder="Contraseña" />
 
       <button v-on:click="login">Ingresar</button>
-      <a v-on:click="goToRegister">Aun no tienes cuenta? Regístrate</a>
+      <p >Aun no tienes cuenta? </p>
+      <a v-on:click="goToRegister">Registrate</a>
     </div>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
     login: function() {
 
       // this camp will have logic of authenticate
-      this.$router.push("/home/search");
+      this.$router.push("/home");
 
       console.log("username",this.username);
       console.log("password",this.password);
@@ -61,6 +61,7 @@ export default {
 .login-container .header p {
   color: #858585;
   font-weight: 400;
+  margin-top: 12px;
 }
 
 .login-container .header h1 {
@@ -87,7 +88,7 @@ export default {
 .login-container .form button {
   padding: 18px 96px;
   border: none;
-  background: #5f6caf;
+  background: #FF3168;
   font-weight: 600;
   color: #ffffff;
   border-radius: 8px;
@@ -96,15 +97,31 @@ export default {
 }
 
 .login-container .form input:focus {
-  border: 1px solid #5f6caf;
+  border: 1px solid #FF3168;
 }
 
-.login-container .form a {
+.login-container .form p {
+  margin-top: 24px;
+  text-align: center;
+  color: #BECBD5;
   margin-top: 48px;
+
+  }
+.login-container .form a {
+  padding: 16px 48px;
+  border: 1px solid #ff3168;
+  border-radius: 8px;
+  margin-top: 12px;
   font-weight: 400;
   font-size: 16px;
-  color: #5f6caf;
-  text-decoration: underline;
+  color: #FF3168;
+  text-decoration: none;
   text-align: center;
+  transition: all .15s ease-in-out;
+}
+
+.login-container .form a:hover{
+  background: #ff3168;
+  color: #ffffff;
 }
 </style>

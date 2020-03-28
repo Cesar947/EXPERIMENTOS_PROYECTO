@@ -1,7 +1,8 @@
 import Home from "./view/Home.vue";
 import Register from "./view/Register.vue";
 import Login from "./view/Login.vue";
-import Search from "./view/Search.vue";
+import Publication from "./view/PublicationForm.vue";
+import MainHome from "./components/MainHome.vue";
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -16,12 +17,15 @@ export default new Router({
             component: Home,
             children: [
                 {
-                    path: 'search',
-                    component: Search
+                    path: '/',
+                    component: MainHome
+                },
+                {
+                    path: "public",
+                    component: Publication
                 }
             ]
         },
-
         
         {
             path: '/register',
