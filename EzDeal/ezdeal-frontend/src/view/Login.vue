@@ -56,7 +56,7 @@ export default {
   align-items: center;
   flex-direction: column;
   margin-top: -64px;
-  margin-bottom: 128px;
+  margin-bottom: 60px;
 }
 .login-container .header p {
   color: #858585;
@@ -64,9 +64,7 @@ export default {
   margin-top: 12px;
 }
 
-.login-container .header h1 {
-  margin: 16px 0 8px 0;
-}
+
 .login-container .form {
   display: flex;
   flex-direction: column;
@@ -104,7 +102,7 @@ export default {
   margin-top: 24px;
   text-align: center;
   color: #BECBD5;
-  margin-top: 48px;
+  margin-top: 80px;
 
   }
 .login-container .form a {
