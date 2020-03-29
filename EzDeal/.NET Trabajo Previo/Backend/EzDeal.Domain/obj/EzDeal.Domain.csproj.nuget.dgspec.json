@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\5TO CICLO\\APLICACIONES WEB\\TRABAJO FINAL - APLICACIONES WEB - WS51\\new\\Backend\\EzDeal.Domain\\EzDeal.Domain.csproj": {}
+    "D:\\7MO CICLO\\DISEÑO_EXPERIMENTOS_SOFTWARE\\Trabajo Final\\EXPERIMENTOS_PROYECTO\\EzDeal\\.NET Trabajo Previo\\Backend\\EzDeal.Domain\\EzDeal.Domain.csproj": {}
   },
   "projects": {
-    "D:\\5TO CICLO\\APLICACIONES WEB\\TRABAJO FINAL - APLICACIONES WEB - WS51\\new\\Backend\\EzDeal.Domain\\EzDeal.Domain.csproj": {
+    "D:\\7MO CICLO\\DISEÑO_EXPERIMENTOS_SOFTWARE\\Trabajo Final\\EXPERIMENTOS_PROYECTO\\EzDeal\\.NET Trabajo Previo\\Backend\\EzDeal.Domain\\EzDeal.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\5TO CICLO\\APLICACIONES WEB\\TRABAJO FINAL - APLICACIONES WEB - WS51\\new\\Backend\\EzDeal.Domain\\EzDeal.Domain.csproj",
+        "projectUniqueName": "D:\\7MO CICLO\\DISEÑO_EXPERIMENTOS_SOFTWARE\\Trabajo Final\\EXPERIMENTOS_PROYECTO\\EzDeal\\.NET Trabajo Previo\\Backend\\EzDeal.Domain\\EzDeal.Domain.csproj",
         "projectName": "EzDeal.Domain",
-        "projectPath": "D:\\5TO CICLO\\APLICACIONES WEB\\TRABAJO FINAL - APLICACIONES WEB - WS51\\new\\Backend\\EzDeal.Domain\\EzDeal.Domain.csproj",
+        "projectPath": "D:\\7MO CICLO\\DISEÑO_EXPERIMENTOS_SOFTWARE\\Trabajo Final\\EXPERIMENTOS_PROYECTO\\EzDeal\\.NET Trabajo Previo\\Backend\\EzDeal.Domain\\EzDeal.Domain.csproj",
         "packagesPath": "C:\\Users\\César Alejandro\\.nuget\\packages\\",
-        "outputPath": "D:\\5TO CICLO\\APLICACIONES WEB\\TRABAJO FINAL - APLICACIONES WEB - WS51\\new\\Backend\\EzDeal.Domain\\obj\\",
+        "outputPath": "D:\\7MO CICLO\\DISEÑO_EXPERIMENTOS_SOFTWARE\\Trabajo Final\\EXPERIMENTOS_PROYECTO\\EzDeal\\.NET Trabajo Previo\\Backend\\EzDeal.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

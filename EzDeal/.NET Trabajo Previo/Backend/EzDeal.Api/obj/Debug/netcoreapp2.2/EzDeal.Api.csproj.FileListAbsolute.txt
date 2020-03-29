@@ -187,3 +187,24 @@ D:\5TO CICLO\APLICACIONES WEB\TRABAJO FINAL - APLICACIONES WEB - WS51\new\Backen
 D:\5TO CICLO\APLICACIONES WEB\TRABAJO FINAL - APLICACIONES WEB - WS51\new\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.csproj.CopyComplete
 D:\5TO CICLO\APLICACIONES WEB\TRABAJO FINAL - APLICACIONES WEB - WS51\new\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.dll
 D:\5TO CICLO\APLICACIONES WEB\TRABAJO FINAL - APLICACIONES WEB - WS51\new\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.pdb
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Api.deps.json
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Api.runtimeconfig.json
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Api.runtimeconfig.dev.json
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Api.dll
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Api.pdb
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Domain.dll
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Repository.dll
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Service.dll
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Domain.pdb
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Service.pdb
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\bin\Debug\netcoreapp2.2\EzDeal.Repository.pdb
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.csprojAssemblyReference.cache
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.csproj.CoreCompileInputs.cache
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.RazorAssemblyInfo.cache
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.RazorAssemblyInfo.cs
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.AssemblyInfoInputs.cache
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.AssemblyInfo.cs
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.RazorTargetAssemblyInfo.cache
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.csproj.CopyComplete
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.dll
+D:\7MO CICLO\DISEÑO_EXPERIMENTOS_SOFTWARE\Trabajo Final\EXPERIMENTOS_PROYECTO\EzDeal\.NET Trabajo Previo\Backend\EzDeal.Api\obj\Debug\netcoreapp2.2\EzDeal.Api.pdb

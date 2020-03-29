@@ -52,8 +52,19 @@ public class Servicio {
     @Column(name="fecha_publicacion")
     private LocalDate fechaPublicacion;
 
-    @Column(name="disponible_express")
-    private boolean disponibleExpress;
+   /* @Column(name="disponible_express")
+    private boolean disponibleExpress;*/
+
+    @Column(name="ubicacion")
+    private String ubicacion;
+
+    //1:A domicilio, 2:En local, 3:A domicilio & En local
+    @Column(name="modalidad")
+    private int modalidad;
+
+
+
+
 
 
 }
