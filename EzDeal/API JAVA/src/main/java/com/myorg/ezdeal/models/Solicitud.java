@@ -13,15 +13,15 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="transaccion")
-public class Transaccion {
+@Table(name="solicitud")
+public class Solicitud {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="solicitud_id")
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name="servicio_id")
@@ -40,8 +40,8 @@ public class Transaccion {
     @Column(name="costo_final")
     private double costoFinal;
 
-    @Column(name="fecha_transaccion")
-    private LocalDate fechaTransaccion;
+    @Column(name="fecha_solicitud")
+    private LocalDate fechaSolicitud;
 
     @Column(name="hora_pactada", nullable=true)
     private LocalTime horaPactada;

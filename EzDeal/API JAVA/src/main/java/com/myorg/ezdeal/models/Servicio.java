@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 
@@ -20,8 +21,8 @@ public class Servicio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "anuncio_id")
-    private Integer id;
+    @Column(name= "servicio_id")
+    private Long id;
 
     @Column(name="titulo")
     private String titulo;
@@ -35,19 +36,19 @@ public class Servicio {
     private TipoServicio tipoServicio;
 
     @Column(name="imagen")
-    private String imagen;
+    private String imagen; //y si queremos agregar más imagenes?
 
-    @Column(name="valor_servicio")
-    private double valorServicio;
+    @Column(name="costo_servicio")
+    private BigDecimal costoServicio;
 
     @Column(name="descripcion")
     private String descripcion;
 
     @Column(name="esta_habilitado")
-    private String estaHabilitado;
+    private Boolean estaHabilitado;
 
     @Column(name="valoracion")
-    private double valoracion;
+    private Double valoracion;
 
     @Column(name="fecha_publicacion")
     private LocalDate fechaPublicacion;
@@ -55,12 +56,14 @@ public class Servicio {
    /* @Column(name="disponible_express")
     private boolean disponibleExpress;*/
 
-    @Column(name="ubicacion")
-    private String ubicacion;
-
     //1:A domicilio, 2:En local, 3:A domicilio & En local
     @Column(name="modalidad")
-    private int modalidad;
+    private Integer modalidad;
+
+    @Column(name="video_presentacion")
+    private String videoPresentacion;
+
+
 
 
 
