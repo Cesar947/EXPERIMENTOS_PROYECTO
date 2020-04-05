@@ -24,14 +24,14 @@ public class UsuarioController {
     @RequestMapping(path="/cliente", method = RequestMethod.POST)
     public Usuario registrarCliente(@RequestBody Usuario usuario) throws Exception{
 
-        usuario.setRol('C');
+        //usuario.setRol('C');
         return this.usuarioService.registrarUsuario(usuario);
     }
 
     @RequestMapping(path="/anunciante", method = RequestMethod.POST)
     public Usuario registrarAnunciante(@RequestBody Usuario usuario) throws Exception{
 
-        usuario.setRol('A');
+        //usuario.setRol('A');
         return this.usuarioService.registrarUsuario(usuario);
     }
 
