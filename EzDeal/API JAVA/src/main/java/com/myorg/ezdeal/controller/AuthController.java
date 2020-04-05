@@ -37,7 +37,7 @@ public class AuthController {
     }
 
     @PostMapping("/registro")
-    public ResponseEntity<Cuenta> registrarCuenta(@Valid @RequestBody SignUpRequest signUpRequest){
+    public ResponseEntity<Cuenta> registrarCuenta(@Valid @RequestBody SignUpRequest signUpRequest, @RequestParam("rol") String rol){
         if(cuentaRepository.existsByNombreUsuario(signUpRequest.getNombreUsuario())){
 
         }
@@ -46,10 +46,12 @@ public class AuthController {
 
         }
 
-        Cuenta cuenta = new Cuenta(signUpRequest.getNombreUsuario(), signUpRequest.getEmail(), signUpRequest.getContrasena());
+        Cuenta cuenta = new Cuenta(signUpRequest.getNombreUsuario(), signUpRequest.getEmail(), encoder.encode(signUpRequest.getContrasena()));
 
         Set<Rol> roles = new HashSet<>();
-        Optional<Rol> cuentaRol = rolRepository.findByNombre("ROL_ClIENTE");
+
+
+        Optional<Rol> cuentaRol = rolRepository.findByNombre(rol);
         if(!cuentaRol.isPresent()){
 
         }
@@ -60,8 +62,13 @@ public class AuthController {
 
         cuentaRepository.save(cuenta);
 
+
+
         return new ResponseEntity<Cuenta>(cuenta, HttpStatus.CREATED);
 
     }
+
+
+
 
 }
