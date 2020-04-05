@@ -1,8 +1,10 @@
 package com.myorg.ezdeal.service.Implementation;
 
+import com.myorg.ezdeal.models.Horario;
 import com.myorg.ezdeal.models.Servicio;
 import com.myorg.ezdeal.models.TipoServicio;
 import com.myorg.ezdeal.models.Usuario;
+import com.myorg.ezdeal.repository.HorarioRepository;
 import com.myorg.ezdeal.repository.ServicioRepository;
 import com.myorg.ezdeal.repository.TipoServicioRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
@@ -25,6 +27,7 @@ public class ServicioServiceImpl  implements ServicioService {
     private UsuarioRepository usuarioRepository;
     private TipoServicioRepository tipoServicioRepository;
 
+
     @Autowired
     private ServicioServiceImpl(ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, TipoServicioRepository tipoServicioRepository){
         this.servicioRepository = servicioRepository;
@@ -39,6 +42,7 @@ public class ServicioServiceImpl  implements ServicioService {
        TipoServicio tipoServicio = tipoServicioRepository.findById(tipoServicioId).get();
        servicio.setTipoServicio(tipoServicio);
        servicio.setFechaPublicacion(LocalDate.now());
+
 
 
        return this.servicioRepository.save(servicio);

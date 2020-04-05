@@ -31,7 +31,7 @@ public class Horario {
     @Column(name="hora_cierre")
     private LocalTime horaCierre;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="servicio_id")
     private Servicio servicio;
 

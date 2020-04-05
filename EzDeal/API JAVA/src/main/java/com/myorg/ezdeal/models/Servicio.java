@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Data
@@ -64,6 +65,8 @@ public class Servicio {
     private String videoPresentacion;
 
 
+    @OneToMany(mappedBy="servicio")
+    private List<Horario> horarios;
 
 
 

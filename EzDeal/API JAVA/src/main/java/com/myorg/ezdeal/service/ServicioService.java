@@ -1,5 +1,6 @@
 package com.myorg.ezdeal.service;
 
+import com.myorg.ezdeal.models.Horario;
 import com.myorg.ezdeal.models.Servicio;
 
 import java.util.List;
