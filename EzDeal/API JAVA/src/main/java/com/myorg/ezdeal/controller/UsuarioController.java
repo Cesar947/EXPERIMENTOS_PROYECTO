@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("api/auth/usuarios")
 @Slf4j /*Para usar el comando log*/
 public class UsuarioController {
 

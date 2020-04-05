@@ -22,4 +22,27 @@ public class SignUpRequest {
     @NotBlank
     @Size(min=6, max=25)
     private String contrasena;
+
+    @NotBlank
+    private String nombres;
+
+    @NotBlank
+    private String apellidoPaterno;
+
+    @NotBlank
+    private String apellidoMaterno;
+
+    @NotBlank
+    private String departamento;
+
+    @NotBlank
+    private String distrito;
+
+    @NotBlank
+    private String direccion;
+
+    @NotBlank
+    private String provincia;
+
+
 }

@@ -26,7 +26,6 @@ public class Cuenta {
     @Column(name="email")
     private String email;
 
-    @JsonIgnore
     @Column(name="contrasena")
     private String contrasena;
 

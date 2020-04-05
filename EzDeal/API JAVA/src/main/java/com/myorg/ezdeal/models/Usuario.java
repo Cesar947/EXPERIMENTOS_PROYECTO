@@ -62,4 +62,14 @@ public class Usuario {
     @JoinColumn(name="anunciante_id")
     private Anunciante infoAnunciante;
 
+    public Usuario(String nombres, String apellidoPaterno, String apellidoMaterno, String departamento, String distrito, String direccion, String provincia, Cuenta cuentaId) {
+        this.nombres = nombres;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.departamento =departamento;
+        this.distrito = distrito;
+        this.direccion = direccion;
+        this.provincia = provincia;
+        this.cuentaId = cuentaId;
+    }
 }
