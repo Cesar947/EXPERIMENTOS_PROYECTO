@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name="servicio")
-public class Servicio {
+public class Servicio implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

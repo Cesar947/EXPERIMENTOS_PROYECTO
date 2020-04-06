@@ -11,4 +11,5 @@ public interface CuentaRepository extends JpaRepository<Cuenta, Integer> {
     Cuenta findByNombreUsuarioAndContrasena(String nombreUsuario, String contrasena);
     Boolean existsByEmail(String email);
     Boolean existsByNombreUsuario(String nombreUsuario);
+    Cuenta findByNombreUsuario(String nombreUsuario);
 }

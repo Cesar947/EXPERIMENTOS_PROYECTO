@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name="agenda")
 //Agenda se encarga de registrar la hora y fecha pactada por el cliente y el anunciante
-public class Agenda {
+public class Agenda implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

@@ -9,13 +9,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="usuario")
-public class Usuario {
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -55,7 +56,7 @@ public class Usuario {
     private String imagenPerfil;
 
     @OneToOne
-    @JoinColumn(name="cuenta_id")
+    @JoinColumn(name="cuenta_id", nullable = false)
     private Cuenta cuentaId;
 
     @OneToOne

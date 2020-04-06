@@ -9,9 +9,13 @@ import com.myorg.ezdeal.payload.request.SignUpRequest;
 import com.myorg.ezdeal.repository.CuentaRepository;
 import com.myorg.ezdeal.repository.RolRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
+import com.myorg.ezdeal.service.Implementation.CuentaService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,10 +26,14 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/auth")
+@Slf4j
 public class AuthController {
 
     @Autowired
     private CuentaRepository cuentaRepository;
+
+    @Autowired
+    private CuentaService cuentaService;
 
     @Autowired
     private RolRepository rolRepository;
@@ -37,10 +45,11 @@ public class AuthController {
     private PasswordEncoder encoder;
 
     @GetMapping("/login")
-    public ResponseEntity<Usuario> loginCuenta(@Valid @RequestBody LoginRequest loginRequest){
+    public ResponseEntity<UserDetails> loginCuenta(@Valid @RequestBody LoginRequest loginRequest){
 
-        Cuenta cuenta = cuentaRepository.findByNombreUsuarioAndContrasena(loginRequest.getNombreUsuario(), loginRequest.getContrasena());
-        return ResponseEntity.ok(usuarioRepository.getByCuentaId(cuenta));
+        UserDetails cuenta = cuentaService.loadUserByUsername(loginRequest.getNombreUsuario());
+
+        return ResponseEntity.ok(cuenta);
     }
 
     @PostMapping("/registro")

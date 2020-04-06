@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
@@ -12,7 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Entity
 @Table(name="membresia")
-public class Membresia {
+public class Membresia implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

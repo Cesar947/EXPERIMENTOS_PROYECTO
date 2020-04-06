@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -13,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name="horario")
-public class Horario {
+public class Horario implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
