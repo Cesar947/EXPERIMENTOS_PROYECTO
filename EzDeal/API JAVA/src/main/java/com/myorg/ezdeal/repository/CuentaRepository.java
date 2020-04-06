@@ -7,8 +7,7 @@ import java.util.Optional;
 
 public interface CuentaRepository extends JpaRepository<Cuenta, Integer> {
 
-    Optional<Cuenta> findByEmail(String email);
-    Cuenta findByNombreUsuarioAndContrasena(String nombreUsuario, String contrasena);
+    Cuenta findByNombreUsuario(String nombreUsuario);
     Boolean existsByEmail(String email);
     Boolean existsByNombreUsuario(String nombreUsuario);
 }
