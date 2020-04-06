@@ -29,7 +29,7 @@ public class ReseñaServiceImpl implements ReseñaService {
 
 
     @Override
-    public Reseña publicarReseña(Reseña reseña, Integer clienteId, Integer servicioId) throws Exception {
+    public Reseña publicarReseña(Reseña reseña, Long clienteId, Long servicioId) throws Exception {
 
         Usuario cliente = usuarioRepository.findById(clienteId).get();
         Servicio servicio = servicioRepository.findById(servicioId).get();
@@ -41,7 +41,7 @@ public class ReseñaServiceImpl implements ReseñaService {
     }
 
     @Override
-    public List<Reseña> listarReseñasPorServicio(Integer servicioId) throws Exception {
+    public List<Reseña> listarReseñasPorServicio(Long servicioId) throws Exception {
         return this.reseñaRepository.listarReseñasPorServicio(servicioId);
     }
 }

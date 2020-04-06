@@ -36,7 +36,7 @@ public class ServicioServiceImpl  implements ServicioService {
     }
 
     @Override
-    public Servicio publicarServicio(Servicio servicio, Integer anuncianteId, Integer tipoServicioId) throws Exception{
+    public Servicio publicarServicio(Servicio servicio, Long anuncianteId, Long tipoServicioId) throws Exception{
        Usuario user = usuarioRepository.findById(anuncianteId).get();
        servicio.setAnunciante(user);
        TipoServicio tipoServicio = tipoServicioRepository.findById(tipoServicioId).get();

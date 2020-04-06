@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -50,6 +51,7 @@ public class Solicitud implements Serializable {
     @Column(name="fecha_pactada", nullable=true)
     private LocalDate fechaPactada;
 
-
+    @OneToMany(mappedBy="solicitud")
+    private List<Agenda> citas;
 
 }
