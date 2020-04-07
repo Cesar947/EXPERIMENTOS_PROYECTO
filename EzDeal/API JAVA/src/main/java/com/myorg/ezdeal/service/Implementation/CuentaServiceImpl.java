@@ -27,7 +27,14 @@ public class CuentaServiceImpl implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
         Cuenta user = cuentaRepository.findByNombreUsuario(username);
+
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+
+        for (Rol role : user.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority(role.getNombre()));
+        }
 
         return new CuentaPrincipal(user);
     }

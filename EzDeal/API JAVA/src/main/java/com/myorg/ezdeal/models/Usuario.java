@@ -72,4 +72,6 @@ public class Usuario {
         this.provincia = provincia;
         this.cuentaId = cuentaId;
     }
+
+
 }

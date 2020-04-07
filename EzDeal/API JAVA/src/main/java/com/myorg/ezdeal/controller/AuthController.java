@@ -51,25 +51,12 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public ResponseEntity<?> loginCuenta(@Valid @RequestBody LoginRequest loginRequest){
 
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getNombreUsuario(), loginRequest.getContrasena()));
+        Cuenta userDetails = cuentaRepository.findByNombreUsuario(loginRequest.getNombreUsuario());
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateJwtToken(authentication);
-
-        CuentaPrincipal userDetails = (CuentaPrincipal) authentication.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
-                .map(item -> item.getAuthority())
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(new JwtResponse(jwt,
-                userDetails.getId(),
-                userDetails.getUsername(),
-                userDetails.getEmail(),
-                roles));
+        return ResponseEntity.ok(new Cuenta(loginRequest.getNombreUsuario(), loginRequest.getContrasena()));
     }
 
     @PostMapping("/registro")
