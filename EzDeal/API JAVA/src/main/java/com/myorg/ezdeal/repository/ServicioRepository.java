@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ServicioRepository extends JpaRepository<Servicio, Integer> {
+public interface ServicioRepository extends JpaRepository<Servicio, Long> {
 
 
     @Query("SELECT s FROM Servicio s order by s.fechaPublicacion desc")

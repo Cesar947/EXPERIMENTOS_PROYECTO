@@ -1,7 +1,5 @@
 package com.myorg.ezdeal.models;
 
-
-import com.sun.org.apache.xpath.internal.objects.XNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

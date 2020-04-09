@@ -31,7 +31,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario verPerfil(Integer id) throws Exception{
+    public Usuario verPerfil(Long id) throws Exception{
         return this.usuarioRepository.findById(id).get();
     }
 
