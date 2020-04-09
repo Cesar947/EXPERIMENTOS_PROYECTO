@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ReseñaRepository extends JpaRepository<Reseña, Integer> {
+public interface ReseñaRepository extends JpaRepository<Reseña, Long> {
 
     @Query("SELECT r FROM Reseña r where r.servicio.id = ?1")
-    List<Reseña> listarReseñasPorServicio(Integer servicioId) throws Exception;
+    List<Reseña> listarReseñasPorServicio(Long servicioId) throws Exception;
 
 }

@@ -47,7 +47,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public Usuario listarUsuarios(@PathVariable Integer id) throws Exception{
+    public Usuario listarUsuarios(@PathVariable Long id) throws Exception{
         return this.usuarioService.verPerfil(id);
     }
 
