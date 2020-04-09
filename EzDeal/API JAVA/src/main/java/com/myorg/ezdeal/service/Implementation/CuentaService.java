@@ -36,7 +36,7 @@ public class CuentaService implements UserDetailsService {
 
         List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
         for(Rol rol: cuenta.getRoles()){
-            roles.add(new SimpleGrantedAuthority(rol.getNombre()));
+            roles.add(new SimpleGrantedAuthority(rol.getNombre().toString()));
         }
 
         return new User(cuenta.getNombreUsuario(), cuenta.getContrasena(), roles);
