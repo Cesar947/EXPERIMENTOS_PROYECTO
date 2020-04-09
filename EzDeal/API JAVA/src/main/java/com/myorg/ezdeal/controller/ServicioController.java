@@ -20,7 +20,7 @@ public class ServicioController {
         this.servicioService = servicioService;
     }
 
-    @RequestMapping(path="/publicar", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public Servicio publicarServicio(@RequestBody Servicio servicio,
                                      @RequestParam(value = "tipoServicioId" , required = true) Long tipoServicioId,
                                      @RequestParam(value="anuncianteId", required = true) Long anuncianteId) throws Exception{
@@ -33,7 +33,7 @@ public class ServicioController {
         return this.servicioService.publicarServicio(servicio, anuncianteId, tipoServicioId);
     }
 
-    @GetMapping("/anuncios")
+    @GetMapping
     public List<Servicio> listarServicios() throws Exception{
         return this.servicioService.listarServicios();
     }

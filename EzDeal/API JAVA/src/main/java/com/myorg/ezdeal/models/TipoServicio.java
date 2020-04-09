@@ -19,7 +19,7 @@ public class TipoServicio implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="tipo_servicio_id")
-    private Integer id;
+    private Long id;
 
     @Column(name="nombre")
     private String nombre;
