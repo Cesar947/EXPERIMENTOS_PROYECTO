@@ -14,14 +14,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class SolicitudServiceImpl implements SolicitudService {
 
-    @Autowired
+
     private SolicitudRepository solicitudRepository;
-
-    @Autowired
     private ServicioRepository servicioRepository;
+    private UsuarioRepository clienteRepository;
 
     @Autowired
-    private UsuarioRepository clienteRepository;
+    public SolicitudServiceImpl(SolicitudRepository solicitudRepository, ServicioRepository servicioRepository, UsuarioRepository clienteRepository){
+        this.solicitudRepository = solicitudRepository;
+        this.servicioRepository = servicioRepository;
+        this.clienteRepository = clienteRepository;
+    }
 
     @Override
     public Solicitud solicitar(Solicitud solicitud, Long servicioId, Long clienteId) throws Exception {

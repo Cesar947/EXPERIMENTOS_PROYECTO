@@ -11,24 +11,20 @@ import com.myorg.ezdeal.payload.request.SignUpRequest;
 import com.myorg.ezdeal.repository.CuentaRepository;
 import com.myorg.ezdeal.repository.RolRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
-<<<<<<< HEAD
+
 import com.myorg.ezdeal.service.Implementation.CuentaService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-=======
+
 import com.myorg.ezdeal.security.jwt.JwtUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
->>>>>>> master
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -62,14 +58,7 @@ public class AuthController {
     @Autowired
     private PasswordEncoder encoder;
 
-<<<<<<< HEAD
-    @GetMapping("/login")
-    public ResponseEntity<UserDetails> loginCuenta(@Valid @RequestBody LoginRequest loginRequest){
 
-        UserDetails cuenta = cuentaService.loadUserByUsername(loginRequest.getNombreUsuario());
-
-        return ResponseEntity.ok(cuenta);
-=======
     @Autowired
     JwtUtils jwtUtils;
 
@@ -92,7 +81,7 @@ public class AuthController {
                 userDetails.getUsername(),
                 userDetails.getEmail(),
                 roles));
->>>>>>> master
+
     }
 
     @PostMapping("/registro")
