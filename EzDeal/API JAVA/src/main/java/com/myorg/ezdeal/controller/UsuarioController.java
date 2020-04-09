@@ -5,6 +5,8 @@ import com.myorg.ezdeal.models.Usuario;
 import com.myorg.ezdeal.service.UsuarioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,6 +51,12 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public Usuario listarUsuarios(@PathVariable Long id) throws Exception{
         return this.usuarioService.verPerfil(id);
+    }
+
+    @GetMapping("/prueba")
+    @Secured({ "ROL_CLIENTE" })
+    public String Home(){
+        return "Home";
     }
 
 }
