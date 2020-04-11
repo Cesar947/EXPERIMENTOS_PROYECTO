@@ -1,10 +1,15 @@
 package com.myorg.ezdeal.payload.request;
 
+import com.myorg.ezdeal.models.Membresia;
 import lombok.Data;
 
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.Set;
 
 
@@ -44,6 +49,18 @@ public class SignUpRequest {
 
     @NotBlank
     private String provincia;
+
+
+    private String telefonoFijo;
+
+    private String celular;
+
+    private String dni;
+
+    private String urlContacto;
+
+    private String antecedentesPenales;
+
 
     private Set<String> role;
 

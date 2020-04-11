@@ -53,14 +53,14 @@ public class Usuario {
     private String imagenPerfil;
 
     @OneToOne
-    @JoinColumn(name="cuenta_id")
+    @JoinColumn(name="cuenta_id", nullable = false)
     private Cuenta cuentaId;
 
     @OneToOne
     @JoinColumn(name="anunciante_id")
     private Anunciante infoAnunciante;
 
-    public Usuario(String nombres, String apellidoPaterno, String apellidoMaterno, String departamento, String distrito, String direccion, String provincia, Cuenta cuentaId) {
+    public Usuario(String nombres, String apellidoPaterno, String apellidoMaterno, String departamento, String distrito, String direccion, String provincia, Cuenta cuentaId, Anunciante anunciante) {
         this.nombres = nombres;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
@@ -69,6 +69,7 @@ public class Usuario {
         this.direccion = direccion;
         this.provincia = provincia;
         this.cuentaId = cuentaId;
+        this.infoAnunciante = anunciante;
     }
 
 
