@@ -42,7 +42,7 @@ public class UsuarioController {
         log.info("Ejecutando");
         return "Hola Mundo";
     }
-"
+
     @GetMapping("/")
     public List<Usuario> listarUsuarios() throws Exception{
          return this.usuarioService.listarUsuarios();
