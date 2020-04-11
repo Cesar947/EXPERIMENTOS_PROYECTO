@@ -1,12 +1,10 @@
 package com.myorg.ezdeal.controller;
 
 
-import com.myorg.ezdeal.models.Cuenta;
-import com.myorg.ezdeal.models.CuentaPrincipal;
-import com.myorg.ezdeal.models.Rol;
-import com.myorg.ezdeal.models.Usuario;
+import com.myorg.ezdeal.models.*;
 import com.myorg.ezdeal.payload.request.JwtResponse;
 import com.myorg.ezdeal.payload.request.LoginRequest;
+import com.myorg.ezdeal.payload.request.MessageResponse;
 import com.myorg.ezdeal.payload.request.SignUpRequest;
 import com.myorg.ezdeal.repository.CuentaRepository;
 import com.myorg.ezdeal.repository.RolRepository;
@@ -27,6 +25,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @RestController
@@ -56,30 +56,74 @@ public class AuthController {
 
         Cuenta userDetails = cuentaRepository.findByNombreUsuario(loginRequest.getNombreUsuario());
 
+<<<<<<< HEAD
         return ResponseEntity.ok(new Cuenta(loginRequest.getNombreUsuario(), loginRequest.getContrasena()));
+=======
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = jwtUtils.generateJwtToken(authentication);
+
+        CuentaPrincipal userDetails = (CuentaPrincipal) authentication.getPrincipal();
+
+        List<String> roles = userDetails.getAuthorities().stream()
+                .map(item -> item.getAuthority())
+                .collect(Collectors.toList());
+
+
+        return ResponseEntity.ok(new JwtResponse(jwt,
+                userDetails.getId(),
+                userDetails.getUsername(),
+                userDetails.getEmail(),
+                roles));
+>>>>>>> master
     }
 
     @PostMapping("/registro")
-    public ResponseEntity<Cuenta> registrarCuenta(@Valid @RequestBody SignUpRequest signUpRequest, @RequestParam("rol") String rol){
+    public ResponseEntity<?> registrarCuenta(@Valid @RequestBody SignUpRequest signUpRequest){
         if(cuentaRepository.existsByNombreUsuario(signUpRequest.getNombreUsuario())){
-
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: Este nombre de usuario ya esta tomado!"));
         }
 
         if(cuentaRepository.existsByEmail(signUpRequest.getEmail())){
-
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: Este Email ya esta en uso!"));
         }
 
         Cuenta cuenta = new Cuenta(signUpRequest.getNombreUsuario(), signUpRequest.getEmail(), encoder.encode(signUpRequest.getContrasena()));
 
+        Set<String> strRoles = signUpRequest.getRole();
         Set<Rol> roles = new HashSet<>();
 
+        if (strRoles == null) {
+            Rol userRole = rolRepository.findByNombre(ERole.ROL_CLIENTE)
+                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+            roles.add(userRole);
+        } else {
+            strRoles.forEach(role -> {
+                switch (role) {
+                    case "admin":
+                        Rol adminRole = rolRepository.findByNombre(ERole.ROL_ADMIN)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(adminRole);
 
-        Optional<Rol> cuentaRol = rolRepository.findByNombre(rol);
-        if(!cuentaRol.isPresent()){
+                        break;
+                    case "anunciante":
+                        Rol modRole = rolRepository.findByNombre(ERole.ROL_ANUNCIANTE)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(modRole);
 
+                        break;
+
+                    case "cliente" :
+                        Rol userRole = rolRepository.findByNombre(ERole.ROL_CLIENTE)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(userRole);
+                }
+            });
         }
 
-        roles.add(cuentaRol.get());
 
         cuenta.setRoles(roles);
 
@@ -91,7 +135,7 @@ public class AuthController {
 
         usuarioRepository.save(usuario);
 
-        return new ResponseEntity<Cuenta>(cuenta, HttpStatus.CREATED);
+        return ResponseEntity.ok(new MessageResponse("Usuario Registrado!"+cuenta.getRoles()));
 
     }
 

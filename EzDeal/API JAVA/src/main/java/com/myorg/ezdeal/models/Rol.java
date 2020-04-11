@@ -18,9 +18,8 @@ public class Rol {
     @Column(name= "rol_id")
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name="nombre")
-    private String nombre;
+    private ERole nombre;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<Cuenta> cuentas;
 }

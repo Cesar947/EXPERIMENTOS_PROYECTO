@@ -54,9 +54,6 @@ public class Servicio {
     @Column(name="fecha_publicacion")
     private LocalDate fechaPublicacion;
 
-   /* @Column(name="disponible_express")
-    private boolean disponibleExpress;*/
-
     //1:A domicilio, 2:En local, 3:A domicilio & En local
     @Column(name="modalidad")
     private Integer modalidad;
@@ -64,15 +61,8 @@ public class Servicio {
     @Column(name="video_presentacion")
     private String videoPresentacion;
 
-
     @OneToMany(mappedBy="servicio")
     private List<Horario> horarios;
-
-
-
-
-
-
 }
 
 

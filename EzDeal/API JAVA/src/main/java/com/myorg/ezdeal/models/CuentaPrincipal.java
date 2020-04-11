@@ -1,11 +1,15 @@
 package com.myorg.ezdeal.models;
 
+import lombok.extern.java.Log;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.Collections;
+import javax.management.relation.Role;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CuentaPrincipal implements UserDetails {
 
@@ -17,8 +21,13 @@ public class CuentaPrincipal implements UserDetails {
 
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority("ROL_CLIENTE"));
+    public Set<? extends GrantedAuthority> getAuthorities() {
+        Set<Rol> roles = cuenta.getRoles();
+        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> authorities
+                .add(new SimpleGrantedAuthority(role.getNombre().toString()))
+        );
+        return (Set<? extends GrantedAuthority>) authorities;
     }
 
     public Long getId() {
@@ -41,21 +50,21 @@ public class CuentaPrincipal implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
