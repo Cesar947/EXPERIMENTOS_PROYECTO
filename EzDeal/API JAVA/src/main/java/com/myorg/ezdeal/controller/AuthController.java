@@ -9,14 +9,20 @@ import com.myorg.ezdeal.payload.request.SignUpRequest;
 import com.myorg.ezdeal.repository.CuentaRepository;
 import com.myorg.ezdeal.repository.RolRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
-import com.myorg.ezdeal.security.jwt.JwtUtils;
+
+import com.myorg.ezdeal.service.Implementation.CuentaService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import com.myorg.ezdeal.security.jwt.JwtUtils;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +37,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/auth")
+@Slf4j
 public class AuthController {
 
     @Autowired
@@ -40,6 +47,9 @@ public class AuthController {
     private CuentaRepository cuentaRepository;
 
     @Autowired
+    private CuentaService cuentaService;
+
+    @Autowired
     private RolRepository rolRepository;
 
     @Autowired
@@ -47,6 +57,7 @@ public class AuthController {
 
     @Autowired
     private PasswordEncoder encoder;
+
 
     @Autowired
     JwtUtils jwtUtils;
@@ -72,10 +83,15 @@ public class AuthController {
                 userDetails.getUsername(),
                 userDetails.getEmail(),
                 roles));
+
     }
 
     @PostMapping("/registro")
     public ResponseEntity<?> registrarCuenta(@Valid @RequestBody SignUpRequest signUpRequest){
+        log.info("***********************************");
+        log.info(signUpRequest.toString());
+        log.info("***********************************");
+
         if(cuentaRepository.existsByNombreUsuario(signUpRequest.getNombreUsuario())){
             return ResponseEntity
                     .badRequest()

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace EzDeal.Domain
 {
     public class Servicio
@@ -8,9 +9,15 @@ namespace EzDeal.Domain
         public int Valor_Servicio { get; set; }
         public bool Esta_Habilitado { get; set; }
         public float Valoracion { get; set; }
-        public int? AnuncianteId { get; set; }
-        public int? ServicioId { get; set; }
-        public virtual Usuario Anunciante { get; set; }
-        public virtual TipoServicio TipoServicio { get; set; }
+
+        public int AnuncianteId { get; set; }
+        public Usuario Anunciante { get; set; }
+
+        public int ServicioId { get; set; }
+        public TipoServicio TipoServicio { get; set; }
+
+        public ICollection<Solicitud> solicitudes {get; set;}
+
+        public ICollection<Horario> Horarios {get; set;}
     }
 }

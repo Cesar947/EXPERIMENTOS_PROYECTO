@@ -21,17 +21,14 @@ VALUES('Juanelv Alessandro', 'Salgado Sánchez', 'slayz08@gmail.com',
  VALUES('Paseo deperros', 'Si no tiene tiempo para pasear a sus perritos, no duden en llamarme',
  'ajcnAidwifdnc.jpg', 'Habilitado', curdate(), 60.0, 1, 1, 0);
 
- INSERT INTO servicio(titulo, descripcion, imagen, esta_habilitado, fecha_publicacion, 
- valor_servicio, anunciante_id, tipo_servicio_id, valoracion)
- VALUES('Paseo deperros', 'Si no tiene tiempo para pasear a sus perritos, no duden en llamarme',
- 'ajcnAidwifdnc.jpg', 'Habilitado', '2020-10-09', 60.0, 1, 1, 0);
  
 INSERT INTO reseña(contenido, valoracion, cliente_id, servicio_id) VALUES('Eres el mejor paseando perros, él está muy feliz :)',
-5.0, 1, 1);
+5.0, 2, 1);
  
 select * from reseña;
 select * from servicio;
 select * from usuario;
 select * from tipo_servicio;
 
-
+INSERT INTO rol(nombre) VALUES("ROLE_CLIENTE");
+select * from rol;
