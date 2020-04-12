@@ -84,6 +84,10 @@ public class AuthController {
 
     @PostMapping("/registro")
     public ResponseEntity<?> registrarCuenta(@Valid @RequestBody SignUpRequest signUpRequest){
+        log.info("***********************************");
+        log.info(signUpRequest.toString());
+        log.info("***********************************");
+
         if(cuentaRepository.existsByNombreUsuario(signUpRequest.getNombreUsuario())){
             return ResponseEntity
                     .badRequest()

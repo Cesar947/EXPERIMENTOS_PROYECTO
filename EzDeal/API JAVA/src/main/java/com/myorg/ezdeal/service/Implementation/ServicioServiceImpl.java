@@ -26,13 +26,16 @@ public class ServicioServiceImpl  implements ServicioService {
     private ServicioRepository servicioRepository;
     private UsuarioRepository usuarioRepository;
     private TipoServicioRepository tipoServicioRepository;
+    private HorarioRepository horarioRepository;
 
 
     @Autowired
-    private ServicioServiceImpl(ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, TipoServicioRepository tipoServicioRepository){
+    private ServicioServiceImpl(ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, TipoServicioRepository tipoServicioRepository,
+                                HorarioRepository horarioRepository){
         this.servicioRepository = servicioRepository;
         this.usuarioRepository = usuarioRepository;
         this.tipoServicioRepository = tipoServicioRepository;
+        this.horarioRepository = horarioRepository;
     }
 
     @Override
@@ -45,6 +48,7 @@ public class ServicioServiceImpl  implements ServicioService {
        servicio.setTipoServicio(tipoServicio);
 
        servicio.setFechaPublicacion(LocalDate.now());
+
 
        return this.servicioRepository.save(servicio);
     }

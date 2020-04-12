@@ -57,3 +57,22 @@
             "estaHabilitado": "Habilitado",
             "valoracion": 0.0
         }
+/////////////////////////////////////////////////////
+{
+    "titulo": "Pasear perros",
+    "imagen": "dsgfsadgds.jpg",
+    "costoServicio": 60,
+    "descripcion": "Te paseo al perro",
+    "estaHabilitado": 1,
+    "valoracion": 0.0,
+    "fechaPublicacion": "2020-03-27",
+    "modalidad": "A domicilio",
+    "video": "dsgasdgdsgds.mp4",
+    "horarios": [
+      {
+
+      }
+    ]
+
+
+}
