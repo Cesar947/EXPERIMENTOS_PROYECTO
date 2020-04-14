@@ -61,7 +61,7 @@ public class Usuario implements Serializable {
     @JoinColumn(name="anunciante_id")
     private Anunciante infoAnunciante;
 
-    public Usuario(String nombres, String apellidoPaterno, String apellidoMaterno, String departamento, String distrito, String direccion, String provincia, Cuenta cuentaId) {
+    public Usuario(String nombres, String apellidoPaterno, String apellidoMaterno, String departamento, String distrito, String direccion, String provincia, Cuenta cuentaId, Anunciante infoAnunciante, String imagenPerfil) {
         this.nombres = nombres;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
@@ -70,5 +70,7 @@ public class Usuario implements Serializable {
         this.direccion = direccion;
         this.provincia = provincia;
         this.cuentaId = cuentaId;
+        this.infoAnunciante = infoAnunciante;
+        this.imagenPerfil = imagenPerfil;
     }
 }

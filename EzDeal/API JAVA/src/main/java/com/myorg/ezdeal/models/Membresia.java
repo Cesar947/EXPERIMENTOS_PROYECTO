@@ -1,5 +1,6 @@
 package com.myorg.ezdeal.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class Membresia implements Serializable {
     @Column(name="nombre")
     private String nombre;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     @Column(name="costo")
     private BigDecimal costo; //Money(?
 

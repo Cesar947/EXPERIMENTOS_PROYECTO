@@ -1,5 +1,7 @@
 package com.myorg.ezdeal.payload.request;
 
+import com.myorg.ezdeal.models.Anunciante;
+import com.myorg.ezdeal.models.Membresia;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
@@ -44,6 +46,13 @@ public class SignUpRequest {
 
     @NotBlank
     private String provincia;
+
+    @NotBlank
+    private String imagenPerfil;
+
+    private Anunciante infoAnunciante;
+
+    private Membresia membresia;
 
     private Set<String> role;
 

@@ -6,9 +6,7 @@ import com.myorg.ezdeal.payload.request.JwtResponse;
 import com.myorg.ezdeal.payload.request.LoginRequest;
 import com.myorg.ezdeal.payload.request.MessageResponse;
 import com.myorg.ezdeal.payload.request.SignUpRequest;
-import com.myorg.ezdeal.repository.CuentaRepository;
-import com.myorg.ezdeal.repository.RolRepository;
-import com.myorg.ezdeal.repository.UsuarioRepository;
+import com.myorg.ezdeal.repository.*;
 
 import com.myorg.ezdeal.service.Implementation.CuentaService;
 import lombok.extern.slf4j.Slf4j;
@@ -52,6 +50,13 @@ public class AuthController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    //Deberia ser un service en caso haya una lógica del negocio específica
+    @Autowired
+    private AnuncianteRepository anuncianteRepository;
+
+    @Autowired
+    private MembresiaRepository membresiaRepository;
 
     @Autowired
     private PasswordEncoder encoder;
@@ -104,7 +109,7 @@ public class AuthController {
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Rol> roles = new HashSet<>();
-
+        Anunciante info = null;
         if (strRoles == null) {
             Rol userRole = rolRepository.findByNombre(ERole.ROL_CLIENTE)
                     .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
@@ -132,15 +137,29 @@ public class AuthController {
             });
         }
 
+        for(Rol rol: roles){
+            if(rol.getNombre() == ERole.ROL_ANUNCIANTE){
+                Membresia membresia = membresiaRepository.save(signUpRequest.getMembresia());
+                Anunciante aux = signUpRequest.getInfoAnunciante();
+                aux.setMembresia(membresia);
+                info = anuncianteRepository.save(aux);
+                log.info("******************************************");
+                log.info(info.toString());
+                log.info("******************************************");
 
+            }
+        }
         cuenta.setRoles(roles);
 
         cuentaRepository.save(cuenta);
 
+
+
         Usuario usuario = new Usuario(signUpRequest.getNombres(), signUpRequest.getApellidoPaterno()
                 ,signUpRequest.getApellidoMaterno(),signUpRequest.getDepartamento(), signUpRequest.getDistrito()
-                , signUpRequest.getDireccion(), signUpRequest.getProvincia(), cuenta);
-
+                , signUpRequest.getDireccion(), signUpRequest.getProvincia(), cuenta, info, signUpRequest.getImagenPerfil());
+        usuario.setCuentaHabilitada(true);
+        usuario.setStrikes(0);
         usuarioRepository.save(usuario);
 
         return ResponseEntity.ok(new MessageResponse("Usuario Registrado!"));

@@ -76,3 +76,50 @@
 
 
 }
+
+////////////////////////////////////////////////
+Intento para registrar un anunciante
+{
+    "nombreUsuario": "cesar947",
+    "email": "cesar@gmail.com",
+    "contrasena": "3456789",
+    "nombres": "César",
+    "apellidoPaterno": "Pizarro",
+    "apellidoMaterno": "Llanos",
+    "departamento": "Lima",
+    "distrito": "Magdalena del Mar",
+    "direccion": "Av. Sucre 782",
+    "provincia": "Lima",
+    "role": [
+    	 "ROL_CLIENTE",
+    	 "ROL_ANUNCIANTE"
+    	],
+    "imagenPerfil": "sadfasdgfadsg.jpg",
+    "infoAnunciante": {
+       "telefonoFijo": "7856432",
+       "celular": "998362512",
+       "dni": "64532561",
+       "urlContacto": "www.facebook.com/C",
+       "antecedentesPenales": "dsagsdgvcsadfadw.pdf",
+       "fechaCaducidad": "2020-05-13"
+    },
+    "membresia":{
+    	"nombre": "Gold",
+    	"costo": "60.00"
+    }
+}
+
+Cliente
+{
+    "nombreUsuario": "pepino",
+    "email": "sebastian@gmail.com",
+    "contrasena": "1234567",
+    "nombres": "Sebastian",
+    "apellidoPaterno": "Pinillos",
+    "apellidoMaterno": "Zenteno",
+    "departamento": "Lima",
+    "distrito": "San Miguel",
+    "direccion": "Jr. Maypu 137",
+    "provincia": "Lima"
+
+}

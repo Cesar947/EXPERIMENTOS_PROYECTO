@@ -20,7 +20,7 @@ namespace EzDeal.Domain
         public DateTime FechaPactada {get; set;}
 
         public ICollection<Agenda> CitasAgendadas {get; set;}
- 
+        public ICollection<Inconveniente> Inconvenientes {get; set;}
     
     }
 }

@@ -23,6 +23,7 @@ namespace EzDeal.Domain
 
         public ICollection<Servicio> Servicios {get; set;}
         public ICollection<Solicitud> Solicitudes {get; set;}
+        public ICollection<Reseña> Reseñas {get; set;}
 
 
 
