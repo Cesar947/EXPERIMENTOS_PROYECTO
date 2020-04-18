@@ -30,6 +30,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @RestController
@@ -76,9 +78,11 @@ public class AuthController {
         String jwt = jwtUtils.generateJwtToken(authentication);
 
         CuentaPrincipal userDetails = (CuentaPrincipal) authentication.getPrincipal();
+
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
+
 
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
@@ -124,13 +128,14 @@ public class AuthController {
                         roles.add(adminRole);
 
                         break;
-                    case "anun":
+                    case "anunciante":
                         Rol modRole = rolRepository.findByNombre(ERole.ROL_ANUNCIANTE)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(modRole);
 
                         break;
-                    default:
+
+                    case "cliente" :
                         Rol userRole = rolRepository.findByNombre(ERole.ROL_CLIENTE)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(userRole);
@@ -161,7 +166,7 @@ public class AuthController {
         usuario.setStrikes(0);
         usuarioRepository.save(usuario);
 
-        return ResponseEntity.ok(new MessageResponse("Usuario Registrado!"));
+        return ResponseEntity.ok(new MessageResponse("Usuario Registrado!"+cuenta.getRoles()));
 
     }
 

@@ -38,13 +38,13 @@ public class UsuarioController {
         return this.usuarioService.registrarUsuario(usuario);
     }
 
-    @GetMapping("/")
+    @GetMapping("/hola-mundo")
     public String HolaMundo(){
         log.info("Ejecutando");
         return "Hola Mundo";
     }
 
-    @GetMapping("/ver-usuarios")
+    @GetMapping("/")
     public List<Usuario> listarUsuarios() throws Exception{
          return this.usuarioService.listarUsuarios();
     }
