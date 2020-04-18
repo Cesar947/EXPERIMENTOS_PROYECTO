@@ -102,11 +102,8 @@ Intento para registrar un anunciante
        "urlContacto": "www.facebook.com/C",
        "antecedentesPenales": "dsagsdgvcsadfadw.pdf",
        "fechaCaducidad": "2020-05-13"
-    },
-    "membresia":{
-    	"nombre": "Gold",
-    	"costo": "60.00"
     }
+
 }
 
 Cliente

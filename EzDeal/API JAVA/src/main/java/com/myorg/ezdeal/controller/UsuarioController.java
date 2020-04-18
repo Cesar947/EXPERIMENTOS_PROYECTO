@@ -55,8 +55,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/prueba")
-    //@Secured({ "ROL_CLIENTE" })
-    @PreAuthorize("ROL_CLIENTE")
+    @Secured({ "ROL_CLIENTE" })
     public String Home(){
         return "Home";
     }
