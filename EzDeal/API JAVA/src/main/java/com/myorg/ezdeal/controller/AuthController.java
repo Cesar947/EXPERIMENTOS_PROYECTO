@@ -76,7 +76,6 @@ public class AuthController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
-
         CuentaPrincipal userDetails = (CuentaPrincipal) authentication.getPrincipal();
 
         List<String> roles = userDetails.getAuthorities().stream()
