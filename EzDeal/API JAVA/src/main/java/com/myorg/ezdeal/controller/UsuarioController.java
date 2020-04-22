@@ -82,10 +82,10 @@ public class UsuarioController {
         Authentication authentication = securityContext.getAuthentication();
         String id = null;
         if (authentication != null)
-            if (authentication.getPrincipal() instanceof UserDetails)
+                log.info("****************************");
+                log.info(((UserDetails) authentication.getPrincipal()).getUsername());
+                log.info("****************************");
                 id = ((UserDetails) authentication.getPrincipal()).getUsername();
-            else if (authentication.getPrincipal() instanceof String)
-                id = (String) authentication.getPrincipal();
         try {
             return Long.valueOf(id != null ? id : "0"); //anonymoususer
         } catch (NumberFormatException e) {

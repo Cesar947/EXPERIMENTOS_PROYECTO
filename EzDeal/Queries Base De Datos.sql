@@ -55,9 +55,10 @@ VALUES
 'Lima', 2, 1);
 
 INSERT INTO tipo_servicio(descripcion, nombre) 
-VALUES('Desde no se que hasta no se cuanto', 'Bienvenido a DOC TOPS');
+VALUES('Desde pasear perros hasta amaestramiento de tortugas', 'Actividades para mascotas');
 
 
+INSERT INTO membresia(costo, nombre) VALUES (60.00, "GOLD");
 
 SELECT * FROM cuenta_rol;
 SELECT * FROM Rol;
@@ -65,3 +66,6 @@ SELECT * FROM Cuenta;
 SELECT * FROM Usuario;
 SELECT * FROM membresia;
 SELECT * FROM anunciante;
+SELECT * FROM tipo_servicio;
+select * from servicio;
+select * from horario;

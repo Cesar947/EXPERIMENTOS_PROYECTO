@@ -21,9 +21,9 @@ public class ReseñaController {
     }
 
 
-    @GetMapping("/{id}")
-    public List<Reseña> listarReseñasPorServicio(@PathVariable Long id) throws Exception {
-        return this.reseñaService.listarReseñasPorServicio(id);
+    @GetMapping("/{servicioId}")
+    public List<Reseña> listarReseñasPorServicio(@PathVariable Long servicioId) throws Exception {
+        return this.reseñaService.listarReseñasPorServicio(servicioId);
     }
 
     @PostMapping("/publicar")
@@ -32,6 +32,8 @@ public class ReseñaController {
                                  @RequestParam(value="clienteId", required=true) Long clienteId) throws Exception {
         return this.reseñaService.publicarReseña(reseña,clienteId ,servicioId);
     }
+
+
 
 
 

@@ -58,19 +58,20 @@
             "valoracion": 0.0
         }
 /////////////////////////////////////////////////////
-{
+ {
     "titulo": "Pasear perros",
     "imagen": "dsgfsadgds.jpg",
     "costoServicio": 60,
     "descripcion": "Te paseo al perro",
     "estaHabilitado": 1,
     "valoracion": 0.0,
-    "fechaPublicacion": "2020-03-27",
-    "modalidad": "A domicilio",
-    "video": "dsgasdgdsgds.mp4",
+    "modalidad": 1,
+    "videoPresentacion": "dsgasdgdsgds.mp4",
     "horarios": [
       {
-
+        "dia": "Lunes",
+        "horaApertura": "13:30:30.123456789",
+        "horaCierre": "21:45:30.123456789"
       }
     ]
 
@@ -91,8 +92,8 @@ Intento para registrar un anunciante
     "direccion": "Av. Sucre 782",
     "provincia": "Lima",
     "role": [
-    	 "ROL_CLIENTE",
-    	 "ROL_ANUNCIANTE"
+    	 "anunciante",
+    	 "cliente"
     	],
     "imagenPerfil": "sadfasdgfadsg.jpg",
     "infoAnunciante": {
@@ -117,6 +118,7 @@ Cliente
     "departamento": "Lima",
     "distrito": "San Miguel",
     "direccion": "Jr. Maypu 137",
-    "provincia": "Lima"
+    "provincia": "Lima",
+    "imagenPerfil": "asdfsadgadsg.jpg"
 
 }

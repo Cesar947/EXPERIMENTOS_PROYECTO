@@ -40,7 +40,10 @@ public class ServicioServiceImpl  implements ServicioService {
 
     @Override
     public Servicio publicarServicio(Servicio servicio, Long anuncianteId, Long tipoServicioId) throws Exception{
-
+        log.info("//////////////////////////////////////////////////");
+        log.info("Estamos dentro");
+        log.info(servicio.toString());
+        log.info("//////////////////////////////////////////////////");
        Usuario user = usuarioRepository.findById(anuncianteId).get();
        servicio.setAnunciante(user);
 
@@ -48,7 +51,6 @@ public class ServicioServiceImpl  implements ServicioService {
        servicio.setTipoServicio(tipoServicio);
 
        servicio.setFechaPublicacion(LocalDate.now());
-
 
        return this.servicioRepository.save(servicio);
     }

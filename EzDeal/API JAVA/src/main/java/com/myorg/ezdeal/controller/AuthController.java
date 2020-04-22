@@ -156,8 +156,6 @@ public class AuthController {
 
         cuentaRepository.save(cuenta);
 
-
-
         Usuario usuario = new Usuario(signUpRequest.getNombres(), signUpRequest.getApellidoPaterno()
                 ,signUpRequest.getApellidoMaterno(),signUpRequest.getDepartamento(), signUpRequest.getDistrito()
                 , signUpRequest.getDireccion(), signUpRequest.getProvincia(), cuenta, info, signUpRequest.getImagenPerfil());

@@ -62,8 +62,15 @@ public class Servicio implements Serializable {
     @Column(name="video_presentacion")
     private String videoPresentacion;
 
-    @OneToMany(mappedBy="servicio")
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "servicio")
     private List<Horario> horarios;
+
+
+
+
+
 }
 
 
