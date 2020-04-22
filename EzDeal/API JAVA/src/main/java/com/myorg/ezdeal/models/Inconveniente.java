@@ -5,13 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="inconveniente")
-public class Inconveniente {
+public class Inconveniente implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

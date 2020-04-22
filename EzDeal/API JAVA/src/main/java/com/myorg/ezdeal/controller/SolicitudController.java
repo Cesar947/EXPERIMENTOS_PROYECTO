@@ -1,5 +1,7 @@
 package com.myorg.ezdeal.controller;
 
+<<<<<<< HEAD
+import com.myorg.ezdeal.models.Agenda;
 import com.myorg.ezdeal.models.Servicio;
 import com.myorg.ezdeal.models.Solicitud;
 import com.myorg.ezdeal.service.SolicitudService;
@@ -28,7 +30,11 @@ public class SolicitudController {
 
     @PostMapping
     public Solicitud publicarSolicitud(@RequestBody Solicitud solicitud) throws Exception{
-        return this.solicitudService.publicarSolicitud(solicitud);
+        return this.solicitudService.solicitar(solicitud);
     }
 
+    @PutMapping("/{id}")
+    public Solicitud reagendarCita(@PathVariable("id") Long solicitudId, @RequestBody Agenda cita) throws Exception{
+        return this.solicitudService.reagendarCita(cita, solicitudId);
+    }
 }

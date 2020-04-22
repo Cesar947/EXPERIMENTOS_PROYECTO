@@ -26,18 +26,24 @@ public class ServicioServiceImpl  implements ServicioService {
     private ServicioRepository servicioRepository;
     private UsuarioRepository usuarioRepository;
     private TipoServicioRepository tipoServicioRepository;
+    private HorarioRepository horarioRepository;
 
 
     @Autowired
-    private ServicioServiceImpl(ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, TipoServicioRepository tipoServicioRepository){
+    private ServicioServiceImpl(ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, TipoServicioRepository tipoServicioRepository,
+                                HorarioRepository horarioRepository){
         this.servicioRepository = servicioRepository;
         this.usuarioRepository = usuarioRepository;
         this.tipoServicioRepository = tipoServicioRepository;
+        this.horarioRepository = horarioRepository;
     }
 
     @Override
     public Servicio publicarServicio(Servicio servicio, Long anuncianteId, Long tipoServicioId) throws Exception{
-
+        log.info("//////////////////////////////////////////////////");
+        log.info("Estamos dentro");
+        log.info(servicio.toString());
+        log.info("//////////////////////////////////////////////////");
        Usuario user = usuarioRepository.findById(anuncianteId).get();
        servicio.setAnunciante(user);
 

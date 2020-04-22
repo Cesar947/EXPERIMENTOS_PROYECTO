@@ -4,28 +4,69 @@
       <img src="../assets/Logo.svg" alt="" />
       <p>Encuentra todo tipo de servicios</p>
     </div>
-    <div class="form">
-      <input v-model="username" type="text" placeholder="Usuario" />
-      <input v-model="password" type="password" placeholder="Contraseña" />
+    <form class="form" v-on:submit.prevent="handleLogin()">
+      <input v-model="usuario.nombreUsuario" v-validate="'required'" type="text" placeholder="Usuario" />
+      <input v-model="usuario.contrasena" v-validate="'required'" type="password" placeholder="Contraseña" />
 
-      <button v-on:click="login">Ingresar</button>
+      <button type="submit">Ingresar</button>
       <p >Aun no tienes cuenta? </p>
       <a v-on:click="goToRegister">Registrate</a>
-    </div>
+    </form>
   </div>
 </template>
 
 <script>
+import Usuario from '../models/usuario';
+
 export default {
   name: "Login",
   data: function() {
     return {
-      username: "",
-      password: ""
+     /* username: "",
+      password: ""*/
+      usuario: new Usuario('', ''),
+      loading: false,
+      message: ''
     };
+
+  },
+  computed: {
+      loggedIn(){
+        return this.$store.state.auth.status.loggedIn;
+      }
+  },
+  created(){
+      if(this.loggedIn){
+        this.$router.push('/home');
+      }
   },
   methods: {
-    goToRegister: function() {
+    handleLogin() {
+      console.log(this.usuario)
+      this.loading = true;
+      this.$validator.validateAll().then(isValid => {
+        if (!isValid) {
+          this.loading = false;
+          return;
+        }
+
+        if (this.usuario.nombreUsuario && this.usuario.contrasena) {
+          this.$store.dispatch('auth/login', this.usuario).then(
+            () => {
+              this.$router.push('/profile');
+            },
+            error => {
+              this.loading = false;
+              this.message =
+                (error.response && error.response.data) ||
+                error.message ||
+                error.toString();
+            }
+          );
+        }
+      });
+    }
+   /* goToRegister: function() {
       this.$router.push("/register");
     },
     login: function() {
@@ -35,7 +76,9 @@ export default {
 
       console.log("username",this.username);
       console.log("password",this.password);
-    }
+    }*/
+
+
   }
 };
 </script>

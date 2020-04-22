@@ -6,15 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="solicitud")
-public class Solicitud {
+public class Solicitud implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -49,6 +51,7 @@ public class Solicitud {
     @Column(name="fecha_pactada", nullable=true)
     private LocalDate fechaPactada;
 
-
+    @OneToMany(mappedBy="solicitud")
+    private List<Agenda> citas;
 
 }

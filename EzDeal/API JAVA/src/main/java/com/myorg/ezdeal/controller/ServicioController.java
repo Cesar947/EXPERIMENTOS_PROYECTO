@@ -4,13 +4,13 @@ import com.myorg.ezdeal.models.Servicio;
 import com.myorg.ezdeal.service.ServicioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/servicios")
+@RequestMapping("/api/auth/servicios")
 @Slf4j
 @Secured({ "ROL_ADMIN" })
 public class ServicioController {
@@ -36,6 +36,7 @@ public class ServicioController {
     }
 
     @GetMapping
+    @Secured({ "ROL_ANUNCIANTE, ROL_CLIENTE" })
     public List<Servicio> listarServicios() throws Exception{
         return this.servicioService.listarServicios();
     }
