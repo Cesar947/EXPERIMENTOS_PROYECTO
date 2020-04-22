@@ -50,6 +50,9 @@ public class ServicioServiceImpl  implements ServicioService {
        TipoServicio tipoServicio = tipoServicioRepository.findById(tipoServicioId).get();
        servicio.setTipoServicio(tipoServicio);
 
+        for(Horario h: servicio.getHorarios()){
+            h.setServicio(servicio);
+        }
        servicio.setFechaPublicacion(LocalDate.now());
 
        return this.servicioRepository.save(servicio);
