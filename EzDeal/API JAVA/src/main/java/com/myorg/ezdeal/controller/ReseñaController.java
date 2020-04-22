@@ -4,6 +4,7 @@ package com.myorg.ezdeal.controller;
 import com.myorg.ezdeal.models.Reseña;
 import com.myorg.ezdeal.service.ReseñaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,9 +22,9 @@ public class ReseñaController {
     }
 
 
-    @GetMapping("/{id}")
-    public List<Reseña> listarReseñasPorServicio(@PathVariable Long id) throws Exception {
-        return this.reseñaService.listarReseñasPorServicio(id);
+    @GetMapping("/{servicioId}")
+    public List<Reseña> listarReseñasPorServicio(@PathVariable Long servicioId) throws Exception {
+        return this.reseñaService.listarReseñasPorServicio(servicioId);
     }
 
     @PostMapping("/publicar")
@@ -33,7 +34,8 @@ public class ReseñaController {
         return this.reseñaService.publicarReseña(reseña,clienteId ,servicioId);
     }
 
-
-
-
+    @GetMapping
+    public List<Reseña> listarReseñas() throws Exception{
+        return this.reseñaService.listarReseñas();
+    }
 }

@@ -44,5 +44,10 @@ public class ReseñaServiceImpl implements ReseñaService {
     public List<Reseña> listarReseñasPorServicio(Long servicioId) throws Exception {
         return this.reseñaRepository.listarReseñasPorServicio(servicioId);
     }
+
+    @Override
+    public List<Reseña> listarReseñas() throws Exception{
+        return this.reseñaRepository.findAll();
+    }
 }
 

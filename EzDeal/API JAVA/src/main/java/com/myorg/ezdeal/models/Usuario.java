@@ -7,13 +7,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="usuario")
-public class Usuario {
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -60,7 +61,11 @@ public class Usuario {
     @JoinColumn(name="anunciante_id")
     private Anunciante infoAnunciante;
 
+<<<<<<< HEAD
     public Usuario(String nombres, String apellidoPaterno, String apellidoMaterno, String departamento, String distrito, String direccion, String provincia, Cuenta cuentaId, Anunciante anunciante) {
+=======
+    public Usuario(String nombres, String apellidoPaterno, String apellidoMaterno, String departamento, String distrito, String direccion, String provincia, Cuenta cuentaId, Anunciante infoAnunciante, String imagenPerfil) {
+>>>>>>> master
         this.nombres = nombres;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
@@ -69,7 +74,12 @@ public class Usuario {
         this.direccion = direccion;
         this.provincia = provincia;
         this.cuentaId = cuentaId;
+<<<<<<< HEAD
         this.infoAnunciante = anunciante;
+=======
+        this.infoAnunciante = infoAnunciante;
+        this.imagenPerfil = imagenPerfil;
+>>>>>>> master
     }
 
 

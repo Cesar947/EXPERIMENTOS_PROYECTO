@@ -1,5 +1,9 @@
 package com.myorg.ezdeal.payload.request;
 
+<<<<<<< HEAD
+=======
+import com.myorg.ezdeal.models.Anunciante;
+>>>>>>> master
 import com.myorg.ezdeal.models.Membresia;
 import lombok.Data;
 
@@ -50,6 +54,7 @@ public class SignUpRequest {
     @NotBlank
     private String provincia;
 
+<<<<<<< HEAD
 
     private String telefonoFijo;
 
@@ -61,6 +66,14 @@ public class SignUpRequest {
 
     private String antecedentesPenales;
 
+=======
+    @NotBlank
+    private String imagenPerfil;
+
+    private Anunciante infoAnunciante;
+
+    private Membresia membresia;
+>>>>>>> master
 
     private Set<String> role;
 

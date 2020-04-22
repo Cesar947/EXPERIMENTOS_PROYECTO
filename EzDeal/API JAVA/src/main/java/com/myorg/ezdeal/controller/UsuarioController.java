@@ -1,12 +1,18 @@
 package com.myorg.ezdeal.controller;
 
 
+import com.myorg.ezdeal.models.CuentaPrincipal;
 import com.myorg.ezdeal.models.Usuario;
 import com.myorg.ezdeal.service.UsuarioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -59,4 +65,31 @@ public class UsuarioController {
         return "Home";
     }
 
+   /* @GetMapping("/ver-cuenta")
+   public Long getIdCuenta(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CuentaPrincipal userDetails = (CuentaPrincipal) authentication.getPrincipal();
+        return userDetails.getId();
+    }
+*/
+   @GetMapping("/quieroverelID")
+   public Long obtenerID() throws Exception{
+
+       return getCurrentUserId();
+   }
+    public static Long getCurrentUserId() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        Authentication authentication = securityContext.getAuthentication();
+        String id = null;
+        if (authentication != null)
+                log.info("****************************");
+                log.info(((UserDetails) authentication.getPrincipal()).getUsername());
+                log.info("****************************");
+                id = ((UserDetails) authentication.getPrincipal()).getUsername();
+        try {
+            return Long.valueOf(id != null ? id : "0"); //anonymoususer
+        } catch (NumberFormatException e) {
+            return 1L;
+        }
+    }
 }

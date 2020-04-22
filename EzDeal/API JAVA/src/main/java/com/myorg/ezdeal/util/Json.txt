@@ -57,3 +57,68 @@
             "estaHabilitado": "Habilitado",
             "valoracion": 0.0
         }
+/////////////////////////////////////////////////////
+ {
+    "titulo": "Pasear perros",
+    "imagen": "dsgfsadgds.jpg",
+    "costoServicio": 60,
+    "descripcion": "Te paseo al perro",
+    "estaHabilitado": 1,
+    "valoracion": 0.0,
+    "modalidad": 1,
+    "videoPresentacion": "dsgasdgdsgds.mp4",
+    "horarios": [
+      {
+        "dia": "Lunes",
+        "horaApertura": "13:30:30.123456789",
+        "horaCierre": "21:45:30.123456789"
+      }
+    ]
+
+
+}
+
+////////////////////////////////////////////////
+Intento para registrar un anunciante
+{
+    "nombreUsuario": "cesar947",
+    "email": "cesar@gmail.com",
+    "contrasena": "3456789",
+    "nombres": "César",
+    "apellidoPaterno": "Pizarro",
+    "apellidoMaterno": "Llanos",
+    "departamento": "Lima",
+    "distrito": "Magdalena del Mar",
+    "direccion": "Av. Sucre 782",
+    "provincia": "Lima",
+    "role": [
+    	 "anunciante",
+    	 "cliente"
+    	],
+    "imagenPerfil": "sadfasdgfadsg.jpg",
+    "infoAnunciante": {
+       "telefonoFijo": "7856432",
+       "celular": "998362512",
+       "dni": "64532561",
+       "urlContacto": "www.facebook.com/C",
+       "antecedentesPenales": "dsagsdgvcsadfadw.pdf",
+       "fechaCaducidad": "2020-05-13"
+    }
+
+}
+
+Cliente
+{
+    "nombreUsuario": "pepino",
+    "email": "sebastian@gmail.com",
+    "contrasena": "1234567",
+    "nombres": "Sebastian",
+    "apellidoPaterno": "Pinillos",
+    "apellidoMaterno": "Zenteno",
+    "departamento": "Lima",
+    "distrito": "San Miguel",
+    "direccion": "Jr. Maypu 137",
+    "provincia": "Lima",
+    "imagenPerfil": "asdfsadgadsg.jpg"
+
+}
