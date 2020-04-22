@@ -5,12 +5,14 @@ import com.myorg.ezdeal.service.ServicioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.annotation.Secured;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/servicios")
 @Slf4j
+@Secured({ "ROL_ADMIN" })
 public class ServicioController {
 
     private ServicioService servicioService;
