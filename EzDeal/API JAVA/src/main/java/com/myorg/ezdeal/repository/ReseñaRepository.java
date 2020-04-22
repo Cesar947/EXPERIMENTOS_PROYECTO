@@ -11,6 +11,9 @@ import java.util.List;
 public interface ReseñaRepository extends JpaRepository<Reseña, Long> {
 
     @Query("SELECT r FROM Reseña r where r.servicio.id = ?1")
-    List<Reseña> listarReseñasPorServicio(Long servicioId) throws Exception;
+    List<Reseña> listarReseñasPorServicio(Long servicioId);
+
+    @Query("SELECT COUNT(r.id) FROM Reseña r")
+    int buscarReseñasNegativas(Long servicioId);
 
 }
