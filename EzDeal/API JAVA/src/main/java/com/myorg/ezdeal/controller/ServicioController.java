@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/auth/servicios")
 @Slf4j
+@Secured({ "ROL_ADMIN" })
 public class ServicioController {
 
     private ServicioService servicioService;
