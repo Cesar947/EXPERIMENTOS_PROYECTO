@@ -1,6 +1,6 @@
 package com.myorg.ezdeal.controller;
 
-<<<<<<< HEAD
+
 import com.myorg.ezdeal.models.Agenda;
 import com.myorg.ezdeal.models.Servicio;
 import com.myorg.ezdeal.models.Solicitud;
