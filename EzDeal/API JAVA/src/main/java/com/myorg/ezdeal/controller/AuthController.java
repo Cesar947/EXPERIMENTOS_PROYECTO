@@ -6,19 +6,11 @@ import com.myorg.ezdeal.payload.request.JwtResponse;
 import com.myorg.ezdeal.payload.request.LoginRequest;
 import com.myorg.ezdeal.payload.request.MessageResponse;
 import com.myorg.ezdeal.payload.request.SignUpRequest;
-<<<<<<< HEAD
-import com.myorg.ezdeal.repository.AnuncianteRepository;
-import com.myorg.ezdeal.repository.CuentaRepository;
-import com.myorg.ezdeal.repository.RolRepository;
-import com.myorg.ezdeal.repository.UsuarioRepository;
-import com.myorg.ezdeal.security.jwt.JwtUtils;
-=======
 import com.myorg.ezdeal.repository.*;
 
 import com.myorg.ezdeal.service.AnuncianteService;
 import com.myorg.ezdeal.service.Implementation.CuentaService;
 import lombok.extern.slf4j.Slf4j;
->>>>>>> master
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -62,15 +54,12 @@ public class AuthController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    //Deberia ser un service en caso haya una lógica del negocio específica
+    //Deberia ser un service en caso haya una lÃ³gica del negocio especÃ­fica
     @Autowired
     private AnuncianteService anuncianteService;
 
     @Autowired
     private MembresiaRepository membresiaRepository;
-
-    @Autowired
-    private AnuncianteRepository anuncianteRepository;
 
     @Autowired
     private PasswordEncoder encoder;
@@ -79,19 +68,7 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
-    private void salvarCuenta(Cuenta cuenta, SignUpRequest signUpRequest, Set<Rol> roles, Anunciante anunciante){
-        cuenta.setRoles(roles);
-
-        cuentaRepository.save(cuenta);
-
-        Usuario usuario = new Usuario(signUpRequest.getNombres(), signUpRequest.getApellidoPaterno()
-                ,signUpRequest.getApellidoMaterno(),signUpRequest.getDepartamento(), signUpRequest.getDistrito()
-                , signUpRequest.getDireccion(), signUpRequest.getProvincia(), cuenta, anunciante);
-
-        usuarioRepository.save(usuario);
-    }
-
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<?> loginCuenta(@Valid @RequestBody LoginRequest loginRequest){
 
         Authentication authentication = authenticationManager.authenticate(
@@ -138,7 +115,9 @@ public class AuthController {
         Set<Rol> roles = new HashSet<>();
         Anunciante info = null;
         if (strRoles == null) {
-            throw new RuntimeException("Por favor ingrese un rol");
+            Rol userRole = rolRepository.findByNombre(ERole.ROL_CLIENTE)
+                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+            roles.add(userRole);
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
@@ -146,26 +125,19 @@ public class AuthController {
                         Rol adminRole = rolRepository.findByNombre(ERole.ROL_ADMIN)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(adminRole);
-                        salvarCuenta(cuenta, signUpRequest, roles, null);
+
                         break;
                     case "anunciante":
-                        Rol anunRole = rolRepository.findByNombre(ERole.ROL_ANUNCIANTE)
+                        Rol modRole = rolRepository.findByNombre(ERole.ROL_ANUNCIANTE)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-                        roles.add(anunRole);
+                        roles.add(modRole);
 
-                        Anunciante anun = new Anunciante(signUpRequest.getTelefonoFijo(), signUpRequest.getCelular(), signUpRequest.getDni(),
-                                signUpRequest.getUrlContacto(), signUpRequest.getAntecedentesPenales());
-                        anuncianteRepository.save(anun);
-                        salvarCuenta(cuenta, signUpRequest, roles, anun);
                         break;
 
                     case "cliente" :
                         Rol userRole = rolRepository.findByNombre(ERole.ROL_CLIENTE)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(userRole);
-                        salvarCuenta(cuenta, signUpRequest, roles, null);
-                    default:
-                        throw new RuntimeException("Error: El rol ingresado no existe.");
                 }
             });
         }
@@ -178,9 +150,6 @@ public class AuthController {
                 log.info("La variable info es igual a: " + info.toString());
                 log.info("******************************************");
 
-<<<<<<< HEAD
-
-=======
             }
         }
         cuenta.setRoles(roles);
@@ -193,9 +162,8 @@ public class AuthController {
         usuario.setCuentaHabilitada(true);
         usuario.setStrikes(0);
         usuarioRepository.save(usuario);
->>>>>>> master
 
-        return ResponseEntity.ok(new MessageResponse("Usuario Registrado!" + cuenta.getRoles()));
+        return ResponseEntity.ok(new MessageResponse("Usuario Registrado!"+cuenta.getRoles()));
 
     }
 

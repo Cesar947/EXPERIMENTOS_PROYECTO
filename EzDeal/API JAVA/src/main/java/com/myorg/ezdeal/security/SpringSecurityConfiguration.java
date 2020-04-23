@@ -66,12 +66,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-<<<<<<< HEAD
-        http.csrf().disable().authorizeRequests()
-                .antMatchers("/api/auth/**")
-                .permitAll().anyRequest().authenticated().and().formLogin().loginPage("/api/auth/login").permitAll().and()
-                .logout().permitAll().and().exceptionHandling().accessDeniedPage("/error");
-=======
+
         http.csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
@@ -79,7 +74,6 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/test/**").permitAll()
                 .anyRequest().authenticated()
         .and().formLogin().disable();
->>>>>>> master
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
