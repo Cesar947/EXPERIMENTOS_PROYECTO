@@ -57,6 +57,8 @@ VALUES
 INSERT INTO tipo_servicio(descripcion, nombre) 
 VALUES('Desde pasear perros hasta amaestramiento de tortugas', 'Actividades para mascotas');
 
+DELETE FROM Horario where horario_id = 1;
+DELETE FROM Servicio where servicio_id > 0;
 
 INSERT INTO membresia(costo, nombre) VALUES (60.00, "GOLD");
 

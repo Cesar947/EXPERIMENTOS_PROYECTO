@@ -1,5 +1,7 @@
 package com.myorg.ezdeal.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,6 +34,7 @@ public class Horario implements Serializable {
     @Column(name="hora_cierre")
     private LocalTime horaCierre;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="servicio_id")
     private Servicio servicio;
