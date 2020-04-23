@@ -42,4 +42,18 @@ public class ServicioController {
     }
 
 
+    @GetMapping("/titulo")
+    public List<Servicio> listarServiciosPorTitulo(@RequestParam(value = "keyword", required = true) String keyword) throws Exception{
+
+        return this.servicioService.listarServiciosPorTitulo(keyword);
+    }
+
+
+    /*
+    @GetMapping("/titulo")
+    public List<Servicio> listarServiciosPorTitulo(@RequestParam(value = "titulo", required = true) String titulo) throws Exception{
+        return this.servicioService.findByTituloLike("%"+titulo+"%");
+    }
+
+     */
 }
