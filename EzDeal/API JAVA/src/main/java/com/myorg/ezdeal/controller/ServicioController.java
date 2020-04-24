@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/auth/servicios")
 @Slf4j
+@Secured({ "ROL_ADMIN" })
 public class ServicioController {
 
     private ServicioService servicioService;
@@ -41,4 +42,18 @@ public class ServicioController {
     }
 
 
+    @GetMapping("/titulo")
+    public List<Servicio> listarServiciosPorTitulo(@RequestParam(value = "keyword", required = true) String keyword) throws Exception{
+
+        return this.servicioService.listarServiciosPorTitulo(keyword);
+    }
+
+
+    /*
+    @GetMapping("/titulo")
+    public List<Servicio> listarServiciosPorTitulo(@RequestParam(value = "titulo", required = true) String titulo) throws Exception{
+        return this.servicioService.findByTituloLike("%"+titulo+"%");
+    }
+
+     */
 }

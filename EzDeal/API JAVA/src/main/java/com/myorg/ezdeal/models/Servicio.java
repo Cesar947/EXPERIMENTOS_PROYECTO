@@ -67,10 +67,6 @@ public class Servicio implements Serializable {
             mappedBy = "servicio")
     private List<Horario> horarios;
 
-
-
-
-
 }
 
 

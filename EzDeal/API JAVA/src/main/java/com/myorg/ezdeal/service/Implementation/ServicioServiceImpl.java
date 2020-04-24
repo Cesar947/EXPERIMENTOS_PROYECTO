@@ -11,6 +11,7 @@ import com.myorg.ezdeal.repository.UsuarioRepository;
 import com.myorg.ezdeal.service.ServicioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -50,6 +51,9 @@ public class ServicioServiceImpl  implements ServicioService {
        TipoServicio tipoServicio = tipoServicioRepository.findById(tipoServicioId).get();
        servicio.setTipoServicio(tipoServicio);
 
+        for(Horario h: servicio.getHorarios()){
+            h.setServicio(servicio);
+        }
        servicio.setFechaPublicacion(LocalDate.now());
 
        return this.servicioRepository.save(servicio);
@@ -59,6 +63,25 @@ public class ServicioServiceImpl  implements ServicioService {
     public List<Servicio> listarServicios() throws Exception{
          return this.servicioRepository.listarServicios();
     }
+
+    @Override
+    public List<Servicio> findByTituloLike(String titulo) throws Exception {
+        return servicioRepository.findByTituloLike(titulo);
+    }
+
+
+    @Override
+    public List<Servicio> listarServiciosPorTitulo(String keyword) throws Exception {
+
+        if(keyword != "")
+            keyword = "%" + keyword + "%";
+
+        return this.servicioRepository.listarServiciosPorTitulo(keyword);
+    }
+
+
+
+
 
     public static Date ParseFecha(String fecha)
     {

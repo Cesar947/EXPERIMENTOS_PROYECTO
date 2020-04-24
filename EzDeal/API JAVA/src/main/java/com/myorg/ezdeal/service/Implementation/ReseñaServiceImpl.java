@@ -49,5 +49,21 @@ public class ReseñaServiceImpl implements ReseñaService {
     public List<Reseña> listarReseñas() throws Exception{
         return this.reseñaRepository.findAll();
     }
+
+
+
+    @Override
+    public double porcentajeReseñasNegativas(Long servicioId) throws Exception{
+        int cantidadReseñasNegativas =  this.reseñaRepository.cantidadReseñasNegativasPorServicio(servicioId);
+        int cantidadReseñasTotal = this.reseñaRepository.findAll().size();
+        double porcentaje = (cantidadReseñasNegativas/cantidadReseñasTotal)*100;
+        return porcentaje;
+    }
+
+    @Override
+    public void inhabilitarServicio(Long servicioId) throws Exception{
+
+
+    }
 }
 
