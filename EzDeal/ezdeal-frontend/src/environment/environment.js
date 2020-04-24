@@ -1,3 +1,3 @@
 export const environment = {
-    api: 'RUTA DEL API'
+    api: 'http://localhost:5050'
 }
