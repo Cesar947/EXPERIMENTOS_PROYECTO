@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="634" height="832" viewBox="0 0 634 832">
+  <defs>
+    <filter id="Rectángulo_167" x="0" y="0" width="634" height="832" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="27.5" result="blur"/>
+      <feFlood flood-color="#5a5a5a" flood-opacity="0.09"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff656a"/>
+      <stop offset="1" stop-color="#ff8665"/>
+    </linearGradient>
+  </defs>
+  <g id="card_gold_membership" transform="translate(-1108.5 -160.5)">
+    <g transform="matrix(1, 0, 0, 1, 1108.5, 160.5)" filter="url(#Rectángulo_167)">
+      <rect id="Rectángulo_167-2" data-name="Rectángulo 167" width="469" height="667" rx="8" transform="translate(82.5 79.5)" fill="#fff"/>
+    </g>
+    <path id="Intersección_2" data-name="Intersección 2" d="M-7456.909,2006.291c-30.061,0-68.021-8.578-117.867-29.62-155.257-65.541-215.258-11.841-224.83-1.6V1698.08a8,8,0,0,1,8-8h453a8,8,0,0,1,7.922,6.881,8.053,8.053,0,0,1,.078,1.119v225.2c-32.282,41.56-60.208,83.01-126.293,83.011Z" transform="translate(8990.606 -1450.08)" fill="#ff6065"/>
+    <path id="Intersección_1" data-name="Intersección 1" d="M-7574.276,2257c18.043-27.171,60.209-52.653,105.692-68.634A99.638,99.638,0,0,0-7446,2176.932V2249a8,8,0,0,1-8,8Z" transform="translate(9106 -1350)" fill="#ff656a"/>
+    <text id="_15.99" data-name="15.99" transform="translate(1349 424)" fill="#fff" font-size="64" font-family="GoogleSans-Medium, Google Sans" font-weight="500"><tspan x="0" y="0">15.99</tspan></text>
+    <text id="Membresía_gold" data-name="Membresía gold" transform="translate(1343 465)" fill="#fff" font-size="22" font-family="GoogleSans-Medium, Google Sans" font-weight="500"><tspan x="0" y="0">Membresía gold</tspan></text>
+    <text id="Sus_servicios_aparecerán_en:" data-name="Sus servicios aparecerán en:" transform="translate(1238 633)" fill="#ff6065" font-size="24" font-family="GoogleSans-Medium, Google Sans" font-weight="500"><tspan x="0" y="0">Sus servicios aparecerán en:</tspan></text>
+    <text id="Primeras_búsquedas" data-name="Primeras búsquedas" transform="translate(1266 691)" fill="#2c3e50" font-size="18" font-family="GoogleSans-Regular, Google Sans"><tspan x="0" y="0">Primeras búsquedas</tspan></text>
+    <text id="Pantalla_principal" data-name="Pantalla principal" transform="translate(1266 736)" fill="#2c3e50" font-size="18" font-family="GoogleSans-Regular, Google Sans"><tspan x="0" y="0">Pantalla principal</tspan></text>
+    <g id="crown" transform="translate(1389 228.355)">
+      <path id="Trazado_153" data-name="Trazado 153" d="M86.374,121.76l3.893-25.451L80.251,106.491l-2.793-17.76L64.711,104.026,56.822,82.009l-7.889,22.017L36.185,88.731l-2.793,17.76L23.377,96.309,27.27,121.76v6.82h59.1Z" transform="translate(-20.016 -20.018)" fill="#ffdb0c"/>
+      <path id="Trazado_154" data-name="Trazado 154" d="M285.552,121.76l3.893-25.451L279.43,106.491l-2.793-17.76-12.747,15.295L256,82.009V128.58h29.552Z" transform="translate(-219.194 -20.018)" fill="#fbbf00"/>
+      <rect id="Rectángulo_168" data-name="Rectángulo 168" width="59.103" height="13.64" transform="translate(7.253 101.743)" fill="#ffa900"/>
+      <g id="Grupo_29" data-name="Grupo 29" transform="translate(0 72.93)">
+        <rect id="Rectángulo_169" data-name="Rectángulo 169" width="29.552" height="13.64" transform="translate(36.806 28.813)" fill="#f80"/>
+        <circle id="Elipse_26" data-name="Elipse 26" cx="3.361" cy="3.361" r="3.361" transform="translate(0 0)" fill="#f80"/>
+      </g>
+      <circle id="Elipse_27" data-name="Elipse 27" cx="3.361" cy="3.361" r="3.361" transform="translate(12.808 65.351)" fill="#ff421d"/>
+      <circle id="Elipse_28" data-name="Elipse 28" cx="3.361" cy="3.361" r="3.361" transform="translate(33.445 58.63)" fill="#de0418"/>
+      <circle id="Elipse_29" data-name="Elipse 29" cx="3.361" cy="3.361" r="3.361" transform="translate(66.889 72.93)" fill="#870215"/>
+      <circle id="Elipse_30" data-name="Elipse 30" cx="3.361" cy="3.361" r="3.361" transform="translate(54.082 65.351)" fill="#a3021a"/>
+    </g>
+    <text id="S_" data-name="S/" transform="translate(1332 391)" fill="#fff" font-size="17" font-family="GoogleSans-Regular, Google Sans"><tspan x="0" y="0">S/</tspan></text>
+    <circle id="Elipse_31" data-name="Elipse 31" cx="6" cy="6" r="6" transform="translate(1520 855)" fill="url(#linear-gradient)"/>
+    <circle id="Elipse_32" data-name="Elipse 32" cx="21.5" cy="21.5" r="21.5" transform="translate(1557 795)" fill="url(#linear-gradient)"/>
+    <path id="Trazado_156" data-name="Trazado 156" d="M9437-805.951c.324-2.1-6.5-21.047,10.985-12.79s27.849,3.076,20.4-9.067,11.946-16.019,15.67,1.79-16.353,20.067-16.353,20.067-15.381-8.41-17.323,3.409S9436.676-803.846,9437-805.951Z" transform="translate(-7880 1635)" fill="#fff" opacity="0.56"/>
+    <circle id="Elipse_33" data-name="Elipse 33" cx="5" cy="5" r="5" transform="translate(1569 801)" fill="#fff" opacity="0.36"/>
+    <circle id="Elipse_34" data-name="Elipse 34" cx="6" cy="6" r="6" transform="translate(1238 679)" fill="#ff6065"/>
+    <circle id="Elipse_35" data-name="Elipse 35" cx="6" cy="6" r="6" transform="translate(1238 724)" fill="#ff6065"/>
+  </g>
+</svg>

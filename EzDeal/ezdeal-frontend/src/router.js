@@ -2,6 +2,7 @@ import Home from "./view/Home.vue";
 import Register from "./view/Register.vue";
 import Login from "./view/Login.vue";
 import Publication from "./view/PublicationForm.vue";
+import MembresiaGold from "./components/MembresiaGold.vue";
 import MainHome from "./components/MainHome.vue";
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -23,6 +24,10 @@ export default new Router({
                 {
                     path: "public",
                     component: Publication
+                },
+                {
+                    path: 'membresia',
+                    component: MembresiaGold
                 }
             ]
         },
