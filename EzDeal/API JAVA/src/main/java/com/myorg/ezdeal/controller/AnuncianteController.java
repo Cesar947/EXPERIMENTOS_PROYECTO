@@ -22,7 +22,7 @@ public class AnuncianteController {
         log.info(nombreMembresia);
         log.info(anuncianteId.toString());
         log.info("/////////////////////////////////////////");
-        return this.anuncianteService.actualizarDatosMembresia(nombreMembresia, anuncianteId);
+        return this.anuncianteService.actualizarDatosMembresia(nombreMembresia.toUpperCase(), anuncianteId);
 
     }
 
