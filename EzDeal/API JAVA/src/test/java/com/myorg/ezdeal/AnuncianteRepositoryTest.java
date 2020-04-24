@@ -1,5 +1,7 @@
 package com.myorg.ezdeal;
 
+import com.myorg.ezdeal.models.Anunciante;
+import com.myorg.ezdeal.models.Membresia;
 import com.myorg.ezdeal.repository.AnuncianteRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,16 +12,17 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
-@DataJpaTest
 public class AnuncianteRepositoryTest {
 
     @Autowired
     private AnuncianteRepository anuncianteRepository;
-
-    @Autowired
-    private TestEntityManager entityManager;
 
     @Before
     public void inicioDePrueba(){
@@ -28,10 +31,17 @@ public class AnuncianteRepositoryTest {
 
     @Test
     public void actualizarMembresiaTest(){
-
-
+        Membresia memb = getMembresiaGold();
+        Long anuncianteId = new Long(2);
+        int membresiaActualizada1 = anuncianteRepository.actualizarDatosMembresia(memb, anuncianteId);
+        Anunciante anunciante = anuncianteRepository.findById(anuncianteId).get();
+        assertEquals(1, membresiaActualizada1);
+        assertEquals("GOLD", anunciante.getMembresia().getNombre());
 
     }
 
+    public Membresia getMembresiaGold(){
+        return new Membresia(new Long(1), "GOLD", new BigDecimal(60.0));
+    }
 
 }

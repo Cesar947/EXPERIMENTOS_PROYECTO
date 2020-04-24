@@ -19,7 +19,6 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
-@DataJpaTest
 //Para que se reconozca el contexto de la aplicación, puesto que está en otro paquete la clase Application.java
 public class ServicioRepositoryTest {
 
