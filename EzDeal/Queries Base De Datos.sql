@@ -97,7 +97,7 @@ CREATE TRIGGER TR_INHABILITARSERVICIO
 AFTER INSERT ON RESEÑA
 FOR EACH ROW BEGIN
 	SET @servicioId = NEW.servicio_id;
-	SET @resenasTotales = (SELECT COUNT(r.reseña_id) FROM reseña r WHERE r.servicio_id = NEW.servicio_id);
+	SET @resenasTotales = contarResenas(@servicioId);
     IF @resenasTotales > 7 THEN
 		SET @resenasNegativas = (SELECT COUNT(r.reseña_id) FROM reseña r WHERE r.servicio_id = NEW.servicio_id AND r.valoracion < 2.5);
 		SET @porcentaje = (@resenasNegativas/@resenasTotales)*100; 
@@ -106,4 +106,17 @@ FOR EACH ROW BEGIN
 		END IF;
 	END IF;
 END$$
+
+DELIMITER //
+CREATE FUNCTION contarResenas (i BIGINT(20))
+RETURNS INT
+
+BEGIN
+   DECLARE contador INT;
+
+   SET contador = (SELECT COUNT(r.reseña_id) FROM servicio s JOIN reseña r ON r.servicio_id = s.servicio_id WHERE s.servicio_id = i);
+
+   RETURN contador; 
+
+END//
 
