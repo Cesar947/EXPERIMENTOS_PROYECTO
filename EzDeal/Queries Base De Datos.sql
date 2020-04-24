@@ -91,22 +91,6 @@ VALUES ("Eres terrible pero al menos hiciste tu trabajo", 2.4, 3, 2);
 
 SELECT COUNT(r.reseña_id) FROM Reseña r where r.valoracion < 2.5 and r.servicio_id = 1;
 
-
-DELIMITER $$
-CREATE TRIGGER TR_INHABILITARSERVICIO
-AFTER INSERT ON RESEÑA
-FOR EACH ROW BEGIN
-	SET @servicioId = NEW.servicio_id;
-	SET @resenasTotales = contarResenas(@servicioId);
-    IF @resenasTotales > 7 THEN
-		SET @resenasNegativas = (SELECT COUNT(r.reseña_id) FROM reseña r WHERE r.servicio_id = NEW.servicio_id AND r.valoracion < 2.5);
-		SET @porcentaje = (@resenasNegativas/@resenasTotales)*100; 
-		IF @porcentaje >= 75 THEN
-			UPDATE servicio s SET s.esta_habilitado = 0 where s.servicio_id = @servicioId;
-		END IF;
-	END IF;
-END$$
-
 DELIMITER //
 CREATE FUNCTION contarResenas (i BIGINT(20))
 RETURNS INT
@@ -119,4 +103,20 @@ BEGIN
    RETURN contador; 
 
 END//
+
+DELIMITER $$
+CREATE TRIGGER TR_INHABILITARSERVICIO
+AFTER INSERT ON RESEÑA
+FOR EACH ROW BEGIN
+	SET @servicioId = NEW.servicio_id;
+	SET @resenasTotales = contarResenas(@servicioId);
+    IF @resenasTotales >= 7 THEN
+		SET @resenasNegativas = (SELECT COUNT(r.reseña_id) FROM reseña r WHERE r.servicio_id = NEW.servicio_id AND r.valoracion < 2.5);
+		SET @porcentaje = (@resenasNegativas/@resenasTotales)*100; 
+		IF @porcentaje >= 75 THEN
+			UPDATE servicio s SET s.esta_habilitado = 0 where s.servicio_id = @servicioId;
+		END IF;
+	END IF;
+END$$
+
 

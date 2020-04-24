@@ -40,7 +40,6 @@ public class ComprobantePagoServiceImpl implements ComprobantePagoService {
         y el id del anunciante relacionado va a ser recuperado desde el token
          */
 
-
         ComprobantePago comprobantePago = new ComprobantePago();
         Membresia membresia = membresiaRepository.buscarPorNombre( body.get("membresiaNombre") );
 
