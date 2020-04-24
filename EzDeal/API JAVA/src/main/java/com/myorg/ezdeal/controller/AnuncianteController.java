@@ -14,6 +14,16 @@ public class AnuncianteController {
     @Autowired
     AnuncianteService anuncianteService;
 
+    /*
+    Metodo para actualizar datos membresia
+    Parametros:
+        nombreMembresia: Tal y como está guardado en la BD
+        anuncianteId: ID del anunciante al que está relacionada la cuenta del usuario en cuestión
+
+        # Tarjeta
+        CCV
+        Fecha de Vencimiento
+     */
     @PutMapping("/membresia/{nombreMembresia}")
     public int actualizarDatosMembresia(@PathVariable("nombreMembresia") String nombreMembresia,
                                               @RequestParam("anuncianteId") Long anuncianteId) throws Exception {

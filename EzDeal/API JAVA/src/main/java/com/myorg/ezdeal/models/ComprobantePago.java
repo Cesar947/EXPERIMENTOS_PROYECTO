@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @AllArgsConstructor
@@ -36,7 +37,7 @@ public class ComprobantePago implements Serializable {
     private LocalDate fechaPago;
 
     @Column(name="hora_pago")
-    private LocalDate horaPago;
+    private LocalTime horaPago;
 
     @ManyToOne
     @JoinColumn(name="anunciante_id")
