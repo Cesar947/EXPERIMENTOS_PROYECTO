@@ -1,6 +1,6 @@
 SET GLOBAL time_zone = '+3:00';
 use ezdeal_pruebas;
-
+/*
 INSERT INTO usuario(nombres,apellidos,email,contrasena,direccion,distrito,provincia, telefono_celular, 
 telefono_fijo, url_contacto, rol) 
 VALUES('César Alejandro', 'Pizarro Llanos', 'cpizarrollanos@gmail.com',
@@ -32,6 +32,7 @@ select * from tipo_servicio;
 
 INSERT INTO rol(nombre) VALUES("ROLE_CLIENTE");
 select * from rol;
+*/
 ------------------------------------
 INSERT INTO Rol(nombre) VALUES ('ROL_CLIENTE');
 INSERT INTO Rol(nombre) VALUES ('ROL_ANUNCIANTE');
@@ -61,6 +62,7 @@ DELETE FROM Horario where horario_id = 1;
 DELETE FROM Servicio where servicio_id > 0;
 
 INSERT INTO membresia(costo, nombre) VALUES (60.00, "GOLD");
+INSERT INTO membresia(costo, nombre) VALUES (0.00, "GRATUITA");
 
 SELECT * FROM cuenta_rol;
 SELECT * FROM Rol;
@@ -69,5 +71,39 @@ SELECT * FROM Usuario;
 SELECT * FROM membresia;
 SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
-select * from servicio;
+select * from servicio WHERE servicio_id = 2;
+select * from reseña WHERE servicio_id = 2;
 select * from horario;
+
+INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)
+VALUES ("Eres terrible pero al menos hiciste tu trabajo", 2.4, 3, 2);
+INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)
+VALUES ("Eres terrible pero al menos hiciste tu trabajo", 2.4, 3, 2);
+INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)
+VALUES ("Eres terrible pero al menos hiciste tu trabajo", 2.4, 3, 2);
+INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)
+VALUES ("Eres terrible pero al menos hiciste tu trabajo", 2.4, 3, 2);
+INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)
+VALUES ("Eres terrible pero al menos hiciste tu trabajo", 2.4, 3, 2);
+INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)
+VALUES ("Eres terrible pero al menos hiciste tu trabajo", 2.4, 3, 2);
+
+
+SELECT COUNT(r.reseña_id) FROM Reseña r where r.valoracion < 2.5 and r.servicio_id = 1;
+
+
+DELIMITER $$
+CREATE TRIGGER TR_INHABILITARSERVICIO
+AFTER INSERT ON RESEÑA
+FOR EACH ROW BEGIN
+	SET @servicioId = NEW.servicio_id;
+	SET @resenasTotales = (SELECT COUNT(r.reseña_id) FROM reseña r WHERE r.servicio_id = NEW.servicio_id);
+    IF @resenasTotales > 7 THEN
+		SET @resenasNegativas = (SELECT COUNT(r.reseña_id) FROM reseña r WHERE r.servicio_id = NEW.servicio_id AND r.valoracion < 2.5);
+		SET @porcentaje = (@resenasNegativas/@resenasTotales)*100; 
+		IF @porcentaje >= 75 THEN
+			UPDATE servicio s SET s.esta_habilitado = 0 where s.servicio_id = @servicioId;
+		END IF;
+	END IF;
+END$$
+

@@ -38,4 +38,10 @@ public class ReseñaController {
     public List<Reseña> listarReseñas() throws Exception{
         return this.reseñaService.listarReseñas();
     }
+    /*
+    @GetMapping("/negativas")
+    public double porcentajeReseñasNegativas(@RequestParam("servicioId") Long servicioId) throws Exception{
+        return this.reseñaService.porcentajeReseñasNegativas(servicioId);
+    }
+    */
 }
