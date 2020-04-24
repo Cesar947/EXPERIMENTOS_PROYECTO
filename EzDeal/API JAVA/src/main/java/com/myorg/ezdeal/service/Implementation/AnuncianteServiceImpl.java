@@ -37,7 +37,8 @@ public class AnuncianteServiceImpl implements AnuncianteService {
 
         Membresia objMembresia = this.membresiaRepository.buscarPorNombre(nombreMembresia);
         int actualizacionExitosa = this.anuncianteRepository.actualizarDatosMembresia(objMembresia,anuncianteId);
-        return actualizacionExitosa;
+        if (actualizacionExitosa == 1) return actualizacionExitosa;
+        else return 0;
 
 
     }

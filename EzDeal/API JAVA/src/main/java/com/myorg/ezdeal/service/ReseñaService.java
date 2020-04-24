@@ -9,4 +9,6 @@ public interface ReseñaService{
     Reseña publicarReseña(Reseña reseña, Long clienteId, Long servicioId) throws Exception;
     List<Reseña> listarReseñasPorServicio(Long servicioId) throws Exception;
     List<Reseña> listarReseñas() throws Exception;
+    double porcentajeReseñasNegativas(Long servicioId) throws Exception;
+    void inhabilitarServicio(Long servicioId) throws Exception;
 }

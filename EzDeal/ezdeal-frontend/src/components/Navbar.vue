@@ -14,6 +14,7 @@
     </div>
     <div class="nav-link">
       <a>Buscar</a>
+      <a id="gold-btn" href="/home/membresia">Quiero ser gold</a>
       <a>Mis Servicios</a>
     </div>
   </div>
@@ -60,6 +61,19 @@ export default {
   margin: 12px 0;
   border: 1px solid #fcfcfc;
   transition: all 0.2s ease-in-out;
+}
+
+#gold-btn{
+  background: linear-gradient(45deg, rgba(255,86,25,1), rgba(255,128,4,1) );
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 10000px;
+  padding: 16px 48px;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+}
+#gold-btn:hover{
+  box-shadow: 0 0 20px 3px rgba(255,128,4,.5);
 }
 .navbar-container .logo {
   display: flex;
