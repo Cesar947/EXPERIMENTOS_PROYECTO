@@ -10,7 +10,7 @@ class MembershipService {
 
     goldMembreship(id) {
         return axios
-            .put(`${environment.api}/membresia/GOLD?anuncianteId=${id}`)
+            .put(`${environment.api}/auth/membresia/GOLD?anuncianteId=${id}`)
     }
 }
 

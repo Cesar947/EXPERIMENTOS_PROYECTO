@@ -2,7 +2,7 @@
   <div class="navbar-container">
     <div class="left-side">
       <div class="logo">
-        <img width="180" src="../assets/Logo.svg" alt="" />
+        <img width="180" src="../assets/logo.png" alt="" />
       </div>
       <div class="search-bar">
         <input
@@ -89,5 +89,6 @@ export default {
 
 .navbar-container .nav-link a {
   margin: 0 32px;
+  color: #323232;
 }
 </style>
