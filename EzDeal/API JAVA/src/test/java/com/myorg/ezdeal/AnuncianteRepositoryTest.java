@@ -20,11 +20,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@SpringBootTest
 public class AnuncianteRepositoryTest {
-
-    @Autowired
-    private TestEntityManager entityManager;
 
     @Autowired
     private AnuncianteRepository anuncianteRepository;
@@ -35,9 +32,10 @@ public class AnuncianteRepositoryTest {
     }
 
     @Test
+    @Transactional
     public void actualizarMembresiaTest(){
         Membresia memb = getMembresiaGold();
-        Long anuncianteId = new Long(2);
+        Long anuncianteId = new Long(1);
         int membresiaActualizada1 = anuncianteRepository.actualizarDatosMembresia(memb, anuncianteId);
         Anunciante anunciante = anuncianteRepository.findById(anuncianteId).get();
         assertEquals(1, membresiaActualizada1);

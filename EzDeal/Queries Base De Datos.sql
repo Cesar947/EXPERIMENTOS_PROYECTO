@@ -40,7 +40,6 @@ INSERT INTO Rol(nombre) VALUES ('ROL_ADMIN');
 
 INSERT INTO Cuenta(contrasena, email, nombre_usuario) VALUES ('$2a$10$YbkpPekA1K9uQvDrJw8N7eRr9wvkWYNLO1BwwboG/JHkEHgqDCwOW', 
 'cpizarrollanos@gmail.com', 'Cesar947');
-
 INSERT INTO cuenta_rol VALUES(2, 2);
 INSERT INTO cuenta_rol VALUES(2, 1);
 INSERT INTO membresia(costo, nombre) VALUES (50, "Gold");
@@ -71,7 +70,7 @@ SELECT * FROM Usuario;
 SELECT * FROM membresia;
 SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
-select * from servicio WHERE servicio_id = 2;
+select * from servicio WHERE servicio_id = 1;
 select * from reseña WHERE servicio_id = 2;
 select * from horario;
 

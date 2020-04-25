@@ -47,11 +47,14 @@ public class ServicioServiceImpl  implements ServicioService {
         log.info("//////////////////////////////////////////////////");
        Usuario user = usuarioRepository.findById(anuncianteId).get();
        servicio.setAnunciante(user);
-
+       servicio.setEstaHabilitado(true);
+       servicio.setValoracion(0.0);
        TipoServicio tipoServicio = tipoServicioRepository.findById(tipoServicioId).get();
        servicio.setTipoServicio(tipoServicio);
 
+
         for(Horario h: servicio.getHorarios()){
+
             h.setServicio(servicio);
         }
        servicio.setFechaPublicacion(LocalDate.now());
