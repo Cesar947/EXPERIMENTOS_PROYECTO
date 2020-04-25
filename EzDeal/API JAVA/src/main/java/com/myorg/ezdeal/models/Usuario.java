@@ -53,6 +53,7 @@ public class Usuario implements Serializable {
     @Column(name="imagen_perfil")
     private String imagenPerfil;
 
+    @OneToOne
     @JoinColumn(name="cuenta_id", nullable = false)
     private Cuenta cuentaId;
 

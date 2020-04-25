@@ -5,13 +5,17 @@ import com.myorg.ezdeal.models.*;
 import com.myorg.ezdeal.repository.ReseñaRepository;
 import com.myorg.ezdeal.repository.ServicioRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Propagation;
 
@@ -80,34 +84,44 @@ public class ReseñaRepositoryTest {
 }
 */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {Application.class})
+@SpringBootTest
+@Transactional
+@AutoConfigureTestEntityManager
 public class ReseñaRepositoryTest {
 
+    @Autowired
+    private TestEntityManager entityManager;
 
     @Autowired
-    private ReseñaRepository resenaRepository;
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+    private ReseñaRepository reseñaRepository;
 
     @Autowired
     private ServicioRepository servicioRepository;
 
+    private Servicio servicio;
+    private Reseña reseña;
 
-    @Test
-    @Transactional
-    public void saveTest() throws Exception{
-        String contenido = "Tu servicio apesta";
-        Long anuncianteId = new Long(1);
-        Long servicioId = new Long(1);
-        Reseña r = this.resenaRepository.save(new Reseña(contenido, 2, servicioRepository.findById(servicioId).get(),
-                usuarioRepository.findById(anuncianteId).get()));
-                /*new Usuario("César Alejandro", "Perez", "Llanos", "lima", "Magdalena del Mar", "Av. Zucre 333", "lima",
-                        new Cuenta(new Long(1), "2345678", "cpizanos@gmail.com","Cesar947", roles), null, "qgWjsyendiAdnw.jpg")*/
-        Reseña reseña = this.resenaRepository.findByContenido(contenido);
-        assertEquals(r.getContenido(), reseña.getContenido());
+    @Before
+    public void init(){
+
+            servicio = servicioRepository.findById(new Long(1)).get();
 
     }
 
+    @Test
+    public void saveTest() throws Exception{
+        String contenido = "Tu servicio es chevere";
+        reseña = this.entityManager.persist(new Reseña(contenido, 5, servicio, new Usuario("jose", "pinillos", "zenteno", "lima", "san miguel", "jr maypu 137", "lima", new Cuenta(), null, "imagen")));
+        Reseña r2 = this.reseñaRepository.findById(reseña.getId()).get();
+        assertEquals(reseña.getId(), r2.getId());
+        this.entityManager.refresh(servicio);
+        assertEquals(false, servicio.getEstaHabilitado());
+    }
+
+
+    @After
+    public void mensajeFinal(){
+        System.out.println("Lo logró señor");
+    }
 
 }

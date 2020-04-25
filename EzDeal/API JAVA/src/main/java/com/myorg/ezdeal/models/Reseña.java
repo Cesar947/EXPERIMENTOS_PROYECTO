@@ -28,9 +28,11 @@ public class Reseña implements Serializable {
     @Column(name="valoracion")
     private double valoracion;
 
+    @ManyToOne
     @JoinColumn(name="servicio_id")
     private Servicio servicio;
 
+    @ManyToOne
     @JoinColumn(name="cliente_id")
     private Usuario cliente;
 
