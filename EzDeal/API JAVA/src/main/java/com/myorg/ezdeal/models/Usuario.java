@@ -26,22 +26,22 @@ public class Usuario implements Serializable {
     @Column(name="nombres", nullable = false)
     private String nombres;
 
-    @Column(name="apellido_paterno")
+    @Column(name="apellido_paterno", nullable = false)
     private String apellidoPaterno;
 
-    @Column(name="apellido_materno")
+    @Column(name="apellido_materno", nullable = false)
     private String apellidoMaterno;
 
-    @Column(name="departamento")
+    @Column(name="departamento", nullable = false)
     private String departamento;
 
-    @Column(name="distrito")
+    @Column(name="distrito", nullable = false)
     private String distrito;
 
-    @Column(name="direccion")
+    @Column(name="direccion", nullable = false)
     private String direccion;
 
-    @Column(name="provincia")
+    @Column(name="provincia", nullable = false)
     private String provincia;
 
     @Column(name="strikes")
@@ -53,7 +53,7 @@ public class Usuario implements Serializable {
     @Column(name="imagen_perfil")
     private String imagenPerfil;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="cuenta_id", nullable = false)
     private Cuenta cuentaId;
 

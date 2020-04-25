@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +21,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@SpringBootTest
+@Transactional
+@AutoConfigureTestEntityManager
 public class AnuncianteRepositoryTest {
 
     @Autowired
@@ -34,7 +37,7 @@ public class AnuncianteRepositoryTest {
         System.out.println("Iniciamos la prueba de anunciante repository");
     }
 
-    @Test
+       @Test
     public void actualizarMembresiaTest(){
         Membresia memb = getMembresiaGold();
         Long anuncianteId = new Long(2);
