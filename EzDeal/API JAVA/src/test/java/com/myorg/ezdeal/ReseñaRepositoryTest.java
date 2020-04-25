@@ -99,7 +99,7 @@ public class ReseñaRepositoryTest {
     private ServicioRepository servicioRepository;
 
     private Servicio servicio;
-    private Reseña reseña;
+
 
     @Before
     public void init(){
@@ -110,8 +110,8 @@ public class ReseñaRepositoryTest {
 
     @Test
     public void saveTest() throws Exception{
-        String contenido = "Tu servicio es chevere";
-        reseña = this.entityManager.persist(new Reseña(contenido, 5, servicio, new Usuario("jose", "pinillos", "zenteno", "lima", "san miguel", "jr maypu 137", "lima", new Cuenta(), null, "imagen")));
+        String contenido = "Tu servicio es pésimo";
+        Reseña reseña = this.entityManager.persist(new Reseña(contenido, 0, servicio, new Usuario("jose", "pinillos", "zenteno", "lima", "san miguel", "jr maypu 137", "lima", new Cuenta(), null, "imagen")));
         Reseña r2 = this.reseñaRepository.findById(reseña.getId()).get();
         assertEquals(reseña.getId(), r2.getId());
         this.entityManager.refresh(servicio);
