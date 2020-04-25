@@ -1,44 +1,20 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+  <v-app>
+  
+
+    <v-content>
+      <router-view/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
+
 export default {
-  name: "App"
+  name: 'App',
+
+  data: () => ({
+    //
+  }),
 };
 </script>
-
-<style>
-@font-face {
-  font-family: "Gsans";
-  src: url("./assets/fonts/ProductSans-Regular.ttf");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Gsans";
-  src: url("./assets/fonts/ProductSans-Medium.ttf");
-  font-weight: 600;
-}
-@font-face {
-  font-family: "Gsans";
-  src: url("./assets/fonts/ProductSans-Bold.ttf");
-  font-weight: 700;
-}
-::placeholder {
-  color: #cbcbcb;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Gsans";
-  outline: none;
-}
-
-a,
-button {
-  cursor: pointer;
-}
-</style>

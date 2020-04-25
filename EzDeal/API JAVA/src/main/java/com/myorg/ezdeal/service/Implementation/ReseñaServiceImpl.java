@@ -16,9 +16,9 @@ import java.util.List;
 public class ReseñaServiceImpl implements ReseñaService {
 
 
-    private ReseñaRepository reseñaRepository;
-    private ServicioRepository servicioRepository;
-    private UsuarioRepository usuarioRepository;
+    private final ReseñaRepository reseñaRepository;
+    private final ServicioRepository servicioRepository;
+    private final UsuarioRepository usuarioRepository;
 
     @Autowired
     public ReseñaServiceImpl(ReseñaRepository reseñaRepository, ServicioRepository servicioRepository, UsuarioRepository usuarioRepository){

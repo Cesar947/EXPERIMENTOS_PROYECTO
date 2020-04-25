@@ -42,18 +42,18 @@ public class ServicioRepositoryTest {
             Membresia mem2;
             boolean ordenado = true;
             boolean titulosCorrectos = true;
-            for (int i = 0; i < servicios.size(); i++) {
-                if (i < servicios.size() - 1) {
+            for (int i = 0; i < servicios.size() - 1; i++) {
                     mem1 = servicios.get(i).getAnunciante().getInfoAnunciante().getMembresia();
                     mem2 = servicios.get(i + 1).getAnunciante().getInfoAnunciante().getMembresia();
                     //Probando que el ordenamiento por membresía es correcto
                     if (mem1.getNombre().equals("GRATUITA") && mem2.getNombre().equals("GOLD")) {
                         ordenado = false;
+                        break;
                     }
-                }
-                //Probando que la búsqueda por cadena es correcta
-                if (!servicios.get(i).getTitulo().contains("Servicio")) {
-                    titulosCorrectos = false;
+                    //Probando que la búsqueda por cadena es correcta
+                    if (!servicios.get(i).getTitulo().contains("Servicio")) {
+                         titulosCorrectos = false;
+                         break;
                 }
             }
 
@@ -61,6 +61,6 @@ public class ServicioRepositoryTest {
             assertEquals(true, titulosCorrectos);
         }
 
-
+        
     }
 }

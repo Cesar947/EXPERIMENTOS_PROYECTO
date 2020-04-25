@@ -22,12 +22,7 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Transactional
-@AutoConfigureTestEntityManager
 public class AnuncianteRepositoryTest {
-
-    @Autowired
-    private TestEntityManager entityManager;
 
     @Autowired
     private AnuncianteRepository anuncianteRepository;
@@ -37,10 +32,11 @@ public class AnuncianteRepositoryTest {
         System.out.println("Iniciamos la prueba de anunciante repository");
     }
 
-       @Test
+    @Test
+    @Transactional
     public void actualizarMembresiaTest(){
         Membresia memb = getMembresiaGold();
-        Long anuncianteId = new Long(2);
+        Long anuncianteId = new Long(1);
         int membresiaActualizada1 = anuncianteRepository.actualizarDatosMembresia(memb, anuncianteId);
         Anunciante anunciante = anuncianteRepository.findById(anuncianteId).get();
         assertEquals(1, membresiaActualizada1);

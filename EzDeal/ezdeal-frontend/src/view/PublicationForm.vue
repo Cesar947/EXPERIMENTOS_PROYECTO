@@ -10,11 +10,15 @@
       <div class="form">
         <div class="field">
           <label for="">Titulo del servicio</label>
-          <input type="text" placeholder="Titulo" />
+          <input v-model="service.titulo" type="text" placeholder="Titulo" />
         </div>
         <div class="field">
           <label for="">Descripción</label>
-          <input type="text" placeholder="Descripcion" />
+          <input
+            v-model="service.descripcion"
+            type="text"
+            placeholder="Descripcion"
+          />
         </div>
 
         <div class="field-group">
@@ -24,12 +28,57 @@
           </div>
           <div class="field">
             <label for="">Costo (Soles)</label>
-            <input type="text" placeholder="15.00" />
+            <input
+              v-model="service.costoServicio"
+              type="text"
+              placeholder="15.00"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label for="">Modalidad</label>
+          <select v-model="service.modalidad">
+            <option value="1">A domicilio</option>
+            <option value="2">A local</option>
+            <option value="3">A domicilio & En local </option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="">Día</label>
+          <select v-model="service.horarios[0].dia">
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miercoles">Miercoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
+            <option value="Domingo">Domingo</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <div class="field timer-field">
+            <label for="">Hora de Apertura</label>
+            <v-row justify="center">
+              <v-time-picker
+                format="24hr"
+                v-model="service.horarios[0].horaApertura"
+              ></v-time-picker>
+            </v-row>
+          </div>
+          <div class="field timer-field">
+            <label for="">Hora de Cierre</label>
+            <v-row justify="center">
+              <v-time-picker
+                format="24hr"
+                v-on:change="changeHoraCierre()"
+                v-model="service.horarios[0].horaCierre"
+              ></v-time-picker>
+            </v-row>
           </div>
         </div>
 
         <div class="btn-submit">
-            <button>Publicar</button>
+          <button v-on:click="submit()">Publicar</button>
         </div>
       </div>
     </div>
@@ -37,8 +86,52 @@
 </template>
 
 <script>
+import ServiceRequest from "../models/Service";
+import ServicePublication from "../services/Service.service";
 export default {
-  name: "Publication"
+  name: "Publication",
+
+  data: function() {
+    return {
+      service: new ServiceRequest("", "", "", 1, "", 15.0, 1, ""),
+      day: "",
+      picker: null,
+      pickerEnd: "",
+    };
+  },
+
+  methods: {
+    changeHoraCierre() {
+      console.log(this.$data.pickerEnd);
+    },
+
+    submit() {
+      const obj = {
+        titulo: this.$data.service.titulo,
+        imagen: "dsgfsadgds.jpg",
+        costoServicio: parseInt(this.$data.service.costoServicio),
+        descripcion: "Te paseo a tu igüana",
+        estaHabilitado: 1,
+        modalidad: parseInt(this.$data.service.modalidad),
+        videoPresentacion: "dsgasdgdsgds.mp4",
+        horarios: [
+          {
+            dia: "",
+            horaApertura:
+              this.$data.service.horarios[0].horaApertura + ":00.123456789",
+            horaCierre:
+              this.$data.service.horarios[0].horaCierre + ":00.123456789",
+          },
+        ],
+      };
+
+      console.log(obj);
+      ServicePublication.submitService(1, 1, obj).then((res) => {
+        console.log(res);
+        this.$router.push("/home");
+      });
+    },
+  },
 };
 </script>
 
@@ -57,12 +150,11 @@ export default {
 .publication-form-container .form-container p {
   font-size: 24px;
   color: #545454;
-  margin-bottom: 48px ;
+  margin-bottom: 48px;
 }
 
-
 .publication-form-container .form-container .form > div {
-    margin: 24px 0;
+  margin: 24px 0;
 }
 .publication-form-container .form-container .field-group {
   display: flex;
@@ -73,7 +165,8 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.publication-form-container .form-container .field input {
+.publication-form-container .form-container .field input,
+.publication-form-container .form-container .field select {
   width: 100%;
   border-radius: 8px;
   border: none;
@@ -97,17 +190,16 @@ export default {
   flex-direction: column;
   width: 42%;
 }
-.publication-form-container .form-container .form .btn-submit{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-
+.publication-form-container .form-container .form .btn-submit {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
-.publication-form-container .form-container .form .btn-submit button{
- padding: 18px 32px;
+.publication-form-container .form-container .form .btn-submit button {
+  padding: 18px 32px;
   border: none;
-  background: #FF3168;
+  background: #ff3168;
   font-weight: 600;
   color: #ffffff;
   border-radius: 8px;
@@ -116,6 +208,10 @@ export default {
 }
 
 .publication-form-container .form-container .field input:focus {
-  border: 1px solid #FF3168;
+  border: 1px solid #ff3168;
+}
+
+.publication-form-container .timer-field label {
+  margin-bottom: 24px !important;
 }
 </style>

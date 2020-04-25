@@ -40,7 +40,6 @@ INSERT INTO Rol(nombre) VALUES ('ROL_ADMIN');
 
 INSERT INTO Cuenta(contrasena, email, nombre_usuario) VALUES ('$2a$10$YbkpPekA1K9uQvDrJw8N7eRr9wvkWYNLO1BwwboG/JHkEHgqDCwOW', 
 'cpizarrollanos@gmail.com', 'Cesar947');
-
 INSERT INTO cuenta_rol VALUES(2, 2);
 INSERT INTO cuenta_rol VALUES(2, 1);
 INSERT INTO membresia(costo, nombre) VALUES (50, "Gold");
@@ -71,7 +70,7 @@ SELECT * FROM Usuario;
 SELECT * FROM membresia;
 SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
-select * from servicio WHERE servicio_id = 2;
+select * from servicio WHERE servicio_id = 1;
 select * from reseña WHERE servicio_id = 2;
 select * from horario;
 
@@ -91,14 +90,26 @@ VALUES ("Eres terrible pero al menos hiciste tu trabajo", 2.4, 3, 2);
 
 SELECT COUNT(r.reseña_id) FROM Reseña r where r.valoracion < 2.5 and r.servicio_id = 1;
 
+DELIMITER //
+CREATE FUNCTION contarResenas (i BIGINT(20))
+RETURNS INT
+
+BEGIN
+   DECLARE contador INT;
+
+   SET contador = (SELECT COUNT(r.reseña_id) FROM servicio s JOIN reseña r ON r.servicio_id = s.servicio_id WHERE s.servicio_id = i);
+
+   RETURN contador; 
+
+END//
 
 DELIMITER $$
 CREATE TRIGGER TR_INHABILITARSERVICIO
 AFTER INSERT ON RESEÑA
 FOR EACH ROW BEGIN
 	SET @servicioId = NEW.servicio_id;
-	SET @resenasTotales = (SELECT COUNT(r.reseña_id) FROM reseña r WHERE r.servicio_id = NEW.servicio_id);
-    IF @resenasTotales > 7 THEN
+	SET @resenasTotales = contarResenas(@servicioId);
+    IF @resenasTotales >= 7 THEN
 		SET @resenasNegativas = (SELECT COUNT(r.reseña_id) FROM reseña r WHERE r.servicio_id = NEW.servicio_id AND r.valoracion < 2.5);
 		SET @porcentaje = (@resenasNegativas/@resenasTotales)*100; 
 		IF @porcentaje >= 75 THEN
@@ -106,4 +117,5 @@ FOR EACH ROW BEGIN
 		END IF;
 	END IF;
 END$$
+
 
