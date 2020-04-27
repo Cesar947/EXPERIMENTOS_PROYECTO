@@ -33,6 +33,7 @@ select * from tipo_servicio;
 INSERT INTO rol(nombre) VALUES("ROLE_CLIENTE");
 select * from rol;
 */
+
 ------------------------------------
 INSERT INTO Rol(nombre) VALUES ('ROL_CLIENTE');
 INSERT INTO Rol(nombre) VALUES ('ROL_ANUNCIANTE');
@@ -57,8 +58,6 @@ VALUES
 INSERT INTO tipo_servicio(descripcion, nombre) 
 VALUES('Desde pasear perros hasta amaestramiento de tortugas', 'Actividades para mascotas');
 
-DELETE FROM Horario where horario_id = 1;
-DELETE FROM Servicio where servicio_id > 0;
 
 INSERT INTO membresia(costo, nombre) VALUES (60.00, "GOLD");
 INSERT INTO membresia(costo, nombre) VALUES (0.00, "GRATUITA");
@@ -70,8 +69,48 @@ SELECT * FROM Usuario;
 SELECT * FROM membresia;
 SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
-select * from servicio WHERE servicio_id = 1;
-select * from reseña WHERE servicio_id = 2;
+
+#Queries facilitadores
+UPDATE SERVICIO SET esta_habilitado = 1 WHERE SERVICIO_ID > 0;
+UPDATE ANUNCIANTE SET membresia_id = 2 WHERE ANUNCIANTE_ID > 0;
+
+#Para ver que usuario tiene membresía GOLD
+SELECT u.usuario_id as 'ID', u.nombres as 'NOMBRE', m.nombre as 'MEMBRESÍA' 
+FROM USUARIO u JOIN ANUNCIANTE a on a.anunciante_id = u.anunciante_id
+JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 1;
+
+#Para ver los servicios que son GOLD
+SELECT s.servicio_id as 'ID', s.titulo as 'TITULO', m.nombre as 'MEMBRESIA', a.anunciante_id as 'ID ANUNCIANTE'
+FROM servicio s JOIN usuario u ON s.anunciante_id = u.usuario_id JOIN ANUNCIANTE a on a.anunciante_id = u.anunciante_id
+JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 1;
+
+#Para ver la cantidad de reseñas de algun servicio y si esta habilitado o no
+SELECT s.servicio_id as 'ID SERVICIO', s.titulo as 'Titulo del servicio', 
+COUNT(r.reseña_id) as 'Numero de reseñas', s.esta_habilitado as 'Está habilitado'
+FROM reseña r join servicio s on s.servicio_id = r.servicio_id
+group by s.servicio_id;
+
+#Para ver qué anunciante tienen membresía GOLD
+SELECT a.anunciante_id as 'ID_ANUNCIANTE', m.nombre as 'Membresia'
+FROM anunciante a JOIN membresia m ON m.membresia_id = a.membresia_id
+WHERE m.nombre = 'GOLD';
+
+#Para ver qué anunciante tienen membresía FREE
+SELECT a.anunciante_id as 'ID_ANUNCIANTE', m.nombre as 'Membresia'
+FROM anunciante a JOIN membresia m ON m.membresia_id = a.membresia_id
+WHERE m.nombre = 'FREE';
+
+
+
+
+UPDATE ANUNCIANTE SET MEMBRESIA_ID = 2 WHERE ANUNCIANTE_ID = 1;
+UPDATE SERVICIO SET ESTA_HABILITADO = 1 WHERE SERVICIO_ID = 2;
+select * from reseña WHERE servicio_id = 1;
+select * from servicio WHERE servicio_id = 2;
+select * from servicio;
+
+
+
 select * from horario;
 
 INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)
@@ -102,7 +141,7 @@ BEGIN
    RETURN contador; 
 
 END//
-
+#Recordar no usar cammelCase en SQL 
 DELIMITER $$
 CREATE TRIGGER TR_INHABILITARSERVICIO
 AFTER INSERT ON RESEÑA
@@ -110,7 +149,7 @@ FOR EACH ROW BEGIN
 	SET @servicioId = NEW.servicio_id;
 	SET @resenasTotales = contarResenas(@servicioId);
     IF @resenasTotales >= 7 THEN
-		SET @resenasNegativas = (SELECT COUNT(r.reseña_id) FROM reseña r WHERE r.servicio_id = NEW.servicio_id AND r.valoracion < 2.5);
+		SET @resenasNegativas = (SELECT COUNT(r.reseña_id) FROM reseña r WHERE r.servicio_id = NEW.servicio_id AND r.valoracion <= 2.5);
 		SET @porcentaje = (@resenasNegativas/@resenasTotales)*100; 
 		IF @porcentaje >= 75 THEN
 			UPDATE servicio s SET s.esta_habilitado = 0 where s.servicio_id = @servicioId;

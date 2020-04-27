@@ -103,7 +103,7 @@ public class ReseñaRepositoryTest {
 
     @Before
     public void init(){
-
+            System.out.println("Iniciamos la prueba");
             servicio = servicioRepository.findById(new Long(1)).get();
 
     }
