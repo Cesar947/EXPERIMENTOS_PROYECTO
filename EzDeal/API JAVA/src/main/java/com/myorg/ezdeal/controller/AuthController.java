@@ -131,7 +131,6 @@ public class AuthController {
                         Rol modRole = rolRepository.findByNombre(ERole.ROL_ANUNCIANTE)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(modRole);
-
                         break;
 
                     case "cliente" :
@@ -145,10 +144,12 @@ public class AuthController {
         for(Rol rol: roles){
             if(rol.getNombre() == ERole.ROL_ANUNCIANTE){
                 Anunciante aux = signUpRequest.getInfoAnunciante();
+                aux.setMembresia(membresiaRepository.findById(signUpRequest.getMembresiaId()).get());
                 info = anuncianteService.guardarDatosAnunciante(aux);
                 log.info("******************************************");
                 log.info("La variable info es igual a: " + info.toString());
                 log.info("******************************************");
+
 
             }
         }

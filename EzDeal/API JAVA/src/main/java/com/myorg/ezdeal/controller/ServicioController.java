@@ -36,7 +36,6 @@ public class ServicioController {
     }
 
     @GetMapping
-    @Secured({ "ROL_ANUNCIANTE, ROL_CLIENTE" })
     public List<Servicio> listarServicios() throws Exception{
         return this.servicioService.listarServicios();
     }

@@ -22,7 +22,7 @@ public class ComprobantePagoController {
     }
 
     @PostMapping
-    public ComprobantePago insertarComprobante(@RequestBody Map<String, String> body) throws Exception {
+    public ComprobantePago generarComprobante(@RequestBody Map<String, String> body) throws Exception {
         return comprobantePagoService.insertarComprobante(body);
     }
 

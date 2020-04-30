@@ -35,9 +35,9 @@ select * from rol;
 */
 
 ------------------------------------
-INSERT INTO Rol(nombre) VALUES ('ROL_CLIENTE');
-INSERT INTO Rol(nombre) VALUES ('ROL_ANUNCIANTE');
-INSERT INTO Rol(nombre) VALUES ('ROL_ADMIN');
+INSERT INTO rol(nombre) VALUES ('ROL_CLIENTE');
+INSERT INTO rol(nombre) VALUES ('ROL_ANUNCIANTE');
+INSERT INTO rol(nombre) VALUES ('ROL_ADMIN');
 
 INSERT INTO Cuenta(contrasena, email, nombre_usuario) VALUES ('$2a$10$YbkpPekA1K9uQvDrJw8N7eRr9wvkWYNLO1BwwboG/JHkEHgqDCwOW', 
 'cpizarrollanos@gmail.com', 'Cesar947');
@@ -60,24 +60,24 @@ VALUES('Desde pasear perros hasta amaestramiento de tortugas', 'Actividades para
 
 
 INSERT INTO membresia(costo, nombre) VALUES (60.00, "GOLD");
-INSERT INTO membresia(costo, nombre) VALUES (0.00, "GRATUITA");
+INSERT INTO membresia(costo, nombre) VALUES (0.00, "FREE");
 
 SELECT * FROM cuenta_rol;
-SELECT * FROM Rol;
-SELECT * FROM Cuenta;
-SELECT * FROM Usuario;
+SELECT * FROM rol;
+SELECT * FROM cuenta;
+SELECT * FROM usuario;
 SELECT * FROM membresia;
 SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
 
 #Queries facilitadores
-UPDATE SERVICIO SET esta_habilitado = 1 WHERE SERVICIO_ID > 0;
-UPDATE ANUNCIANTE SET membresia_id = 2 WHERE ANUNCIANTE_ID > 0;
+UPDATE servicio SET esta_habilitado = 1 WHERE servicio_id > 0;
+UPDATE anunciante SET membresia_id = 2 WHERE anunciante_id > 0;
 
 #Para ver que usuario tiene membresía GOLD
 SELECT u.usuario_id as 'ID', u.nombres as 'NOMBRE', m.nombre as 'MEMBRESÍA' 
-FROM USUARIO u JOIN ANUNCIANTE a on a.anunciante_id = u.anunciante_id
-JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 1;
+FROM usuario u JOIN anunciante a on a.anunciante_id = u.anunciante_id
+JOIN membresia m ON a.membresia_id = m.membresia_id where a.membresia_id = 2;
 
 #Para ver los servicios que son GOLD
 SELECT s.servicio_id as 'ID', s.titulo as 'TITULO', m.nombre as 'MEMBRESIA', a.anunciante_id as 'ID ANUNCIANTE'
