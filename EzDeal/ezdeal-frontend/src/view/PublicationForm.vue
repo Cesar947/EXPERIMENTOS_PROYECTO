@@ -14,10 +14,10 @@
         </div>
         <div class="field">
           <label for="">Descripción</label>
-          <input
+          <textarea
             v-model="service.descripcion"
             type="text"
-            placeholder="Descripcion"
+            placeholder="Descripción"
           />
         </div>
 
@@ -166,7 +166,8 @@ export default {
   flex-direction: column;
 }
 .publication-form-container .form-container .field input,
-.publication-form-container .form-container .field select {
+.publication-form-container .form-container .field select, 
+.publication-form-container .form-container .field textarea{
   width: 100%;
   border-radius: 8px;
   border: none;
@@ -184,6 +185,7 @@ export default {
   font-weight: 600;
   color: #323232;
 }
+
 
 .publication-form-container .form-container .field-group .field {
   display: flex;

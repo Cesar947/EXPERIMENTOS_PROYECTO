@@ -71,8 +71,8 @@ export default {
     width: 90%;
     margin: 48px auto 0;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-wrap: wrap;  
+    justify-content: flex-start;
     
 }
 </style>

@@ -1,4 +1,5 @@
 SET GLOBAL time_zone = '+3:00';
+SET GLOBAL max_user_connections=100;
 use g8cpi41gieq2d2qr;
 /*
 INSERT INTO usuario(nombres,apellidos,email,contrasena,direccion,distrito,provincia, telefono_celular, 
