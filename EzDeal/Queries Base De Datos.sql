@@ -35,9 +35,9 @@ select * from rol;
 */
 
 ------------------------------------
-INSERT INTO Rol(nombre) VALUES ('ROL_CLIENTE');
-INSERT INTO Rol(nombre) VALUES ('ROL_ANUNCIANTE');
-INSERT INTO Rol(nombre) VALUES ('ROL_ADMIN');
+INSERT INTO rol(nombre) VALUES ('ROL_CLIENTE');
+INSERT INTO rol(nombre) VALUES ('ROL_ANUNCIANTE');
+INSERT INTO rol(nombre) VALUES ('ROL_ADMIN');
 
 INSERT INTO Cuenta(contrasena, email, nombre_usuario) VALUES ('$2a$10$YbkpPekA1K9uQvDrJw8N7eRr9wvkWYNLO1BwwboG/JHkEHgqDCwOW', 
 'cpizarrollanos@gmail.com', 'Cesar947');
@@ -59,13 +59,14 @@ INSERT INTO tipo_servicio(descripcion, nombre)
 VALUES('Desde pasear perros hasta amaestramiento de tortugas', 'Actividades para mascotas');
 
 
-INSERT INTO membresia(costo, nombre) VALUES (60.00, "GOLD");
+INSERT INTO membresia(costo, nombre) VALUES (18.99, "GOLD");
 INSERT INTO membresia(costo, nombre) VALUES (0.00, "GRATUITA");
+UPDATE membresia SET costo = 18.99 where membresia_id = 1;
 
 SELECT * FROM cuenta_rol;
 SELECT * FROM Rol;
-SELECT * FROM Cuenta;
-SELECT * FROM Usuario;
+SELECT * FROM cuenta;
+SELECT * FROM usuario;
 SELECT * FROM membresia;
 SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
@@ -86,8 +87,8 @@ JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 1;
 
 #Para ver los servicios que son FREE
 SELECT s.servicio_id as 'ID', s.titulo as 'TITULO', m.nombre as 'MEMBRESIA', a.anunciante_id as 'ID ANUNCIANTE'
-FROM servicio s JOIN usuario u ON s.anunciante_id = u.usuario_id JOIN ANUNCIANTE a on a.anunciante_id = u.anunciante_id
-JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 2;
+FROM servicio s JOIN usuario u ON s.anunciante_id = u.usuario_id JOIN anunciante a on a.anunciante_id = u.anunciante_id
+JOIN membresia m ON a.membresia_id = m.membresia_id where a.membresia_id = 2;
 
 #Para ver la cantidad de reseñas de algun servicio y si esta habilitado o no
 SELECT s.servicio_id as 'ID SERVICIO', s.titulo as 'Titulo del servicio', 
