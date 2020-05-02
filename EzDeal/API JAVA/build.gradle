@@ -20,6 +20,7 @@ configurations {
 
 repositories {
     mavenCentral()
+
 }
 
 dependencies {
@@ -27,6 +28,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.security:spring-security-test'
+
+    compile 'com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.0.16'
+
+
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'
