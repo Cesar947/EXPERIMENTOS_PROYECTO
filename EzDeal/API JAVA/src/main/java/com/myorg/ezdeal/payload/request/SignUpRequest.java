@@ -58,10 +58,9 @@ public class SignUpRequest {
 
     private Anunciante infoAnunciante;
 
-    private Membresia membresia;
-
-
     private Set<String> role;
+
+    private Long membresiaId;
 
 
 }

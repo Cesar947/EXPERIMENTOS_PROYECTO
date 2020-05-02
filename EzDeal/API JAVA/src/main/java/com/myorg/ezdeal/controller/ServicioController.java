@@ -5,14 +5,14 @@ import com.myorg.ezdeal.service.ServicioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/auth/servicios")
+@RequestMapping("/servicios")
 @Slf4j
-@Secured({ "ROL_ADMIN" })
 public class ServicioController {
 
     private ServicioService servicioService;
@@ -35,8 +35,7 @@ public class ServicioController {
         return this.servicioService.publicarServicio(servicio, anuncianteId, tipoServicioId);
     }
 
-    @GetMapping
-    @Secured({ "ROL_ANUNCIANTE, ROL_CLIENTE" })
+    @GetMapping("/todos")
     public List<Servicio> listarServicios() throws Exception{
         return this.servicioService.listarServicios();
     }
@@ -48,6 +47,10 @@ public class ServicioController {
         return this.servicioService.listarServiciosPorTitulo(keyword);
     }
 
+    @GetMapping
+    public List<Servicio> listarPorMembresia(@RequestParam("membresiaId") Long membresiaId) throws Exception{
+        return this.servicioService.listarPorMembresia(membresiaId);
+    }
 
     /*
     @GetMapping("/titulo")

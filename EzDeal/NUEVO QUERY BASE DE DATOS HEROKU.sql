@@ -1,7 +1,5 @@
 SET GLOBAL time_zone = '+3:00';
-SET GLOBAL max_user_connections=100;
 use g8cpi41gieq2d2qr;
-use ezdeal_pruebas;
 /*
 INSERT INTO usuario(nombres,apellidos,email,contrasena,direccion,distrito,provincia, telefono_celular, 
 telefono_fijo, url_contacto, rol) 
@@ -61,14 +59,11 @@ INSERT INTO tipo_servicio(descripcion, nombre)
 VALUES('Desde pasear perros hasta amaestramiento de tortugas', 'Actividades para mascotas');
 
 
-INSERT INTO membresia(costo, nombre) VALUES (18.99, "GOLD");
-INSERT INTO membresia(costo, nombre) VALUES (0.00, "GRATUITA");
-UPDATE membresia SET costo = 18.99 where membresia_id = 1;
+INSERT INTO membresia(costo, nombre) VALUES (60.00, "GOLD");
+INSERT INTO membresia(costo, nombre) VALUES (0.00, "FREE");
 
-#token cliente: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwZXBpbm8iLCJyb2xlcyI6IlJPTF9DTElFTlRFIiwiaWF0IjoxNTg4NDAzNzY4LCJleHAiOjE1ODg0OTAxNjh9.7mc8YPdQGl_e4Qw0Mqf4ylXFd396GpdP2qySN-qD2SbpJqU50gIMZi_ETMzDG0Mou25k3P6IT_pkVFmQE_AGgw
-#token anunciante: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjZXNhcjk0NyIsInJvbGVzIjoiUk9MX0NMSUVOVEUsUk9MX0FOVU5DSUFOVEUiLCJpYXQiOjE1ODg0MDM4MDIsImV4cCI6MTU4ODQ5MDIwMn0.PPjBc1dO-L2KPfTu7xj1Ujb0yz5ePo_aGyXFPZwPHO7_JUd82mpDy9FUyUV8fd8P1TDSLTfxrS2DAf-5MH6Jow
 SELECT * FROM cuenta_rol;
-SELECT * FROM Rol;
+SELECT * FROM rol;
 SELECT * FROM cuenta;
 SELECT * FROM usuario;
 SELECT * FROM membresia;
@@ -76,23 +71,23 @@ SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
 
 #Queries facilitadores
-UPDATE SERVICIO SET esta_habilitado = 1 WHERE SERVICIO_ID > 0;
-UPDATE ANUNCIANTE SET membresia_id = 2 WHERE ANUNCIANTE_ID > 0;
+UPDATE servicio SET esta_habilitado = 1 WHERE servicio_id > 0;
+UPDATE anunciante SET membresia_id = 2 WHERE anunciante_id > 0;
 
 #Para ver que usuario tiene membresía GOLD
 SELECT u.usuario_id as 'ID', u.nombres as 'NOMBRE', m.nombre as 'MEMBRESÍA' 
-FROM USUARIO u JOIN ANUNCIANTE a on a.anunciante_id = u.anunciante_id
-JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 1;
+FROM usuario u JOIN anunciante a on a.anunciante_id = u.anunciante_id
+JOIN membresia m ON a.membresia_id = m.membresia_id where a.membresia_id = 2;
 
 #Para ver los servicios que son GOLD
 SELECT s.servicio_id as 'ID', s.titulo as 'TITULO', m.nombre as 'MEMBRESIA', a.anunciante_id as 'ID ANUNCIANTE'
-FROM servicio s JOIN usuario u ON s.anunciante_id = u.usuario_id JOIN anunciante a on a.anunciante_id = u.anunciante_id
-JOIN membresia m ON a.membresia_id = m.membresia_id where a.membresia_id = 1;
+FROM servicio s JOIN usuario u ON s.anunciante_id = u.usuario_id JOIN ANUNCIANTE a on a.anunciante_id = u.anunciante_id
+JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 1;
 
 #Para ver los servicios que son FREE
 SELECT s.servicio_id as 'ID', s.titulo as 'TITULO', m.nombre as 'MEMBRESIA', a.anunciante_id as 'ID ANUNCIANTE'
-FROM servicio s JOIN usuario u ON s.anunciante_id = u.usuario_id JOIN anunciante a on a.anunciante_id = u.anunciante_id
-JOIN membresia m ON a.membresia_id = m.membresia_id where a.membresia_id = 2;
+FROM servicio s JOIN usuario u ON s.anunciante_id = u.usuario_id JOIN ANUNCIANTE a on a.anunciante_id = u.anunciante_id
+JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 2;
 
 #Para ver la cantidad de reseñas de algun servicio y si esta habilitado o no
 SELECT s.servicio_id as 'ID SERVICIO', s.titulo as 'Titulo del servicio', 

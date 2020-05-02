@@ -5,9 +5,9 @@
     <div class="list-publications-container">
         
       <PublicationCard 
-      v-for="(value, key) in publications" 
+      v-for="(value, key) in anuncios" 
       v-bind:key="key" 
-      v-bind:publication="value" 
+      v-bind:anuncio="value" 
       ></PublicationCard>
     </div>
   </div>
@@ -15,10 +15,12 @@
 
 <script>
 import PublicationCard from "./Home/PublicationCard";
+import axios from 'axios';
+import { environment } from '../environment/environment';
 export default {
   name: "MainHome",
   components: { PublicationCard },
-  data: function() {
+  data(){
     return {
       publications: [
         { id: 1, name: "Name 1 mas largo del mundo", rol: "Electricista", rating: 4.5 },
@@ -31,9 +33,32 @@ export default {
         { id: 8, name: "Name 8", rol: "Electricista", rating: 4.1 },
         { id: 9, name: "Name 9", rol: "Wachiman", rating: 4.2 },
         { id: 10, name: "Name 10", rol: "Electricista", rating: 4.0 }
-      ]
+      ],
+      anuncios: []
     };
+
+  },
+  created(){
+
+    this.listarServicios();
+  },
+
+  methods: {
+    listarServicios() {
+
+        axios.get(`${environment.api}/auth/servicios?membresiaId=1`)
+        .then(response => {
+          this.anuncios = response.data
+          console.log(this.anuncios)
+        })
+        .catch( error => {
+          console.log(error)
+        });
+
+    }
   }
+
+  
 };
 </script>
 
@@ -46,8 +71,8 @@ export default {
     width: 90%;
     margin: 48px auto 0;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-wrap: wrap;  
+    justify-content: center;
     
 }
 </style>

@@ -25,13 +25,12 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.transaction.annotation.Transactional;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(
-        // securedEnabled = true,
-        // jsr250Enabled = true,
-        prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true,
+securedEnabled = true)
 public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -41,10 +40,8 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private AuthEntryPointJwt unauthorizedHandler;
 
 
-    @Bean
-    public AuthTokenFilter authenticationJwtTokenFilter() {
-        return new AuthTokenFilter();
-    }
+    @Autowired
+    public AuthTokenFilter authenticationJwtTokenFilter;
 
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
@@ -71,13 +68,14 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/servicios/**").permitAll()
-                .antMatchers("/solicitudes/**").permitAll()
+                /*.antMatchers("/solicitudes/**").permitAll()
                 .antMatchers("/api/test/**").permitAll()
+                .antMatchers("/servicios/todos").hasRole("ROL_ANUNCIANTE")
+                .antMatchers("/servicios/titulo").access("hasAnyRole('ROL_CLIENTE', 'ROL_ANUNCIANTE')")*/
                 .anyRequest().authenticated()
         .and().formLogin().disable();
 
-        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(authenticationJwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
 

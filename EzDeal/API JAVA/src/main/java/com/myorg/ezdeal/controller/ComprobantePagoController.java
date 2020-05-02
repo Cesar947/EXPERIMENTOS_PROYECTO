@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/auth/comprobante")
+@RequestMapping("/comprobante")
 public class ComprobantePagoController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class ComprobantePagoController {
     }
 
     @PostMapping
-    public ComprobantePago insertarComprobante(@RequestBody Map<String, String> body) throws Exception {
+    public ComprobantePago generarComprobante(@RequestBody Map<String, String> body) throws Exception {
         return comprobantePagoService.insertarComprobante(body);
     }
 

@@ -29,6 +29,13 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
     )
     List<Servicio>listarServiciosPorTitulo(@Param("keyword") String keyword) throws Exception;
 
+    @Query("SELECT s FROM Servicio s JOIN Usuario u ON s.anunciante.id = u.id " +
+            "JOIN Anunciante a ON a.id = u.infoAnunciante.id JOIN Membresia m ON " +
+            "m.id = a.membresia.id where  m.id = ?1")
+    List<Servicio> listarPorMembresia(Long membresiaId) throws Exception;
+
+
+
 
     List<Servicio> findByTituloLike(String titulo) throws Exception;
 }
