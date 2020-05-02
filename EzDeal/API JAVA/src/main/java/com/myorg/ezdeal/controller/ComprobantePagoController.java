@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/auth/comprobante")
+@RequestMapping("/comprobante")
 public class ComprobantePagoController {
 
     @Autowired

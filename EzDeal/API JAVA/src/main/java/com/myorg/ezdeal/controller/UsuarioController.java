@@ -7,6 +7,7 @@ import com.myorg.ezdeal.service.UsuarioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/auth/usuarios")
+@RequestMapping("/usuarios")
 @Slf4j /*Para usar el comando log*/
 public class UsuarioController {
 
@@ -43,11 +44,13 @@ public class UsuarioController {
         return this.usuarioService.registrarUsuario(usuario);
     }
 
+    @PreAuthorize("hasAuthority('ROL_ANUNCIANTE')")
     @GetMapping("/hola-mundo")
     public String HolaMundo(){
         log.info("Ejecutando");
         return "Hola Mundo";
     }
+
 
     @GetMapping("/")
     public List<Usuario> listarUsuarios() throws Exception{

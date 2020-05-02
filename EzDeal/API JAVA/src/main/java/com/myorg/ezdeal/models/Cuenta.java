@@ -34,7 +34,7 @@ public class Cuenta implements Serializable {
     private String nombreUsuario;
 
     @JsonIgnore
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "cuenta_rol",
             joinColumns = @JoinColumn(name = "cuenta_id"),
