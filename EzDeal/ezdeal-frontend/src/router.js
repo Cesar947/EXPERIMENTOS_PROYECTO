@@ -4,6 +4,7 @@ import Login from "./view/Login.vue";
 import Publication from "./view/PublicationForm.vue";
 import MembresiaGold from "./components/MembresiaGold.vue";
 import MainHome from "./components/MainHome.vue";
+import ServicioDetalle from "./view/ServicioDetalle.vue";
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -28,6 +29,10 @@ export default new Router({
                 {
                     path: 'membresia',
                     component: MembresiaGold
+                },
+                {
+                    path: 'servicio/:id',
+                    component: ServicioDetalle
                 }
             ]
         },
