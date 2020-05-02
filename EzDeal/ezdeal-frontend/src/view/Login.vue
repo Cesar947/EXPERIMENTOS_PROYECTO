@@ -1,12 +1,12 @@
 <template>
   <div class="login-container">
     <div class="header">
-      <img src="../assets/Logo.svg" alt="" />
+      <img src="../assets/logo.png" alt="" />
       <p>Encuentra todo tipo de servicios</p>
     </div>
-    <form class="form" v-on:submit.prevent="handleLogin()">
-      <input v-model="usuario.nombreUsuario" v-validate="'required'" type="text" placeholder="Usuario" />
-      <input v-model="usuario.contrasena" v-validate="'required'" type="password" placeholder="Contraseña" />
+    <form class="form" v-on:submit.prevent="login()">
+      <input v-model="nombreUsuario" v-validate="'required'" type="text" placeholder="Usuario" />
+      <input v-model="contrasena" v-validate="'required'" type="password" placeholder="Contraseña" />
 
       <button type="submit">Ingresar</button>
       <p >Aun no tienes cuenta? </p>
@@ -16,24 +16,16 @@
 </template>
 
 <script>
-import Usuario from '../models/usuario';
-
+import axios from 'axios';
+import {environment} from '../environment/environment';
 export default {
   name: "Login",
   data: function() {
     return {
-     /* username: "",
-      password: ""*/
-      usuario: new Usuario('', ''),
-      loading: false,
-      message: ''
+     nombreUsuario: "",
+     contrasena: ""
     };
 
-  },
-  computed: {
-      loggedIn(){
-        return this.$store.state.auth.status.loggedIn;
-      }
   },
   created(){
       if(this.loggedIn){
@@ -42,41 +34,24 @@ export default {
   },
   methods: {
     handleLogin() {
-      console.log(this.usuario)
-      this.loading = true;
-      this.$validator.validateAll().then(isValid => {
-        if (!isValid) {
-          this.loading = false;
-          return;
-        }
+      console.log(this.nombreUsuario)
+      console.log(this.contrasena)
 
-        if (this.usuario.nombreUsuario && this.usuario.contrasena) {
-          this.$store.dispatch('auth/login', this.usuario).then(
-            () => {
-              this.$router.push('/profile');
-            },
-            error => {
-              this.loading = false;
-              this.message =
-                (error.response && error.response.data) ||
-                error.message ||
-                error.toString();
-            }
-          );
-        }
-      });
-    }
-   /* goToRegister: function() {
+    },
+   goToRegister: function() {
       this.$router.push("/register");
     },
     login: function() {
+      axios.post(`${environment.api}/auth/login`, {
+          nombreUsuario: this.nombreUsuario,
+          contrasena: this.contrasena
 
+      }).then(
+       response => { console.log(response.data)
+       })
       // this camp will have logic of authenticate
       this.$router.push("/home");
-
-      console.log("username",this.username);
-      console.log("password",this.password);
-    }*/
+    }
 
 
   }

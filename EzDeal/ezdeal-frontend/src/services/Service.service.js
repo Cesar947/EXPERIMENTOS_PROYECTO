@@ -10,6 +10,10 @@ import { environment } from "../environment/environment";
         })
     }
 
+    solicitarCita(){
+        return Axios.post(`${environment}/`,{"qwe": 2})
+    }
+
 }
 
 export default new ServicePublication();

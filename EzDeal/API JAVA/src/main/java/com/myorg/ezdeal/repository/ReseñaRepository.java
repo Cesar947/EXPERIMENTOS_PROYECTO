@@ -13,7 +13,8 @@ public interface ReseñaRepository extends JpaRepository<Reseña, Long> {
     @Query("SELECT r FROM Reseña r where r.servicio.id = ?1")
     List<Reseña> listarReseñasPorServicio(Long servicioId);
 
-    @Query("SELECT COUNT(r.id) FROM Reseña r")
-    int buscarReseñasNegativas(Long servicioId);
+    @Query("SELECT COUNT(r.id) FROM Reseña r where r.valoracion < 2.5 and r.servicio.id = ?1")
+    int cantidadReseñasNegativasPorServicio(Long servicioId);
 
+    Reseña findByContenido(String contenido);
 }

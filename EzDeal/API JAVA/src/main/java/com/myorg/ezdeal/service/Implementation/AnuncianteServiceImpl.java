@@ -15,7 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class AnuncianteServiceImpl implements AnuncianteService {
 
 
+    @Autowired
     private AnuncianteRepository anuncianteRepository;
+
+    @Autowired
     private MembresiaRepository membresiaRepository;
 
 
@@ -31,9 +34,11 @@ public class AnuncianteServiceImpl implements AnuncianteService {
     }
 
     public int actualizarDatosMembresia(String nombreMembresia, Long anuncianteId) throws Exception {
+
         Membresia objMembresia = this.membresiaRepository.buscarPorNombre(nombreMembresia);
         int actualizacionExitosa = this.anuncianteRepository.actualizarDatosMembresia(objMembresia,anuncianteId);
-        return actualizacionExitosa;
+        if (actualizacionExitosa == 1) return actualizacionExitosa;
+        else return 0;
 
 
     }

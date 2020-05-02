@@ -15,7 +15,7 @@
         "provincia": "Lima"
     }
 
-    Formato JSON de Servicio
+        Formato JSON de Servicio
 
     {
         "id": 2,
@@ -103,9 +103,38 @@ Intento para registrar un anunciante
        "urlContacto": "www.facebook.com/C",
        "antecedentesPenales": "dsagsdgvcsadfadw.pdf",
        "fechaCaducidad": "2020-05-13"
-    }
+    },
+    "membresiaId": 2
 
 }
+{
+    "nombreUsuario": "slayz08",
+    "email": "slayr@gmail.com",
+    "contrasena": "xdxdxd5000",
+    "nombres": "Juanelv",
+    "apellidoPaterno": "Salgado",
+    "apellidoMaterno": "Sánchez",
+    "departamento": "Lima",
+    "distrito": "Callao",
+    "direccion": "Av. Callao 555",
+    "provincia": "Lima",
+    "role": [
+    	 "anunciante",
+    	 "cliente"
+    	],
+    "imagenPerfil": "sadfasegfadsg.jpg",
+    "infoAnunciante": {
+       "telefonoFijo": "7833432",
+       "celular": "997362512",
+       "dni": "74532261",
+       "urlContacto": "www.facebook.com/J",
+       "antecedentesPenales": "dsagsdgvdadfadw.pdf",
+       "fechaCaducidad": "2020-05-13"
+    },
+    "membresiaId": 2
+
+}
+
 
 Cliente
 {

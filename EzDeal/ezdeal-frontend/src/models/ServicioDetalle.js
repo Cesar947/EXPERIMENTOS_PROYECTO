@@ -1,0 +1,37 @@
+export default class ServicioDetalle{
+    id= 2
+    titulo= "Amaestramiento de perros"
+    anunciante= {
+        id: 1,
+        rol: "A",
+        email: "cpizarrollanos@gmail.com",
+        contrasena: "xdxdxd5000",
+        nombres: "César Alejandro",
+        apellidos: "Pizarro Llanos",
+        telefonoFijo: "7662341",
+        telefonoCelular: "987654321",
+        urlContacto: "www.facebook.com/c",
+        distrito: "Magdalena del Mar",
+        direccion: "Av. Cacao 305",
+        provincia: "Lima"
+    }
+    
+    tipoServicio= {
+        id: 1,
+        nombre: "Actividades para mascotas",
+        descripcion: "Desde paseos hasta enseñarle trucos a sus mascotas"
+    }
+    
+    imagen= "ajcnAidwifdnc.jpg"
+    valorServicio= 60.0
+    descripcion= "Si estas cansado de la desobediencia del Firulais, llámame"
+    estaHabilitado= "Habilitado"
+    valoracion= 0.0
+    fechaPublicacion= "2020-03-27"
+    constructor(id){
+        this.id = id
+    }
+
+    
+}
+

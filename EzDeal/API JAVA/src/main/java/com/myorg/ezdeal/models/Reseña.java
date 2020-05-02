@@ -36,4 +36,10 @@ public class Reseña implements Serializable {
     @JoinColumn(name="cliente_id")
     private Usuario cliente;
 
+    public Reseña(String contenido, double valoracion, Servicio servicio, Usuario cliente) {
+        this.contenido = contenido;
+        this.valoracion = valoracion;
+        this.servicio = servicio;
+        this.cliente = cliente;
+    }
 }

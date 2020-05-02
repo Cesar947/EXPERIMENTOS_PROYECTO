@@ -16,9 +16,9 @@ import java.util.List;
 public class ReseñaServiceImpl implements ReseñaService {
 
 
-    private ReseñaRepository reseñaRepository;
-    private ServicioRepository servicioRepository;
-    private UsuarioRepository usuarioRepository;
+    private final ReseñaRepository reseñaRepository;
+    private final ServicioRepository servicioRepository;
+    private final UsuarioRepository usuarioRepository;
 
     @Autowired
     public ReseñaServiceImpl(ReseñaRepository reseñaRepository, ServicioRepository servicioRepository, UsuarioRepository usuarioRepository){
@@ -48,6 +48,22 @@ public class ReseñaServiceImpl implements ReseñaService {
     @Override
     public List<Reseña> listarReseñas() throws Exception{
         return this.reseñaRepository.findAll();
+    }
+
+
+
+    @Override
+    public double porcentajeReseñasNegativas(Long servicioId) throws Exception{
+        int cantidadReseñasNegativas =  this.reseñaRepository.cantidadReseñasNegativasPorServicio(servicioId);
+        int cantidadReseñasTotal = this.reseñaRepository.findAll().size();
+        double porcentaje = (cantidadReseñasNegativas/cantidadReseñasTotal)*100;
+        return porcentaje;
+    }
+
+    @Override
+    public void inhabilitarServicio(Long servicioId) throws Exception{
+
+
     }
 }
 
