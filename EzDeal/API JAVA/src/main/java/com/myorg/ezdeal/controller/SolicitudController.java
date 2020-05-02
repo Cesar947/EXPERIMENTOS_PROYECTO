@@ -32,8 +32,8 @@ public class SolicitudController {
         return this.solicitudService.solicitar(solicitud);
     }
 
-    @PutMapping("/{id}")
+/*    @PutMapping("/{id}")
     public Solicitud reagendarCita(@PathVariable("id") Long solicitudId, @RequestBody Agenda cita) throws Exception{
         return this.solicitudService.reagendarCita(cita, solicitudId);
-    }
+    }*/
 }

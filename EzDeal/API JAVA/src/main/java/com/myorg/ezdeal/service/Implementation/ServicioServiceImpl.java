@@ -87,6 +87,10 @@ public class ServicioServiceImpl  implements ServicioService {
             return servicioRepository.listarPorMembresia(membresiaId);
     }
 
+    @Override
+    public Servicio mostrarDetalleServicio(Long id) throws Exception{
+            return servicioRepository.findById(id).get();
+    }
 
 
     public static Date ParseFecha(String fecha)

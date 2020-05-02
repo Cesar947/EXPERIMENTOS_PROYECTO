@@ -11,5 +11,5 @@ public interface SolicitudService {
 
     Solicitud solicitar(Solicitud solicitud) throws Exception;
 
-    Solicitud reagendarCita(Agenda cita, Long solicitudId) throws Exception;
+    //Solicitud reagendarCita(Agenda cita, Long solicitudId) throws Exception;
 }

@@ -1,6 +1,6 @@
 SET GLOBAL time_zone = '+3:00';
 SET GLOBAL max_user_connections=100;
-use g8cpi41gieq2d2qr;
+/*use g8cpi41gieq2d2qr;*/
 use ezdeal_pruebas;
 /*
 INSERT INTO usuario(nombres,apellidos,email,contrasena,direccion,distrito,provincia, telefono_celular, 
@@ -68,7 +68,7 @@ UPDATE membresia SET costo = 18.99 where membresia_id = 1;
 #token cliente: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwZXBpbm8iLCJyb2xlcyI6IlJPTF9DTElFTlRFIiwiaWF0IjoxNTg4NDAzNzY4LCJleHAiOjE1ODg0OTAxNjh9.7mc8YPdQGl_e4Qw0Mqf4ylXFd396GpdP2qySN-qD2SbpJqU50gIMZi_ETMzDG0Mou25k3P6IT_pkVFmQE_AGgw
 #token anunciante: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjZXNhcjk0NyIsInJvbGVzIjoiUk9MX0NMSUVOVEUsUk9MX0FOVU5DSUFOVEUiLCJpYXQiOjE1ODg0MDM4MDIsImV4cCI6MTU4ODQ5MDIwMn0.PPjBc1dO-L2KPfTu7xj1Ujb0yz5ePo_aGyXFPZwPHO7_JUd82mpDy9FUyUV8fd8P1TDSLTfxrS2DAf-5MH6Jow
 SELECT * FROM cuenta_rol;
-SELECT * FROM Rol;
+SELECT * FROM rol;
 SELECT * FROM cuenta;
 SELECT * FROM usuario;
 SELECT * FROM membresia;

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @AllArgsConstructor
@@ -26,11 +27,14 @@ public class Agenda implements Serializable {
     @Column(name="dia")
     private String dia;
 
+    @Column(name="fecha")
+    private LocalDate fecha;
+
     @Column(name="hora_inicio")
-    private LocalDate horaInicio;
+    private LocalTime horaInicio;
 
     @Column(name="hora_fin")
-    private LocalDate horaFin;
+    private LocalTime horaFin;
 
     @ManyToOne
     @JoinColumn(name="solicitud_id")

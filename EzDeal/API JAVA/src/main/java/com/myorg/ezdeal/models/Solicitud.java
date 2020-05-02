@@ -51,7 +51,10 @@ public class Solicitud implements Serializable {
     @Column(name="fecha_pactada", nullable=true)
     private LocalDate fechaPactada;
 
-    @OneToMany(mappedBy="solicitud")
-    private List<Agenda> citas;
+    @Column(name="hora_fin", nullable= true)
+    private LocalTime horaFin;
+
+
+
 
 }

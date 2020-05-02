@@ -28,12 +28,12 @@ public class SolicitudServiceImpl implements SolicitudService {
         return this.solicitudRepository.save(solicitud);
     }
 
-    @Override
+  /*  @Override
     public Solicitud reagendarCita(Agenda cita, Long solicitudId) throws Exception {
         Solicitud solicitudParaReagendar = solicitudRepository.findById(solicitudId).get();
         cita.setSolicitud(solicitudParaReagendar);
         solicitudParaReagendar.getCitas().add(cita);
         return solicitudRepository.save(solicitudParaReagendar);
-    }
+    }*/
 
 }
