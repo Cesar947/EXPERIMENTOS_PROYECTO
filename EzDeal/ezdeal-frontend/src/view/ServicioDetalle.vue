@@ -1,52 +1,74 @@
 <template>
   <div class="reserva-container">
-    <div class="header-avatar">
-      <div class="avatar">
-        <img
-          src="https://thumbs.dreamstime.com/b/icono-masculino-del-avatar-en-estilo-plano-icono-masculino-del-usuario-avatar-del-hombre-de-la-historieta-91602735.jpg"
-          alt=""
-        />
-        <div class="desc">
-          <h2>{{ servicioDetalle.anunciante.nombres }}</h2>
-          <p>{{ servicioDetalle.titulo }}</p>
+    <div class="divider">
+      <div class="header-avatar">
+        <div class="avatar">
+          <img
+            src="https://thumbs.dreamstime.com/b/icono-masculino-del-avatar-en-estilo-plano-icono-masculino-del-usuario-avatar-del-hombre-de-la-historieta-91602735.jpg"
+            alt=""
+          />
+          <div class="desc">
+            <h2>{{ servicioDetalle.anunciante.nombres }}</h2>
+            <p>{{ servicioDetalle.titulo }}</p>
+          </div>
+        </div>
+
+        <div class="description">
+          <h2>{{ servicioDetalle.tipoServicio.nombre }}</h2>
+
+          <div class="sub-description-time">
+            <div class="rating">
+              <p>Rating:</p>
+              <p>{{ servicioDetalle.valoracion }}</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="description">
-        <h2>{{ servicioDetalle.tipoServicio.nombre }}</h2>
+      <div class="contact-info">
+        <div>
+          <p class="label-text">
+            Celular
+          </p>
+          <p class="contact-number">
+            {{ servicioDetalle.anunciante.infoAnunciante.telefonoFijo }}
+          </p>
+        </div>
 
-        <div class="rating">
-          <p>Rating:</p>
-          <p>{{ servicioDetalle.valoracion }}</p>
+        <div>
+          <p class="label-text">
+            Teléfono
+          </p>
+          <p class="contact-number">
+            {{ servicioDetalle.anunciante.infoAnunciante.celular }}
+          </p>
         </div>
       </div>
-    </div>
-
-    <div class="contact-info">
       <div>
-        <p class="label-text">
-          Celular
-        </p>
-        <p class="contact-number">{{ servicioDetalle.anunciante.infoAnunciante.telefonoFijo }}</p>
+        <h4>Costo del servicio</h4>
+        <h2 class="price">S/. {{ servicioDetalle.costoServicio }}</h2>
+      </div>
+      <div class="informacion-service">
+        <p class="title-info">Descripción</p>
+        <p>{{ servicioDetalle.tipoServicio.descripcion }}</p>
       </div>
 
       <div>
-        <p class="label-text">
-          Teléfono
-        </p>
-        <p class="contact-number">
-          {{ servicioDetalle.anunciante.infoAnunciante.celular }}
-        </p>
+        <button class="btn-solicitar">Solicitar</button>
       </div>
     </div>
-
-    <div class="informacion-service">
-      <p class="title-info">Descripción</p>
-      <p>{{ servicioDetalle.tipoServicio.descripcion }}</p>
-    </div>
-
-    <div>
-      <button class="btn-solicitar">Solicitar</button>
+    <div class="horarios">
+      <h1>Horario</h1>
+      <div
+      class="horario-container"
+        v-for="(horario, index) in servicioDetalle.horarios"
+        v-bind:key="index"
+      >
+        <div class="horario-description">
+          <p>{{ horario.dia }}:</p>
+          <p>{{ horario.horaApertura }} - {{ horario.horaCierre }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -57,32 +79,33 @@ import ServiceService from "../services/Service.service";
 export default {
   name: "ServicioDetalle",
 
-  mounted(){
-    this.getServiceDetail();
-  },
+  mounted() {},
   data: function() {
     return {
       qwe: this.$route.params.id,
-      servicioDetalle: new ServicioDetalle(5),
+      servicioDetalle: new ServicioDetalle(),
     };
   },
   methods: {
-      async getServiceDetail(){
-
-        
-        ServiceService.solicitarCita(2).then( (res)=>{
-          console.log(res);
-          this.$data.servicioDetalle =  res.data;
-        })
-      }
-  }
+    async getServiceDetail() {
+      ServiceService.solicitarCita(2).then((res) => {
+        console.log(res);
+        this.$data.servicioDetalle = res.data;
+      });
+    },
+  },
 };
 </script>
 
 <style>
+
+.price {
+  color: #ff3168;
+}
 .reserva-container {
-  width: 1000px;
+  width: 1200px;
   margin: 0 auto;
+  display: flex;
 }
 .header-avatar {
   display: flex;
@@ -98,17 +121,13 @@ export default {
   width: 128px;
 }
 
-.header-avatar .avatar .desc {
-  margin-left: 24px;
-}
-
 .header-avatar .avatar .desc h2 {
   color: #ff3168;
   text-align: center;
   font-size: 32px;
 }
 
-.header-avatar .avatar .desc p{
+.header-avatar .avatar .desc p {
   text-align: center;
 }
 .rating {
@@ -122,27 +141,26 @@ export default {
   margin-left: 64px;
 }
 
-.contact-info{
+.contact-info {
   margin-top: 32px;
   display: flex;
 }
-.contact-info > div{
+.contact-info > div {
   margin-right: 32px;
 }
 
-.contact-info .label-text{
+.contact-info .label-text {
   font-size: 18px;
   margin: 0;
   color: #4e4e4e;
 }
-.contact-info .contact-number{
+.contact-info .contact-number {
   font-size: 22px;
   font-weight: 600;
   color: #000000;
 }
 
-
-.informacion-service{
+.informacion-service {
   width: 800px;
   padding: 32px;
   background: #fafafb;
@@ -150,7 +168,7 @@ export default {
   margin-top: 24px;
 }
 
-.informacion-service .title-info{
+.informacion-service .title-info {
   color: #ff3168;
   width: 150px;
   padding-bottom: 24px;
@@ -158,8 +176,24 @@ export default {
   font-size: 24px;
   font-weight: 700;
 }
+ .sub-description-time {
+  display: flex;
+}
+ .horarios {
+  margin-left: 24px;
+}
 
-.btn-solicitar{
+.horarios .horario-description {
+  display: flex;
+}
+.horarios .horario-description p:nth-child(2) {
+  margin-left: 12px;
+}
+.horarios .horario-description p:nth-child(1) {
+  font-weight: 600;
+}
+
+.btn-solicitar {
   margin-top: 24px;
   background: #ff3168;
   border-radius: 4px;
@@ -167,5 +201,20 @@ export default {
   color: #ffffff;
   font-weight: 600;
   cursor: pointer;
+}
+
+.horario-container{
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+    background: #fbfbfb;
+  border-radius: 5px;
+    padding: 16px 24px;
+}
+.horario-description p{
+margin: 0 12px !important;
+color: #232323;
+font-size: 18px;
+
 }
 </style>
