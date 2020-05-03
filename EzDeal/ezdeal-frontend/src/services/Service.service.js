@@ -1,17 +1,22 @@
 import Axios from "axios";
 import { environment } from "../environment/environment";
 
- class ServicePublication{
+class ServicePublication {
 
 
-    submitService(anuncianteId,tipoServicioId, servicio){
-        return Axios.post(`${environment}/auth/servicios?tipoServicioId=${tipoServicioId}&anuncianteId=${anuncianteId}`,{
+    submitService(anuncianteId, tipoServicioId, servicio) {
+        return Axios.post(`${environment}/auth/servicios?tipoServicioId=${tipoServicioId}&anuncianteId=${anuncianteId}`, {
             servicio
         })
     }
 
-    solicitarCita(){
-        return Axios.post(`${environment}/`,{"qwe": 2})
+    async solicitarCita(id) {
+
+        // const config = { 
+        //     headers: { 'Authorization': 'Bearer ' + environment.token } }
+
+        console.log(environment.token);
+        return await Axios.get(`${environment.api}servicios/${id}`)
     }
 
 }

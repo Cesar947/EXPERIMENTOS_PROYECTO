@@ -17,7 +17,7 @@
 
         <div class="rating">
           <p>Rating:</p>
-          <p>{{ servicioDetalle.valorServicio }}</p>
+          <p>{{ servicioDetalle.valoracion }}</p>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
         <p class="label-text">
           Celular
         </p>
-        <p class="contact-number">{{ servicioDetalle.anunciante.telefonoCelular }}</p>
+        <p class="contact-number">{{ servicioDetalle.anunciante.infoAnunciante.telefonoFijo }}</p>
       </div>
 
       <div>
@@ -35,14 +35,14 @@
           Teléfono
         </p>
         <p class="contact-number">
-          {{ servicioDetalle.anunciante.telefonoFijo }}
+          {{ servicioDetalle.anunciante.infoAnunciante.celular }}
         </p>
       </div>
     </div>
 
     <div class="informacion-service">
       <p class="title-info">Descripción</p>
-      <p>{{ servicioDetalle.descripcion }}</p>
+      <p>{{ servicioDetalle.tipoServicio.descripcion }}</p>
     </div>
 
     <div>
@@ -53,15 +53,29 @@
 
 <script>
 import ServicioDetalle from "../models/ServicioDetalle";
+import ServiceService from "../services/Service.service";
 export default {
   name: "ServicioDetalle",
 
+  mounted(){
+    this.getServiceDetail();
+  },
   data: function() {
     return {
       qwe: this.$route.params.id,
       servicioDetalle: new ServicioDetalle(5),
     };
   },
+  methods: {
+      async getServiceDetail(){
+
+        
+        ServiceService.solicitarCita(2).then( (res)=>{
+          console.log(res);
+          this.$data.servicioDetalle =  res.data;
+        })
+      }
+  }
 };
 </script>
 
