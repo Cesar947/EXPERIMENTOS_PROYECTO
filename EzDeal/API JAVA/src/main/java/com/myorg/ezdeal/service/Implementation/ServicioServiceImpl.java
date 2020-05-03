@@ -82,7 +82,10 @@ public class ServicioServiceImpl  implements ServicioService {
         return this.servicioRepository.listarServiciosPorTitulo(keyword);
     }
 
-
+    @Override
+    public List<Servicio> listarPorMembresia(Long membresiaId) throws Exception{
+            return servicioRepository.listarPorMembresia(membresiaId);
+    }
 
 
 

@@ -5,7 +5,8 @@
     </div>
 
     <div class="form">
-      <h2>Registro</h2>
+      <h1>Bienvenido a EzDeal</h1>
+       <h2>Preparate para todos los clientes que obtendrás</h2>
       <p>Se debe de completar todos los campos</p>
 
       <div class="rol-group">
@@ -191,7 +192,7 @@ export default {
       })
       .then(res => {console.log(res)})
 
-      this.$router.push("/home");
+      this.$router.push("/");
     },
     selectRol: function(id) {
       console.log(id);

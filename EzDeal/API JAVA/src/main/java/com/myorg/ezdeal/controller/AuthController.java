@@ -71,11 +71,15 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> loginCuenta(@Valid @RequestBody LoginRequest loginRequest){
 
+        //Para procesar el nombre de usuario y contraseña y autenticarlos
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getNombreUsuario(), loginRequest.getContrasena()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
+        //Generamos el token
         String jwt = jwtUtils.generateJwtToken(authentication);
+
+        //obtenemos el usuario
         CuentaPrincipal userDetails = (CuentaPrincipal) authentication.getPrincipal();
 
         List<String> roles = userDetails.getAuthorities().stream()

@@ -13,16 +13,21 @@
       </div>
     </div>
     <div class="nav-link">
-      <a>Buscar</a>
-      <a id="gold-btn" href="/home/membresia">Quiero ser gold</a>
+      <a href="/public">Publicar</a>
       <a>Mis Servicios</a>
+      <a id="gold-btn" href="/membresia">Quiero ser gold</a>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "navbar"
+  name: "navbar",
+  data(){
+    return{
+      anunciante: true
+    }
+  }
 };
 </script>
 
@@ -90,5 +95,6 @@ export default {
 .navbar-container .nav-link a {
   margin: 0 32px;
   color: #323232;
+  text-decoration: none;
 }
 </style>
