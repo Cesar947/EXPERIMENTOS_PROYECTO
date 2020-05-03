@@ -45,7 +45,7 @@
         </div>
         <div class="field">
           <label for="">Día</label>
-          <select v-model="service.horarios[0].dia">
+          <select v-model="dia">
             <option value="Lunes">Lunes</option>
             <option value="Martes">Martes</option>
             <option value="Miercoles">Miercoles</option>
@@ -61,7 +61,7 @@
             <v-row justify="center">
               <v-time-picker
                 format="24hr"
-                v-model="service.horarios[0].horaApertura"
+                v-model="horaApertura"
               ></v-time-picker>
             </v-row>
           </div>
@@ -71,7 +71,7 @@
               <v-time-picker
                 format="24hr"
                 v-on:change="changeHoraCierre()"
-                v-model="service.horarios[0].horaCierre"
+                v-model="horaCierre"
               ></v-time-picker>
             </v-row>
           </div>
@@ -93,10 +93,13 @@ export default {
 
   data: function() {
     return {
-      service: new ServiceRequest("", "", "", 1, "", 15.0, 1, ""),
+      service: new ServiceRequest("", "","","","","",[]),
       day: "",
       picker: null,
       pickerEnd: "",
+      dia: "",
+      horaApertura: "",
+      horaCierre: ""
     };
   },
 
@@ -106,29 +109,26 @@ export default {
     },
 
     submit() {
-      const obj = {
+      var obj = {
         titulo: this.$data.service.titulo,
         imagen: "dsgfsadgds.jpg",
         costoServicio: parseInt(this.$data.service.costoServicio),
-        descripcion: "Te paseo a tu igüana",
-        estaHabilitado: 1,
+        descripcion: this.$data.service.descripcion,
         modalidad: parseInt(this.$data.service.modalidad),
         videoPresentacion: "dsgasdgdsgds.mp4",
         horarios: [
           {
-            dia: "",
-            horaApertura:
-              this.$data.service.horarios[0].horaApertura + ":00.123456789",
-            horaCierre:
-              this.$data.service.horarios[0].horaCierre + ":00.123456789",
+            dia: this.$data.dia,
+            horaApertura: this.$data.horaApertura + ":00.123456789",
+            horaCierre: this.$data.horaCierre + ":00.123456789",
           },
         ],
       };
 
       console.log(obj);
-      ServicePublication.submitService(1, 1, obj).then((res) => {
+      ServicePublication.submitService(2,1,obj).then((res) => {
         console.log(res);
-        this.$router.push("/home");
+        this.$router.push("/");
       });
     },
   },

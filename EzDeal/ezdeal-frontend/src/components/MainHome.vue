@@ -54,7 +54,7 @@ export default {
   methods: {
     listarServicios() {
 
-        axios.get(`${environment.api}/auth/servicios`)
+        axios.get(`${environment.api}/auth/servicios?membresiaId=1`)
         .then(response => {
           this.anuncios = response.data
           console.log(this.anuncios)
@@ -95,7 +95,7 @@ export default {
     margin: 48px auto 0;
     display: flex;
     flex-wrap: wrap;  
-    justify-content: flex-start;
+    justify-content: center;
     
 }
 </style>

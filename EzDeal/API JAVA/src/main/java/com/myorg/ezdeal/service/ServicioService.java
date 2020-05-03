@@ -15,4 +15,5 @@ public interface ServicioService {
     List<Servicio>listarServiciosPorTitulo(String keyword) throws Exception;
 
     List<Servicio> findByTituloLike(String titulo) throws Exception;
+    List<Servicio> listarPorMembresia(Long membresiaId) throws Exception;
 }

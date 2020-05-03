@@ -16,3 +16,17 @@ export default {
   }),
 };
 </script>
+
+<style>
+@font-face {
+  font-family: "G-sans";
+  src: url("./assets/fonts/ProductSans-Regular.ttf");
+  
+}
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "G-sans" !important;
+}
+
+</style>

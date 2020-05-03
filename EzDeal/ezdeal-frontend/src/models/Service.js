@@ -3,22 +3,20 @@ export default class ServiceRequest {
         titulo,
         descripcion,
         costoServicio,
-        modalidad
-
+        modalidad,
+        imagen,
+        videoPresentacion,
+        horarios
     ) {
-        this.titulo = titulo
+        this.titulo = titulo;
         this.descripcion = descripcion;
-        this.imagen = "img.jpg";
-        this.estaHabilitado = 1;
+        this.imagen = imagen;
         this.costoServicio = (costoServicio);
         this.modalidad =  (modalidad);
-        this.videoPresentacion = "videoPresentacion.mp4";
+        this.videoPresentacion = videoPresentacion;
+        this.horarios = horarios;
 
-        this.horarios = [
-            { dia: 'Lunes', horaApertura: '', horaCierre: '' }
-        ]
-
-    }
+}
 }
 
 
