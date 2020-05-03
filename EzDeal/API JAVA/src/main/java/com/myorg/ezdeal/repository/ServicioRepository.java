@@ -18,7 +18,7 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
 
 
     @Query(
-            value = "select * from Servicio " +
+            value = "select * from servicio " +
                     "join usuario on servicio.anunciante_id = usuario.anunciante_id " +
                     "join anunciante on anunciante.anunciante_id = usuario.anunciante_id " +
                     "join membresia on membresia.membresia_id = anunciante.membresia_id " +

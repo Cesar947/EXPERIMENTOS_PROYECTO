@@ -4,28 +4,51 @@
       <div class="logo">
         <img width="180" src="../assets/logo.png" alt="" />
       </div>
+
       <div class="search-bar">
         <input
           type="text"
+          v-model="keyword"
           placeholder="¿Que tipo de servicio estas buscando?"
         />
-        <button>Buscar</button>
+
+        <button
+          v-on:click="clickBuscar()">
+        Buscar</button>
+
       </div>
     </div>
+
     <div class="nav-link">
       <a href="/public">Publicar</a>
       <a>Mis Servicios</a>
       <a id="gold-btn" href="/membresia">Quiero ser gold</a>
     </div>
+
   </div>
 </template>
 
-<script>
+
+<script>  
+import { bus } from '../main';
+
 export default {
   name: "navbar",
   data(){
     return{
-      anunciante: true
+      anunciante: true,
+      keyword: ""
+    }
+  },
+  created(){
+
+  },
+  methods: {
+
+    clickBuscar(){
+
+      bus.$emit('updateAnuncios', this.keyword);
+      
     }
   }
 };

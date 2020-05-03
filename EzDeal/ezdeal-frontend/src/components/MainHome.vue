@@ -17,6 +17,8 @@
 import PublicationCard from "./Home/PublicationCard";
 import axios from 'axios';
 import { environment } from '../environment/environment';
+import { bus } from '../main';
+
 export default {
   name: "MainHome",
   components: { PublicationCard },
@@ -40,6 +42,12 @@ export default {
   },
   created(){
 
+    bus.$on('updateAnuncios', (keyword) => {
+
+      this.buscarServicios(keyword);
+
+    })
+
     this.listarServicios();
   },
 
@@ -53,6 +61,21 @@ export default {
         })
         .catch( error => {
           console.log(error)
+        });
+
+    },
+
+    buscarServicios(keyword){
+      
+      axios.get(`${environment.api}/auth/servicios/titulo?keyword=${keyword}`)
+        .then(response => {
+          
+          this.anuncios = response.data
+        
+        })
+        .catch(error => {
+          console.log(error)
+          alert("error");
         });
 
     }

@@ -10,6 +10,8 @@ import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false;
 
+export const bus = new Vue();
+
 Vue.use(VeeValidate);
 
 new Vue({
