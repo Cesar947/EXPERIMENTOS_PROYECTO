@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.161s</div>
+<div class="counter">0.373s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,84 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard output</a>
+<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="actualizarEstadoSolicitud"></a>
-<h3 class="failures">actualizarEstadoSolicitud</h3>
-<span class="code">
-<pre>java.lang.NullPointerException
-	at com.myorg.ezdeal.SolicitudServiceTest.actualizarEstadoSolicitud(SolicitudServiceTest.java:66)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
-	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
-	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
-	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:106)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:66)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:117)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:155)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:137)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
-	at java.lang.Thread.run(Thread.java:748)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -149,37 +78,40 @@
 </tr>
 </thead>
 <tr>
-<td class="failures">actualizarEstadoSolicitud</td>
-<td class="failures">0.161s</td>
-<td class="failures">failed</td>
+<td class="success">reseñarServicioFinalizado</td>
+<td class="success">0.373s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>21:52:11.930 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.myorg.ezdeal.SolicitudServiceTest]
-21:52:11.937 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-21:52:11.947 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-21:52:11.964 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.myorg.ezdeal.SolicitudServiceTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-21:52:11.988 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.myorg.ezdeal.SolicitudServiceTest], using SpringBootContextLoader
-21:52:11.992 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.myorg.ezdeal.SolicitudServiceTest]: class path resource [com/myorg/ezdeal/SolicitudServiceTest-context.xml] does not exist
-21:52:11.993 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.myorg.ezdeal.SolicitudServiceTest]: class path resource [com/myorg/ezdeal/SolicitudServiceTestContext.groovy] does not exist
-21:52:11.993 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.myorg.ezdeal.SolicitudServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-21:52:12.052 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.myorg.ezdeal.SolicitudServiceTest]
-21:52:12.165 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.myorg.ezdeal.SolicitudServiceTest]: using defaults.
-21:52:12.166 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-21:52:12.187 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@59103b28, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c451ec3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1cd63844, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@ed5cefe, org.springframework.test.context.support.DirtiesContextTestExecutionListener@56c46d77, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2203d26a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@fbada76, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@2f385741, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@5ae23804, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@664e31b0, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3f7e2e65, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5291e494, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1978c4da, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@e2cb5f4]
-21:52:12.191 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.myorg.ezdeal.SolicitudServiceTest]
-21:52:12.191 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.myorg.ezdeal.SolicitudServiceTest]
-21:52:12.194 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.myorg.ezdeal.SolicitudServiceTest]
-21:52:12.194 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.myorg.ezdeal.SolicitudServiceTest]
-21:52:12.194 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.myorg.ezdeal.SolicitudServiceTest]
-21:52:12.195 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.myorg.ezdeal.SolicitudServiceTest]
-21:52:12.198 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@74d4037d testClass = SolicitudServiceTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@24a0c615 testClass = SolicitudServiceTest, locations = '{}', classes = '{class com.myorg.ezdeal.Application, class com.myorg.ezdeal.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4c8faa3b, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@133d97b0, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4a9e5449, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@24ef3491, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@e2afec5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
-21:52:12.199 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.myorg.ezdeal.SolicitudServiceTest]
-21:52:12.199 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.myorg.ezdeal.SolicitudServiceTest]
-21:52:12.229 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+<pre>19:12:34.777 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.myorg.ezdeal.SolicitudServiceTest]
+19:12:34.791 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+19:12:34.800 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+19:12:34.830 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.myorg.ezdeal.SolicitudServiceTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+19:12:34.857 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.myorg.ezdeal.SolicitudServiceTest], using SpringBootContextLoader
+19:12:34.861 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.myorg.ezdeal.SolicitudServiceTest]: class path resource [com/myorg/ezdeal/SolicitudServiceTest-context.xml] does not exist
+19:12:34.862 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.myorg.ezdeal.SolicitudServiceTest]: class path resource [com/myorg/ezdeal/SolicitudServiceTestContext.groovy] does not exist
+19:12:34.862 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.myorg.ezdeal.SolicitudServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+19:12:34.863 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.myorg.ezdeal.SolicitudServiceTest]: SolicitudServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:12:34.929 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.myorg.ezdeal.SolicitudServiceTest]
+19:12:35.074 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\sebas\Desktop\EXPERIMENTOS_PROYECTO\EzDeal\API JAVA\build\classes\java\main\com\myorg\ezdeal\Application.class]
+19:12:35.077 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.myorg.ezdeal.Application for test class com.myorg.ezdeal.SolicitudServiceTest
+19:12:35.291 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.myorg.ezdeal.SolicitudServiceTest]: using defaults.
+19:12:35.292 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+19:12:35.324 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@13bd3c3, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@49dd6633, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5383c3, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5efdebd3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1078e04, org.springframework.test.context.transaction.TransactionalTestExecutionListener@23499ce9, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3f185ed8, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@e0a999b, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@334041f0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5c013da5, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@21925663, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7b0ec58b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4a7054db, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1f49b425]
+19:12:35.329 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.myorg.ezdeal.SolicitudServiceTest]
+19:12:35.330 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.myorg.ezdeal.SolicitudServiceTest]
+19:12:35.342 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.myorg.ezdeal.SolicitudServiceTest]
+19:12:35.342 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.myorg.ezdeal.SolicitudServiceTest]
+19:12:35.343 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.myorg.ezdeal.SolicitudServiceTest]
+19:12:35.343 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.myorg.ezdeal.SolicitudServiceTest]
+19:12:35.352 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@69f4f4be testClass = SolicitudServiceTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7b9d21e testClass = SolicitudServiceTest, locations = '{}', classes = '{class com.myorg.ezdeal.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a749a98, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@54525ced, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@773f7f53, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3c86b6b0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+19:12:35.353 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.myorg.ezdeal.SolicitudServiceTest]
+19:12:35.354 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.myorg.ezdeal.SolicitudServiceTest]
+19:12:35.390 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -189,31 +121,32 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.1.5.RELEASE)
 
-2020-05-02 21:52:12.505  INFO 19296 --- [    Test worker] com.myorg.ezdeal.SolicitudServiceTest    : Starting SolicitudServiceTest on DESKTOP-2O2HPAS with PID 19296 (started by sebas in C:\Users\sebas\Desktop\EXPERIMENTOS_PROYECTO\EzDeal\API JAVA)
-2020-05-02 21:52:12.508  INFO 19296 --- [    Test worker] com.myorg.ezdeal.SolicitudServiceTest    : No active profile set, falling back to default profiles: default
-2020-05-02 21:52:13.631  INFO 19296 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-05-02 21:52:13.862  INFO 19296 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 211ms. Found 11 repository interfaces.
-2020-05-02 21:52:14.821  INFO 19296 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5808c6c6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-05-02 21:52:14.889  INFO 19296 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$f0b68f00] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-05-02 21:52:14.899  INFO 19296 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-05-02 21:52:14.900  INFO 19296 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7db3ace9' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-05-02 21:52:14.911  INFO 19296 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$158b31b2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-05-02 21:52:14.921  INFO 19296 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-05-02 21:52:15.167  INFO 19296 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-02 21:52:15.337  INFO 19296 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-02 21:52:15.445  INFO 19296 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2020-05-04 19:12:35.766  INFO 4040 --- [    Test worker] com.myorg.ezdeal.SolicitudServiceTest    : Starting SolicitudServiceTest on DESKTOP-2O2HPAS with PID 4040 (started by sebas in C:\Users\sebas\Desktop\EXPERIMENTOS_PROYECTO\EzDeal\API JAVA)
+2020-05-04 19:12:35.768  INFO 4040 --- [    Test worker] com.myorg.ezdeal.SolicitudServiceTest    : No active profile set, falling back to default profiles: default
+2020-05-04 19:12:37.095  INFO 4040 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-04 19:12:37.309  INFO 4040 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 202ms. Found 11 repository interfaces.
+2020-05-04 19:12:37.879  INFO 4040 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3f62325b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-04 19:12:37.954  INFO 4040 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$d80ffa95] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-04 19:12:37.962  INFO 4040 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-04 19:12:37.964  INFO 4040 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@574b093d' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-04 19:12:37.972  INFO 4040 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$fce49d47] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-04 19:12:37.985  INFO 4040 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-04 19:12:38.366  INFO 4040 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-04 19:12:38.544  INFO 4040 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-04 19:12:38.639  INFO 4040 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2020-05-02 21:52:15.582  INFO 19296 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
-2020-05-02 21:52:15.585  INFO 19296 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2020-05-02 21:52:15.661  INFO 19296 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2020-05-02 21:52:15.853  INFO 19296 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-05-02 21:52:17.451  INFO 19296 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-02 21:52:17.849  INFO 19296 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2020-05-02 21:52:19.066  INFO 19296 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13311716, org.springframework.security.web.context.SecurityContextPersistenceFilter@1fa43f90, org.springframework.security.web.header.HeaderWriterFilter@564c58a0, org.springframework.security.web.authentication.logout.LogoutFilter@3f546968, com.myorg.ezdeal.security.jwt.AuthTokenFilter@2a781bb2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2da48cb4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1373c73, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28e1d61f, org.springframework.security.web.session.SessionManagementFilter@7b7f667c, org.springframework.security.web.access.ExceptionTranslationFilter@770cd49d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6764be5c]
-2020-05-02 21:52:19.830  INFO 19296 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-02 21:52:19.908  WARN 19296 --- [    Test worker] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-02 21:52:20.477  INFO 19296 --- [    Test worker] com.myorg.ezdeal.SolicitudServiceTest    : Started SolicitudServiceTest in 8.228 seconds (JVM running for 9.279)
+2020-05-04 19:12:38.777  INFO 4040 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2020-05-04 19:12:38.781  INFO 4040 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-04 19:12:38.979  INFO 4040 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-05-04 19:12:39.229  INFO 4040 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-05-04 19:12:40.988  INFO 4040 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-04 19:12:41.460  INFO 4040 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-05-04 19:12:43.038  INFO 4040 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30c2b3e4, org.springframework.security.web.context.SecurityContextPersistenceFilter@6c467fee, org.springframework.security.web.header.HeaderWriterFilter@997d990, org.springframework.security.web.authentication.logout.LogoutFilter@7a63cc0a, com.myorg.ezdeal.security.jwt.AuthTokenFilter@3ae33d50, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2aa9807b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9981b92, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66b27527, org.springframework.security.web.session.SessionManagementFilter@1864ef87, org.springframework.security.web.access.ExceptionTranslationFilter@3c7ada6a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5ca7e2ce]
+2020-05-04 19:12:43.735  INFO 4040 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-04 19:12:43.812  WARN 4040 --- [    Test worker] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-04 19:12:44.484  INFO 4040 --- [    Test worker] com.myorg.ezdeal.SolicitudServiceTest    : Started SolicitudServiceTest in 9.08 seconds (JVM running for 10.938)
+2020-05-04 19:12:44.535  INFO 4040 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@69f4f4be testClass = SolicitudServiceTest, testInstance = com.myorg.ezdeal.SolicitudServiceTest@16cb32b7, testMethod = reseñarServicioFinalizado@SolicitudServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7b9d21e testClass = SolicitudServiceTest, locations = '{}', classes = '{class com.myorg.ezdeal.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a749a98, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@54525ced, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@773f7f53, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3c86b6b0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@2678c138]; rollback [true]
 Hibernate: 
     select
         usuario0_.usuario_id as usuario_1_13_0_,
@@ -326,27 +259,83 @@ Hibernate:
     where
         servicio0_.servicio_id=?
 Hibernate: 
-    select
-        membresia0_.membresia_id as membresi1_7_0_,
-        membresia0_.costo as costo2_7_0_,
-        membresia0_.nombre as nombre3_7_0_ 
-    from
-        membresia membresia0_ 
+    update
+        solicitud 
+    set
+        estado=? 
     where
-        membresia0_.membresia_id=?
+        solicitud_id=?
 Hibernate: 
     select
-        roles0_.cuenta_id as cuenta_i1_4_0_,
-        roles0_.rol_id as rol_id2_4_0_,
-        rol1_.rol_id as rol_id1_9_1_,
-        rol1_.nombre as nombre2_9_1_ 
+        solicitud0_.solicitud_id as solicitu1_11_,
+        solicitud0_.cliente_id as cliente_8_11_,
+        solicitud0_.costo_final as costo_fi2_11_,
+        solicitud0_.estado as estado3_11_,
+        solicitud0_.fecha_pactada as fecha_pa4_11_,
+        solicitud0_.fecha_solicitud as fecha_so5_11_,
+        solicitud0_.hora_pactada as hora_pac6_11_,
+        solicitud0_.mensaje as mensaje7_11_,
+        solicitud0_.servicio_id as servicio9_11_ 
     from
-        cuenta_rol roles0_ 
+        solicitud solicitud0_ 
     inner join
-        rol rol1_ 
-            on roles0_.rol_id=rol1_.rol_id 
+        usuario usuario1_ 
+            on (
+                usuario1_.usuario_id=solicitud0_.cliente_id
+            ) 
+    inner join
+        servicio servicio2_ 
+            on (
+                servicio2_.servicio_id=solicitud0_.servicio_id
+            ) 
     where
-        roles0_.cuenta_id=?
+        usuario1_.usuario_id=? 
+        and servicio2_.servicio_id=? 
+        and solicitud0_.estado='Finalizado'
+Reseña(id=null, contenido=Nunca te solicite xd, valoracion=4.0, servicio=null, cliente=null)
+Hibernate: 
+    update
+        solicitud 
+    set
+        estado=? 
+    where
+        solicitud_id=?
+Hibernate: 
+    select
+        solicitud0_.solicitud_id as solicitu1_11_,
+        solicitud0_.cliente_id as cliente_8_11_,
+        solicitud0_.costo_final as costo_fi2_11_,
+        solicitud0_.estado as estado3_11_,
+        solicitud0_.fecha_pactada as fecha_pa4_11_,
+        solicitud0_.fecha_solicitud as fecha_so5_11_,
+        solicitud0_.hora_pactada as hora_pac6_11_,
+        solicitud0_.mensaje as mensaje7_11_,
+        solicitud0_.servicio_id as servicio9_11_ 
+    from
+        solicitud solicitud0_ 
+    inner join
+        usuario usuario1_ 
+            on (
+                usuario1_.usuario_id=solicitud0_.cliente_id
+            ) 
+    inner join
+        servicio servicio2_ 
+            on (
+                servicio2_.servicio_id=solicitud0_.servicio_id
+            ) 
+    where
+        usuario1_.usuario_id=? 
+        and servicio2_.servicio_id=? 
+        and solicitud0_.estado='Finalizado'
+Hibernate: 
+    insert 
+    into
+        reseña
+        (cliente_id, contenido, servicio_id, valoracion) 
+    values
+        (?, ?, ?, ?)
+Reseña(id=3, contenido=Nunca te solicite xd, valoracion=4.0, servicio=com.myorg.ezdeal.models.Servicio@2fd4f65d, cliente=Usuario(id=1, nombres=Sebastian, apellidoPaterno=Pinillos, apellidoMaterno=Zenteno, departamento=Lima, distrito=San Miguel, direccion=Jr. Maipu 137, provincia=Lima, strikes=null, cuentaHabilitada=true, imagenPerfil=qgWjsyendiAdnw.jpg, cuentaId=Cuenta(id=1, email=jsebastpz@gmail.com, contrasena=$2a$10$YbkpPekA1K9uQvDrJw8N7eRr9wvkWYNLO1BwwboG/JHkEHgqDCwOW, nombreUsuario=Pepino, roles=[Rol(id=2, nombre=ROL_ANUNCIANTE), Rol(id=1, nombre=ROL_CLIENTE)]), infoAnunciante=Anunciante(id=1, telefonoFijo=7563322, celular=992333745, dni=76544322, urlContacto=www.facebook.com/C, antecedentesPenales=antecedentes.pdf, fechaCaducidad=2020-04-09, membresia=Membresia(id=1, nombre=Gold, costo=50.00))))
+2020-05-04 19:12:44.891  INFO 4040 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@69f4f4be testClass = SolicitudServiceTest, testInstance = com.myorg.ezdeal.SolicitudServiceTest@16cb32b7, testMethod = reseñarServicioFinalizado@SolicitudServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7b9d21e testClass = SolicitudServiceTest, locations = '{}', classes = '{class com.myorg.ezdeal.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@a749a98, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@54525ced, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@773f7f53, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3c86b6b0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]
 </pre>
 </span>
 </div>
@@ -358,7 +347,7 @@ Hibernate:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.10</a> at May 2, 2020 9:52:20 PM</p>
+<a href="http://www.gradle.org">Gradle 4.10</a> at May 4, 2020 7:12:45 PM</p>
 </div>
 </div>
 </body>

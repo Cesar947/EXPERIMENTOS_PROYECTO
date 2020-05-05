@@ -39,20 +39,17 @@ public class ReseñaServiceImpl implements ReseñaService {
 
         int cantidadDeSolicitudesFinalizadas = solicitudRepository.listarPorClienteYServicio(clienteId, servicioId).size();
 
-        try{
-            if(cantidadDeSolicitudesFinalizadas > 0) {
 
-                reseña.setCliente(cliente);
-                reseña.setServicio(servicio);
+        if(cantidadDeSolicitudesFinalizadas > 0) {
 
-                return this.reseñaRepository.save(reseña);
-            }
+            reseña.setCliente(cliente);
+            reseña.setServicio(servicio);
+
+            return this.reseñaRepository.save(reseña);
         }
-        catch (Exception e){
-            System.out.println(e.getMessage());
+        else {
+            return new Reseña();
         }
-
-        return new Reseña();
     }
 
     @Override

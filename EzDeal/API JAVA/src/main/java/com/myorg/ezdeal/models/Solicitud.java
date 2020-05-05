@@ -55,7 +55,7 @@ public class Solicitud implements Serializable {
     @OneToMany(cascade=CascadeType.ALL, mappedBy="solicitud")
     private List<Agenda> citas;
 
-    public Solicitud(Servicio servicio, Usuario cliente, String mensaje, String estado, double costoFinal, LocalDate fechaSolicitud, LocalTime horaPactada, LocalDate fechaPactada, List<Agenda> citas) {
+    public Solicitud(Servicio servicio, Usuario cliente, String mensaje, String estado, double costoFinal, LocalDate fechaSolicitud, LocalTime horaPactada, LocalDate fechaPactada) {
         this.servicio = servicio;
         this.cliente = cliente;
         this.estado = estado;
@@ -63,6 +63,5 @@ public class Solicitud implements Serializable {
         this.fechaSolicitud = fechaSolicitud;
         this.fechaPactada = fechaPactada;
         this.horaPactada = horaPactada;
-        this.citas = citas;
     }
 }

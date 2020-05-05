@@ -11,7 +11,6 @@ import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Date;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -40,4 +39,43 @@ public class Horario implements Serializable {
     private Servicio servicio;
 
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
+    public LocalTime getHoraApertura() {
+        return horaApertura;
+    }
+
+    public void setHoraApertura(LocalTime horaApertura) {
+        this.horaApertura = horaApertura;
+    }
+
+    public LocalTime getHoraCierre() {
+        return horaCierre;
+    }
+
+    public void setHoraCierre(LocalTime horaCierre) {
+        this.horaCierre = horaCierre;
+    }
+
+    public Servicio getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(Servicio servicio) {
+        this.servicio = servicio;
+    }
 }
