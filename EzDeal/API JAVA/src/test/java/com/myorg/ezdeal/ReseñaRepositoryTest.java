@@ -63,7 +63,7 @@ public class ReseñaRepositoryTest {
         assertEquals(reseña.getId(), r2.getId());
         this.entityManager.refresh(servicio);
         assertEquals(false, servicio.getEstaHabilitado());
-    }
+}
 
 
     @After

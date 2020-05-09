@@ -23,18 +23,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SolicitudServiceTest {
 
-    @Autowired
-    private SolicitudService solicitudService;
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -62,45 +62,33 @@ public class SolicitudServiceTest {
         servicio = servicioRepository.findById(new Long(1)).get();
     }
 
-   /* @Test
-    @Transactional
-    public void actualizarEstadoSolicitud() throws Exception{
-
-        estado = "Iniciado";
-        Long solicitudId = new Long(1);
-        int estadoActualizado = solicitudService.actualizarEstadoSolicitud(estado, solicitudId);
-        assertEquals(1, estadoActualizado);
-        Reseña reseña = new Reseña("Nunca te solicite xd", 4.0);
-        reseñaService.publicarReseña(reseña, clientePrueba.getId(), servicio.getId());
-    }*/
-
     @Test
     @Transactional
     public void reseñarServicioFinalizado() throws Exception{
-        this.estado = "Iniciado";
+
+        this.estado = "Inciado";
+        String estado1 = "Finalizado";
         Long solicitudId = new Long(1);
-        int estadoActualizado1 = solicitudService.actualizarEstadoSolicitud(estado, solicitudId);
-        assertEquals(1, estadoActualizado1);
-        Reseña reseña = new Reseña("Nunca te solicite xd", 4.0);
+
+        //Mockeamos el solicitudservice
+        SolicitudService solicitudService = mock(SolicitudService.class);
+        when(solicitudService.actualizarEstadoSolicitud(estado, solicitudId)).thenReturn(1);
+        when(solicitudService.actualizarEstadoSolicitud(estado1, solicitudId)).thenReturn(1);
+
+        //Esta prueba esta hecha para fallar
+        solicitudService.actualizarEstadoSolicitud(estado, solicitudId);
+        Reseña reseña = new Reseña("Nunca te solicite", 4.0);
         Reseña reseñaGuardada = reseñaService.publicarReseña(reseña, clientePrueba.getId(), servicio.getId());
-        System.out.println(reseña);
+        //Probamos que nunca se guarda la reseña
         assertEquals(new Reseña(), reseñaGuardada);
 
-        String estado1 = "Finalizado";
-        int estadoActualizado2 = solicitudService.actualizarEstadoSolicitud(estado1, solicitudId);
-        assertEquals(1, estadoActualizado2);
+        //Esta prueba esta hecha para aprobar
+        solicitudService.actualizarEstadoSolicitud(estado1, solicitudId);
+        solicitudRepository.actualizarEstadoSolicitud(estado1, solicitudId);
         reseñaGuardada = reseñaService.publicarReseña(reseña, clientePrueba.getId(), servicio.getId());
-        System.out.println(reseñaGuardada);
         Reseña reseñaPrueba = reseñaRepository.findById(reseñaGuardada.getId()).get();
+        //Probamos que la reseña si se guarda porque ahora si existe una solicitud finalizada
         assertEquals(reseñaGuardada, reseñaPrueba);
     }
-
-/*
-    @Test
-    public void validaciónDeReseñaHabilitada() throws Exception{
-
-
-
-    }*/
 
 }
