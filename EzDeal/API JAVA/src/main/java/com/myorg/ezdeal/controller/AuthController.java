@@ -46,7 +46,6 @@ public class AuthController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    //Deberia ser un service en caso haya una lÃ³gica del negocio especÃ­fica
     @Autowired
     private AnuncianteService anuncianteService;
 
