@@ -70,8 +70,10 @@ public class SolicitudServiceTest {
         String estado1 = "Finalizado";
         Long solicitudId = new Long(1);
 
+
         //Mockeamos el solicitudservice
         SolicitudService solicitudService = mock(SolicitudService.class);
+        //1: actualizacion exitosa, 0: no exitosa
         when(solicitudService.actualizarEstadoSolicitud(estado, solicitudId)).thenReturn(1);
         when(solicitudService.actualizarEstadoSolicitud(estado1, solicitudId)).thenReturn(1);
 
@@ -89,6 +91,37 @@ public class SolicitudServiceTest {
         Reseña reseñaPrueba = reseñaRepository.findById(reseñaGuardada.getId()).get();
         //Probamos que la reseña si se guarda porque ahora si existe una solicitud finalizada
         assertEquals(reseñaGuardada, reseñaPrueba);
+    }
+
+    //NO SE SI ESTO ES UN INTEGRATION TEST O UN UNIT TEST
+    //Yo creo que es Integration Test ya que mockeo la llamada a solicitud Service
+    @Test
+    @Transactional
+    public void reseñarServicioFinalizadov2() throws Exception{
+
+
+        //Mockeamos el solicitudservice
+        SolicitudService solicitudService = mock(SolicitudService.class);
+
+        //No se si funciona con el size, de lo contrario probarlo sin el
+        when(solicitudService.listarPorClienteYServicio( anyLong(), anyLong() ).size()).thenReturn(1);
+
+        Reseña reseña = new Reseña("Nunca te solicite", 4.0);
+
+        int cantidadDeSolicitudesFinalizadas = solicitudService.listarPorClienteYServicio(clientePrueba.getId(), servicio.getId()).size();
+
+        Reseña reseñaResultado = new Reseña();
+
+        if(cantidadDeSolicitudesFinalizadas > 0) {
+
+            reseña.setCliente(clientePrueba);
+            reseña.setServicio(servicio);
+
+            reseñaResultado = reseñaRepository.save(reseña);
+        }
+
+        assertEquals(reseñaResultado, reseña);
+
     }
 
 }

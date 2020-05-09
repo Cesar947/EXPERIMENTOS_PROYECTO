@@ -53,4 +53,10 @@ public class SolicitudServiceImpl implements SolicitudService {
         else return 0;
     }
 
+    @Override
+    public List<Solicitud> listarPorClienteYServicio(Long clienteId, Long servicioId) {
+        return solicitudRepository.listarPorClienteYServicio(clienteId, servicioId);
+    }
+
+
 }
