@@ -4,9 +4,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class CuentaPrincipal implements UserDetails {
+public class CuentaPrincipal implements UserDetails, Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Cuenta cuenta;
 

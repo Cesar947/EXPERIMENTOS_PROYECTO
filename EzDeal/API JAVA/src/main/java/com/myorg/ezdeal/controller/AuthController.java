@@ -9,7 +9,6 @@ import com.myorg.ezdeal.payload.request.SignUpRequest;
 import com.myorg.ezdeal.repository.*;
 
 import com.myorg.ezdeal.service.AnuncianteService;
-import com.myorg.ezdeal.service.implementation.CuentaService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -40,9 +39,6 @@ public class AuthController {
 
     @Autowired
     private CuentaRepository cuentaRepository;
-
-    @Autowired
-    private CuentaService cuentaService;
 
     @Autowired
     private RolRepository rolRepository;
@@ -114,30 +110,31 @@ public class AuthController {
             Set<String> strRoles = signUpRequest.getRole();
             Set<Rol> roles = new HashSet<>();
             Anunciante info = null;
+            String runTimeExceptionMessage = "Error: Role is not found.";
             if (strRoles == null) {
                 Rol userRole = rolRepository.findByNombre(ERole.ROL_CLIENTE)
-                        .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        .orElseThrow(() -> new RuntimeException(runTimeExceptionMessage));
                 roles.add(userRole);
             } else {
                 strRoles.forEach(role -> {
                     switch (role) {
                         case "admin":
                             Rol adminRole = rolRepository.findByNombre(ERole.ROL_ADMIN)
-                                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                                    .orElseThrow(() -> new RuntimeException(runTimeExceptionMessage));
                             roles.add(adminRole);
 
                             break;
                         case "anunciante":
                             Rol modRole = rolRepository.findByNombre(ERole.ROL_ANUNCIANTE)
-                                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                                    .orElseThrow(() -> new RuntimeException(runTimeExceptionMessage));
                             roles.add(modRole);
                             break;
 
                         case "cliente" :
                             Rol userRole = rolRepository.findByNombre(ERole.ROL_CLIENTE)
-                                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                                    .orElseThrow(() -> new RuntimeException(runTimeExceptionMessage));
                             roles.add(userRole);
-
+                            break;
 
                     }
                 });

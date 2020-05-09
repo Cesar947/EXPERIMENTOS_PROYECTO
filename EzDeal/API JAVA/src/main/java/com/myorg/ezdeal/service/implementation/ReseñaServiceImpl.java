@@ -5,6 +5,7 @@ import com.myorg.ezdeal.models.Servicio;
 import com.myorg.ezdeal.models.Usuario;
 import com.myorg.ezdeal.repository.ReseñaRepository;
 import com.myorg.ezdeal.repository.ServicioRepository;
+import com.myorg.ezdeal.repository.SolicitudRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
 import com.myorg.ezdeal.service.ReseñaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,14 @@ public class ReseñaServiceImpl implements ReseñaService {
     private final ReseñaRepository reseñaRepository;
     private final ServicioRepository servicioRepository;
     private final UsuarioRepository usuarioRepository;
+    private final SolicitudRepository solicitudRepository;
 
     @Autowired
-    public ReseñaServiceImpl(ReseñaRepository reseñaRepository, ServicioRepository servicioRepository, UsuarioRepository usuarioRepository){
+    public ReseñaServiceImpl(ReseñaRepository reseñaRepository, ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, SolicitudRepository solicitudRepository){
         this.reseñaRepository = reseñaRepository;
         this.servicioRepository = servicioRepository;
         this.usuarioRepository = usuarioRepository;
+        this.solicitudRepository = solicitudRepository;
     }
 
 
@@ -34,10 +37,19 @@ public class ReseñaServiceImpl implements ReseñaService {
         Usuario cliente = usuarioRepository.findById(clienteId).get();
         Servicio servicio = servicioRepository.findById(servicioId).get();
 
-        reseña.setCliente(cliente);
-        reseña.setServicio(servicio);
+        int cantidadDeSolicitudesFinalizadas = solicitudRepository.listarPorClienteYServicio(clienteId, servicioId).size();
 
-        return this.reseñaRepository.save(reseña);
+
+        if(cantidadDeSolicitudesFinalizadas > 0) {
+
+            reseña.setCliente(cliente);
+            reseña.setServicio(servicio);
+
+            return this.reseñaRepository.save(reseña);
+        }
+        else {
+            return new Reseña();
+        }
     }
 
     @Override

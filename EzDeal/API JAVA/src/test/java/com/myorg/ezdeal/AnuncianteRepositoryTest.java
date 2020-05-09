@@ -40,7 +40,7 @@ public class AnuncianteRepositoryTest {
     @Transactional
     public void actualizarMembresiaTest(){
         Membresia memb = getMembresiaGold();
-        Long anuncianteId = new Long(1);
+        Long anuncianteId = Long.valueOf(1);
         int membresiaActualizada1 = anuncianteRepository.actualizarDatosMembresia(memb, anuncianteId);
         Anunciante anunciante = anuncianteRepository.findById(anuncianteId).get();
         assertEquals(1, membresiaActualizada1);
@@ -49,7 +49,7 @@ public class AnuncianteRepositoryTest {
     }
 
     public Membresia getMembresiaGold(){
-        return new Membresia(new Long(1), "GOLD", new BigDecimal(60.0));
+        return new Membresia(Long.valueOf(1), "GOLD", new BigDecimal(60.0));
     }
 
 }

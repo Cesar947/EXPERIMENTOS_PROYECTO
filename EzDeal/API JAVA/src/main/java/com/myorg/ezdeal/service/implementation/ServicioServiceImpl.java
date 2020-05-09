@@ -66,10 +66,6 @@ public class ServicioServiceImpl  implements ServicioService {
          return this.servicioRepository.listarServicios();
     }
 
-    @Override
-    public List<Servicio> findByTituloLike(String titulo) throws Exception {
-        return servicioRepository.findByTituloLike(titulo);
-    }
 
 
     @Override

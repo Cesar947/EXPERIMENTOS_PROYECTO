@@ -1,7 +1,6 @@
 package com.myorg.ezdeal.repository;
 
 
-import com.myorg.ezdeal.models.Cuenta;
 import com.myorg.ezdeal.models.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

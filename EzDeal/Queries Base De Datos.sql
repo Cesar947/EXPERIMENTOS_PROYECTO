@@ -74,6 +74,8 @@ SELECT * FROM usuario;
 SELECT * FROM membresia;
 SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
+select * from servicio;
+select * from solicitud;
 
 #Queries facilitadores
 UPDATE SERVICIO SET esta_habilitado = 1 WHERE SERVICIO_ID > 0;

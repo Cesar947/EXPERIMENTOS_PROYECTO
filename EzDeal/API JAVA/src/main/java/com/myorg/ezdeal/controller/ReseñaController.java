@@ -4,7 +4,6 @@ package com.myorg.ezdeal.controller;
 import com.myorg.ezdeal.models.Reseña;
 import com.myorg.ezdeal.service.ReseñaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
