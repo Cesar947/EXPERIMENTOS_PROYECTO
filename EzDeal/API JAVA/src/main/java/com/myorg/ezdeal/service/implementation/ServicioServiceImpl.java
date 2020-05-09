@@ -70,8 +70,8 @@ public class ServicioServiceImpl  implements ServicioService {
 
     @Override
     public List<Servicio> listarServiciosPorTitulo(String keyword) throws Exception {
-
-        if(keyword != "") {
+        String vacio = "";
+        if(keyword != vacio) {
             keyword = "%" + keyword + "%";
         }
         return this.servicioRepository.listarServiciosPorTitulo(keyword);
@@ -82,7 +82,9 @@ public class ServicioServiceImpl  implements ServicioService {
             return servicioRepository.listarPorMembresia(membresiaId);
     }
 
-
+    public Servicio mostrarDetalleServicio(Long servcicioId) throws Exception{
+        return this.servicioRepository.findById(servcicioId).get();
+    }
 
     public static Date ParseFecha(String fecha)
     {

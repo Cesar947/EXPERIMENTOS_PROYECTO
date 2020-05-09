@@ -77,6 +77,9 @@ SELECT * FROM tipo_servicio;
 select * from servicio;
 select * from solicitud;
 
+/*actualizar el estado de la solicitud 40 a finalizado*/
+UPDATE solicitud SET estado = "Finalizado" WHERE solicitud_id = 40;
+
 #Queries facilitadores
 UPDATE SERVICIO SET esta_habilitado = 1 WHERE SERVICIO_ID > 0;
 UPDATE ANUNCIANTE SET membresia_id = 2 WHERE ANUNCIANTE_ID > 0;

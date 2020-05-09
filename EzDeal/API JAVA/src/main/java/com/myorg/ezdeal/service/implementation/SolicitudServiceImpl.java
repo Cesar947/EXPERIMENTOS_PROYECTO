@@ -45,9 +45,11 @@ public class SolicitudServiceImpl implements SolicitudService {
 
     @Transactional
     public int actualizarEstadoSolicitud(String estado, Long SolicitudId) throws Exception {
+        int actualizo = 1;
+        int noActualizo = 0;
         int actualizacionExitosa = this.solicitudRepository.actualizarEstadoSolicitud(estado, SolicitudId);
-        if (actualizacionExitosa == 1) return actualizacionExitosa;
-        else return 0;
+        if (actualizacionExitosa == actualizo) return actualizacionExitosa;
+        else return noActualizo;
     }
 
     @Override

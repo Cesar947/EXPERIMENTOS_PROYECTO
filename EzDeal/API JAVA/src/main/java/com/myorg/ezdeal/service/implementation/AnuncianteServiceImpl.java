@@ -34,14 +34,16 @@ public class AnuncianteServiceImpl implements AnuncianteService {
 
     public int actualizarDatosMembresia(String nombreMembresia, Long anuncianteId) throws Exception {
 
+        int actualizo = 1;
+        int noActualizo = 0;
         Membresia objMembresia = this.membresiaRepository.buscarPorNombre(nombreMembresia);
         int actualizacionExitosa = this.anuncianteRepository.actualizarDatosMembresia(objMembresia,anuncianteId);
 
-        if (actualizacionExitosa == 1) {
+        if (actualizacionExitosa == actualizo) {
             return actualizacionExitosa;
         }
         else {
-            return 0;
+            return noActualizo;
         }
 
 

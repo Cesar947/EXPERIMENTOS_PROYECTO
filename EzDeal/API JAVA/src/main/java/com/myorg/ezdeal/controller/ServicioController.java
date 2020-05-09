@@ -50,11 +50,9 @@ public class ServicioController {
         return this.servicioService.listarPorMembresia(membresiaId);
     }
 
-    /*
-    @GetMapping("/titulo")
-    public List<Servicio> listarServiciosPorTitulo(@RequestParam(value = "titulo", required = true) String titulo) throws Exception{
-        return this.servicioService.findByTituloLike("%"+titulo+"%");
+    @GetMapping("/{id}")
+    public Servicio mostrarDetalleServicio(@PathVariable("id") Long servicioId) throws Exception{
+        return this.servicioService.mostrarDetalleServicio(servicioId);
     }
 
-     */
 }

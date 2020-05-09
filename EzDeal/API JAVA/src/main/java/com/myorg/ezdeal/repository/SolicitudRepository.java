@@ -1,6 +1,6 @@
 package com.myorg.ezdeal.repository;
 
-import com.myorg.ezdeal.models.Membresia;
+
 import com.myorg.ezdeal.models.Solicitud;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
