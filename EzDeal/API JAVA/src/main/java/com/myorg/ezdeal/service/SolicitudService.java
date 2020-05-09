@@ -19,6 +19,6 @@ public interface SolicitudService {
     @Transactional
     int actualizarEstadoSolicitud(String estado, Long SolicitudId) throws Exception;
 
-    List<Solicitud> listarPorClienteYServicio(Long clienteId, Long servicioId);
+    List<Solicitud> listarPorClienteYServicio(Long clienteId, Long servicioId, String estado);
 
 }

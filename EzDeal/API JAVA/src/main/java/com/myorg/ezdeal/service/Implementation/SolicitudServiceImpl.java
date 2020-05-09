@@ -48,14 +48,12 @@ public class SolicitudServiceImpl implements SolicitudService {
 
     @Transactional
     public int actualizarEstadoSolicitud(String estado, Long SolicitudId) throws Exception {
-        int actualizacionExitosa = this.solicitudRepository.actualizarEstadoSolicitud(estado, SolicitudId);
-        if (actualizacionExitosa == 1) return actualizacionExitosa;
-        else return 0;
+        return solicitudRepository.actualizarEstadoSolicitud(estado, SolicitudId);
     }
 
     @Override
-    public List<Solicitud> listarPorClienteYServicio(Long clienteId, Long servicioId) {
-        return solicitudRepository.listarPorClienteYServicio(clienteId, servicioId);
+    public List<Solicitud> listarPorClienteYServicio(Long clienteId, Long servicioId, String estado) {
+        return solicitudRepository.listarPorClienteYServicio(clienteId, servicioId, estado);
     }
 
 
