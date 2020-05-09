@@ -9,7 +9,7 @@
       <p class="rating-value">{{anuncio.costoServicio}}</p>
     </div>
     <div class="enlace">
-      <a >Ver más</a>
+      <a v-on:click="navigateToDetail()">Ver más</a>
     </div>
   </div>
 </template>
@@ -17,7 +17,13 @@
 <script>
 export default {
   name: "PublicationCard",
-  props: ["anuncio"]
+  props: ["anuncio"],
+  methods: {
+    navigateToDetail(){
+       this.$router.push("/servicio/1");
+
+    }
+  }
 };
 </script>
 

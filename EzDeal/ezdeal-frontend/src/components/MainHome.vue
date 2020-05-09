@@ -5,6 +5,7 @@
     <div class="list-publications-container">
         
       <PublicationCard 
+      
       v-for="(value, key) in anuncios" 
       v-bind:key="key" 
       v-bind:anuncio="value" 
@@ -54,7 +55,7 @@ export default {
   methods: {
     listarServicios() {
 
-        axios.get(`${environment.api}/auth/servicios?membresiaId=1`)
+        axios.get(`${environment.api}/servicios/todos`)
         .then(response => {
           this.anuncios = response.data
           console.log(this.anuncios)
@@ -95,7 +96,7 @@ export default {
     margin: 48px auto 0;
     display: flex;
     flex-wrap: wrap;  
-    justify-content: center;
+    justify-content: flex-start;
     
 }
 </style>
