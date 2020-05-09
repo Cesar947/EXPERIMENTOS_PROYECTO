@@ -28,11 +28,11 @@ public class Reseña implements Serializable {
     @Column(name="valoracion")
     private double valoracion;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="servicio_id")
     private Servicio servicio;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="cliente_id")
     private Usuario cliente;
 
@@ -43,7 +43,9 @@ public class Reseña implements Serializable {
         this.cliente = cliente;
     }
 
-    public Reseña(String contenido, double valoracion) {
+
+    public Reseña(String contenido, double valoracion){
+
         this.contenido = contenido;
         this.valoracion = valoracion;
     }

@@ -24,22 +24,22 @@ public class Usuario implements Serializable {
     @Column(name="nombres", nullable = false)
     private String nombres;
 
-    @Column(name="apellido_paterno")
+    @Column(name="apellido_paterno", nullable = false)
     private String apellidoPaterno;
 
-    @Column(name="apellido_materno")
+    @Column(name="apellido_materno", nullable = false)
     private String apellidoMaterno;
 
-    @Column(name="departamento")
+    @Column(name="departamento", nullable = false)
     private String departamento;
 
-    @Column(name="distrito")
+    @Column(name="distrito", nullable = false)
     private String distrito;
 
-    @Column(name="direccion")
+    @Column(name="direccion", nullable = false)
     private String direccion;
 
-    @Column(name="provincia")
+    @Column(name="provincia", nullable = false)
     private String provincia;
 
     @Column(name="strikes")
@@ -51,7 +51,7 @@ public class Usuario implements Serializable {
     @Column(name="imagen_perfil")
     private String imagenPerfil;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="cuenta_id", nullable = false)
     private Cuenta cuentaId;
 
@@ -59,16 +59,8 @@ public class Usuario implements Serializable {
     @JoinColumn(name="anunciante_id")
     private Anunciante infoAnunciante;
 
-    public Usuario(final String nombres,
-                   final String apellidoPaterno,
-                   final String apellidoMaterno,
-                   final String departamento,
-                   final String distrito,
-                   final String direccion,
-                   final String provincia,
-                   final Cuenta cuentaId,
-                   final Anunciante infoAnunciante,
-                   final String imagenPerfil) {
+    public Usuario(String nombres, String apellidoPaterno, String apellidoMaterno, String departamento, String distrito, String direccion, String provincia, Cuenta cuentaId, Anunciante infoAnunciante, String imagenPerfil) {
+
         this.nombres = nombres;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
@@ -77,7 +69,11 @@ public class Usuario implements Serializable {
         this.direccion = direccion;
         this.provincia = provincia;
         this.cuentaId = cuentaId;
+
         this.infoAnunciante = infoAnunciante;
         this.imagenPerfil = imagenPerfil;
+
     }
+
+
 }

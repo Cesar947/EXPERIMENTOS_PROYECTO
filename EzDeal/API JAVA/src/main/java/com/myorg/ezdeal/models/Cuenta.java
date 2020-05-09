@@ -45,4 +45,9 @@ public class Cuenta implements Serializable {
         this.email = email;
         this.contrasena = contrasena;
     }
+
+    public Cuenta(String nombreUsuario, String contrasena){
+        this.nombreUsuario=nombreUsuario;
+        this.contrasena=contrasena;
+    }
 }

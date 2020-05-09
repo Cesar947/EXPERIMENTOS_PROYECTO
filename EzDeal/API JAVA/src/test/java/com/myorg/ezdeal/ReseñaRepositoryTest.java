@@ -1,6 +1,7 @@
 package com.myorg.ezdeal;
 
 
+
 import com.myorg.ezdeal.models.*;
 import com.myorg.ezdeal.repository.ReseñaRepository;
 import com.myorg.ezdeal.repository.ServicioRepository;
@@ -18,9 +19,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.transaction.Transactional;
 
 import java.util.*;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -76,7 +77,7 @@ public class ReseñaRepositoryTest {
         assertEquals(reseña.getId(), r2.getId());
         this.entityManager.refresh(servicio);
         assertEquals(false, servicio.getEstaHabilitado());
-    }
+}
 
 
     @After

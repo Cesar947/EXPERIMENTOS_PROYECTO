@@ -44,13 +44,17 @@ public class Anunciante implements Serializable {
     @JoinColumn(name="membresia_id")
     private Membresia membresia;
 
+
     public Anunciante(String telefonoFijo, String celular, String dni, String urlContacto, String antecedentesPenales, LocalDate fechaCaducidad, Membresia membresia) {
+
         this.telefonoFijo = telefonoFijo;
         this.celular = celular;
         this.dni = dni;
         this.urlContacto = urlContacto;
         this.antecedentesPenales = antecedentesPenales;
+
         this.fechaCaducidad = fechaCaducidad;
         this.membresia = membresia;
+
     }
 }

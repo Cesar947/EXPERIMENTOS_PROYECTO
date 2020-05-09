@@ -1,11 +1,16 @@
 package com.myorg.ezdeal.payload.request;
 
+
 import com.myorg.ezdeal.models.Anunciante;
 import lombok.Data;
 
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.Set;
 
 
@@ -45,6 +50,7 @@ public class SignUpRequest {
 
     @NotBlank
     private String provincia;
+
 
     @NotBlank
     private String imagenPerfil;

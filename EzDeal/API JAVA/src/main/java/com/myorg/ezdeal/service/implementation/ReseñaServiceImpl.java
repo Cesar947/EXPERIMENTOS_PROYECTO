@@ -8,6 +8,7 @@ import com.myorg.ezdeal.repository.ServicioRepository;
 import com.myorg.ezdeal.repository.SolicitudRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
 import com.myorg.ezdeal.service.ReseñaService;
+import com.myorg.ezdeal.service.SolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,14 +21,19 @@ public class ReseñaServiceImpl implements ReseñaService {
     private final ReseñaRepository reseñaRepository;
     private final ServicioRepository servicioRepository;
     private final UsuarioRepository usuarioRepository;
-    private final SolicitudRepository solicitudRepository;
+    private SolicitudService solicitudService;
 
     @Autowired
-    public ReseñaServiceImpl(ReseñaRepository reseñaRepository, ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, SolicitudRepository solicitudRepository){
+    public ReseñaServiceImpl(ReseñaRepository reseñaRepository, ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, SolicitudRepository solicitudRepository, SolicitudService  solicitudService){
         this.reseñaRepository = reseñaRepository;
         this.servicioRepository = servicioRepository;
         this.usuarioRepository = usuarioRepository;
-        this.solicitudRepository = solicitudRepository;
+        this.solicitudService = solicitudService;
+    }
+
+    @Override
+    public void setSolicitudService(SolicitudService solicitudService){
+        this.solicitudService = solicitudService;
     }
 
 
@@ -37,8 +43,7 @@ public class ReseñaServiceImpl implements ReseñaService {
         Usuario cliente = usuarioRepository.findById(clienteId).get();
         Servicio servicio = servicioRepository.findById(servicioId).get();
 
-        int cantidadDeSolicitudesFinalizadas = solicitudRepository.listarPorClienteYServicio(clienteId, servicioId).size();
-
+        int cantidadDeSolicitudesFinalizadas = solicitudService.listarPorClienteYServicio(clienteId, servicioId, "Finalizado").size();
 
         if(cantidadDeSolicitudesFinalizadas > 0) {
 
@@ -74,7 +79,6 @@ public class ReseñaServiceImpl implements ReseñaService {
 
     @Override
     public void inhabilitarServicio(Long servicioId) throws Exception{
-
 
     }
 }

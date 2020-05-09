@@ -11,4 +11,5 @@ public interface ReseñaService{
     List<Reseña> listarReseñas() throws Exception;
     double porcentajeReseñasNegativas(Long servicioId) throws Exception;
     void inhabilitarServicio(Long servicioId) throws Exception;
+    void setSolicitudService(SolicitudService solicitudService);
 }

@@ -1,6 +1,4 @@
 package com.myorg.ezdeal.service.implementation;
-
-
 import com.myorg.ezdeal.models.Solicitud;
 
 import com.myorg.ezdeal.repository.SolicitudRepository;
@@ -53,9 +51,11 @@ public class SolicitudServiceImpl implements SolicitudService {
     }
 
     @Override
-    public List<Solicitud> listarPorClienteYServicio(Long clienteId, Long servicioId) {
-        return solicitudRepository.listarPorClienteYServicio(clienteId, servicioId);
+    public List<Solicitud> listarPorClienteYServicio(Long clienteId, Long servicioId, String estado) {
+        return solicitudRepository.listarPorClienteYServicio(clienteId, servicioId, estado);
     }
 
 
+
 }
+
