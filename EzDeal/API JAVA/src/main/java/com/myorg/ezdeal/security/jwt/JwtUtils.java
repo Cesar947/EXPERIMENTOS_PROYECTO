@@ -1,7 +1,6 @@
 package com.myorg.ezdeal.security.jwt;
 
 import com.myorg.ezdeal.models.CuentaPrincipal;
-import com.myorg.ezdeal.service.Implementation.CuentaServiceImpl;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,10 +29,10 @@ public class JwtUtils {
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
         return Jwts.builder()
-                .setSubject((userPrincipal.getUsername()))
+                .setSubject( userPrincipal.getUsername() )
                 .claim("roles", authorities)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .setExpiration(new Date(new Date().getTime() + jwtExpirationMs))
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
     }

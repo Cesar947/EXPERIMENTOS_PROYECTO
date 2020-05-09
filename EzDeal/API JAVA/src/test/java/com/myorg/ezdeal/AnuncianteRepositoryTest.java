@@ -31,6 +31,11 @@ public class AnuncianteRepositoryTest {
         System.out.println("Iniciamos la prueba de anunciante repository");
     }
 
+
+    /*
+    Test para verificar que se actualize correctamente la membresía de un Anunciante
+    y que esta membresía sea la esperada
+     */
     @Test
     @Transactional
     public void actualizarMembresiaTest(){

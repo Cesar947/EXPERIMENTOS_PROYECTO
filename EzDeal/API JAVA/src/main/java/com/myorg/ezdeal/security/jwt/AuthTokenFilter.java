@@ -1,6 +1,6 @@
 package com.myorg.ezdeal.security.jwt;
 
-import com.myorg.ezdeal.service.Implementation.CuentaServiceImpl;
+import com.myorg.ezdeal.service.implementation.CuentaServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

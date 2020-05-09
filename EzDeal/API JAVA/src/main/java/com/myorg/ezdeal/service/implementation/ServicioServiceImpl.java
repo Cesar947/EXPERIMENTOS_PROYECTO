@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.service.Implementation;
+package com.myorg.ezdeal.service.implementation;
 
 import com.myorg.ezdeal.models.Horario;
 import com.myorg.ezdeal.models.Servicio;
@@ -11,7 +11,6 @@ import com.myorg.ezdeal.repository.UsuarioRepository;
 import com.myorg.ezdeal.service.ServicioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -76,9 +75,9 @@ public class ServicioServiceImpl  implements ServicioService {
     @Override
     public List<Servicio> listarServiciosPorTitulo(String keyword) throws Exception {
 
-        if(keyword != "")
+        if(keyword != "") {
             keyword = "%" + keyword + "%";
-
+        }
         return this.servicioRepository.listarServiciosPorTitulo(keyword);
     }
 

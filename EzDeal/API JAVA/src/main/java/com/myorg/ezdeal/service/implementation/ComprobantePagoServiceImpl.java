@@ -1,6 +1,5 @@
-package com.myorg.ezdeal.service.Implementation;
+package com.myorg.ezdeal.service.implementation;
 
-import com.myorg.ezdeal.models.Anunciante;
 import com.myorg.ezdeal.models.ComprobantePago;
 import com.myorg.ezdeal.models.Membresia;
 import com.myorg.ezdeal.repository.AnuncianteRepository;
@@ -46,7 +45,7 @@ public class ComprobantePagoServiceImpl implements ComprobantePagoService {
         comprobantePago.setImporte(membresia.getCosto());
 
         comprobantePago.setProducto("Membresia " + body.get("membresiaNombre"));
-        comprobantePago.setAnunciante( anuncianteRepository.findById( new Long(body.get("anuncianteId") )).get());
+        comprobantePago.setAnunciante( anuncianteRepository.findById( Long.valueOf(body.get("anuncianteId") )).get());
         comprobantePago.setIgv( comprobantePago.getImporte().multiply(BigDecimal.valueOf(0.18)));
         comprobantePago.setMontoTotal(comprobantePago.getImporte().add(comprobantePago.getIgv()));
         comprobantePago.setFechaPago(LocalDate.now());

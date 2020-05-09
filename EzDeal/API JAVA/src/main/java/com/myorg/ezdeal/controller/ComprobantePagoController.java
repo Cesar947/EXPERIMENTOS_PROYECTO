@@ -17,12 +17,12 @@ public class ComprobantePagoController {
     private ComprobantePagoService comprobantePagoService;
 
     @Autowired
-    public ComprobantePagoController(ComprobantePagoService comprobantePagoService){
+    public ComprobantePagoController(final ComprobantePagoService comprobantePagoService){
         this.comprobantePagoService = comprobantePagoService;
     }
 
     @PostMapping
-    public ComprobantePago generarComprobante(@RequestBody Map<String, String> body) throws Exception {
+    public ComprobantePago generarComprobante(final @RequestBody Map<String, String> body) throws Exception {
         return comprobantePagoService.insertarComprobante(body);
     }
 

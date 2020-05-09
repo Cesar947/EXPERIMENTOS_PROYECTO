@@ -1,21 +1,16 @@
 package com.myorg.ezdeal.models;
 
-import lombok.extern.java.Log;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.management.relation.Role;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class CuentaPrincipal implements UserDetails {
 
     private Cuenta cuenta;
 
-    public CuentaPrincipal(Cuenta cuenta){
+    public CuentaPrincipal(final Cuenta cuenta){
         this.cuenta = cuenta;
     }
 
@@ -27,7 +22,7 @@ public class CuentaPrincipal implements UserDetails {
         roles.forEach(role -> authorities
                 .add(new SimpleGrantedAuthority(role.getNombre().toString()))
         );
-        return (Set<? extends GrantedAuthority>) authorities;
+        return authorities;
     }
 
     public Long getId() {

@@ -18,14 +18,14 @@ public class ServicioController {
     private ServicioService servicioService;
 
     @Autowired
-    public ServicioController(ServicioService servicioService){
+    public ServicioController(final ServicioService servicioService){
         this.servicioService = servicioService;
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Servicio publicarServicio(@RequestBody Servicio servicio,
-                                     @RequestParam(value = "tipoServicioId" , required = true) Long tipoServicioId,
-                                     @RequestParam(value="anuncianteId", required = true) Long anuncianteId) throws Exception{
+    public Servicio publicarServicio(final @RequestBody Servicio servicio,
+                                     final @RequestParam(value = "tipoServicioId" , required = true) Long tipoServicioId,
+                                     final @RequestParam(value="anuncianteId", required = true) Long anuncianteId) throws Exception{
 
 
         log.info("***********************");
@@ -42,13 +42,13 @@ public class ServicioController {
 
 
     @GetMapping("/titulo")
-    public List<Servicio> listarServiciosPorTitulo(@RequestParam(value = "keyword", required = true) String keyword) throws Exception{
+    public List<Servicio> listarServiciosPorTitulo(final @RequestParam(value = "keyword", required = true) String keyword) throws Exception{
 
         return this.servicioService.listarServiciosPorTitulo(keyword);
     }
 
     @GetMapping
-    public List<Servicio> listarPorMembresia(@RequestParam("membresiaId") Long membresiaId) throws Exception{
+    public List<Servicio> listarPorMembresia(final @RequestParam("membresiaId") Long membresiaId) throws Exception{
         return this.servicioService.listarPorMembresia(membresiaId);
     }
 

@@ -2,7 +2,6 @@ package com.myorg.ezdeal.controller;
 
 
 import com.myorg.ezdeal.models.Agenda;
-import com.myorg.ezdeal.models.Servicio;
 import com.myorg.ezdeal.models.Solicitud;
 import com.myorg.ezdeal.service.SolicitudService;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +17,7 @@ public class SolicitudController {
     private SolicitudService solicitudService;
 
     @Autowired
-    public SolicitudController(SolicitudService solicitudService){
+    public SolicitudController(final SolicitudService solicitudService){
         this.solicitudService = solicitudService;
     }
 
@@ -28,12 +27,12 @@ public class SolicitudController {
     }
 
     @PostMapping
-    public Solicitud publicarSolicitud(@RequestBody Solicitud solicitud) throws Exception{
+    public Solicitud publicarSolicitud(final @RequestBody Solicitud solicitud) throws Exception{
         return this.solicitudService.solicitar(solicitud);
     }
 
     @PutMapping("/{id}")
-    public Solicitud reagendarCita(@PathVariable("id") Long solicitudId, @RequestBody Agenda cita) throws Exception{
+    public Solicitud reagendarCita(final @PathVariable("id") Long solicitudId, final @RequestBody Agenda cita) throws Exception{
         return this.solicitudService.reagendarCita(cita, solicitudId);
     }
 }

@@ -26,29 +26,22 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @Autowired
-    public UsuarioController(UsuarioService usuarioService){
+    public UsuarioController(final UsuarioService usuarioService){
         this.usuarioService = usuarioService;
     }
 
     @RequestMapping(path="/cliente", method = RequestMethod.POST)
-    public Usuario registrarCliente(@RequestBody Usuario usuario) throws Exception{
+    public Usuario registrarCliente(final @RequestBody Usuario usuario) throws Exception{
 
         //usuario.setRol('C');
         return this.usuarioService.registrarUsuario(usuario);
     }
 
     @RequestMapping(path="/anunciante", method = RequestMethod.POST)
-    public Usuario registrarAnunciante(@RequestBody Usuario usuario) throws Exception{
+    public Usuario registrarAnunciante(final @RequestBody Usuario usuario) throws Exception{
 
         //usuario.setRol('A');
         return this.usuarioService.registrarUsuario(usuario);
-    }
-
-    @PreAuthorize("hasAuthority('ROL_ANUNCIANTE')")
-    @GetMapping("/hola-mundo")
-    public String HolaMundo(){
-        log.info("Ejecutando");
-        return "Hola Mundo";
     }
 
 
@@ -58,23 +51,10 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public Usuario listarUsuarios(@PathVariable Long id) throws Exception{
+    public Usuario listarUsuarios(final @PathVariable Long id) throws Exception{
         return this.usuarioService.verPerfil(id);
     }
 
-    @GetMapping("/prueba")
-    @Secured({ "ROL_CLIENTE" })
-    public String Home(){
-        return "Home";
-    }
-
-   /* @GetMapping("/ver-cuenta")
-   public Long getIdCuenta(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        CuentaPrincipal userDetails = (CuentaPrincipal) authentication.getPrincipal();
-        return userDetails.getId();
-    }
-*/
    @GetMapping("/quieroverelID")
    public Long obtenerID() throws Exception{
 
@@ -84,11 +64,13 @@ public class UsuarioController {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
         String id = null;
-        if (authentication != null)
-                log.info("****************************");
-                log.info(((UserDetails) authentication.getPrincipal()).getUsername());
-                log.info("****************************");
-                id = ((UserDetails) authentication.getPrincipal()).getUsername();
+        if (authentication != null){
+
+            log.info("****************************");
+            log.info(((UserDetails) authentication.getPrincipal()).getUsername());
+            log.info("****************************");
+            id = ((UserDetails) authentication.getPrincipal()).getUsername();
+        }
         try {
             return Long.valueOf(id != null ? id : "0"); //anonymoususer
         } catch (NumberFormatException e) {

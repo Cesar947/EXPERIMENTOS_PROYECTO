@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.service.Implementation;
+package com.myorg.ezdeal.service.implementation;
 
 import com.myorg.ezdeal.models.Usuario;
 import com.myorg.ezdeal.repository.UsuarioRepository;

@@ -1,7 +1,6 @@
 package com.myorg.ezdeal.payload.request;
 
 import com.myorg.ezdeal.models.Anunciante;
-import com.myorg.ezdeal.models.Membresia;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
