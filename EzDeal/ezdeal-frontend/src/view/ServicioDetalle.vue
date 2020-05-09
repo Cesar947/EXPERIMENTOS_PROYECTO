@@ -79,7 +79,10 @@ import ServiceService from "../services/Service.service";
 export default {
   name: "ServicioDetalle",
 
-  mounted() {},
+  mounted() {
+    this.getServiceDetail();
+  },
+  
   data: function() {
     return {
       qwe: this.$route.params.id,
@@ -88,8 +91,9 @@ export default {
   },
   methods: {
     async getServiceDetail() {
-      ServiceService.solicitarCita(2).then((res) => {
+      ServiceService.getServiceDetail(this.$route.params.id).then((res) => {
         console.log(res);
+
         this.$data.servicioDetalle = res.data;
       });
     },

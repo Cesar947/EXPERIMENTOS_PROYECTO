@@ -10,13 +10,13 @@ class ServicePublication {
         })
     }
 
-    async solicitarCita(id) {
+    async getServiceDetail(id) {
 
         // const config = { 
         //     headers: { 'Authorization': 'Bearer ' + environment.token } }
 
         console.log(environment.token);
-        return await Axios.get(`${environment.api}servicios/${id}`)
+        return await Axios.get(`${environment.api}/servicios/${id}`)
     }
 
 }

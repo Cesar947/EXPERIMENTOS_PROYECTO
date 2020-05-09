@@ -20,7 +20,7 @@ export default {
   props: ["anuncio"],
   methods: {
     navigateToDetail(){
-       this.$router.push("/servicio/1");
+       this.$router.push(`/servicio/${this.$props.anuncio.id}`);
 
     }
   }
