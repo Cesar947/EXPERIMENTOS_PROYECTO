@@ -5,6 +5,7 @@ import Publication from "./view/PublicationForm.vue";
 import MembresiaGold from "./components/MembresiaGold.vue";
 import MainHome from "./components/MainHome.vue";
 import ServicioDetalle from "./view/ServicioDetalle.vue";
+import SolicitudConfirmacion from "./view/SolicitudConfirmacion.vue";
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -33,6 +34,10 @@ export default new Router({
                 {
                     path: 'servicio/:id',
                     component: ServicioDetalle
+                },
+                {
+                    path:'solicitud-confirmacion',
+                    component: SolicitudConfirmacion
                 }
             ]
         },

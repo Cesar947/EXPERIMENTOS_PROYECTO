@@ -91,6 +91,24 @@ export default class ServicioDetalle {
             horaApertura: "13:30:30",
             horaCierre: "21:45:30"
         },
+        {
+            id: 3,
+            dia: "Miercoles",
+            horaApertura: "13:30:30",
+            horaCierre: "21:45:30"
+        },
+        {
+            id: 4,
+            dia: "Jueves",
+            horaApertura: "13:30:30",
+            horaCierre: "21:45:30"
+        },
+        {
+            id: 5,
+            dia: "Viernes",
+            horaApertura: "13:30:30",
+            horaCierre: "21:45:30"
+        },
     ]
 
 }
