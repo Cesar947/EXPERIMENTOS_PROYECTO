@@ -1,11 +1,11 @@
 <template>
   <div class="register-container">
     <div v-on:click="goToHome" class="header">
-      <img src="../assets/Logo_dark.svg" alt />
+      <img src="../assets/logo.png" alt />
     </div>
 
     <div class="form">
-      <h1>Bienvenido a EzDeal</h1>
+      <h1 style="text-align:center">Bienvenido a EzDeal</h1>
        <h2>Preparate para todos los clientes que obtendrás</h2>
       <p>Se debe de completar todos los campos</p>
 
@@ -153,7 +153,7 @@ export default {
 
   methods: {
     goToHome: function() {
-      this.$router.push("/login");
+      this.$router.push("/");
     },
 
     register: function() {
@@ -192,7 +192,7 @@ export default {
       })
       .then(res => {console.log(res)})
 
-      this.$router.push("/");
+      this.$router.push("/login");
     },
     selectRol: function(id) {
       console.log(id);

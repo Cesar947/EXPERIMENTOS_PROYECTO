@@ -52,21 +52,44 @@
         <p class="title-info">Descripción</p>
         <p>{{ servicioDetalle.tipoServicio.descripcion }}</p>
       </div>
-
-      <div>
-        <button class="btn-solicitar">Solicitar</button>
-      </div>
     </div>
     <div class="horarios">
       <h1>Horario</h1>
       <div
-      class="horario-container"
+        class="horario-container"
         v-for="(horario, index) in servicioDetalle.horarios"
         v-bind:key="index"
+        :class="{ activeHorario: index == activedIndex }"
       >
         <div class="horario-description">
           <p>{{ horario.dia }}:</p>
           <p>{{ horario.horaApertura }} - {{ horario.horaCierre }}</p>
+        </div>
+      </div>
+
+      <div class="reserva-tu-cita-container">
+        <h1>Reserva tu cita</h1>
+
+        <div class="field">
+          <label for="">Hora inicio</label>
+          <input type="text" v-model="horaInicio" placeholder="Hora inicio" />
+        </div>
+        <div class="field">
+          <label for="">Fecha</label>
+          <input type="date" v-model="horaFin" placeholder="Hora fin" />
+        </div>
+        <div class="field">
+          <label for="">Mensaje</label>
+          <textarea
+            type="text"
+            v-model="mensaje"
+            placeholder="Escribe un mensaje..."
+          />
+        </div>
+        <div>
+          <button :disabled="isFormValid()" v-on:click="confirmation" class="btn-solicitar">
+            Solicitar
+          </button>
         </div>
       </div>
     </div>
@@ -82,11 +105,15 @@ export default {
   mounted() {
     this.getServiceDetail();
   },
-  
+
   data: function() {
     return {
+      activedIndex: -1,
       qwe: this.$route.params.id,
       servicioDetalle: new ServicioDetalle(),
+      horaInicio :"",
+      horaFin :"",
+      mensaje :""
     };
   },
   methods: {
@@ -97,19 +124,42 @@ export default {
         this.$data.servicioDetalle = res.data;
       });
     },
+
+    confirmation() {
+      this.$router.push("/solicitud-confirmacion");
+    },
+
+    isFormValid(){
+      if(
+        this.$data.horaInicio.length &&
+        this.$data.horaFin.length &&
+        this.$data.mensaje
+      ){return false}
+      else{
+        return true
+      }
+    }
   },
 };
 </script>
 
 <style>
-
 .price {
   color: #ff3168;
+}
+
+.activeHorario {
+  transition: all 0.2s ease-in-out;
+  background: #ff3168 !important;
+}
+.activeHorario p {
+  color: #ffffff !important ;
 }
 .reserva-container {
   width: 1200px;
   margin: 0 auto;
   display: flex;
+  justify-content: space-between;
 }
 .header-avatar {
   display: flex;
@@ -119,6 +169,10 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.horario-container {
+  cursor: pointer;
 }
 
 .header-avatar .avatar img {
@@ -180,10 +234,10 @@ export default {
   font-size: 24px;
   font-weight: 700;
 }
- .sub-description-time {
+.sub-description-time {
   display: flex;
 }
- .horarios {
+.horarios {
   margin-left: 24px;
 }
 
@@ -207,18 +261,57 @@ export default {
   cursor: pointer;
 }
 
-.horario-container{
+.horario-container {
   display: flex;
   align-items: center;
   margin: 12px 0;
-    background: #fbfbfb;
+  background: #fbfbfb;
   border-radius: 5px;
-    padding: 16px 24px;
+  padding: 16px 24px;
 }
-.horario-description p{
-margin: 0 12px !important;
-color: #232323;
-font-size: 18px;
+.horario-description p {
+  margin: 0 12px !important;
+  color: #232323;
+  font-size: 18px;
+}
 
+.reserva-tu-cita-container {
+  margin-top: 42px;
+}
+
+.reserva-tu-cita-container .field {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0;
+}
+
+.reserva-tu-cita-container .field label {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4e4e4e;
+}
+
+.reserva-tu-cita-container .field input::placeholder {
+  color: #aeaeae;
+}
+.reserva-tu-cita-container .field input,
+.reserva-tu-cita-container .field textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fafafb;
+  font-size: 16px;
+  border: none;
+}
+
+.reserva-tu-cita-container button {
+  margin-bottom: 64px;
+}
+
+.reserva-tu-cita-container button:disabled {
+  background: #4e4e4e !important;
+  opacity: 0.36 !important;
+  cursor: not-allowed;
 }
 </style>
