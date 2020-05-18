@@ -16,7 +16,6 @@ public class AnuncianteController {
         this.anuncianteService = anuncianteService;
     }
 
-
     @PutMapping("/membresia/{nombreMembresia}")
     public int actualizarDatosMembresia(@PathVariable("nombreMembresia") final String nombreMembresia,
                                               @RequestParam("anuncianteId") final Long anuncianteId) throws Exception {

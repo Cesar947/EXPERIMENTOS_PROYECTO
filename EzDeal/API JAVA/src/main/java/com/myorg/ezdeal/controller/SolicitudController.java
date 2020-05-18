@@ -7,7 +7,10 @@ import com.myorg.ezdeal.service.SolicitudService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/solicitudes")
@@ -27,12 +30,17 @@ public class SolicitudController {
     }
 
     @PostMapping
-    public Solicitud publicarSolicitud(final @RequestBody Solicitud solicitud) throws Exception{
-        return this.solicitudService.solicitar(solicitud);
+    public Solicitud publicarSolicitud(@RequestBody Solicitud solicitud,
+                                       @RequestParam("clienteId") Long clienteId,
+                                       @RequestParam("servicioId") Long servicioId) throws Exception{
+        return this.solicitudService.solicitar(solicitud, clienteId, servicioId);
     }
 
     @PutMapping("/{id}")
-    public Solicitud reagendarCita(final @PathVariable("id") Long solicitudId, final @RequestBody Agenda cita) throws Exception{
-        return this.solicitudService.reagendarCita(cita, solicitudId);
+    public int actualizarHoraFinEstimada(@RequestParam("horaFin") LocalTime horaFin, @PathVariable Long solicitudId) throws Exception{
+        return this.solicitudService.actualizarHoraFin(horaFin, solicitudId);
     }
+
+
+
 }

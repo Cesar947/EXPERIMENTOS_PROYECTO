@@ -37,6 +37,7 @@ public class Solicitud implements Serializable {
     @Column(name="mensaje")
     private String mensaje;
 
+    // Solicitado - En curso - Finalizado
     @Column(name="estado")
     private String estado;
 
@@ -52,8 +53,12 @@ public class Solicitud implements Serializable {
     @Column(name="fecha_pactada", nullable=true)
     private LocalDate fechaPactada;
 
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="solicitud")
-    private List<Agenda> citas;
+    @Column(name="dia")
+    private String diaPactado;
+
+    @Column(name="hora_fin")
+    private LocalTime horaFinEstimada;
+
 
     public Solicitud(Servicio servicio, Usuario cliente, String mensaje, String estado, double costoFinal, LocalDate fechaSolicitud, LocalTime horaPactada, LocalDate fechaPactada) {
         this.servicio = servicio;

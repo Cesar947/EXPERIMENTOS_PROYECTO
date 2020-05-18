@@ -14,8 +14,6 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
 
     @Query("SELECT s FROM Servicio s order by s.fechaPublicacion desc")
     List<Servicio> listarServicios() throws Exception;
-
-
     @Query(
             value = "select * from servicio " +
                     "join usuario on servicio.anunciante_id = usuario.anunciante_id " +
@@ -32,9 +30,6 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
             "JOIN Anunciante a ON a.id = u.infoAnunciante.id JOIN Membresia m ON " +
             "m.id = a.membresia.id where  m.id = ?1")
     List<Servicio> listarPorMembresia(Long membresiaId) throws Exception;
-
-
-
 
     List<Servicio> findByTituloLike(String titulo) throws Exception;
 }

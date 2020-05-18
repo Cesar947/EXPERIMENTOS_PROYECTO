@@ -25,13 +25,13 @@ public class ComprobantePago implements Serializable {
     private Long id;
 
     @Column(name="importe")
-    private BigDecimal importe;
+    private BigDecimal monto;
 
     @Column(name="igv")
     private BigDecimal igv;
 
-    @Column(name="montoTotal")
-    private BigDecimal montoTotal;
+    @Column(name="monto_neto")
+    private BigDecimal montoNeto;
 
     @Column(name="fecha_pago")
     private LocalDate fechaPago;
@@ -43,8 +43,7 @@ public class ComprobantePago implements Serializable {
     @JoinColumn(name="anunciante_id")
     private Anunciante anunciante;
 
-    @Column(name="producto")
-    private String producto;
-
+    @Column(name="membresia_id")
+    private Membresia membresia;
 
 }

@@ -2,7 +2,9 @@ package com.myorg.ezdeal.models;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Getter
+@Setter
 @Table(name="servicio")
 public class Servicio implements Serializable {
 
@@ -65,109 +69,6 @@ public class Servicio implements Serializable {
             mappedBy = "servicio")
     private List<Horario> horarios;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public Usuario getAnunciante() {
-        return anunciante;
-    }
-
-    public void setAnunciante(Usuario anunciante) {
-        this.anunciante = anunciante;
-    }
-
-    public TipoServicio getTipoServicio() {
-        return tipoServicio;
-    }
-
-    public void setTipoServicio(TipoServicio tipoServicio) {
-        this.tipoServicio = tipoServicio;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
-    public BigDecimal getCostoServicio() {
-        return costoServicio;
-    }
-
-    public void setCostoServicio(BigDecimal costoServicio) {
-        this.costoServicio = costoServicio;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Boolean getEstaHabilitado() {
-        return estaHabilitado;
-    }
-
-    public void setEstaHabilitado(Boolean estaHabilitado) {
-        this.estaHabilitado = estaHabilitado;
-    }
-
-    public Double getValoracion() {
-        return valoracion;
-    }
-
-    public void setValoracion(Double valoracion) {
-        this.valoracion = valoracion;
-    }
-
-    public LocalDate getFechaPublicacion() {
-        return fechaPublicacion;
-    }
-
-    public void setFechaPublicacion(LocalDate fechaPublicacion) {
-        this.fechaPublicacion = fechaPublicacion;
-    }
-
-    public Integer getModalidad() {
-        return modalidad;
-    }
-
-    public void setModalidad(Integer modalidad) {
-        this.modalidad = modalidad;
-    }
-
-    public String getVideoPresentacion() {
-        return videoPresentacion;
-    }
-
-    public void setVideoPresentacion(String videoPresentacion) {
-        this.videoPresentacion = videoPresentacion;
-    }
-
-    public List<Horario> getHorarios() {
-        return horarios;
-    }
-
-    public void setHorarios(List<Horario> horarios) {
-        this.horarios = horarios;
-    }
 }
 
 
