@@ -24,7 +24,7 @@ public class ComprobantePago implements Serializable {
     @Column(name="comprobante_id")
     private Long id;
 
-    @Column(name="importe")
+    @Column(name="monto")
     private BigDecimal monto;
 
     @Column(name="igv")

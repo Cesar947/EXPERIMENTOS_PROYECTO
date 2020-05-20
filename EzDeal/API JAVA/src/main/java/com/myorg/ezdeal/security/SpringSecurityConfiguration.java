@@ -61,10 +61,6 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-                /*.antMatchers("/solicitudes/**").permitAll()
-                .antMatchers("/api/test/**").permitAll()
-                .antMatchers("/servicios/todos").hasRole("ROL_ANUNCIANTE")
-                .antMatchers("/servicios/titulo").access("hasAnyRole('ROL_CLIENTE', 'ROL_ANUNCIANTE')")*/
                 .anyRequest().authenticated()
         .and().formLogin().disable();
 

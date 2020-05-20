@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -37,10 +38,14 @@ public class SolicitudController {
     }
 
     @PutMapping("/{id}")
-    public int actualizarHoraFinEstimada(@RequestParam("horaFin") LocalTime horaFin, @PathVariable Long solicitudId) throws Exception{
+    public int actualizarHoraFinEstimada(@RequestParam("horaFin") String horaFin, @PathVariable("id") Long solicitudId) throws Exception{
         return this.solicitudService.actualizarHoraFin(horaFin, solicitudId);
     }
 
+    @GetMapping("/servicio/{id}")
+    public List<Solicitud> listarSolicitudesPorServicio(@PathVariable("id") Long servicioId) throws Exception{
+        return this.solicitudService.listarPorServicio(servicioId);
+    }
 
 
 }

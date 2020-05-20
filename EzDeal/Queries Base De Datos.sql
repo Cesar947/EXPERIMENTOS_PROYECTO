@@ -76,6 +76,9 @@ SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
 select * from servicio;
 select * from solicitud;
+select * from cita;
+select * from horario;
+select * from reseña;
 
 /*actualizar el estado de la solicitud 40 a finalizado*/
 UPDATE solicitud SET estado = "Finalizado" WHERE solicitud_id = 40;
@@ -115,7 +118,8 @@ SELECT a.anunciante_id as 'ID_ANUNCIANTE', m.nombre as 'Membresia'
 FROM anunciante a JOIN membresia m ON m.membresia_id = a.membresia_id
 WHERE m.nombre = 'FREE';
 
-
+SELECT COUNT(c.cita_id) FROM cita c JOIN solicitud s ON c.solicitud_id = s.solicitud_id 
+WHERE s.servicio_id = 1 and s.cliente_id = 3 and c.estado = "Finalizado";
 
 
 UPDATE ANUNCIANTE SET MEMBRESIA_ID = 2 WHERE ANUNCIANTE_ID = 1;
@@ -140,6 +144,9 @@ INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)
 VALUES ("Eres terrible pero al menos hiciste tu trabajo", 2.4, 3, 2);
 INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)
 VALUES ("Eres terrible pero al menos hiciste tu trabajo", 2.4, 3, 2);
+
+
+
 
 
 SELECT COUNT(r.reseña_id) FROM Reseña r where r.valoracion < 2.5 and r.servicio_id = 1;

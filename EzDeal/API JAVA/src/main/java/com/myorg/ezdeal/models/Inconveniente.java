@@ -25,6 +25,6 @@ public class Inconveniente implements Serializable {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name= "solicitud_id")
-    private Solicitud solicitud;
+    @JoinColumn(name= "cita_id")
+    private Cita cita;
 }

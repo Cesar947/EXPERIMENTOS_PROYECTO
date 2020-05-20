@@ -26,7 +26,7 @@ public class ReseñaController {
         return this.reseñaService.listarReseñasPorServicio(servicioId);
     }
 
-    @PostMapping("/publicar")
+    @PostMapping
     public Reseña publicarReseña(@RequestBody Reseña reseña,
                                  @RequestParam(value="servicioId", required=true) Long servicioId,
                                  @RequestParam(value="clienteId", required=true) Long clienteId) throws Exception {
@@ -37,10 +37,5 @@ public class ReseñaController {
     public List<Reseña> listarReseñas() throws Exception{
         return this.reseñaService.listarReseñas();
     }
-    /*
-    @GetMapping("/negativas")
-    public double porcentajeReseñasNegativas(@RequestParam("servicioId") Long servicioId) throws Exception{
-        return this.reseñaService.porcentajeReseñasNegativas(servicioId);
-    }
-    */
+
 }

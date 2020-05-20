@@ -20,7 +20,6 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@Slf4j
 public class ServicioServiceImpl  implements ServicioService {
 
     private ServicioRepository servicioRepository;
@@ -40,10 +39,7 @@ public class ServicioServiceImpl  implements ServicioService {
 
     @Override
     public Servicio publicarServicio(Servicio servicio, Long anuncianteId, Long tipoServicioId) throws Exception{
-        log.info("//////////////////////////////////////////////////");
-        log.info("Estamos dentro");
-        log.info(servicio.toString());
-        log.info("//////////////////////////////////////////////////");
+
        Usuario user = usuarioRepository.findById(anuncianteId).get();
        servicio.setAnunciante(user);
        servicio.setEstaHabilitado(true);

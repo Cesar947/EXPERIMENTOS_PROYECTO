@@ -8,31 +8,31 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Data
+/*@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="agenda")
+@Table(name="agenda")*/
 //Agenda se encarga de registrar la hora y fecha pactada por el cliente y el anunciante
 public class Agenda implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
+/*    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="agenda_id")
+    @Column(name="agenda_id")*/
     private Long id;
 
-    @Column(name="dia")
+    //@Column(name="dia")
     private String dia;
 
-    @Column(name="hora_inicio")
+    //@Column(name="hora_inicio")
     private LocalDate horaInicio;
 
-    @Column(name="hora_fin")
+   // @Column(name="hora_fin")
     private LocalDate horaFin;
 
-    @ManyToOne
-    @JoinColumn(name="solicitud_id")
+    //@ManyToOne
+    //@JoinColumn(name="solicitud_id")
     private Solicitud solicitud;
 }

@@ -33,7 +33,7 @@ public class ServicioController {
         return this.servicioService.publicarServicio(servicio, anuncianteId, tipoServicioId);
     }
 
-    @GetMapping("/todos")
+    @GetMapping("/lista")
     public List<Servicio> listarServicios() throws Exception{
         return this.servicioService.listarServicios();
     }

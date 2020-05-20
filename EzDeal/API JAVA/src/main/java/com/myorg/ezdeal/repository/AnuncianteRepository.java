@@ -16,4 +16,5 @@ public interface AnuncianteRepository extends JpaRepository<Anunciante, Long> {
     int actualizarDatosMembresia(Membresia membresia, Long anuncianteId);
 
 
+
 }

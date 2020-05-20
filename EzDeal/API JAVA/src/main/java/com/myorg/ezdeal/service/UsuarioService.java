@@ -13,4 +13,6 @@ public interface UsuarioService {
     List<Usuario> listarUsuarios() throws Exception;
 
     Usuario verPerfil(Long id) throws Exception;
+
+    int actualizarMembresia(String nombreMembresia, Long usuarioAnuncianteId) throws Exception;
 }

@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalTime;
 
 @Getter
@@ -27,6 +28,9 @@ public class Cita implements Serializable {
 
     @Column(name = "hora_fin")
     private LocalTime horaFin;
+
+    @Column(name="costo_final")
+    private BigDecimal costoFinal;
 
     @Column(name = "estado")
     private String estado;

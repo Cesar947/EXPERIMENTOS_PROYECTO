@@ -3,10 +3,7 @@ package com.myorg.ezdeal.service.implementation;
 import com.myorg.ezdeal.models.Reseña;
 import com.myorg.ezdeal.models.Servicio;
 import com.myorg.ezdeal.models.Usuario;
-import com.myorg.ezdeal.repository.ReseñaRepository;
-import com.myorg.ezdeal.repository.ServicioRepository;
-import com.myorg.ezdeal.repository.SolicitudRepository;
-import com.myorg.ezdeal.repository.UsuarioRepository;
+import com.myorg.ezdeal.repository.*;
 import com.myorg.ezdeal.service.ReseñaService;
 import com.myorg.ezdeal.service.SolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +18,18 @@ public class ReseñaServiceImpl implements ReseñaService {
     private final ReseñaRepository reseñaRepository;
     private final ServicioRepository servicioRepository;
     private final UsuarioRepository usuarioRepository;
+    private final CitaRepository citaRepository;
     private SolicitudService solicitudService;
 
     @Autowired
-    public ReseñaServiceImpl(ReseñaRepository reseñaRepository, ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, SolicitudRepository solicitudRepository, SolicitudService  solicitudService){
+    public ReseñaServiceImpl(ReseñaRepository reseñaRepository, ServicioRepository servicioRepository,
+                             UsuarioRepository usuarioRepository, SolicitudRepository solicitudRepository,
+                             SolicitudService  solicitudService, CitaRepository citaRepository){
         this.reseñaRepository = reseñaRepository;
         this.servicioRepository = servicioRepository;
         this.usuarioRepository = usuarioRepository;
         this.solicitudService = solicitudService;
+        this.citaRepository = citaRepository;
     }
 
     @Override
@@ -42,10 +43,10 @@ public class ReseñaServiceImpl implements ReseñaService {
 
         Usuario cliente = usuarioRepository.findById(clienteId).get();
         Servicio servicio = servicioRepository.findById(servicioId).get();
+        int cantidadCitasFinalizadas = citaRepository.cantidadCitasFinalizadasPorClienteYServicio(servicioId, clienteId);
+        //int cantidadDeSolicitudesFinalizadas = solicitudService.listarPorClienteYServicio(clienteId, servicioId, "Finalizado").size();
 
-        int cantidadDeSolicitudesFinalizadas = solicitudService.listarPorClienteYServicio(clienteId, servicioId, "Finalizado").size();
-
-        if(cantidadDeSolicitudesFinalizadas > 0) {
+        if(cantidadCitasFinalizadas > 0) {
 
             reseña.setCliente(cliente);
             reseña.setServicio(servicio);

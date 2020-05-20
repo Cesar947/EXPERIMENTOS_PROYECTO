@@ -10,7 +10,7 @@ import java.util.Locale;
 @RequestMapping("/anunciantes")
 public class AnuncianteController {
 
-    AnuncianteService anuncianteService;
+  /*  AnuncianteService anuncianteService;
 
     public AnuncianteController(AnuncianteService anuncianteService){
         this.anuncianteService = anuncianteService;
@@ -22,7 +22,7 @@ public class AnuncianteController {
 
         return this.anuncianteService.actualizarDatosMembresia(nombreMembresia.toUpperCase(Locale.getDefault()), anuncianteId);
 
-    }
+    }*/
 
     
 }

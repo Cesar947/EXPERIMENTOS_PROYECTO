@@ -2,6 +2,7 @@ package com.myorg.ezdeal.repository;
 
 import com.myorg.ezdeal.models.Reseña;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +18,8 @@ public interface ReseñaRepository extends JpaRepository<Reseña, Long> {
     int cantidadReseñasNegativasPorServicio(Long servicioId);
 
     Reseña findByContenido(String contenido);
+
+    @Modifying
+    @Query("UPDATE Reseña r SET r.contenido = ?1, r.valoracion = ?2 where r.servicio.id = ?3 and r.cliente.id = ?4")
+    int actualizarReseña(String contenido, double valoracion, Long servicioId, Long clienteId);
 }
