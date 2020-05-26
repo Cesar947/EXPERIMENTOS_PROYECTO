@@ -51,16 +51,19 @@ export default {
     },
     login: function() {
       axios
-        .post(`${environment.api}/auth/login`, {
+        .post(`${environment.api}/api/auth/login`, {
           nombreUsuario: this.nombreUsuario,
           contrasena: this.contrasena,
         })
         .then((response) => {
           console.log(response.data);
+        
+          localStorage.setItem("id",response.data.id)
+          localStorage.setItem("login", "true");
+        
         });
       // this camp will have logic of authenticate
       this.$router.push("/");
-      localStorage.setItem("login", "true");
       localStorage.setItem("anunciante", "true");
     },
   },
