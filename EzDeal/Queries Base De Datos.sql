@@ -93,7 +93,7 @@ FROM USUARIO u JOIN ANUNCIANTE a on a.anunciante_id = u.anunciante_id
 JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 1;
 
 #Para ver los servicios que son GOLD
-SELECT s.servicio_id as 'ID', s.titulo as 'TITULO', m.nombre as 'MEMBRESIA', a.anunciante_id as 'ID ANUNCIANTE'
+SELECT s.servicio_id as 'ID', s.titulo as 'TITULO', m.nombre as 'MEMBRESIA', a.anunciante_id as 'ID ANUNCIANTE', u.usuario_id as 'ID USUARIO'
 FROM servicio s JOIN usuario u ON s.anunciante_id = u.usuario_id JOIN anunciante a on a.anunciante_id = u.anunciante_id
 JOIN membresia m ON a.membresia_id = m.membresia_id where a.membresia_id = 1;
 
