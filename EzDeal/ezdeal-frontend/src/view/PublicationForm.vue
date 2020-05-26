@@ -43,42 +43,60 @@
             <option value="3">A domicilio & En local </option>
           </select>
         </div>
-        <div class="field">
-          <label for="">Día</label>
-          <select v-model="dia">
-            <option value="Lunes">Lunes</option>
-            <option value="Martes">Martes</option>
-            <option value="Miercoles">Miercoles</option>
-            <option value="Jueves">Jueves</option>
-            <option value="Viernes">Viernes</option>
-            <option value="Sábado">Sábado</option>
-            <option value="Domingo">Domingo</option>
-          </select>
-        </div>
-        <div class="field-group">
-          <div class="field timer-field">
-            <label for="">Hora de Apertura</label>
-            <v-row justify="center">
-              <v-time-picker
-                format="24hr"
-                v-model="horaApertura"
-              ></v-time-picker>
-            </v-row>
-          </div>
-          <div class="field timer-field">
-            <label for="">Hora de Cierre</label>
-            <v-row justify="center">
-              <v-time-picker
-                format="24hr"
-                v-on:change="changeHoraCierre()"
-                v-model="horaCierre"
-              ></v-time-picker>
-            </v-row>
-          </div>
-        </div>
+        <div class="horarios">
+          <div v-if="service.horarios.length > 0">
+            <div
+              v-for="(horario, index) in service.horarios"
+              v-bind:key="index"
+              class="card-horario"
+            >
+              <button
+                v-on:click="deleteHorario(horario)"
+                class="delete-horario"
+              >
+                <img src="../assets/close.svg" width="16" alt="" />
+              </button>
 
+              <div class="field-group">
+                <div class="field">
+                  <label for="">Día</label>
+                  <input
+                    type="text"
+                    v-model="horario.dia"
+                    placeholder="Lunes, Martes,..."
+                  />
+                </div>
+                <div class="field">
+                  <label for="">Hora de inicio</label>
+                  <input
+                    type="text"
+                    v-model="horario.horaApertura"
+                    placeholder="13:40 | 09:30"
+                  />
+                </div>
+                <div class="field">
+                  <label for="">Hora de fin</label>
+                  <input
+                    type="text"
+                    v-model="horario.horaCierre"
+                    placeholder="13:40 |  09:30"
+                  />
+                </div>
+              </div>
+            </div>
+            <button v-on:click="agregarHorario()">Agregar horario</button>
+          </div>
+          <div class="horario-info" v-if="service.horarios.length === 0">
+            <img src="../assets/time.svg" width="64" alt="" />
+            <h2>Horario</h2>
+            <p>Tus clientes necesitan saber tu disponibilidad</p>
+            <button v-on:click="agregarHorario()">Agregar horario</button>
+          </div>
+        </div>
         <div class="btn-submit">
-          <button v-on:click="submit()">Publicar</button>
+          <button v-if="service.horarios.length > 0" v-on:click="submit()">
+            Publicar
+          </button>
         </div>
       </div>
     </div>
@@ -93,13 +111,13 @@ export default {
 
   data: function() {
     return {
-      service: new ServiceRequest("", "","","","","",[]),
+      service: new ServiceRequest("", "", "", ""),
       day: "",
       picker: null,
       pickerEnd: "",
       dia: "",
       horaApertura: "",
-      horaCierre: ""
+      horaCierre: "",
     };
   },
 
@@ -109,27 +127,38 @@ export default {
     },
 
     submit() {
-      var obj = {
-        titulo: this.$data.service.titulo,
-        imagen: "dsgfsadgds.jpg",
-        costoServicio: parseInt(this.$data.service.costoServicio),
-        descripcion: this.$data.service.descripcion,
-        modalidad: parseInt(this.$data.service.modalidad),
-        videoPresentacion: "dsgasdgdsgds.mp4",
-        horarios: [
-          {
-            dia: this.$data.dia,
-            horaApertura: this.$data.horaApertura + ":00.123456789",
-            horaCierre: this.$data.horaCierre + ":00.123456789",
-          },
-        ],
-      };
+      this.$data.service.costoServicio = parseFloat(
+        this.$data.service.costoServicio
+      );
+      this.$data.service.modalidad = parseInt(this.$data.service.modalidad);
 
-      console.log(obj);
-      ServicePublication.submitService(2,1,obj).then((res) => {
-        console.log(res);
-        this.$router.push("/");
+      this.$data.service.horarios.forEach((e) => {
+        e.horaApertura = "13:30:30.333";
+        e.horaCierre = "18:30:30.333";
       });
+      const id = parseInt(localStorage.getItem("id"));
+      ServicePublication.submitService(id, 1, this.$data.service).then(
+        () => {
+          console.log("Servicio correctamente");
+          this.$router.push("/");
+        },
+        (e) => {
+          console.log("hubo un error",e);
+        }
+      );
+    },
+    agregarHorario() {
+      this.$data.service.horarios.push({
+        dia: "",
+        horaApertura: "",
+        horaCierre: "",
+      });
+    },
+
+    deleteHorario(horario) {
+      this.$data.service.horarios = this.$data.service.horarios.filter(
+        (e) => e !== horario
+      );
     },
   },
 };
@@ -140,6 +169,7 @@ export default {
   width: 80%;
   margin: 48px auto;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
 }
 .publication-form-container .form-container h2 {
@@ -166,8 +196,8 @@ export default {
   flex-direction: column;
 }
 .publication-form-container .form-container .field input,
-.publication-form-container .form-container .field select, 
-.publication-form-container .form-container .field textarea{
+.publication-form-container .form-container .field select,
+.publication-form-container .form-container .field textarea {
   width: 100%;
   border-radius: 8px;
   border: none;
@@ -185,7 +215,6 @@ export default {
   font-weight: 600;
   color: #323232;
 }
-
 
 .publication-form-container .form-container .field-group .field {
   display: flex;
@@ -215,5 +244,76 @@ export default {
 
 .publication-form-container .timer-field label {
   margin-bottom: 24px !important;
+}
+.publication-form-container .horario-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+.publication-form-container .horario-info h2 {
+  font-size: 22px !important;
+  margin: 8px 0 !important;
+}
+
+.publication-form-container .horario-info p {
+  font-size: 18px !important;
+  margin: 0px !important;
+}
+.publication-form-container .horarios button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  background: #ff3168;
+  color: #ffffff;
+  margin-top: 16px;
+  border: none;
+}
+
+.publication-form-container .card-horario {
+  width: 100%;
+  height: 100%;
+  padding: 32px 24px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, rgb(255, 57, 100), rgb(255, 138, 59));
+  position: relative;
+  margin: 24px 0;
+  animation-name: example;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+}
+
+.publication-form-container .card-horario .field {
+  width: 31% !important;
+}
+.publication-form-container .card-horario label {
+  color: #ffffff !important;
+}
+
+.publication-form-container .card-horario input {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-size: 18px !important;
+}
+.publication-form-container .card-horario input::placeholder {
+  color: rgba(255, 255, 255, 0.37) !important;
+}
+.publication-form-container .card-horario .delete-horario {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+@keyframes example {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 </style>
