@@ -5,9 +5,8 @@ class ServicePublication {
 
 
     submitService(anuncianteId, tipoServicioId, servicio) {
-        return Axios.post(`${environment.api}/servicios?tipoServicioId=${tipoServicioId}&anuncianteId=${anuncianteId}`, {
-            servicio
-        })
+        console.log(servicio);
+        return Axios.post(`${environment.api}/servicios?tipoServicioId=${tipoServicioId}&anuncianteId=${anuncianteId}`, servicio)
     }
 
     async getServiceDetail(id) {

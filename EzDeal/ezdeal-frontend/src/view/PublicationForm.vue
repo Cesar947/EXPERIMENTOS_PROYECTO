@@ -133,11 +133,24 @@ export default {
       this.$data.service.modalidad = parseInt(this.$data.service.modalidad);
 
       this.$data.service.horarios.forEach((e) => {
-        e.horaApertura = "13:30:30.333";
-        e.horaCierre = "18:30:30.333";
+        e.horaApertura = `${e.horaApertura}:00.333`;
+        e.horaCierre = `${e.horaCierre}:00.333`;
       });
       const id = parseInt(localStorage.getItem("id"));
-      ServicePublication.submitService(id, 1, this.$data.service).then(
+     const request  = {
+
+        "titulo": this.service.titulo,
+        "imagen": this.service.imagen,
+        "costoServicio": this.service.costoServicio,
+        "descripcion": this.service.descripcion,
+        "estaHabilitado": this.service.estaHabilitado,
+        "valoracion": this.service.valoracion,
+        "modalidad": this.service.modalidad,
+        "videoPresentacion": this.service.videoPresentacion,
+        "horarios": [...this.service.horarios]
+    }
+      console.log(request);
+      ServicePublication.submitService(id, 1, request).then(
         () => {
           console.log("Servicio correctamente");
           this.$router.push("/");
