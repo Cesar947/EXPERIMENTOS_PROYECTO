@@ -37,15 +37,15 @@ public class SolicitudController {
         return this.solicitudService.solicitar(solicitud, clienteId, servicioId);
     }
 
-    @PutMapping("/{id}")
-    public int actualizarHoraFinEstimada(@RequestParam("horaFin") String horaFin, @PathVariable("id") Long solicitudId) throws Exception{
-        return this.solicitudService.actualizarHoraFin(horaFin, solicitudId);
-    }
-
     @GetMapping("/servicio/{id}")
     public List<Solicitud> listarSolicitudesPorServicio(@PathVariable("id") Long servicioId) throws Exception{
         return this.solicitudService.listarPorServicio(servicioId);
     }
 
+    @PutMapping("/{id}")
+    public int actualizarEstadoSolicitud(@PathVariable("id") Long solicitudId, @RequestParam("estado") String estado,
+                                         @RequestParam(name = "horaFin", required = false) String horaFin) throws Exception{
+        return this.solicitudService.actualizarEstadoSolicitud(estado, horaFin, solicitudId);
+    }
 
 }

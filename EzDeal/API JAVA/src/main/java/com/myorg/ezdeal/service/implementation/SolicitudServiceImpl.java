@@ -56,28 +56,24 @@ public class SolicitudServiceImpl implements SolicitudService {
 
         Solicitud solicitudGuardada = this.solicitudRepository.save(solicitud);
 
-        Cita citaGenerada = new Cita();
-        citaGenerada.setSolicitud(solicitudGuardada);
-        citaGenerada.setEstado("Pendiente");
-        this.citaRepository.save(citaGenerada);
-
         return solicitudGuardada;
     }
 
-
     @Transactional
-    public int actualizarHoraFin(String nuevaHoraFin, Long solicitudId) throws Exception{
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalTime horaFin = LocalTime.parse(nuevaHoraFin, dtf);
-        return this.solicitudRepository.actualizarHoraFin(horaFin, solicitudId);
-    }
-
-
-    @Transactional
-    public int actualizarEstadoSolicitud(String estado, Long SolicitudId) throws Exception {
+    public int actualizarEstadoSolicitud(String estado, String horaFin, Long solicitudId) throws Exception {
         int actualizo = 1;
         int noActualizo = 0;
-        int actualizacionExitosa = this.solicitudRepository.actualizarEstadoSolicitud(estado, SolicitudId);
+        int actualizacionExitosa;
+        if (horaFin != "" || estado.equals("Rechazada")){
+            actualizacionExitosa = this.solicitudRepository.actualizarEstadoSolicitud(estado, solicitudId);
+        }
+        else {
+            this.solicitudRepository.actualizarEstadoSolicitud(estado, solicitudId);
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+            LocalTime nuevaHoraFin = LocalTime.parse(horaFin, dtf);
+            actualizacionExitosa = this.solicitudRepository.actualizarHoraFin(nuevaHoraFin, solicitudId);
+        }
+
         if (actualizacionExitosa == actualizo) return actualizacionExitosa;
         else return noActualizo;
     }
