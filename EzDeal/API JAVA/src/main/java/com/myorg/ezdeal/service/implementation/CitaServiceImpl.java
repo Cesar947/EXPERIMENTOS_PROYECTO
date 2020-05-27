@@ -28,17 +28,14 @@ public class CitaServiceImpl implements CitaService {
     public int actualizarEstadoCita(String estado, Long citaId) throws Exception{
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalTime hora = LocalTime.parse(LocalTime.now().format(dtf));
-        log.info(hora.toString());
-        if (estado.equals("Iniciado")){
-            log.info("//////////////////////////////");
+        if (estado.equals("Iniciada")){
             this.citaRepository.actualizarHoraInicioCita(hora, citaId);
         }
-        else if (estado.equals("Finalizado")){
+        else if (estado.equals("Finalizada")){
             this.citaRepository.actualizarHoraFinCita(hora, citaId);
          }
         return this.citaRepository.actualizarEstadoCita(estado, citaId);
     }
-
 
     @Override
     @Transactional
