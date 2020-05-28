@@ -22,7 +22,10 @@
       <div v-if="isAnunciante" class="nav-link">
         <a href="/public">Publicar</a>
         <a>Mis Servicios</a>
+        <a>Mis Solicitudes</a>
+        <a>Agenda</a>
         <a id="gold-btn" href="/membresia">Quiero ser gold</a>
+        
       </div>
       <div v-if="isCliente" class="nav-link">
         <a>Servicios</a>

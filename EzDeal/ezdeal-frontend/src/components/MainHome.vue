@@ -54,7 +54,7 @@ export default {
 
   methods: {
     listarServicios() {
-
+ 
         axios.get(`${environment.api}/servicios/lista`)
         .then(response => {
           this.anuncios = response.data

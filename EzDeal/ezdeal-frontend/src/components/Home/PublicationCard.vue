@@ -1,6 +1,6 @@
 <template>
   <div class="card-container">
-    <img src="https://www.pnliafi.com.ar/wp-content/uploads/2016/01/avatar-user.png" alt />
+    <img src="https://vignette.wikia.nocookie.net/memes-pedia/images/f/fe/Suprised_Patrick.jpg/revision/latest/top-crop/width/360/height/450?cb=20160222150600&path-prefix=es" alt />
     <h3 class="name">{{anuncio.titulo}}</h3>
     <p class="rol">{{anuncio.descripcion}}</p>
 
