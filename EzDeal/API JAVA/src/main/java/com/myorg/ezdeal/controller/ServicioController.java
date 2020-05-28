@@ -56,8 +56,8 @@ public class ServicioController {
         return this.servicioService.mostrarDetalleServicio(servicioId);
     }
 
-    @GetMapping("/{anuncianteId}")
+    @GetMapping("/anunciante/{anuncianteId}")
     public List<Servicio> obtenerMisServicios(@PathVariable("anuncianteId") Long anuncianteId) throws Exception{
-        return new ArrayList<>();
+        return this.servicioService.listarServicioPorAnunciante(anuncianteId);
     }
 }

@@ -19,7 +19,6 @@ import PublicationCard from "./Home/PublicationCard";
 import axios from 'axios';
 import { environment } from '../environment/environment';
 import { bus } from '../main';
-
 export default {
   name: "MainHome",
   components: { PublicationCard },
@@ -38,6 +37,8 @@ export default {
         { id: 10, name: "Name 10", rol: "Electricista", rating: 4.0 }
       ],
       anuncios: []
+       
+       
     };
 
   },

@@ -59,10 +59,13 @@ public class ServicioServiceImpl  implements ServicioService {
 
     @Override
     public List<Servicio> listarServicios() throws Exception{
-         return this.servicioRepository.listarServicios();
+         return this.servicioRepository.listarOrdenandoPorMembresia();
     }
 
-
+    @Override
+    public List<Servicio> listarServicioPorAnunciante(Long anuncianteId) throws Exception{
+        return this.servicioRepository.listarPorAnunciante(anuncianteId);
+    }
 
     @Override
     public List<Servicio> listarServiciosPorTitulo(String keyword) throws Exception {

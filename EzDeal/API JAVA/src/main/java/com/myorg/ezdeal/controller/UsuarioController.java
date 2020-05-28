@@ -40,4 +40,9 @@ public class UsuarioController {
         return this.usuarioService.actualizarMembresia(nombreMembresia, usuarioId);
     }
 
+    @GetMapping("/{id}/membresia")
+    public String obtenerNombreMembresia(final @PathVariable Long id) throws Exception{
+            return this.usuarioService.obtenerNombreMembresia(id);
+    }
+
 }

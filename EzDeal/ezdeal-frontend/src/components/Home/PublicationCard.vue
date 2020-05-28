@@ -1,16 +1,23 @@
 <template>
-  <div class="card-container">
+  <div 
+  class="card-container"
+  :style="[isGold ? {'border': '5px solid rgba(255, 128, 4, 1)'} : {'border': 'none'}]"
+  >
+   
     <img src="https://vignette.wikia.nocookie.net/memes-pedia/images/f/fe/Suprised_Patrick.jpg/revision/latest/top-crop/width/360/height/450?cb=20160222150600&path-prefix=es" alt />
     <h3 class="name">{{anuncio.titulo}}</h3>
     <p class="rol">{{anuncio.descripcion}}</p>
-
     <div class="rating">
       <p class="rating-label">Costo del servicio</p>
       <p class="rating-value">{{anuncio.costoServicio}}</p>
     </div>
+    <div>
+
+    </div>
     <div class="enlace">
       <a v-on:click="navigateToDetail()">Ver más</a>
     </div>
+    
   </div>
 </template>
 
@@ -18,10 +25,22 @@
 export default {
   name: "PublicationCard",
   props: ["anuncio"],
+  data(){
+      return{
+        isGold: false
+  }
+  },
+  created(){
+      if (this.$props.anuncio.anunciante.infoAnunciante.membresia.nombre == "GOLD"){
+          this.$data.isGold = true
+      }
+      else{
+          this.$data.isGold = false
+      }
+  },
   methods: {
     navigateToDetail(){
        this.$router.push(`/servicio/${this.$props.anuncio.id}`);
-
     }
   }
 };
@@ -37,13 +56,15 @@ export default {
   margin: 24px;
   border-radius: 10px;
   flex-direction: column;
-  align-items: center;
+  align-items: center; 
+
 }
 .card-container img {
   width: 64px;
   height: 64px;
   border-radius: 50%;
 }
+
 
 .card-container .name {
   width: 80%;
@@ -55,6 +76,7 @@ export default {
   font-size: 16px;
   color: #434343;
   font-weight: 400;
+  text-align: center;
 }
 
 .card-container .rating {
@@ -67,13 +89,29 @@ export default {
 .card-container .rating-label,
 .card-container .rating-value {
   color: #ff3168;
+   text-align: center;
 }
 .card-container .rating-value {
   font-size: 32px;
   font-weight: 600;
   margin: 0px 0 24px 0;
+ 
 }
 a {
   color:rgba(230, 129, 14, 0.05);
+}
+.gold{
+   background: linear-gradient(
+    45deg,
+    rgba(255, 86, 25, 1),
+    rgba(255, 128, 4, 1)
+  );
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 10000px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  margin: 15px 0px;
 }
 </style>

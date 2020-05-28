@@ -8,6 +8,7 @@ import com.myorg.ezdeal.repository.UsuarioRepository;
 import com.myorg.ezdeal.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -42,6 +43,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         return this.usuarioRepository.findById(id).get();
     }
     @Override
+    @Transactional
     public int actualizarMembresia(String nombreMembresia, Long usuarioAnuncianteId) throws Exception{
         Usuario anunciante = usuarioRepository.findById(usuarioAnuncianteId).get();
         Long anuncianteId = anunciante.getId();
@@ -50,4 +52,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     }
 
+    @Override
+    public String obtenerNombreMembresia(Long id) throws Exception {
+        return this.usuarioRepository.obtenerNombreMembresia(id);
+    }
 }

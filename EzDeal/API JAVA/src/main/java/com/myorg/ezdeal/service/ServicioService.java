@@ -14,5 +14,8 @@ public interface ServicioService {
 
     List<Servicio> listarPorMembresia(Long membresiaId) throws Exception;
 
-    public Servicio mostrarDetalleServicio(Long servcicioId) throws Exception;
+    Servicio mostrarDetalleServicio(Long servcicioId) throws Exception;
+
+    List<Servicio> listarServicioPorAnunciante(Long anuncianteId) throws Exception;
+
 }
