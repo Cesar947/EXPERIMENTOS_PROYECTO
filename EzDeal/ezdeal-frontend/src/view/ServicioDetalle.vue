@@ -1,7 +1,11 @@
 <template>
   <div class="reserva-container">
     <div class="divider">
+     <div class="servicio">
       <div class="header-avatar">
+
+        <!--Avatar del anunciante con sus nombres-->
+        
         <div class="avatar">
           <img
             src="https://thumbs.dreamstime.com/b/icono-masculino-del-avatar-en-estilo-plano-icono-masculino-del-usuario-avatar-del-hombre-de-la-historieta-91602735.jpg"
@@ -9,22 +13,29 @@
           />
           <div class="desc">
             <h2>{{ servicioDetalle.anunciante.nombres }}</h2>
-            <p>{{ servicioDetalle.titulo }}</p>
           </div>
         </div>
 
+        <!--Descripción y valoración del servicio-->
         <div class="description">
-          <h2>{{ servicioDetalle.tipoServicio.nombre }}</h2>
-
+          <div class="titulo">
+          <h2>{{ servicioDetalle.titulo }}</h2>
+          </div>
           <div class="sub-description-time">
             <div class="rating">
               <p>Rating:</p>
               <p>{{ servicioDetalle.valoracion }}</p>
-            </div>
+            </div> 
+             <div class="rating">
+              <p>Tipo de Servicio:</p>
+              <p>{{ servicioDetalle.tipoServicio.nombre }}</p>
+            </div> 
           </div>
         </div>
-      </div>
 
+      </div>
+      
+      <!--Información de contacto-->
       <div class="contact-info">
         <div>
           <p class="label-text">
@@ -44,16 +55,27 @@
           </p>
         </div>
       </div>
+
+      <!--Costo del servicio-->
       <div>
         <h4>Costo del servicio</h4>
         <h2 class="price">S/. {{ servicioDetalle.costoServicio }}</h2>
       </div>
+
+      <!--Información del servicio-->
       <div class="informacion-service">
         <p class="title-info">Descripción</p>
         <p>{{ servicioDetalle.tipoServicio.descripcion }}</p>
       </div>
+     </div> 
+
+     
     </div>
+
+    <!--Horarios y reservas-->
     <div class="horarios">
+     
+     <!--Horarios-->
       <h1>Horario</h1>
       <div
         class="horario-container"
@@ -67,17 +89,22 @@
         </div>
       </div>
 
+ <!--Formulario de solicitud-->
       <div class="reserva-tu-cita-container">
         <h1>Reserva tu cita</h1>
-
+        <div class="hora-fecha">
         <div class="field">
           <label for="">Hora inicio</label>
           <input type="text" v-model="horaInicio" placeholder="Hora inicio" />
         </div>
+        <div class="fecha">
         <div class="field">
           <label for="">Fecha</label>
           <input type="date" v-model="horaFin" placeholder="Hora fin" />
         </div>
+        </div>
+        </div>
+
         <div class="field">
           <label for="">Mensaje</label>
           <textarea
@@ -86,13 +113,18 @@
             placeholder="Escribe un mensaje..."
           />
         </div>
+
+        <!--Botón para enviar la solicitud-->
         <div>
           <button :disabled="isFormValid()" v-on:click="confirmation" class="btn-solicitar">
             Solicitar
           </button>
         </div>
+
       </div>
     </div>
+
+    
   </div>
 </template>
 
@@ -144,6 +176,7 @@ export default {
 </script>
 
 <style>
+
 .price {
   color: #ff3168;
 }
@@ -171,6 +204,10 @@ export default {
   align-items: center;
 }
 
+.titulo{
+  padding-bottom: 10px;
+}
+
 .horario-container {
   cursor: pointer;
 }
@@ -190,6 +227,7 @@ export default {
 }
 .rating {
   display: flex;
+  margin-bottom: 0px;
 }
 .rating p:nth-child(1) {
   margin-right: 12px;
@@ -219,7 +257,7 @@ export default {
 }
 
 .informacion-service {
-  width: 800px;
+  width: 600px;
   padding: 32px;
   background: #fafafb;
   border-radius: 5px;
@@ -236,6 +274,7 @@ export default {
 }
 .sub-description-time {
   display: flex;
+  flex-direction: column;
 }
 .horarios {
   margin-left: 24px;
@@ -265,7 +304,7 @@ export default {
   display: flex;
   align-items: center;
   margin: 12px 0;
-  background: #fbfbfb;
+  background: #ebe9e9;
   border-radius: 5px;
   padding: 16px 24px;
 }
@@ -273,10 +312,11 @@ export default {
   margin: 0 12px !important;
   color: #232323;
   font-size: 18px;
+  align-content: center;
 }
 
 .reserva-tu-cita-container {
-  margin-top: 42px;
+  margin-top: 18px;
 }
 
 .reserva-tu-cita-container .field {
@@ -295,12 +335,16 @@ export default {
 .reserva-tu-cita-container .field input::placeholder {
   color: #aeaeae;
 }
+.hora-fecha{
+ 
+}
+
 .reserva-tu-cita-container .field input,
 .reserva-tu-cita-container .field textarea {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
-  background: #fafafb;
+  background: #dfdcdc;
   font-size: 16px;
   border: none;
 }
@@ -314,4 +358,6 @@ export default {
   opacity: 0.36 !important;
   cursor: not-allowed;
 }
+
+
 </style>

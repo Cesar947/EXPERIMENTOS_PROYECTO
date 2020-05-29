@@ -48,4 +48,6 @@ public class SolicitudController {
         return this.solicitudService.actualizarEstadoSolicitud(estado, horaFin, solicitudId);
     }
 
+
+
 }

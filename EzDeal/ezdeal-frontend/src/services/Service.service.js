@@ -20,6 +20,10 @@ class ServicePublication {
         return await Axios.post(`${environment.api}/solicitudes?clienteId=${clienteId}&servicioId=${servicioId}`, { body })
     }
 
+    async getMyServices(anuncianteId){
+        return await Axios.get(`${environment.api}/servicios/${anuncianteId}`)
+    }
+
 }
 
 export default new ServicePublication();

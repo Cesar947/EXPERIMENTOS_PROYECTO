@@ -1,4 +1,4 @@
-import AuthService from '../services/auth.service';
+/*import AuthService from '../services/auth.service';
 
 const user = JSON.parse(localStorage.getItem('user'));
 const initialState = user
@@ -58,4 +58,4 @@ export const auth = {
       state.status.loggedIn = false;
     }
   }
-};
+};*/

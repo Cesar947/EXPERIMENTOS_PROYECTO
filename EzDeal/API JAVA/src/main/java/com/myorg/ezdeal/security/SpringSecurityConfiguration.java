@@ -65,7 +65,6 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and().formLogin().disable();
 
         http.cors();
-
         http.addFilterBefore(authenticationJwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
 

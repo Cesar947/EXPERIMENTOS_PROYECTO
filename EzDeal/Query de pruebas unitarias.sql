@@ -70,6 +70,7 @@ select * from servicio;
 select * from reseña WHERE servicio_id = 1;
 select * from horario;
 
+
 INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)
 VALUES ("Estoy satisfecho aunque la actitud del trabajador no me gustó mucho", 4, 2, 1);
 INSERT INTO Reseña(contenido, valoracion, cliente_id, servicio_id)

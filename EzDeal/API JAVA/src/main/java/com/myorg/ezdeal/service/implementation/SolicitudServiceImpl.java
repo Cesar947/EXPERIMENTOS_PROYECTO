@@ -64,6 +64,7 @@ public class SolicitudServiceImpl implements SolicitudService {
         int actualizo = 1;
         int noActualizo = 0;
         int actualizacionExitosa;
+        Solicitud solicitud = this.solicitudRepository.findById(solicitudId).get();
         if (horaFin != "" || estado.equals("Rechazada")){
             actualizacionExitosa = this.solicitudRepository.actualizarEstadoSolicitud(estado, solicitudId);
         }
@@ -72,6 +73,10 @@ public class SolicitudServiceImpl implements SolicitudService {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
             LocalTime nuevaHoraFin = LocalTime.parse(horaFin, dtf);
             actualizacionExitosa = this.solicitudRepository.actualizarHoraFin(nuevaHoraFin, solicitudId);
+            Cita citaGenerada = new Cita();
+            citaGenerada.setSolicitud(solicitud);
+            citaGenerada.setEstado("Creada");
+            this.citaRepository.save(citaGenerada);
         }
 
         if (actualizacionExitosa == actualizo) return actualizacionExitosa;

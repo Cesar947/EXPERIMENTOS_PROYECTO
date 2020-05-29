@@ -32,6 +32,7 @@ public class Cita implements Serializable {
     @Column(name="costo_final")
     private BigDecimal costoFinal;
 
+    //Creada - Iniciada - Finalizada
     @Column(name = "estado")
     private String estado;
 
