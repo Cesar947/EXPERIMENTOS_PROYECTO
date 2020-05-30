@@ -57,14 +57,12 @@ export default {
 
   methods: {
     listarServicios() {
-
-
-
+        const token = localStorage.getItem("token")
         axios
         .get(`${environment.api}/servicios/lista`,
           {
           headers : {
-            'Authorization' : 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqdWFuZWx2Iiwicm9sZXMiOiJST0xfQ0xJRU5URSxST0xfQU5VTkNJQU5URSxST0xfQURNSU4iLCJpYXQiOjE1OTA3NzMwMTYsImV4cCI6MTU5MDg1OTQxNn0.7fdM7Kxw3lTVwcBlIHwj1GjPXugKMohO17xgLDf3E03wfyE7D02zeDUrfYUw-mqv6IZ3JHUT71vbnQFNez3LqQ'
+            Authorization : `Bearer ${token}` 
             }
           }
         )

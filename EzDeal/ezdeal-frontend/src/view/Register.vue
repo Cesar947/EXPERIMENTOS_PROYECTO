@@ -157,8 +157,11 @@ export default {
     },
 
     register: function() {
-      if (this.announcerRole == true){
+      if (this.announcerRole){
         this.role = ["cliente", "anunciante"]
+      }
+      else if (this.clientRole){
+        this.role = ["cliente"]
       }
       if (this.membresia == "GOLD"){
         this.membresiaId = 1
@@ -166,7 +169,7 @@ export default {
       else if (this.membresia == "FREE"){
         this.membresiaId = 2
       } 
-      axios.post(`${environment.api}/auth/registro`, {
+      axios.post(`${environment.api}/api/auth/registro`, {
         
         nombreUsuario: this.nombreUsuario,
         email: this.email,
@@ -200,7 +203,7 @@ export default {
         this.clientRole = true;
         this.announcerRole = false;
       } else if (id === 2) {
-        this.clientRole = false;
+        this.clientRole = true;
         this.announcerRole = true;
       }
 

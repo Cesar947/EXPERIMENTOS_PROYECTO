@@ -77,9 +77,11 @@ public class AuthController {
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
 
+        Long usuarioId = usuarioRepository.obtenerIdPorCuenta(userDetails.getId());
 
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
+                usuarioId,
                 userDetails.getUsername(),
                 userDetails.getEmail(),
                 roles));

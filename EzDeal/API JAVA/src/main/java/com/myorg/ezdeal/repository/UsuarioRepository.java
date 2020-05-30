@@ -16,4 +16,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
             "ON m.id = a.membresia.id where u.id = ?1")
     String obtenerNombreMembresia(Long id);
 
+    @Query("SELECT u.id FROM Usuario u JOIN Cuenta c ON u.cuentaId.id = c.id WHERE c.id = ?1")
+    Long obtenerIdPorCuenta(Long cuentaId);
 }

@@ -58,17 +58,18 @@ export default {
         .then((response) => {
           console.log(response.data);
         
-          localStorage.setItem("id",response.data.id);
+          localStorage.setItem("id",response.data.usuarioId);
           localStorage.setItem("token",response.data.token);
           localStorage.setItem("login", "true");
           console.log(localStorage.getItem("id"));
           console.log(localStorage.getItem("login"));
           console.log(localStorage.getItem("token"));
-        
+          this.$router.push("/");
+          localStorage.setItem("anunciante", "true");
         });
       // this camp will have logic of authenticate
-      this.$router.push("/");
-      localStorage.setItem("anunciante", "true");
+      
+    
     },
   },
 };
