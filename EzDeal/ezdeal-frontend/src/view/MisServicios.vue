@@ -43,7 +43,13 @@ export default {
     methods:{
         listarMisServicios(){
             const id = parseInt(localStorage.getItem("id"))
-            axios.get(`${environment.api}/servicios/anunciante/${id}`)
+            const token = localStorage.getItem("token")
+            console.log(id)
+            console.log(token)
+            const config = { headers : { Authorization : `Bearer ${token}` }
+            }
+            axios.get(`${environment.api}/servicios/anunciante/${id}`, config
+            )
             .then(response => {
             this.servicios = response.data
             })

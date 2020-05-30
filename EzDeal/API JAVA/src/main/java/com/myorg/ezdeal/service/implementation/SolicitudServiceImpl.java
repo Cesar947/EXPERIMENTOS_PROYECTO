@@ -39,6 +39,7 @@ public class SolicitudServiceImpl implements SolicitudService {
 
     public Solicitud solicitar(Solicitud solicitud, Long clienteId, Long servicioId) throws Exception{
         List<Solicitud> solicitudesRealizadas = solicitudRepository.listarPorFechaYServicio(solicitud.getFechaPactada(), servicioId);
+
         for (Solicitud sRealizada: solicitudesRealizadas){
                 //Si la hora pactada que está por enviarse está dentro del rango de horas de otra solicitud ya agendada,
                 //no se podrá enviar la solicitud

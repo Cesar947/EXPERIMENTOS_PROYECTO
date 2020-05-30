@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -58,13 +59,13 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
 
         http.csrf().disable()
-               //.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-               // .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+               .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+               .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-              //  .anyRequest().authenticated()
+              .anyRequest().authenticated()
         .and().formLogin().disable();
 
-      // http.addFilterBefore(authenticationJwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+      http.addFilterBefore(authenticationJwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
 
