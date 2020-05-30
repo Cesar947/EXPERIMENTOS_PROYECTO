@@ -1,81 +1,76 @@
 <template>
   <div class="reserva-container">
     <div class="divider">
-     <div class="servicio">
-      <div class="header-avatar">
+      <div class="servicio">
+        <div class="header-avatar">
+          <!--Avatar del anunciante con sus nombres-->
 
-        <!--Avatar del anunciante con sus nombres-->
-        
-        <div class="avatar">
-          <img
-            src="https://thumbs.dreamstime.com/b/icono-masculino-del-avatar-en-estilo-plano-icono-masculino-del-usuario-avatar-del-hombre-de-la-historieta-91602735.jpg"
-            alt=""
-          />
-          <div class="desc">
-            <h2>{{ servicioDetalle.anunciante.nombres }}</h2>
+          <div class="avatar">
+            <img
+              src="https://thumbs.dreamstime.com/b/icono-masculino-del-avatar-en-estilo-plano-icono-masculino-del-usuario-avatar-del-hombre-de-la-historieta-91602735.jpg"
+              alt=""
+            />
+            <div class="desc">
+              <h2>{{ servicioDetalle.anunciante.nombres }}</h2>
+            </div>
+          </div>
+
+          <!--Descripción y valoración del servicio-->
+          <div class="description">
+            <div class="titulo">
+              <h2>{{ servicioDetalle.titulo }}</h2>
+            </div>
+            <div class="sub-description-time">
+              <div class="rating">
+                <p>Rating:</p>
+                <p>{{ servicioDetalle.valoracion }}</p>
+              </div>
+              <div class="rating">
+                <p>Tipo de Servicio:</p>
+                <p>{{ servicioDetalle.tipoServicio.nombre }}</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!--Descripción y valoración del servicio-->
-        <div class="description">
-          <div class="titulo">
-          <h2>{{ servicioDetalle.titulo }}</h2>
+        <!--Información de contacto-->
+        <div class="contact-info">
+          <div>
+            <p class="label-text">
+              Celular
+            </p>
+            <p class="contact-number">
+              {{ servicioDetalle.anunciante.direccion }}
+            </p>
           </div>
-          <div class="sub-description-time">
-            <div class="rating">
-              <p>Rating:</p>
-              <p>{{ servicioDetalle.valoracion }}</p>
-            </div> 
-             <div class="rating">
-              <p>Tipo de Servicio:</p>
-              <p>{{ servicioDetalle.tipoServicio.nombre }}</p>
-            </div> 
+
+          <div>
+            <p class="label-text">
+              Teléfono
+            </p>
+            <p class="contact-number">
+              {{ servicioDetalle.anunciante.provincia }}
+            </p>
           </div>
         </div>
 
-      </div>
-      
-      <!--Información de contacto-->
-      <div class="contact-info">
+        <!--Costo del servicio-->
         <div>
-          <p class="label-text">
-            Celular
-          </p>
-          <p class="contact-number">
-            {{ servicioDetalle.anunciante.infoAnunciante.telefonoFijo }}
-          </p>
+          <h4>Costo del servicio</h4>
+          <h2 class="price">S/. {{ servicioDetalle.costoServicio }}</h2>
         </div>
 
-        <div>
-          <p class="label-text">
-            Teléfono
-          </p>
-          <p class="contact-number">
-            {{ servicioDetalle.anunciante.infoAnunciante.celular }}
-          </p>
+        <!--Información del servicio-->
+        <div class="informacion-service">
+          <p class="title-info">Descripción</p>
+          <p>{{ servicioDetalle.tipoServicio.descripcion }}</p>
         </div>
       </div>
-
-      <!--Costo del servicio-->
-      <div>
-        <h4>Costo del servicio</h4>
-        <h2 class="price">S/. {{ servicioDetalle.costoServicio }}</h2>
-      </div>
-
-      <!--Información del servicio-->
-      <div class="informacion-service">
-        <p class="title-info">Descripción</p>
-        <p>{{ servicioDetalle.tipoServicio.descripcion }}</p>
-      </div>
-     </div> 
-
-     
     </div>
 
     <!--Horarios y reservas-->
     <div class="horarios">
-     
-     <!--Horarios-->
+      <!--Horarios-->
       <h1>Horario</h1>
       <div
         class="horario-container"
@@ -89,20 +84,24 @@
         </div>
       </div>
 
- <!--Formulario de solicitud-->
+      <!--Formulario de solicitud-->
       <div class="reserva-tu-cita-container">
         <h1>Reserva tu cita</h1>
         <div class="hora-fecha">
-        <div class="field">
-          <label for="">Hora inicio</label>
-          <input type="text" v-model="horaInicio" placeholder="Hora inicio" />
-        </div>
-        <div class="fecha">
-        <div class="field">
-          <label for="">Fecha</label>
-          <input type="date" v-model="horaFin" placeholder="Hora fin" />
-        </div>
-        </div>
+          <div class="field">
+            <label for="">Hora inicio</label>
+            <input type="text" v-model="horaInicio" placeholder="Hora inicio" />
+          </div>
+          <div class="fecha">
+            <div class="field">
+              <label for="">Fecha</label>
+              <input
+                type="date"
+                v-model="fechaPactada"
+                placeholder="Hora fin"
+              />
+            </div>
+          </div>
         </div>
 
         <div class="field">
@@ -116,21 +115,23 @@
 
         <!--Botón para enviar la solicitud-->
         <div>
-          <button :disabled="isFormValid()" v-on:click="confirmation" class="btn-solicitar">
+          <button
+            :disabled="isFormValid()"
+            v-on:click="confirmation"
+            class="btn-solicitar"
+          >
             Solicitar
           </button>
         </div>
-
       </div>
     </div>
-
-    
   </div>
 </template>
 
 <script>
 import ServicioDetalle from "../models/ServicioDetalle";
 import ServiceService from "../services/Service.service";
+import SolicitudService from "../services/solicitud.service";
 export default {
   name: "ServicioDetalle",
 
@@ -141,11 +142,11 @@ export default {
   data: function() {
     return {
       activedIndex: -1,
-      qwe: this.$route.params.id,
+      idService: this.$route.params.id,
       servicioDetalle: new ServicioDetalle(),
-      horaInicio :"",
-      horaFin :"",
-      mensaje :""
+      horaInicio: "",
+      fechaPactada: "",
+      mensaje: "",
     };
   },
   methods: {
@@ -157,26 +158,38 @@ export default {
       });
     },
 
-    confirmation() {
-      this.$router.push("/solicitud-confirmacion");
+    async confirmation() {
+      try {
+        const body = {
+          mensaje: this.$data.mensaje,
+          horaPactada: `${this.$data.horaInicio}:00.000`,
+          fechaPactada: this.$data.fechaPactada,
+        };
+        const id = parseInt(localStorage.getItem("id"));
+        const idService = parseInt(this.$data.idService);
+        await SolicitudService.solicitar( idService,id, body);
+        this.$router.push("/solicitud-confirmacion");
+      } catch (error) {
+        console.log(error);
+      }
     },
 
-    isFormValid(){
-      if(
+    isFormValid() {
+      if (
         this.$data.horaInicio.length &&
-        this.$data.horaFin.length &&
+        this.$data.fechaPactada.length &&
         this.$data.mensaje
-      ){return false}
-      else{
-        return true
+      ) {
+        return false;
+      } else {
+        return true;
       }
-    }
+    },
   },
 };
 </script>
 
 <style>
-
 .price {
   color: #ff3168;
 }
@@ -204,7 +217,7 @@ export default {
   align-items: center;
 }
 
-.titulo{
+.titulo {
   padding-bottom: 10px;
 }
 
@@ -335,8 +348,7 @@ export default {
 .reserva-tu-cita-container .field input::placeholder {
   color: #aeaeae;
 }
-.hora-fecha{
- 
+.hora-fecha {
 }
 
 .reserva-tu-cita-container .field input,
@@ -358,6 +370,4 @@ export default {
   opacity: 0.36 !important;
   cursor: not-allowed;
 }
-
-
 </style>

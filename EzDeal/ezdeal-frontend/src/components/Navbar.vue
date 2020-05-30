@@ -3,7 +3,7 @@
     <div v-if="isLogin" class="navbar-container">
       <div class="left-side">
         <div class="logo">
-          <img width="180" src="../assets/logo.png" alt="" />
+          <img v-on:click="goToHome()" width="180" src="../assets/logo.png" alt="" />
         </div>
 
         <div class="search-bar">
@@ -88,6 +88,10 @@ export default {
     clickBuscar() {
       bus.$emit("updateAnuncios", this.keyword);
     },
+
+    goToHome(){
+      this.$router.push("/");
+    }
   },
 };
 </script>
