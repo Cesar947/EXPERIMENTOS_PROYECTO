@@ -88,6 +88,7 @@ public class AuthController {
 
     @PostMapping("/registro")
     public ResponseEntity<?> registrarCuenta(final @Valid @RequestBody SignUpRequest signUpRequest) throws Exception{
+
         log.info("***********************************");
         log.info(signUpRequest.toString());
         log.info("***********************************");
