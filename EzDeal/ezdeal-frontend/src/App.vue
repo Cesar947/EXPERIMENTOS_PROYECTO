@@ -23,6 +23,9 @@ export default {
   src: url("./assets/fonts/ProductSans-Regular.ttf");
   
 }
+::placeholder{
+  color: rgba(0,0,0,.36);
+}
 *{
   margin: 0;
   padding: 0;

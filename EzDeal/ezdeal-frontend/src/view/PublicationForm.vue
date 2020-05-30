@@ -3,16 +3,22 @@
     <div class="ilustration-container">
       <img src="../assets/PulbicationPostIlustration.svg" alt="" />
     </div>
+
+    <!-- CONTENEDOR DE FORMULARIO -->
     <div class="form-container">
       <h2>Publica un servicio</h2>
       <p>Te ayudamos a posicionar tu trabajo en las mejores búsquedas</p>
 
+
+
+    <!-- FORMULARIO -->
       <div class="form">
-        <div class="field">
+        
+        <div class="field titulo-servicio">
           <label for="">Titulo del servicio</label>
           <input v-model="service.titulo" type="text" placeholder="Titulo" />
         </div>
-        <div class="field">
+        <div class="field descripcion">
           <label for="">Descripción</label>
           <textarea
             v-model="service.descripcion"
@@ -20,7 +26,6 @@
             placeholder="Descripción"
           />
         </div>
-
         <div class="field-group">
           <div class="field">
             <label for="">Tipo de servicio</label>
