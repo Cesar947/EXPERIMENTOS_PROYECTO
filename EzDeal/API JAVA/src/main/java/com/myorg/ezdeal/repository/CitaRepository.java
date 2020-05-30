@@ -1,6 +1,7 @@
 package com.myorg.ezdeal.repository;
 
 import com.myorg.ezdeal.models.Cita;
+import com.myorg.ezdeal.models.Solicitud;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.time.LocalTime;
+import java.util.List;
 
 @Repository
 public interface CitaRepository extends JpaRepository<Cita, Long> {
@@ -31,4 +33,8 @@ public interface CitaRepository extends JpaRepository<Cita, Long> {
     @Modifying
     @Query("UPDATE Cita c SET c.costoFinal = ?1 where c.id = ?2")
     int actualizarCostoFinalCita(BigDecimal costoFinal, Long citaId);
+
+    @Query("SELECT c FROM Cita c where c.solicitud.cliente.id = ?1")
+    List<Cita> listarCitasDeUsuario(Long usuarioId);
+
 }

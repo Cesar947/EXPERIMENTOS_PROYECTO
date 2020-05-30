@@ -59,7 +59,7 @@
       <div v-if="announcerRole" class="field-group">
         <div style="width:100%" class="field large">
           <label for="name">Link de contacto</label>
-          <input style="width:100%" type="text" v-model="infoAnunciante.urlContacto" placeholder="Direccion" />
+          <input style="width:100%" type="text" v-model="infoAnunciante.urlContacto" placeholder="Link de contacto" />
         </div>
       </div>
       <div class="field-group">

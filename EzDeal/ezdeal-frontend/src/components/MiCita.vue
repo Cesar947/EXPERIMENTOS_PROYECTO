@@ -1,26 +1,30 @@
 <template>
   <div class="card-contenedor">
     <img src="https://vignette.wikia.nocookie.net/memes-pedia/images/f/fe/Suprised_Patrick.jpg/revision/latest/top-crop/width/360/height/450?cb=20160222150600&path-prefix=es" alt />
-    <h3 class="name">{{servicio.titulo}}</h3>
-    <p class="rol">{{servicio.descripcion}}</p>
+    <h3 class="name">Servicio: {{cita.solicitud.servicio.titulo}}</h3>
+    <p class="name">Anuciante: {{cita.solicitud.servicio.anunciante.nombres}}</p>
+    <p class="rol">Estado: {{cita.estado}}</p>
+    <p class="rol">Costo: {{cita.costoFinal}}</p>
 
     <div class="rating">
-      <p class="rating-label">Costo del servicio</p>
-      <p class="rating-value">{{servicio.costoServicio}}</p>
+      <p class="rating-label">Hora Inicio</p>
+      <p class="rating-value">{{cita.horaInicio}}</p>
+      <p class="rating-label">Hora Fin</p>
+      <p class="rating-value">{{cita.horaFin}}</p>
     </div>
     <div class="enlace">
-      <a v-on:click="navigateToDetail()">Ver detalle</a>
+      <a v-on:click="navigateToDetail()">Resenar</a>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "MiServicio",
-  props: ["servicio"],
+  name: "MiCita",
+  props: ["cita"],
   methods: {
     navigateToDetail(){
-       this.$router.push(`/servicio/${this.$props.servicio.id}`);
+       this.$router.push(`/cita/${this.$props.cita.id}`);
     }
   }
 };

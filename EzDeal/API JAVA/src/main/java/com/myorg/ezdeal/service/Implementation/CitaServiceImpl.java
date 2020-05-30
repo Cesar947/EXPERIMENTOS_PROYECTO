@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -46,6 +47,11 @@ public class CitaServiceImpl implements CitaService {
     @Override
     public Cita listarPorId(Long citaId) throws Exception{
         return this.citaRepository.findById(citaId).get();
+    }
+
+    @Override
+    public List<Cita> listarCitasDeUsuario(Long usuarioId) throws Exception{
+        return this.citaRepository.listarCitasDeUsuario(usuarioId);
     }
 
 }
