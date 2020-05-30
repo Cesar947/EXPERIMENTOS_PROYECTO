@@ -9,9 +9,7 @@ import com.myorg.ezdeal.repository.ServicioRepository;
 import com.myorg.ezdeal.repository.TipoServicioRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
 import com.myorg.ezdeal.service.ServicioService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -21,7 +19,6 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@Slf4j
 public class ServicioServiceImpl  implements ServicioService {
 
     private ServicioRepository servicioRepository;
@@ -41,10 +38,7 @@ public class ServicioServiceImpl  implements ServicioService {
 
     @Override
     public Servicio publicarServicio(Servicio servicio, Long anuncianteId, Long tipoServicioId) throws Exception{
-        log.info("//////////////////////////////////////////////////");
-        log.info("Estamos dentro");
-        log.info(servicio.toString());
-        log.info("//////////////////////////////////////////////////");
+
        Usuario user = usuarioRepository.findById(anuncianteId).get();
        servicio.setAnunciante(user);
        servicio.setEstaHabilitado(true);
@@ -64,21 +58,20 @@ public class ServicioServiceImpl  implements ServicioService {
 
     @Override
     public List<Servicio> listarServicios() throws Exception{
-         return this.servicioRepository.listarServicios();
+         return this.servicioRepository.listarOrdenandoPorMembresia();
     }
 
     @Override
-    public List<Servicio> findByTituloLike(String titulo) throws Exception {
-        return servicioRepository.findByTituloLike(titulo);
+    public List<Servicio> listarServicioPorAnunciante(Long anuncianteId) throws Exception{
+        return this.servicioRepository.listarPorAnunciante(anuncianteId);
     }
-
 
     @Override
     public List<Servicio> listarServiciosPorTitulo(String keyword) throws Exception {
-
-        if(keyword != "")
+        String vacio = "";
+        if(keyword != vacio) {
             keyword = "%" + keyword + "%";
-
+        }
         return this.servicioRepository.listarServiciosPorTitulo(keyword);
     }
 
@@ -87,7 +80,9 @@ public class ServicioServiceImpl  implements ServicioService {
             return servicioRepository.listarPorMembresia(membresiaId);
     }
 
-
+    public Servicio mostrarDetalleServicio(Long servcicioId) throws Exception{
+        return this.servicioRepository.findById(servcicioId).get();
+    }
 
     public static Date ParseFecha(String fecha)
     {

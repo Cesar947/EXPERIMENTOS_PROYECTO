@@ -33,7 +33,6 @@ public class ServicioRepositoryTest {
 
     @Test
     public void listarPorMembresiaYBusqueda() throws Exception{
-
         List<Servicio> servicios = servicioRepository.listarServiciosPorTitulo("%Servicio%");
         //Probamos si la lista de servicios no retorna null
         assertNotNull(servicios);
@@ -56,11 +55,8 @@ public class ServicioRepositoryTest {
                          break;
                 }
             }
-
             assertEquals(true, ordenado);
             assertEquals(true, titulosCorrectos);
         }
-
-        
     }
 }

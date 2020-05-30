@@ -5,56 +5,73 @@
       <p>Encuentra todo tipo de servicios</p>
     </div>
     <form class="form" v-on:submit.prevent="login()">
-      <input v-model="nombreUsuario" v-validate="'required'" type="text" placeholder="Usuario" />
-      <input v-model="contrasena" v-validate="'required'" type="password" placeholder="Contraseña" />
+      <input
+        v-model="nombreUsuario"
+        v-validate="'required'"
+        type="text"
+        placeholder="Usuario"
+      />
+      <input
+        v-model="contrasena"
+        v-validate="'required'"
+        type="password"
+        placeholder="Contraseña"
+      />
 
       <button type="submit">Ingresar</button>
-      <p >Aun no tienes cuenta? </p>
+      <p>Aun no tienes cuenta?</p>
       <a v-on:click="goToRegister">Registrate</a>
     </form>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import {environment} from '../environment/environment';
+import axios from "axios";
+import { environment } from "../environment/environment";
 export default {
   name: "Login",
   data: function() {
     return {
-     nombreUsuario: "",
-     contrasena: ""
+      nombreUsuario: "",
+      contrasena: "",
     };
-
   },
-  created(){
-      if(this.loggedIn){
-        this.$router.push('/home');
-      }
+  created() {
+    if (this.loggedIn) {
+      this.$router.push("/");
+    }
   },
   methods: {
     handleLogin() {
-      console.log(this.nombreUsuario)
-      console.log(this.contrasena)
-
+      console.log(this.nombreUsuario);
+      console.log(this.contrasena);
     },
-   goToRegister: function() {
+    goToRegister: function() {
       this.$router.push("/register");
     },
     login: function() {
-      axios.post(`${environment.api}/auth/login`, {
+      axios
+        .post(`${environment.api}/api/auth/login`, {
           nombreUsuario: this.nombreUsuario,
-          contrasena: this.contrasena
-
-      }).then(
-       response => { console.log(response.data)
-       })
+          contrasena: this.contrasena,
+        })
+        .then((response) => {
+          console.log(response.data);
+        
+          localStorage.setItem("id",response.data.usuarioId);
+          localStorage.setItem("token",response.data.token);
+          localStorage.setItem("login", "true");
+          console.log(localStorage.getItem("id"));
+          console.log(localStorage.getItem("login"));
+          console.log(localStorage.getItem("token"));
+          this.$router.push("/");
+          localStorage.setItem("anunciante", "true");
+        });
       // this camp will have logic of authenticate
-      this.$router.push("/home");
-    }
-
-
-  }
+      
+    
+    },
+  },
 };
 </script>
 
@@ -82,7 +99,6 @@ export default {
   margin-top: 12px;
 }
 
-
 .login-container .form {
   display: flex;
   flex-direction: column;
@@ -92,7 +108,7 @@ export default {
   width: 320px;
   border-radius: 8px;
   border: none;
-  background: #fcfcfc;
+  background: #fafafa;
   padding: 16px;
   font-size: 16px;
   color: #323232;
@@ -104,7 +120,7 @@ export default {
 .login-container .form button {
   padding: 18px 96px;
   border: none;
-  background: #FF3168;
+  background: #ff3168;
   font-weight: 600;
   color: #ffffff;
   border-radius: 8px;
@@ -113,16 +129,15 @@ export default {
 }
 
 .login-container .form input:focus {
-  border: 1px solid #FF3168;
+  border: 1px solid #ff3168;
 }
 
 .login-container .form p {
   margin-top: 24px;
   text-align: center;
-  color: #BECBD5;
+  color: #becbd5;
   margin-top: 80px;
-
-  }
+}
 .login-container .form a {
   padding: 16px 48px;
   border: 1px solid #ff3168;
@@ -130,14 +145,18 @@ export default {
   margin-top: 12px;
   font-weight: 400;
   font-size: 16px;
-  color: #FF3168;
+  color: #ff3168;
   text-decoration: none;
   text-align: center;
-  transition: all .15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
-.login-container .form a:hover{
+.login-container .form a:hover {
   background: #ff3168;
   color: #ffffff;
 }
 </style>
+
+
+
+

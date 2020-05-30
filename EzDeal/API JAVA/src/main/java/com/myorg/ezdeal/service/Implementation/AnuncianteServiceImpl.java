@@ -5,13 +5,12 @@ import com.myorg.ezdeal.models.Membresia;
 import com.myorg.ezdeal.repository.AnuncianteRepository;
 import com.myorg.ezdeal.repository.MembresiaRepository;
 import com.myorg.ezdeal.service.AnuncianteService;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Slf4j
 public class AnuncianteServiceImpl implements AnuncianteService {
 
 
@@ -35,10 +34,19 @@ public class AnuncianteServiceImpl implements AnuncianteService {
 
     public int actualizarDatosMembresia(String nombreMembresia, Long anuncianteId) throws Exception {
 
+        int actualizo = 1;
+        int noActualizo = 0;
         Membresia objMembresia = this.membresiaRepository.buscarPorNombre(nombreMembresia);
         int actualizacionExitosa = this.anuncianteRepository.actualizarDatosMembresia(objMembresia,anuncianteId);
-        if (actualizacionExitosa == 1) return actualizacionExitosa;
-        else return 0;
+
+        if (actualizacionExitosa == actualizo) {
+            Anunciante anun = this.anuncianteRepository.findById(anuncianteId).get();
+
+            return actualizacionExitosa;
+        }
+        else {
+            return noActualizo;
+        }
 
 
     }

@@ -43,7 +43,9 @@ public class Reseña implements Serializable {
         this.cliente = cliente;
     }
 
+
     public Reseña(String contenido, double valoracion){
+
         this.contenido = contenido;
         this.valoracion = valoracion;
     }

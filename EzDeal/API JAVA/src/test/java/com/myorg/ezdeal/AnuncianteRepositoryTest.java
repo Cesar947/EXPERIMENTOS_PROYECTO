@@ -7,18 +7,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Propagation;
+
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,20 +28,25 @@ public class AnuncianteRepositoryTest {
         System.out.println("Iniciamos la prueba de anunciante repository");
     }
 
+
+    /*
+    Test para verificar que se actualize correctamente la membresía de un Anunciante
+    y que esta membresía sea la esperada
+     */
     @Test
     @Transactional
     public void actualizarMembresiaTest(){
         Membresia memb = getMembresiaGold();
-        Long anuncianteId = new Long(1);
+        Long anuncianteId = Long.valueOf(1);
         int membresiaActualizada1 = anuncianteRepository.actualizarDatosMembresia(memb, anuncianteId);
         Anunciante anunciante = anuncianteRepository.findById(anuncianteId).get();
         assertEquals(1, membresiaActualizada1);
-        assertEquals("Gold", anunciante.getMembresia().getNombre());
+        assertEquals("GOLD", anunciante.getMembresia().getNombre());
 
     }
 
     public Membresia getMembresiaGold(){
-        return new Membresia(new Long(1), "GOLD", new BigDecimal(60.0));
+        return new Membresia(Long.valueOf(1), "GOLD", new BigDecimal(60.0));
     }
 
 }

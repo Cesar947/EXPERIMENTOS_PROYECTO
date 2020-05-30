@@ -1,40 +1,28 @@
 package com.myorg.ezdeal.controller;
 
-import com.myorg.ezdeal.models.Membresia;
 import com.myorg.ezdeal.service.AnuncianteService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/anunciantes")
-@Slf4j
 public class AnuncianteController {
 
-    @Autowired
-    AnuncianteService anuncianteService;
+  /*  AnuncianteService anuncianteService;
 
-    /*
-    Metodo para actualizar datos membresia
-    Parametros:
-        nombreMembresia: Tal y como está guardado en la BD
-        anuncianteId: ID del anunciante al que está relacionada la cuenta del usuario en cuestión
-
-        # Tarjeta
-        CCV
-        Fecha de Vencimiento
-     */
-    @PutMapping("/membresia/{nombreMembresia}")
-    public int actualizarDatosMembresia(@PathVariable("nombreMembresia") String nombreMembresia,
-                                              @RequestParam("anuncianteId") Long anuncianteId) throws Exception {
-
-        log.info("/////////////////////////////////////////");
-        log.info(nombreMembresia);
-        log.info(anuncianteId.toString());
-        log.info("/////////////////////////////////////////");
-        return this.anuncianteService.actualizarDatosMembresia(nombreMembresia.toUpperCase(), anuncianteId);
-
+    public AnuncianteController(AnuncianteService anuncianteService){
+        this.anuncianteService = anuncianteService;
     }
+
+    @PutMapping("/membresia/{nombreMembresia}")
+    public int actualizarDatosMembresia(@PathVariable("nombreMembresia") final String nombreMembresia,
+                                              @RequestParam("anuncianteId") final Long anuncianteId) throws Exception {
+
+        return this.anuncianteService.actualizarDatosMembresia(nombreMembresia.toUpperCase(Locale.getDefault()), anuncianteId);
+
+    }*/
 
     
 }

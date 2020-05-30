@@ -9,8 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
-import java.util.Locale;
+
 
 @Data
 @AllArgsConstructor
@@ -37,11 +36,9 @@ public class Solicitud implements Serializable {
     @Column(name="mensaje")
     private String mensaje;
 
+    // Enviada - Aceptada - Rechazada
     @Column(name="estado")
     private String estado;
-
-    @Column(name="costo_final")
-    private double costoFinal;
 
     @Column(name="fecha_solicitud")
     private LocalDate fechaSolicitud;
@@ -52,14 +49,13 @@ public class Solicitud implements Serializable {
     @Column(name="fecha_pactada", nullable=true)
     private LocalDate fechaPactada;
 
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="solicitud")
-    private List<Agenda> citas;
+    @Column(name="hora_fin")
+    private LocalTime horaFinEstimada;
 
-    public Solicitud(Servicio servicio, Usuario cliente, String mensaje, String estado, double costoFinal, LocalDate fechaSolicitud, LocalTime horaPactada, LocalDate fechaPactada) {
+    public Solicitud(Servicio servicio, Usuario cliente, String mensaje, String estado, LocalDate fechaSolicitud, LocalTime horaPactada, LocalDate fechaPactada) {
         this.servicio = servicio;
         this.cliente = cliente;
         this.estado = estado;
-        this.costoFinal = costoFinal;
         this.fechaSolicitud = fechaSolicitud;
         this.fechaPactada = fechaPactada;
         this.horaPactada = horaPactada;

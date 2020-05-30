@@ -1,6 +1,5 @@
 package com.myorg.ezdeal.service.Implementation;
 
-import com.myorg.ezdeal.models.Anunciante;
 import com.myorg.ezdeal.models.ComprobantePago;
 import com.myorg.ezdeal.models.Membresia;
 import com.myorg.ezdeal.repository.AnuncianteRepository;
@@ -43,12 +42,11 @@ public class ComprobantePagoServiceImpl implements ComprobantePagoService {
         ComprobantePago comprobantePago = new ComprobantePago();
         Membresia membresia = membresiaRepository.buscarPorNombre( body.get("membresiaNombre") );
 
-        comprobantePago.setImporte(membresia.getCosto());
-
-        comprobantePago.setProducto("Membresia " + body.get("membresiaNombre"));
-        comprobantePago.setAnunciante( anuncianteRepository.findById( new Long(body.get("anuncianteId") )).get());
-        comprobantePago.setIgv( comprobantePago.getImporte().multiply(BigDecimal.valueOf(0.18)));
-        comprobantePago.setMontoTotal(comprobantePago.getImporte().add(comprobantePago.getIgv()));
+        comprobantePago.setMonto(membresia.getCosto());
+        comprobantePago.setMembresia(membresia);
+        comprobantePago.setAnunciante( anuncianteRepository.findById( Long.valueOf(body.get("anuncianteId") )).get());
+        comprobantePago.setIgv( comprobantePago.getMonto().multiply(BigDecimal.valueOf(0.18)));
+        comprobantePago.setMontoNeto(comprobantePago.getMonto().add(comprobantePago.getIgv()));
         comprobantePago.setFechaPago(LocalDate.now());
         comprobantePago.setHoraPago(LocalTime.now());
 

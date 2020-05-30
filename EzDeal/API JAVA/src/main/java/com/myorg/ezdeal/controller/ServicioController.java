@@ -4,10 +4,9 @@ import com.myorg.ezdeal.models.Servicio;
 import com.myorg.ezdeal.service.ServicioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,14 +17,14 @@ public class ServicioController {
     private ServicioService servicioService;
 
     @Autowired
-    public ServicioController(ServicioService servicioService){
+    public ServicioController(final ServicioService servicioService){
         this.servicioService = servicioService;
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Servicio publicarServicio(@RequestBody Servicio servicio,
-                                     @RequestParam(value = "tipoServicioId" , required = true) Long tipoServicioId,
-                                     @RequestParam(value="anuncianteId", required = true) Long anuncianteId) throws Exception{
+    public Servicio publicarServicio(final @RequestBody Servicio servicio,
+                                     final @RequestParam(value = "tipoServicioId" , required = true) Long tipoServicioId,
+                                     final @RequestParam(value="anuncianteId", required = true) Long anuncianteId) throws Exception{
 
 
         log.info("***********************");
@@ -35,28 +34,33 @@ public class ServicioController {
         return this.servicioService.publicarServicio(servicio, anuncianteId, tipoServicioId);
     }
 
-    @GetMapping("/todos")
+    //@CrossOrigin(origins = "*",allowCredentials = "*" ,allowedHeaders = "*" , exposedHeaders = "*", methods = "*" )
+    @CrossOrigin(origins = "http://localhost:8080/")
+    @GetMapping("/lista")
     public List<Servicio> listarServicios() throws Exception{
         return this.servicioService.listarServicios();
     }
 
 
     @GetMapping("/titulo")
-    public List<Servicio> listarServiciosPorTitulo(@RequestParam(value = "keyword", required = true) String keyword) throws Exception{
+    public List<Servicio> listarServiciosPorTitulo(final @RequestParam(value = "keyword", required = true) String keyword) throws Exception{
 
         return this.servicioService.listarServiciosPorTitulo(keyword);
     }
 
     @GetMapping
-    public List<Servicio> listarPorMembresia(@RequestParam("membresiaId") Long membresiaId) throws Exception{
+    public List<Servicio> listarPorMembresia(final @RequestParam("membresiaId") Long membresiaId) throws Exception{
         return this.servicioService.listarPorMembresia(membresiaId);
     }
 
-    /*
-    @GetMapping("/titulo")
-    public List<Servicio> listarServiciosPorTitulo(@RequestParam(value = "titulo", required = true) String titulo) throws Exception{
-        return this.servicioService.findByTituloLike("%"+titulo+"%");
+    @GetMapping("/{id}")
+    public Servicio mostrarDetalleServicio(@PathVariable("id") Long servicioId) throws Exception{
+        return this.servicioService.mostrarDetalleServicio(servicioId);
     }
 
-     */
+    @GetMapping("/anunciante/{anuncianteId}")
+    public List<Servicio> obtenerMisServicios(@PathVariable("anuncianteId") Long anuncianteId) throws Exception{
+        return this.servicioService.listarServicioPorAnunciante(anuncianteId);
+    }
+
 }

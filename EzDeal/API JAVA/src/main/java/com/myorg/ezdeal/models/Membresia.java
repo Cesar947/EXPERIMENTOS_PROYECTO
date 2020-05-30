@@ -30,4 +30,8 @@ public class Membresia implements Serializable {
     @Column(name="costo")
     private BigDecimal costo; //Money(?
 
+    public Membresia(String nombre, BigDecimal costo) {
+        this.nombre = nombre;
+        this.costo = costo;
+    }
 }

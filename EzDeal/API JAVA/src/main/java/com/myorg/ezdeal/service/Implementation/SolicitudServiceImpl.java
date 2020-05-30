@@ -1,31 +1,35 @@
 package com.myorg.ezdeal.service.Implementation;
+import com.myorg.ezdeal.models.*;
 
-import com.myorg.ezdeal.controller.SolicitudController;
-import com.myorg.ezdeal.models.Membresia;
-import com.myorg.ezdeal.models.Solicitud;
-import com.myorg.ezdeal.models.Usuario;
+import com.myorg.ezdeal.repository.CitaRepository;
+import com.myorg.ezdeal.repository.ServicioRepository;
 import com.myorg.ezdeal.repository.SolicitudRepository;
-import com.myorg.ezdeal.models.Agenda;
+import com.myorg.ezdeal.repository.UsuarioRepository;
 import com.myorg.ezdeal.service.SolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+
 
 @Service
 public class SolicitudServiceImpl implements SolicitudService {
 
     private SolicitudRepository solicitudRepository;
+    private CitaRepository citaRepository;
+    private ServicioRepository servicioRepository;
+    private UsuarioRepository usuarioRepository;
 
     @Autowired
-    public SolicitudServiceImpl(SolicitudRepository solicitudRepository){
+    public SolicitudServiceImpl(SolicitudRepository solicitudRepository, ServicioRepository servicioRepository, UsuarioRepository usuarioRepository, CitaRepository citaRepository){
         this.solicitudRepository = solicitudRepository;
-    }
-
-    @Override
-    public Solicitud listarSolicitudDeId(Long id) throws Exception{
-        return this.solicitudRepository.findById(id).get();
+        this.servicioRepository = servicioRepository;
+        this.usuarioRepository = usuarioRepository;
+        this.citaRepository = citaRepository;
     }
 
     @Override
@@ -33,22 +37,51 @@ public class SolicitudServiceImpl implements SolicitudService {
         return this.solicitudRepository.findAll();
     }
 
-    public Solicitud solicitar(Solicitud solicitud) throws Exception{
+    public Solicitud solicitar(Solicitud solicitud, Long clienteId, Long servicioId) throws Exception{
+        List<Solicitud> solicitudesRealizadas = solicitudRepository.listarPorFechaYServicio(solicitud.getFechaPactada(), servicioId);
 
-        return this.solicitudRepository.save(solicitud);
-    }
+        for (Solicitud sRealizada: solicitudesRealizadas){
+                //Si la hora pactada que está por enviarse está dentro del rango de horas de otra solicitud ya agendada,
+                //no se podrá enviar la solicitud
+                if(!solicitud.getHoraPactada().isBefore(sRealizada.getHoraPactada()) ||
+                        !solicitud.getHoraPactada().isAfter(sRealizada.getHoraFinEstimada())){
+                    return new Solicitud();
+                }
+        }
+        Usuario cliente = usuarioRepository.findById(clienteId).get();
+        Servicio servicio = servicioRepository.findById(servicioId).get();
+        solicitud.setServicio(servicio);
+        solicitud.setCliente(cliente);
+        solicitud.setEstado("Enviada");
+        solicitud.setFechaSolicitud(LocalDate.now());
 
-    @Override
-    public Solicitud reagendarCita(Agenda cita, Long solicitudId) throws Exception {
-        Solicitud solicitudParaReagendar = solicitudRepository.findById(solicitudId).get();
-        cita.setSolicitud(solicitudParaReagendar);
-        solicitudParaReagendar.getCitas().add(cita);
-        return solicitudRepository.save(solicitudParaReagendar);
+        Solicitud solicitudGuardada = this.solicitudRepository.save(solicitud);
+
+        return solicitudGuardada;
     }
 
     @Transactional
-    public int actualizarEstadoSolicitud(String estado, Long SolicitudId) throws Exception {
-        return solicitudRepository.actualizarEstadoSolicitud(estado, SolicitudId);
+    public int actualizarEstadoSolicitud(String estado, String horaFin, Long solicitudId) throws Exception {
+        int actualizo = 1;
+        int noActualizo = 0;
+        int actualizacionExitosa;
+        Solicitud solicitud = this.solicitudRepository.findById(solicitudId).get();
+        if (horaFin != "" || estado.equals("Rechazada")){
+            actualizacionExitosa = this.solicitudRepository.actualizarEstadoSolicitud(estado, solicitudId);
+        }
+        else {
+            this.solicitudRepository.actualizarEstadoSolicitud(estado, solicitudId);
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+            LocalTime nuevaHoraFin = LocalTime.parse(horaFin, dtf);
+            actualizacionExitosa = this.solicitudRepository.actualizarHoraFin(nuevaHoraFin, solicitudId);
+            Cita citaGenerada = new Cita();
+            citaGenerada.setSolicitud(solicitud);
+            citaGenerada.setEstado("Creada");
+            this.citaRepository.save(citaGenerada);
+        }
+
+        if (actualizacionExitosa == actualizo) return actualizacionExitosa;
+        else return noActualizo;
     }
 
     @Override
@@ -56,5 +89,11 @@ public class SolicitudServiceImpl implements SolicitudService {
         return solicitudRepository.listarPorClienteYServicio(clienteId, servicioId, estado);
     }
 
+    @Override
+    public List<Solicitud> listarPorServicio(Long servicioId) throws Exception{
+        return this.solicitudRepository.listarPorServicio(servicioId);
+    }
+
 
 }
+

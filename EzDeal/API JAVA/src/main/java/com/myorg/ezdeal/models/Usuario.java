@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import java.io.Serializable;
 
 @Data
@@ -61,8 +59,8 @@ public class Usuario implements Serializable {
     @JoinColumn(name="anunciante_id")
     private Anunciante infoAnunciante;
 
-
     public Usuario(String nombres, String apellidoPaterno, String apellidoMaterno, String departamento, String distrito, String direccion, String provincia, Cuenta cuentaId, Anunciante infoAnunciante, String imagenPerfil) {
+
         this.nombres = nombres;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;

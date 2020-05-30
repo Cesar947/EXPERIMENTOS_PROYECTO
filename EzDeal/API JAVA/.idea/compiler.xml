@@ -11,7 +11,7 @@
         <module name="EzDeal.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="com.myorg.ezdeal.EzDeal.main" target="1.8" />
       <module name="com.myorg.ezdeal.EzDeal.test" target="1.8" />
     </bytecodeTargetLevel>

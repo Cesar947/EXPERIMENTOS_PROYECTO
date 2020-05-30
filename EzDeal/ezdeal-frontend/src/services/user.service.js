@@ -29,6 +29,9 @@ class UserService {
         return axios
             .post(`${environment.api}/auth/registro`, {signUpRequest})
     }
+
+
+    
 }
 
 

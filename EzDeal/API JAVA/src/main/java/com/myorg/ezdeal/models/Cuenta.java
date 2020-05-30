@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -41,7 +40,7 @@ public class Cuenta implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles;
 
-    public Cuenta(String nombreUsuario, String email, String contrasena){
+    public Cuenta(final String nombreUsuario, final String email, final String contrasena){
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.contrasena = contrasena;

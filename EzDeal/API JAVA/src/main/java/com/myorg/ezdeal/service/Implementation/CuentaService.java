@@ -34,7 +34,8 @@ public class CuentaService implements UserDetailsService {
            throw new UsernameNotFoundException(username);
         }
 
-        List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
+        List<GrantedAuthority> roles = new ArrayList<>();
+
         for(Rol rol: cuenta.getRoles()){
             roles.add(new SimpleGrantedAuthority(rol.getNombre().toString()));
         }

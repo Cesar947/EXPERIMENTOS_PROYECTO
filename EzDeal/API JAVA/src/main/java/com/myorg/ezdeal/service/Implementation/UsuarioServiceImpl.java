@@ -1,21 +1,29 @@
 package com.myorg.ezdeal.service.Implementation;
 
+import com.myorg.ezdeal.models.Membresia;
 import com.myorg.ezdeal.models.Usuario;
+import com.myorg.ezdeal.repository.AnuncianteRepository;
+import com.myorg.ezdeal.repository.MembresiaRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
 import com.myorg.ezdeal.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
-    UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
+    private AnuncianteRepository anuncianteRepository;
+    private MembresiaRepository membresiaRepository;
 
     @Autowired
-    public UsuarioServiceImpl( UsuarioRepository usuarioRepository){
+    public UsuarioServiceImpl( UsuarioRepository usuarioRepository, AnuncianteRepository anuncianteRepository, MembresiaRepository membresiaRepository){
         this.usuarioRepository = usuarioRepository;
+        this.anuncianteRepository = anuncianteRepository;
+        this.membresiaRepository = membresiaRepository;
     }
 
     @Override
@@ -34,5 +42,18 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario verPerfil(Long id) throws Exception{
         return this.usuarioRepository.findById(id).get();
     }
+    @Override
+    @Transactional
+    public int actualizarMembresia(String nombreMembresia, Long usuarioAnuncianteId) throws Exception{
+        Usuario anunciante = usuarioRepository.findById(usuarioAnuncianteId).get();
+        Long anuncianteId = anunciante.getId();
+        Membresia membresia = membresiaRepository.buscarPorNombre(nombreMembresia);
+        return this.anuncianteRepository.actualizarDatosMembresia(membresia, anuncianteId);
 
+    }
+
+    @Override
+    public String obtenerNombreMembresia(Long id) throws Exception {
+        return this.usuarioRepository.obtenerNombreMembresia(id);
+    }
 }

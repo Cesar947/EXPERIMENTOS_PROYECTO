@@ -2,13 +2,16 @@ package com.myorg.ezdeal.controller;
 
 
 import com.myorg.ezdeal.models.Agenda;
-import com.myorg.ezdeal.models.Servicio;
 import com.myorg.ezdeal.models.Solicitud;
 import com.myorg.ezdeal.service.SolicitudService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/solicitudes")
@@ -18,7 +21,7 @@ public class SolicitudController {
     private SolicitudService solicitudService;
 
     @Autowired
-    public SolicitudController(SolicitudService solicitudService){
+    public SolicitudController(final SolicitudService solicitudService){
         this.solicitudService = solicitudService;
     }
 
@@ -28,12 +31,23 @@ public class SolicitudController {
     }
 
     @PostMapping
-    public Solicitud publicarSolicitud(@RequestBody Solicitud solicitud) throws Exception{
-        return this.solicitudService.solicitar(solicitud);
+    public Solicitud publicarSolicitud(@RequestBody Solicitud solicitud,
+                                       @RequestParam("clienteId") Long clienteId,
+                                       @RequestParam("servicioId") Long servicioId) throws Exception{
+        return this.solicitudService.solicitar(solicitud, clienteId, servicioId);
+    }
+
+    @GetMapping("/servicio/{id}")
+    public List<Solicitud> listarSolicitudesPorServicio(@PathVariable("id") Long servicioId) throws Exception{
+        return this.solicitudService.listarPorServicio(servicioId);
     }
 
     @PutMapping("/{id}")
-    public Solicitud reagendarCita(@PathVariable("id") Long solicitudId, @RequestBody Agenda cita) throws Exception{
-        return this.solicitudService.reagendarCita(cita, solicitudId);
+    public int actualizarEstadoSolicitud(@PathVariable("id") Long solicitudId, @RequestParam("estado") String estado,
+                                         @RequestParam(name = "horaFin", required = false) String horaFin) throws Exception{
+        return this.solicitudService.actualizarEstadoSolicitud(estado, horaFin, solicitudId);
     }
+
+
+
 }

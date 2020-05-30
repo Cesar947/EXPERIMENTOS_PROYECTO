@@ -5,6 +5,7 @@
     <div class="list-publications-container">
         
       <PublicationCard 
+      
       v-for="(value, key) in anuncios" 
       v-bind:key="key" 
       v-bind:anuncio="value" 
@@ -17,6 +18,7 @@
 import PublicationCard from "./Home/PublicationCard";
 import axios from 'axios';
 import { environment } from '../environment/environment';
+import { bus } from '../main';
 export default {
   name: "MainHome",
   components: { PublicationCard },
@@ -35,24 +37,56 @@ export default {
         { id: 10, name: "Name 10", rol: "Electricista", rating: 4.0 }
       ],
       anuncios: []
+       
+       
     };
 
   },
   created(){
+
+
+
+    bus.$on('updateAnuncios', (keyword) => {
+
+      this.buscarServicios(keyword);
+
+    })
 
     this.listarServicios();
   },
 
   methods: {
     listarServicios() {
-
-        axios.get(`${environment.api}/auth/servicios?membresiaId=1`)
+        const token = localStorage.getItem("token")
+        axios
+        .get(`${environment.api}/servicios/lista`,
+          {
+          headers : {
+            Authorization : `Bearer ${token}` 
+            }
+          }
+        )
         .then(response => {
           this.anuncios = response.data
           console.log(this.anuncios)
         })
         .catch( error => {
           console.log(error)
+        });
+
+    },
+
+    buscarServicios(keyword){
+      
+      axios.get(`${environment.api}/auth/servicios/titulo?keyword=${keyword}`)
+        .then(response => {
+          
+          this.anuncios = response.data
+        
+        })
+        .catch(error => {
+          console.log(error)
+          alert("error");
         });
 
     }
@@ -72,7 +106,7 @@ export default {
     margin: 48px auto 0;
     display: flex;
     flex-wrap: wrap;  
-    justify-content: center;
+    justify-content: flex-start;
     
 }
 </style>
