@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.service.implementation;
+package com.myorg.ezdeal.service.Implementation;
 
 import com.myorg.ezdeal.models.Reseña;
 import com.myorg.ezdeal.models.Servicio;
@@ -25,10 +25,12 @@ public class ReseñaServiceImpl implements ReseñaService {
     public ReseñaServiceImpl(ReseñaRepository reseñaRepository, ServicioRepository servicioRepository,
                              UsuarioRepository usuarioRepository, SolicitudRepository solicitudRepository,
                              SolicitudService  solicitudService, CitaRepository citaRepository){
+
         this.reseñaRepository = reseñaRepository;
         this.servicioRepository = servicioRepository;
         this.usuarioRepository = usuarioRepository;
         this.solicitudService = solicitudService;
+
         this.citaRepository = citaRepository;
     }
 

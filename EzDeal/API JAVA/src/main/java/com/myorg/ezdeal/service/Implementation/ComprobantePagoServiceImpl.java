@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.service.implementation;
+package com.myorg.ezdeal.service.Implementation;
 
 import com.myorg.ezdeal.models.ComprobantePago;
 import com.myorg.ezdeal.models.Membresia;

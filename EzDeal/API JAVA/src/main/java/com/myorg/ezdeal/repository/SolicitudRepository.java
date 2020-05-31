@@ -2,6 +2,7 @@ package com.myorg.ezdeal.repository;
 
 
 import com.myorg.ezdeal.models.Solicitud;
+import com.sun.org.apache.xalan.internal.xsltc.dom.StepIterator;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -37,4 +38,5 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Long> {
 
     @Query("SELECT s FROM Solicitud s JOIN Servicio se ON se.id = s.servicio.id JOIN Usuario u ON u.id = se.anunciante.id WHERE u.id = ?1")
     List<Solicitud> listarPorAnunciante(Long anuncianteId);
+
 }

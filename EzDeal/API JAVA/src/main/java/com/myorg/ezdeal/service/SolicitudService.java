@@ -20,6 +20,7 @@ public interface SolicitudService {
 
     List<Solicitud> listarPorClienteYServicio(Long clienteId, Long servicioId, String estado);
 
+
     List<Solicitud> listarPorServicio(Long servicioId) throws Exception;
 
     List<Solicitud> listarSolicitudesPorAnunciante(Long anuncianteId) throws Exception;

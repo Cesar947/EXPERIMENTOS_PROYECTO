@@ -23,7 +23,7 @@
         <a href="/public">Publicar</a>
         <a href="/mis-servicios">Mis Servicios</a>
         <a>Mis Solicitudes</a>
-        <a>Agenda</a>
+        <a href="/mis-citas">Agenda</a>
         <a id="gold-btn" href="/membresia">Quiero ser gold</a>
         
       </div>

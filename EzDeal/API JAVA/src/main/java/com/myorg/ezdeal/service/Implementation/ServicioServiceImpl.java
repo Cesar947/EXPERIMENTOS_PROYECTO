@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.service.implementation;
+package com.myorg.ezdeal.service.Implementation;
 
 import com.myorg.ezdeal.models.Horario;
 import com.myorg.ezdeal.models.Servicio;
@@ -9,7 +9,6 @@ import com.myorg.ezdeal.repository.ServicioRepository;
 import com.myorg.ezdeal.repository.TipoServicioRepository;
 import com.myorg.ezdeal.repository.UsuarioRepository;
 import com.myorg.ezdeal.service.ServicioService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,12 +2,11 @@ package com.myorg.ezdeal.security;
 
 import com.myorg.ezdeal.security.jwt.AuthEntryPointJwt;
 import com.myorg.ezdeal.security.jwt.AuthTokenFilter;
-import com.myorg.ezdeal.service.implementation.CuentaServiceImpl;
+import com.myorg.ezdeal.service.Implementation.CuentaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

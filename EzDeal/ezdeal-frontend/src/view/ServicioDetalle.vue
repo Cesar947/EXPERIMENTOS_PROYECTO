@@ -63,7 +63,7 @@
         <!--Información del servicio-->
         <div class="informacion-service">
           <p class="title-info">Descripción</p>
-          <p>{{ servicioDetalle.tipoServicio.descripcion }}</p>
+          <p>{{ servicioDetalle.descripcion }}</p>
         </div>
       </div>
     </div>
