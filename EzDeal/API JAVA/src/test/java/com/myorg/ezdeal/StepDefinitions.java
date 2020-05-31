@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.cucumber_tests;
+package com.myorg.ezdeal;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.cucumber_tests;
+package com.myorg.ezdeal;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
