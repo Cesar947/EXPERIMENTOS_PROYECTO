@@ -61,27 +61,27 @@ public class SolicitudServiceImpl implements SolicitudService {
     }
 
     @Transactional
-    public int actualizarEstadoSolicitud(String estado, String horaFin, Long solicitudId) throws Exception {
-        int actualizo = 1;
-        int noActualizo = 0;
-        int actualizacionExitosa;
+    public int actualizarEstadoSolicitud(String estado, String horaFin, String motivoRechazo, Long solicitudId) throws Exception {
+        int actualizacionExitosa = 0;
         Solicitud solicitud = this.solicitudRepository.findById(solicitudId).get();
-        if (horaFin != "" || estado.equals("Rechazada")){
+        if (estado.equals("Rechazada") && motivoRechazo != ""){
+            this.solicitudRepository.actualizarMotivoRechazo(motivoRechazo, solicitudId);
             actualizacionExitosa = this.solicitudRepository.actualizarEstadoSolicitud(estado, solicitudId);
         }
-        else {
-            this.solicitudRepository.actualizarEstadoSolicitud(estado, solicitudId);
+        else if(estado.equals("Aceptada") && horaFin != ""){
+
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-            LocalTime nuevaHoraFin = LocalTime.parse(horaFin, dtf);
-            actualizacionExitosa = this.solicitudRepository.actualizarHoraFin(nuevaHoraFin, solicitudId);
+            LocalTime nuevaHoraFin = LocalTime.parse(horaFin, dtf).plusMinutes(10);
+            this.solicitudRepository.actualizarHoraFin(nuevaHoraFin, solicitudId);
+            actualizacionExitosa = this.solicitudRepository.actualizarEstadoSolicitud(estado, solicitudId);
             Cita citaGenerada = new Cita();
             citaGenerada.setSolicitud(solicitud);
             citaGenerada.setEstado("Creada");
             this.citaRepository.save(citaGenerada);
         }
 
-        if (actualizacionExitosa == actualizo) return actualizacionExitosa;
-        else return noActualizo;
+        return actualizacionExitosa;
+
     }
 
     @Override
@@ -94,6 +94,10 @@ public class SolicitudServiceImpl implements SolicitudService {
         return this.solicitudRepository.listarPorServicio(servicioId);
     }
 
+    @Override
+    public List<Solicitud> listarSolicitudesPorAnunciante(Long anuncianteId) throws Exception{
+        return this.solicitudRepository.listarPorAnunciante(anuncianteId);
+    }
 
 }
 

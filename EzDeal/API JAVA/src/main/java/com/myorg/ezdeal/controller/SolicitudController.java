@@ -44,10 +44,16 @@ public class SolicitudController {
 
     @PutMapping("/{id}")
     public int actualizarEstadoSolicitud(@PathVariable("id") Long solicitudId, @RequestParam("estado") String estado,
-                                         @RequestParam(name = "horaFin", required = false) String horaFin) throws Exception{
-        return this.solicitudService.actualizarEstadoSolicitud(estado, horaFin, solicitudId);
+                                         @RequestParam(name = "horaFin", required = false) String horaFin,
+                                         @RequestParam(name = "motivoRechazo", required = false) String motivoRechazo) throws Exception{
+        return this.solicitudService.actualizarEstadoSolicitud(estado, horaFin, motivoRechazo, solicitudId);
     }
 
+    @GetMapping("/anunciante/{anuncianteId}")
+    public List<Solicitud> listarSolicitudesPorAnunciante(@PathVariable("anuncianteId") Long anuncianteId) throws Exception{
+
+        return this.solicitudService.listarSolicitudesPorAnunciante(anuncianteId);
+    }
 
 
 }
