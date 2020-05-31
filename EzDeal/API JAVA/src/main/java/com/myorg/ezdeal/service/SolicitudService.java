@@ -16,10 +16,11 @@ public interface SolicitudService {
     Solicitud solicitar(Solicitud solicitud, Long clienteId, Long servicioId) throws Exception;
 
     @Transactional
-    int actualizarEstadoSolicitud(String estado, String horaFin, Long solicitudId) throws Exception;
+    int actualizarEstadoSolicitud(String estado, String horaFin, String motivoRechazo, Long solicitudId) throws Exception;
 
     List<Solicitud> listarPorClienteYServicio(Long clienteId, Long servicioId, String estado);
 
     List<Solicitud> listarPorServicio(Long servicioId) throws Exception;
 
+    List<Solicitud> listarSolicitudesPorAnunciante(Long anuncianteId) throws Exception;
 }

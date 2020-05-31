@@ -52,6 +52,9 @@ public class Solicitud implements Serializable {
     @Column(name="hora_fin")
     private LocalTime horaFinEstimada;
 
+    @Column(name = "motivo_rechazo")
+    private String motivoRechazo;
+
     public Solicitud(Servicio servicio, Usuario cliente, String mensaje, String estado, LocalDate fechaSolicitud, LocalTime horaPactada, LocalDate fechaPactada) {
         this.servicio = servicio;
         this.cliente = cliente;
