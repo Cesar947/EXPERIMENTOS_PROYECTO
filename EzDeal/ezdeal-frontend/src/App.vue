@@ -26,6 +26,16 @@ export default {
 ::placeholder{
   color: rgba(0,0,0,.36);
 }
+*::-webkit-scrollbar{
+  width: 10px !important;
+}
+*::-webkit-scrollbar-thumb{
+  background: #e2e2e2 !important;
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-track{
+  background: #ffffff;
+}
 *{
   margin: 0;
   padding: 0;

@@ -32,12 +32,12 @@ export default {
 
 <style>
 .card-contenedor {
-  width: 60%;
+  width: 264px;
   padding: 32px;
   background: #ffffff;
   box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.05);
   display: flex;
-  margin: 24px;
+  
   border-radius: 10px;
   flex-direction: column;
   align-items: center;
