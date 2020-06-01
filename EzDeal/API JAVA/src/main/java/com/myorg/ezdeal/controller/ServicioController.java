@@ -48,11 +48,6 @@ public class ServicioController {
         return this.servicioService.listarServiciosPorTitulo(keyword);
     }
 
-    @GetMapping
-    public List<Servicio> listarPorMembresia(final @RequestParam("membresiaId") Long membresiaId) throws Exception{
-        return this.servicioService.listarPorMembresia(membresiaId);
-    }
-
     @GetMapping("/{id}")
     public Servicio mostrarDetalleServicio(@PathVariable("id") Long servicioId) throws Exception{
         return this.servicioService.mostrarDetalleServicio(servicioId);

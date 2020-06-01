@@ -27,4 +27,5 @@ public class Inconveniente implements Serializable {
     @ManyToOne
     @JoinColumn(name= "cita_id")
     private Cita cita;
+
 }

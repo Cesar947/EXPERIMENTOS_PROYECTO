@@ -47,4 +47,7 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
     List<Servicio> listarPorAnunciante(Long anuncianteId) throws Exception;
 
     List<Servicio> findByTituloLike(String titulo) throws Exception;
+
+
+
 }
