@@ -79,6 +79,9 @@ select * from solicitud;
 select * from cita;
 select * from horario;
 select * from reseña;
+select * from inconveniente;
+
+
 /*actualizar el estado de la solicitud 40 a finalizado*/
 UPDATE solicitud SET estado = "Finalizado" WHERE solicitud_id = 40;
 

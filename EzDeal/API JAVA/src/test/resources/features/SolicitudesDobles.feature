@@ -1,5 +1,5 @@
 Feature:
-  Scenario:
+  Scenario: Double service request
     Given
     When
     Then
