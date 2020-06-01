@@ -1,7 +1,6 @@
 <template>
   <div 
   class="card-container"
-  :style="[isGold ? {'border': '5px solid rgba(255, 128, 4, 1)'} : {'border': 'none'}]"
   >
    
     <img src="https://vignette.wikia.nocookie.net/memes-pedia/images/f/fe/Suprised_Patrick.jpg/revision/latest/top-crop/width/360/height/450?cb=20160222150600&path-prefix=es" alt />
@@ -15,7 +14,7 @@
 
     </div>
     <div class="enlace">
-      <a v-on:click="navigateToDetail()">Ver más</a>
+      <a v-bind:name="'servicio' + anuncio.id" v-on:click="navigateToDetail()">Ver más</a>
     </div>
     
   </div>
@@ -100,18 +99,5 @@ export default {
 a {
   color:rgba(230, 129, 14, 0.05);
 }
-.gold{
-   background: linear-gradient(
-    45deg,
-    rgba(255, 86, 25, 1),
-    rgba(255, 128, 4, 1)
-  );
-  color: #ffffff;
-  font-weight: 600;
-  border-radius: 10000px;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  margin: 15px 0px;
-}
+
 </style>

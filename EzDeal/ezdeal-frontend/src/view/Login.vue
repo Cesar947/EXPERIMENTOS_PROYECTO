@@ -6,19 +6,21 @@
     </div>
     <form class="form" v-on:submit.prevent="login()">
       <input
+        name="usuario"
         v-model="nombreUsuario"
         v-validate="'required'"
         type="text"
         placeholder="Usuario"
       />
       <input
+        name="contraseña"
         v-model="contrasena"
         v-validate="'required'"
         type="password"
         placeholder="Contraseña"
       />
 
-      <button type="submit">Ingresar</button>
+      <button name="login" type="submit">Ingresar</button>
       <p>Aun no tienes cuenta?</p>
       <a v-on:click="goToRegister">Registrate</a>
     </form>

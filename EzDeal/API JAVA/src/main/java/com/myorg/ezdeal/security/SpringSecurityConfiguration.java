@@ -33,7 +33,6 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
 
-
     @Autowired
     public AuthTokenFilter authenticationJwtTokenFilter;
 
@@ -61,6 +60,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/servicios/lista").permitAll()
                 .anyRequest().authenticated()
         .and().formLogin().disable();
 

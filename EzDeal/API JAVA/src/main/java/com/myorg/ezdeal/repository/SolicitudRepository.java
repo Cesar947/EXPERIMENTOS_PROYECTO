@@ -2,7 +2,6 @@ package com.myorg.ezdeal.repository;
 
 
 import com.myorg.ezdeal.models.Solicitud;
-import com.sun.org.apache.xalan.internal.xsltc.dom.StepIterator;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -32,6 +31,9 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Long> {
 
     @Query("SELECT s FROM Solicitud s where s.fechaPactada = ?1 and s.servicio.id = ?2")
     List<Solicitud> listarPorFechaYServicio(LocalDate fecha, Long servicioId);
+
+    @Query("SELECT s FROM Solicitud s where s.fechaPactada = ?1 and s.horaPactada = ?2 and s.servicio.id = ?3")
+    List<Solicitud> listarPorFechaYHoraYServicio(LocalDate Fecha, LocalTime hora, Long servicioId);
 
     @Query("SELECT s FROM Solicitud s where s.servicio.id = ?1")
     List<Solicitud> listarPorServicio(Long servicioId);

@@ -17,19 +17,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
-<<<<<<< HEAD
+
 import java.time.LocalDate;
 import java.time.LocalTime;
-=======
->>>>>>> master
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-<<<<<<< HEAD
+
 import static org.mockito.ArgumentMatchers.*;
-=======
->>>>>>> master
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -63,13 +61,9 @@ public class SolicitudServiceTest {
     @Before
     public void init(){
         estado = "Finalizado";
-<<<<<<< HEAD
         solicitudId = new Long(1);
         serviceId = new Long(1);
-=======
-        solicitudId = new Long(30);
-        serviceId = new Long(2);
->>>>>>> master
+
         userId = new Long(1);
     }
 /*
@@ -134,5 +128,5 @@ public class SolicitudServiceTest {
         assertEquals(reseñaGuardada, reseñaPrueba);
     }
 */
->>>>>>> master
+
 }

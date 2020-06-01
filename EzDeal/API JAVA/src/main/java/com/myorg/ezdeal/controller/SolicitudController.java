@@ -45,7 +45,7 @@ public class SolicitudController {
     @PutMapping("/{id}")
     public int actualizarEstadoSolicitud(@PathVariable("id") Long solicitudId, @RequestParam("estado") String estado,
                                          @RequestParam(name = "horaFin", required = false) String horaFin,
-                                         @RequestParam(name = "motivoRechazo", required = false) String motivoRechazo) throws Exception{
+                                         @RequestBody(required = false) Map<String, String> motivoRechazo) throws Exception{
         return this.solicitudService.actualizarEstadoSolicitud(estado, horaFin, motivoRechazo, solicitudId);
     }
 

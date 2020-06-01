@@ -1,4 +1,4 @@
-package com.myorg.ezdeal;
+package com.myorg.ezdeal.steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -6,7 +6,6 @@ import io.cucumber.java.en.When;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.test.context.junit4.SpringRunner;
 

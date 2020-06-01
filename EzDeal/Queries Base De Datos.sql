@@ -75,7 +75,7 @@ SELECT * FROM membresia;
 SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
 select * from servicio;
-select * from solicitud;
+select * from solicitud where servicio_id = 4;
 select * from cita;
 select * from horario;
 select * from reseña;

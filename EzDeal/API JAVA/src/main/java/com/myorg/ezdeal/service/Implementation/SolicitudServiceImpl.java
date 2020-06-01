@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -43,8 +44,10 @@ public class SolicitudServiceImpl implements SolicitudService {
         for (Solicitud sRealizada: solicitudesRealizadas){
                 //Si la hora pactada que está por enviarse está dentro del rango de horas de otra solicitud ya agendada,
                 //no se podrá enviar la solicitud
-                if(!solicitud.getHoraPactada().isBefore(sRealizada.getHoraPactada()) ||
-                        !solicitud.getHoraPactada().isAfter(sRealizada.getHoraFinEstimada())){
+                if(sRealizada.getEstado().equals("Aceptada") &&
+                  (!solicitud.getHoraPactada().isBefore(sRealizada.getHoraPactada()) ||
+                   !solicitud.getHoraPactada().isAfter(sRealizada.getHoraFinEstimada())
+                   )){
                     return new Solicitud();
                 }
         }
@@ -61,11 +64,12 @@ public class SolicitudServiceImpl implements SolicitudService {
     }
 
     @Transactional
-    public int actualizarEstadoSolicitud(String estado, String horaFin, String motivoRechazo, Long solicitudId) throws Exception {
+    public int actualizarEstadoSolicitud(String estado, String horaFin, Map<String, String> motivoRechazo, Long solicitudId) throws Exception {
         int actualizacionExitosa = 0;
         Solicitud solicitud = this.solicitudRepository.findById(solicitudId).get();
-        if (estado.equals("Rechazada") && motivoRechazo != ""){
-            this.solicitudRepository.actualizarMotivoRechazo(motivoRechazo, solicitudId);
+        String motivo = motivoRechazo.get("motivo");
+        if (estado.equals("Rechazada") && motivo != ""){
+            this.solicitudRepository.actualizarMotivoRechazo(motivo, solicitudId);
             actualizacionExitosa = this.solicitudRepository.actualizarEstadoSolicitud(estado, solicitudId);
         }
         else if(estado.equals("Aceptada") && horaFin != ""){
