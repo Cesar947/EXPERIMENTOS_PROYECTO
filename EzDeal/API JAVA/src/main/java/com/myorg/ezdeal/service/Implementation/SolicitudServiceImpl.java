@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.service.implementation;
+package com.myorg.ezdeal.service.Implementation;
 import com.myorg.ezdeal.models.*;
 
 import com.myorg.ezdeal.repository.CitaRepository;

@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/citas")
@@ -22,6 +23,12 @@ public class CitaController {
     @GetMapping("/{id}")
     public Cita mostrarCitaPorId(@PathVariable("id") Long citaId) throws Exception{
         return this.citaService.listarPorId(citaId);
+    }
+
+    //Solo para listar de clientes
+    @GetMapping("/usuario/{id}")
+    public List<Cita> listarCitasDeUsuario(@PathVariable("id") Long usuarioId) throws Exception{
+        return this.citaService.listarCitasDeUsuario(usuarioId);
     }
 
     @Transactional

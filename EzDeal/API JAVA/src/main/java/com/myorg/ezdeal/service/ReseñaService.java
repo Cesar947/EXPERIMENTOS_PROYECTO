@@ -1,6 +1,8 @@
 package com.myorg.ezdeal.service;
 
 import com.myorg.ezdeal.models.Reseña;
+import com.myorg.ezdeal.repository.ServicioRepository;
+import com.myorg.ezdeal.repository.SolicitudRepository;
 
 import java.util.List;
 
