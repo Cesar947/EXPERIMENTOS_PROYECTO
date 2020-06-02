@@ -21,7 +21,7 @@ class SolicitudService {
     }
 
     async aceptarSolicitud(idSolicitud, horaFin) {
-        return await Axios.put(`${environment.api}/solicitudes/${idSolicitud}?horaFin=${horaFin}&estado=Aceptada`, null, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
+        return await Axios.put(`${environment.api}/solicitudes/${idSolicitud}?horaFin=${horaFin}&estado=Aceptada`, {}, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
     }
 
     async rechazarSolicitud(idSolicitud, motivo) {

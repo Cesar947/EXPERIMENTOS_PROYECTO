@@ -20,7 +20,7 @@
         placeholder="Contraseña"
       />
 
-      <button name="login" type="submit">Ingresar</button>
+      <button name="loginButton" type="submit">Ingresar</button>
       <p>Aun no tienes cuenta?</p>
       <a v-on:click="goToRegister">Registrate</a>
     </form>

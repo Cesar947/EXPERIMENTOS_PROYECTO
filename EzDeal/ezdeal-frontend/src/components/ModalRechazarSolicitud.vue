@@ -4,9 +4,9 @@
       <img v-on:click="closeModal" src="../assets/ic_close_black.svg" alt="" />
       <h2>Confirmación {{ id }}</h2>
       <p>Por favor ingrese el motivo de su rechazo</p>
-      <textarea v-model="motivo" name="mensaje" id=""></textarea>
+      <textarea name="contenidoMotivo" v-model="motivo" id=""></textarea>
       <div class="btn-container">
-        <button v-on:click="submit">Enviar</button>
+        <button name="enviarMotivoRechazo" v-on:click="submit">Enviar</button>
       </div>
     </div>
   </div>

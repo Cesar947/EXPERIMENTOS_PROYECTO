@@ -1,7 +1,7 @@
 <template>
   <div class="card-contenedor">
     <div class="solicitudes-container">
-      <div class="message-icon">
+      <div v-bind:name="'iconoSolicitud' + servicio.id" class="message-icon">
         <img src="../assets/ic_solicitud.svg" alt="" />
         <p>{{ solicitudes.length }}</p>
       </div>
@@ -147,6 +147,7 @@ export default {
   font-size: 16px;
   color: #434343;
   font-weight: 400;
+  text-align: center;
 }
 
 .card-contenedor .rating {

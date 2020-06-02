@@ -2,11 +2,11 @@
       <div class="modal-container-aceptar">
         <div class="card">
         <img v-on:click="closeModal" src="../assets/ic_close_black.svg" alt="">
-            <h2>Confirmación {{id}}</h2>
-            <p>Por favor ingrese la hora pactada</p>
-            <input v-model="horaPactada" name="mensaje"  type="text" placeholder="13:40:00"/>
+            <h2>PASITA ES JOTO {{id}}</h2>
+            <p>Por favor ingrese la hora en la que finalizará el servicio</p>
+            <input v-model="horaPactada" name="hora-de-fin"  type="text" placeholder="13:40:00"/>
             <div class="btn-container">
-                <button v-on:click="submit">Enviar</button>
+                <button name="enviarAceptacion" v-on:click="submit">Enviar</button>
             </div>
         </div>
     </div>

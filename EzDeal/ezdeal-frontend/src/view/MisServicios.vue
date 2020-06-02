@@ -124,6 +124,7 @@ export default {
 
 .servicios-container .lista-servicios {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .servicios-container .lista-solicitudes {

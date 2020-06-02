@@ -67,7 +67,10 @@ public class SolicitudServiceImpl implements SolicitudService {
     public int actualizarEstadoSolicitud(String estado, String horaFin, Map<String, String> motivoRechazo, Long solicitudId) throws Exception {
         int actualizacionExitosa = 0;
         Solicitud solicitud = this.solicitudRepository.findById(solicitudId).get();
-        String motivo = motivoRechazo.get("motivo");
+        String motivo = "";
+        if (motivoRechazo != null){
+             motivo = motivoRechazo.get("motivo");
+        }
         if (estado.equals("Rechazada") && motivo != ""){
             this.solicitudRepository.actualizarMotivoRechazo(motivo, solicitudId);
             actualizacionExitosa = this.solicitudRepository.actualizarEstadoSolicitud(estado, solicitudId);

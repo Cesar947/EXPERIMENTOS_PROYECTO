@@ -75,7 +75,8 @@ SELECT * FROM membresia;
 SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
 select * from servicio;
-select * from solicitud where servicio_id = 4;
+UPDATE servicio SET descripcion = "Especialista en pasear patos de todo tipo" where servicio_id = 10;
+
 select * from cita;
 select * from horario;
 select * from reseña;
