@@ -26,7 +26,7 @@
 
 
         <div class="btn-submit">
-          <button v-on="getMembershipGold()" >Quiero ser gold</button>
+          <button v-on:click="getMembershipGold()" >Quiero ser gold</button>
         </div>
       </div>
     </div>
@@ -46,9 +46,9 @@ export default {
 
   methods: {
     getMembershipGold(){
-      MembershipService.goldMembreship(1).then( res=>{
+      MembershipService.goldMembreship(parseInt(localStorage.getItem("id"))).then( res=>{
         console.log(res);
-        this.$router.push("/home");
+        this.$router.push("/");
       })
     }
   }

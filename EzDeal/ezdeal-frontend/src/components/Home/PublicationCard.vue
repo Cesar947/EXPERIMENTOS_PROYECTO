@@ -30,7 +30,9 @@ export default {
   }
   },
   created(){
-      if (this.$props.anuncio.anunciante.infoAnunciante.membresia.nombre == "GOLD"){
+      if (this.$props.anuncio.anunciante.infoAnunciante.membresia == "GOLD" &&
+          this.$props.anuncio.anunciante.infoAnunciante.membresia !== undefined
+      ){
           this.$data.isGold = true
       }
       else{

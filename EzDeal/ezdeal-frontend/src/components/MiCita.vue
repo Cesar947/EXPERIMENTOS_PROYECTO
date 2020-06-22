@@ -14,18 +14,38 @@
     </div>
     <div class="enlace">
       <a v-on:click="navigateToDetail()">Resenar</a>
+      <button v-on:click="actualizarCita('Iniciada')">Iniciar</button>
+      <button v-on:click="actualizarCita('Finalizada')" >Finalizar</button>
     </div>
   </div>
 </template>
 
 <script>
+import CitaService from "../services/cita.service"
 export default {
   name: "MiCita",
   props: ["cita"],
   methods: {
     navigateToDetail(){
        this.$router.push(`/cita/${this.$props.cita.id}`);
+    },
+    async actualizarCita(estado){
+      try {
+        await CitaService.actualizarEstadoCita(estado,this.id);
+        alert(`La cita ha sido ${estado}`)
+      } catch (error) {
+        console.log(error);
+      }
+      
     }
+  },
+  data(){
+    return {
+      id: -1
+    }
+  },
+  mounted(){
+    this.id =  this.$props.cita.id
   }
 };
 </script>

@@ -68,4 +68,7 @@ export default {
         width: 1200px;
         margin: 0 auto;
     }
+    .cards-citas .lista-citas{
+        display: flex;
+    }
 </style>

@@ -97,10 +97,12 @@ export default {
 </script>
 
 <style>
+
 .main-home-container > h3,.main-home-container > p{
 
         text-align: center;
 }
+
 .list-publications-container{
     width: 90%;
     margin: 48px auto 0;
@@ -109,4 +111,5 @@ export default {
     justify-content: flex-start;
     
 }
+
 </style>

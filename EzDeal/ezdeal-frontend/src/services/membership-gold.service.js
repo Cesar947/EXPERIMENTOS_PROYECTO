@@ -10,7 +10,7 @@ class MembershipService {
 
     goldMembreship(id) {
         return axios
-            .put(`${environment.api}/auth/membresia/GOLD?anuncianteId=${id}`)
+            .put(`${environment.api}/usuarios?membresia=GOLD&usuarioId=${id}`, null,{ headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
     }
 }
 
