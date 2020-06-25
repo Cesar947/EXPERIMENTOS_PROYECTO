@@ -66,8 +66,24 @@ export default {
           console.log(localStorage.getItem("id"));
           console.log(localStorage.getItem("login"));
           console.log(localStorage.getItem("token"));
+          var rolesUsuario = response.data.roles
+
+          for(var i = 0; i < 2; i++){
+              if (rolesUsuario[i] != undefined){
+                  if(rolesUsuario[i] == "ROL_CLIENTE"){
+                      localStorage.setItem("cliente", "true");
+                  }
+                  else if(rolesUsuario[i] == "ROL_ANUNCIANTE"){
+                      localStorage.setItem("anunciante", "true");
+              }
+              }
+              
+          }
+          console.log("Cliente: " + localStorage.getItem("cliente"))
+          console.log("Anunciante: " + localStorage.getItem("anunciante"))
           this.$router.push("/");
-          localStorage.setItem("anunciante", "true");
+
+          
         });
       // this camp will have logic of authenticate
       

@@ -11,22 +11,22 @@
 
         <div class="field">
           <label for="">Numero de tarjeta</label>
-          <input  v-model="membresia.numeroTarjeta" type="text" placeholder="Titulo" />
+          <input name="numTarjeta" v-model="membresia.numeroTarjeta" type="text" placeholder="Número de tarjeta" />
         </div>
         <div class="field-group">
           <div class="field">
             <label for="">CCV</label>
-            <input v-model="membresia.ccv" type="text" placeholder="Electricista, pintor,etc" />
+            <input name="ccv" v-model="membresia.ccv" type="text" placeholder="CCV" />
           </div>
           <div class="field">
             <label for="">Fecha de vencimiento</label>
-            <input v-model="membresia.fechaVencimiento" type="text" placeholder="15.00" />
+            <input name="fechaV" v-model="membresia.fechaVencimiento" type="text" placeholder="MM/AA" />
           </div>
         </div>
 
 
         <div class="btn-submit">
-          <button v-on:click="getMembershipGold()" >Quiero ser gold</button>
+          <button name="quieroGold" v-on:click="getMembershipGold()" >Quiero ser gold</button>
         </div>
       </div>
     </div>

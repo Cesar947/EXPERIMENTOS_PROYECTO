@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.service.Implementation;
+package com.myorg.ezdeal.service.implementation;
 
 import com.myorg.ezdeal.models.Anunciante;
 import com.myorg.ezdeal.models.Membresia;

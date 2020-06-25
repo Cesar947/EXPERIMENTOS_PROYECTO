@@ -28,7 +28,7 @@ public class StepDefinitionDoubleRequest {
     private String nombreUsuario;
     private String contraseña;
 
-    @Before
+    /*@Before
     public void abrirPantallaLogIn(){
         this.serviceId = new Long(10);
         this.nombreUsuario = "Slayz08";
@@ -38,8 +38,7 @@ public class StepDefinitionDoubleRequest {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get("http://localhost:8080/login");
-    }
-
+    }*/
 
     @Given("an announcer located in My Services page")
     public void an_announcer_located_in_my_services_page(){

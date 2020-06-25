@@ -35,6 +35,10 @@ public interface CitaRepository extends JpaRepository<Cita, Long> {
     int actualizarCostoFinalCita(BigDecimal costoFinal, Long citaId);
 
     @Query("SELECT c FROM Cita c where c.solicitud.cliente.id = ?1")
-    List<Cita> listarCitasDeUsuario(Long usuarioId);
+    List<Cita> listarCitasDeCliente(Long clienteId);
 
+    @Query("SELECT c FROM Cita c INNER JOIN Solicitud s ON c.solicitud.id = s.id " +
+            "INNER JOIN Servicio se ON se.id = s.servicio.id " +
+            "INNER JOIN Usuario u ON u.id = se.anunciante.id WHERE u.id = ?1")
+    List<Cita> listarCitasDeAnunciante(Long anuncianteId);
 }

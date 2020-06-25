@@ -4,7 +4,7 @@ package com.myorg.ezdeal;
 import com.myorg.ezdeal.models.Cuenta;
 import com.myorg.ezdeal.models.Usuario;
 import com.myorg.ezdeal.repository.UsuarioRepository;
-import com.myorg.ezdeal.service.Implementation.UsuarioServiceImpl;
+import com.myorg.ezdeal.service.implementation.UsuarioServiceImpl;
 import com.myorg.ezdeal.service.UsuarioService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

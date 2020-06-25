@@ -4,14 +4,21 @@ import { environment } from "../environment/environment"
 class CitaService {
 
 
-    async listarCitasUsuario(id){
+    async listarCitasCliente(id){
         return await Axios.get(
-            `${environment.api}/citas/usuario/${id}`,
+            `${environment.api}/citas/cliente/${id}`,
             {  headers:
                 { Authorization: `Bearer ${localStorage.getItem("token")}` }}
         )
     }
 
+    async listarCitasAnunciante(id){
+        return await Axios.get(
+            `${environment.api}/citas/anunciante/${id}`,
+            {  headers:
+                { Authorization: `Bearer ${localStorage.getItem("token")}` }}
+        )
+    }
 
     async actualizarEstadoCita(estado, id) {
         return await Axios.put(`${environment.api}/citas/${id}/actualizacionEstado?estado=${estado}`, null, {

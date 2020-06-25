@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.service.Implementation;
+package com.myorg.ezdeal.service.implementation;
 
 import com.myorg.ezdeal.models.Membresia;
 import com.myorg.ezdeal.models.Usuario;
@@ -46,7 +46,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Transactional
     public int actualizarMembresia(String nombreMembresia, Long usuarioAnuncianteId) throws Exception{
         Usuario anunciante = usuarioRepository.findById(usuarioAnuncianteId).get();
-        Long anuncianteId = anunciante.getId();
+        Long anuncianteId = anunciante.getInfoAnunciante().getId();
         Membresia membresia = membresiaRepository.buscarPorNombre(nombreMembresia);
         return this.anuncianteRepository.actualizarDatosMembresia(membresia, anuncianteId);
 

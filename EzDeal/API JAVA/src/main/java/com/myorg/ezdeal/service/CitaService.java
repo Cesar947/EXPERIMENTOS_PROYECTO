@@ -17,5 +17,7 @@ public interface CitaService {
 
     Cita listarPorId(Long citaId) throws Exception;
 
-    List<Cita> listarCitasDeUsuario(Long usuarioId) throws Exception;
+    List<Cita> listarCitasDeCliente(Long clienteId) throws Exception;
+
+    List<Cita> listarCitasDeAnunciante(Long anuncianteId) throws Exception;
 }

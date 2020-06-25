@@ -26,9 +26,14 @@ public class CitaController {
     }
 
     //Solo para listar de clientes
-    @GetMapping("/usuario/{id}")
-    public List<Cita> listarCitasDeUsuario(@PathVariable("id") Long usuarioId) throws Exception{
-        return this.citaService.listarCitasDeUsuario(usuarioId);
+    @GetMapping("/cliente/{id}")
+    public List<Cita> listarCitasDeCliente(@PathVariable("id") Long clienteId) throws Exception{
+        return this.citaService.listarCitasDeCliente(clienteId);
+    }
+
+    @GetMapping("/anunciante/{id}")
+    public List<Cita> listarCitasDeAnunciante(@PathVariable("id") Long anuncianteId) throws Exception{
+        return this.citaService.listarCitasDeAnunciante(anuncianteId);
     }
 
     @Transactional

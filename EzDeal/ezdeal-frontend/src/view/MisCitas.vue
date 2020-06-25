@@ -1,5 +1,5 @@
 <template>
-   <!--<div class="main-home-container">
+  <!--<div class="main-home-container">
     <h3>¿Buscas algun servicio?</h3>
     <p>Nosotros te podemos ayudar</p>
     <div class="list-publications-container">
@@ -13,14 +13,18 @@
     </div>
   </div>-->
   <div class="cards-citas">
-      <h1>Mis Citas</h1>
-      <div class="lista-citas">
-          <MiCita
-          v-for="(cita, key) in citas"
-          v-bind:key="key"
-          v-bind:cita="cita">
-          </MiCita>
-      </div>
+    <div v-if="isAnunciante">
+        <h1>Mis citas de anunciante</h1>
+        <div class="lista-citas">
+        <MiCita v-for="(cita, key) in citasAnunciantes" v-bind:key="key" v-bind:cita="cita"></MiCita>
+        </div>
+    </div>
+    <div v-if="isCliente">
+        <h1>Mis citas de cliente</h1>
+        <div class="lista-citas">
+        <MiCita v-for="(cita, key) in citasClientes" v-bind:key="key" v-bind:cita="cita"></MiCita>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -33,10 +37,20 @@ export default {
     components: { MiCita },
     data(){
         return{
-            citas: []
+            citasAnunciantes: [],
+            citasClientes: [],
+            isCliente: false,
+            isAnunciante: false
         }
     },
     created(){
+        if (localStorage.getItem("anunciante") != null){
+            this.isAnunciante = localStorage.getItem("anunciante")
+        }
+        if (localStorage.getItem("cliente") != null){
+            this.isCliente = localStorage.getItem("cliente")
+        }
+
         this.listarMisCitas();
     },
         
@@ -44,31 +58,49 @@ export default {
         listarMisCitas(){
             const id = parseInt(localStorage.getItem("id"))
             const token = localStorage.getItem("token")
+            const roles = localStorage.getItem("roles")
             console.log(id)
             console.log(token)
-            const config = { headers : { Authorization : `Bearer ${token}` }
+            console.log(roles)
+            const config = { headers : { Authorization : `Bearer ${token}` }}
+            
+                if (this.isCliente){
+                   
+                   axios.get(`${environment.api}/citas/cliente/${id}`,config)
+                    .then(response => {
+                    this.citasClientes = response.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+                }
+                if (this.isAnunciante){
+                    axios.get(`${environment.api}/citas/anunciante/${id}`,config)
+                    .then(response => {
+                    this.citasAnunciantes = response.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+                }
+
+
             }
-            axios.get(`${environment.api}/citas/usuario/${id}`, config
-            )
-            .then(response => {
-            this.citas = response.data
-            })
-            .catch(error => {
-                console.log(error)
-            })
+
+            
 
         }   
         
-
-    }
 };
 </script>
 <style>
-    .cards-citas{
-        width: 1200px;
-        margin: 0 auto;
-    }
-    .cards-citas .lista-citas{
-        display: flex;
-    }
+.cards-citas {
+  width: 1200px;
+  margin: 0 auto;
+}
+.cards-citas .lista-citas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 </style>

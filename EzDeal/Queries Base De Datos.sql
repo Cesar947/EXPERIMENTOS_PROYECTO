@@ -81,7 +81,7 @@ select * from cita;
 select * from horario;
 select * from reseña;
 select * from inconveniente;
-
+select * from solicitud;
 
 /*actualizar el estado de la solicitud 40 a finalizado*/
 UPDATE solicitud SET estado = "Finalizado" WHERE solicitud_id = 40;
@@ -111,10 +111,12 @@ COUNT(r.reseña_id) as 'Numero de reseñas', s.esta_habilitado as 'Está habilit
 FROM reseña r join servicio s on s.servicio_id = r.servicio_id
 group by s.servicio_id;
 
-#Para ver qué anunciante tienen membresía GOLD
-SELECT a.anunciante_id as 'ID_ANUNCIANTE', m.nombre as 'Membresia'
-FROM anunciante a JOIN membresia m ON m.membresia_id = a.membresia_id
-WHERE m.nombre = 'GOLD';
+#Para ver qué usuarios tienen membresía GOLD
+SELECT u.usuario_id as 'ID_USUARIO', u.nombres as 'Nombre', m.nombre as 'Membresia'
+FROM usuario u JOIN anunciante a 
+ON u.anunciante_id = a.anunciante_id
+JOIN membresia m ON m.membresia_id = a.membresia_id;
+#WHERE m.nombre = 'GOLD';
 
 #Para ver qué anunciante tienen membresía FREE
 SELECT a.anunciante_id as 'ID_ANUNCIANTE', m.nombre as 'Membresia'

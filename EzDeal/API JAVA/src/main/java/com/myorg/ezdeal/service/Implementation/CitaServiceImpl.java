@@ -1,4 +1,4 @@
-package com.myorg.ezdeal.service.Implementation;
+package com.myorg.ezdeal.service.implementation;
 
 import com.myorg.ezdeal.models.Cita;
 import com.myorg.ezdeal.repository.CitaRepository;
@@ -50,8 +50,12 @@ public class CitaServiceImpl implements CitaService {
     }
 
     @Override
-    public List<Cita> listarCitasDeUsuario(Long usuarioId) throws Exception{
-        return this.citaRepository.listarCitasDeUsuario(usuarioId);
+    public List<Cita> listarCitasDeCliente(Long clienteId) throws Exception{
+        return this.citaRepository.listarCitasDeCliente(clienteId);
     }
 
+    @Override
+    public List<Cita> listarCitasDeAnunciante(Long anuncianteId) throws Exception {
+        return this.citaRepository.listarCitasDeAnunciante(anuncianteId);
+    }
 }
