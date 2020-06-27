@@ -83,6 +83,9 @@ select * from reseña;
 select * from inconveniente;
 select * from solicitud;
 
+UPDATE solicitud SET estado = 'Enviada' WHERE solicitud_id = 9;
+
+
 /*actualizar el estado de la solicitud 40 a finalizado*/
 UPDATE solicitud SET estado = "Finalizado" WHERE solicitud_id = 40;
 
@@ -125,6 +128,7 @@ WHERE m.nombre = 'FREE';
 
 SELECT COUNT(c.cita_id) FROM cita c JOIN solicitud s ON c.solicitud_id = s.solicitud_id 
 WHERE s.servicio_id = 1 and s.cliente_id = 3 and c.estado = "Finalizado";
+
 
 
 UPDATE ANUNCIANTE SET MEMBRESIA_ID = 2 WHERE ANUNCIANTE_ID = 1;

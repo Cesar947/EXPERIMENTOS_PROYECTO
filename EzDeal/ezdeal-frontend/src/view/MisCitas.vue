@@ -22,7 +22,8 @@
     <div v-if="isCliente">
         <h1>Mis citas de cliente</h1>
         <div class="lista-citas">
-        <MiCita v-for="(cita, key) in citasClientes" v-bind:key="key" v-bind:cita="cita"></MiCita>
+        <MiCita v-for="(cita, key) in citasClientes" v-bind:key="key" v-bind:cita="cita" 
+        @Listar="listarMisCitas"></MiCita>
         </div>
     </div>
   </div>
@@ -34,6 +35,7 @@ import axios from 'axios';
 import { environment } from '../environment/environment';
 export default {
     name: "MisCitas",
+
     components: { MiCita },
     data(){
         return{
@@ -56,6 +58,7 @@ export default {
         
     methods:{
         listarMisCitas(){
+            console.log("Lo logró señor")
             const id = parseInt(localStorage.getItem("id"))
             const token = localStorage.getItem("token")
             const roles = localStorage.getItem("roles")

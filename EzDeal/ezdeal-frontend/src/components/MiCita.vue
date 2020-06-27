@@ -3,9 +3,12 @@
     <img src="https://vignette.wikia.nocookie.net/memes-pedia/images/f/fe/Suprised_Patrick.jpg/revision/latest/top-crop/width/360/height/450?cb=20160222150600&path-prefix=es" alt />
     <h3 class="name">Servicio: {{cita.solicitud.servicio.titulo}}</h3>
     <p class="name">Anuciante: {{cita.solicitud.servicio.anunciante.nombres}}</p>
-    <p class="rol">Estado: {{cita.estado}}</p>
-    <p class="rol">Costo: {{cita.costoFinal}}</p>
-
+    <p class="rating-label">Estado</p>
+    <p class="rating-value">{{cita.estado}}</p>
+    <p class="rating-label">Costo</p>
+    <input v-if="cita.costoFinal === null" v-model="costo" class="input-cost" type=text/>
+    <button class="cost-button" v-if="cita.costoFinal === null" v-on:click="actualizarCostoFinal(costo)">Guardar</button>
+    <p class="rating-value" v-if="cita.costoFinal !== null">{{cita.costoFinal}}</p>
     <div class="rating">
       <p class="rating-label">Hora Inicio</p>
       <p class="rating-value">{{cita.horaInicio}}</p>
@@ -14,9 +17,10 @@
     </div>
     <div class="enlace">
       <a v-on:click="navigateToDetail()">Resenar</a>
-      <button v-on:click="actualizarCita('Iniciada')">Iniciar</button>
-      <button v-on:click="actualizarCita('Finalizada')" >Finalizar</button>
+      <button v-bind:name="'cita ' + cita.id" v-on:click="actualizarCita('Iniciada')">Iniciar</button>
+      <button v-on:click="actualizarCita('Finalizada')">Finalizar</button>
     </div>
+
   </div>
 </template>
 
@@ -30,18 +34,31 @@ export default {
        this.$router.push(`/cita/${this.$props.cita.id}`);
     },
     async actualizarCita(estado){
+      
       try {
-        await CitaService.actualizarEstadoCita(estado,this.id);
+        await CitaService.actualizarEstadoCita(estado, this.id);
         alert(`La cita ha sido ${estado}`)
+        this.$emit('Listar')
       } catch (error) {
         console.log(error);
       }
       
+    },
+    async actualizarCostoFinal(costo){
+      try{
+        await CitaService.actualizarCostoFinal(costo, this.id);
+        alert(`El nuevo costo de la cita es de ${costo} soles`)
+        this.tieneCosto = true
+      } catch(error){
+        console.log(error)
+      }
     }
   },
   data(){
     return {
-      id: -1
+      id: -1,
+      tieneCosto: false,
+      costo: ""
     }
   },
   mounted(){
@@ -52,8 +69,8 @@ export default {
 
 <style>
 .card-contenedor {
-  width: 264px;
-  padding: 32px;
+  width: 400px;
+  padding: 16px;
   background: #ffffff;
   box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -99,4 +116,36 @@ export default {
 a {
   color:rgba(230, 129, 14, 0.05);
 }
+
+.input-cost{
+  width: 150px;
+  border-radius: 8px;
+  border: none;
+  background: #e0dcdce7;
+  padding: 16px;
+  font-size: 16px;
+  color: #323232;
+  margin: 0 0;
+  border: 1px solid #fcfcfc;
+  transition: all 0.2s ease-in-out;
+}
+
+.cost-button{
+  padding: 4px 10px;
+  border: none;
+  background: #ff3168;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.enlace{
+
+  flex-wrap: wrap;
+  justify-items: space-evenly;
+
+}
+
 </style>
