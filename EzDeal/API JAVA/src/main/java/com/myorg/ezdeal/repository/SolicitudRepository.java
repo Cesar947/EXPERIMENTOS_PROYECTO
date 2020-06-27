@@ -35,7 +35,7 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Long> {
     @Query("SELECT s FROM Solicitud s where s.fechaPactada = ?1 and s.horaPactada = ?2 and s.servicio.id = ?3")
     List<Solicitud> listarPorFechaYHoraYServicio(LocalDate Fecha, LocalTime hora, Long servicioId);
 
-    @Query("SELECT s FROM Solicitud s where s.servicio.id = ?1 order by s.id desc")
+    @Query("SELECT s FROM Solicitud s where s.servicio.id = ?1 and s.estado = 'Enviada' order by s.id desc")
     List<Solicitud> listarPorServicio(Long servicioId);
 
     @Query("SELECT s FROM Solicitud s JOIN Servicio se ON se.id = s.servicio.id JOIN Usuario u ON u.id = se.anunciante.id WHERE u.id = ?1")
