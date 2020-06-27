@@ -31,17 +31,17 @@ public class UsuarioServiceImplTest {
 
     //Prueba de la prueba, ver si el tamaño del array es igual a 1 para verificar
     //que el método trae correctamente el dato simulado
-    @Test
-    public void listarUsuariosTest(){
-        when(usuarioRepository.findAll()).thenReturn(
-               Stream.of(new Usuario("César", "Pizarro", "Llanos", "Lima",
-                        "Magdalena del Mar", "Av. Sucre 133", "Lima",
-                        new Cuenta("cesar947", "cpizarrollanos@gmail.com", "3456789"),
-                        null, "sadgsdgsadg.jpg")).collect(Collectors.toList()));
-       try {
-           assertEquals(1, usuarioService.listarUsuarios().size());
-       }
-       catch(Exception e){
+           @Test
+           public void listarUsuariosTest(){
+               when(usuarioRepository.findAll()).thenReturn(
+                       Stream.of(new Usuario("César", "Pizarro", "Llanos", "Lima",
+                               "Magdalena del Mar", "Av. Sucre 133", "Lima",
+                               new Cuenta("cesar947", "cpizarrollanos@gmail.com", "3456789"),
+                               null, "sadgsdgsadg.jpg")).collect(Collectors.toList()));
+               try {
+                   assertEquals(1, usuarioService.listarUsuarios().size());
+               }
+               catch(Exception e){
 
        }
     }
