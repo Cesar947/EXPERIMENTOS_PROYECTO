@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.myorg.ezdeal.runners.CucumberRunnerTest" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="DESKTOP-2O2HPAS" time="0.0">
+  <properties/>
+  <system-out><![CDATA[
+?[31mFailed scenarios:?[0m
+?[31mfile:///C:/Users/sebas/Desktop/EXPERIMENTOS_PROYECTO/EzDeal/API%20JAVA/src/test/resources/features/PruebaLogIn.feature:2?[0m# A client will sign in the application
+
+1 Scenarios (?[31m1 failed?[0m)
+3 Steps (?[31m1 failed?[0m, ?[36m2 skipped?[0m)
+0m0.326s
+
+
+org.openqa.selenium.WebDriverException: Cannot find firefox binary in PATH. Make sure firefox is installed. OS appears to be: WIN10
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
+System info: host: 'DESKTOP-2O2HPAS', ip: '192.168.99.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: driver.version: FirefoxDriver
+	at org.openqa.selenium.firefox.FirefoxBinary.<init>(FirefoxBinary.java:116)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at org.openqa.selenium.firefox.FirefoxOptions.getBinary(FirefoxOptions.java:216)
+	at org.openqa.selenium.firefox.FirefoxDriver.toExecutor(FirefoxDriver.java:165)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:125)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:103)
+	at com.myorg.ezdeal.steps.StepDefinitions.a_client_that_wants_to_be_part_of_our_service(StepDefinitions.java:22)
+	at ?.A client that wants to be part of our service(file:///C:/Users/sebas/Desktop/EXPERIMENTOS_PROYECTO/EzDeal/API%20JAVA/src/test/resources/features/PruebaLogIn.feature:3)
+
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

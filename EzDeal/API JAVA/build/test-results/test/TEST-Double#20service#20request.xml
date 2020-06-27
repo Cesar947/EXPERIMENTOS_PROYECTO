@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Double service request" tests="2" skipped="0" failures="2" errors="0" timestamp="2020-06-27T03:26:57" hostname="DESKTOP-2O2HPAS" time="0.105">
+  <properties/>
+  <testcase name="Advertiser accepts first of repeated requests and rejects the second request" classname="Double service request" time="0.027">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at com.myorg.ezdeal.steps.StepDefinitionDoubleRequest.an_announcer_located_in_my_services_page(StepDefinitionDoubleRequest.java:45)
+	at ✽.an announcer located in My Services page(file:///C:/Users/sebas/Desktop/EXPERIMENTOS_PROYECTO/EzDeal/API%20JAVA/src/test/resources/features/DoubleRequest.feature:3)
+</failure>
+  </testcase>
+  <testcase name="Advertiser accepts first of repeated requests and rejects the second request" classname="Double service request" time="0.007">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at com.myorg.ezdeal.steps.StepDefinitionDoubleRequest.an_announcer_located_in_my_services_page(StepDefinitionDoubleRequest.java:45)
+	at ✽.an announcer located in My Services page(file:///C:/Users/sebas/Desktop/EXPERIMENTOS_PROYECTO/EzDeal/API%20JAVA/src/test/resources/features/DoubleRequest.feature:3)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
