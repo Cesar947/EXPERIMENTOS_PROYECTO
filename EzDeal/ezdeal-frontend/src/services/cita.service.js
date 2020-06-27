@@ -26,8 +26,13 @@ class CitaService {
                 { Authorization: `Bearer ${localStorage.getItem("token")}` }
         })
     }
+
+    async actualizarCostoFinal(costoFinal, id){
+        return await Axios.put(`${environment.api}/citas/${id}/actualizacionCosto?costoFinal=${costoFinal}`, null, {
+            headers:
+                { Authorization: `Bearer ${localStorage.getItem("token")}` }
+        })
+    }
 }
-
-
 
 export default new CitaService()
