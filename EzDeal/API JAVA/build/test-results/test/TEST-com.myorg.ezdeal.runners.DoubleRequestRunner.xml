@@ -7,7 +7,7 @@
 
 1 Scenarios (?[31m1 failed?[0m)
 7 Steps (?[31m1 failed?[0m, ?[36m6 skipped?[0m)
-0m0.027s
+0m0.015s
 
 
 java.lang.NullPointerException

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Gold membreship acquirement" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-06-27T03:26:57" hostname="DESKTOP-2O2HPAS" time="0.017">
+<testsuite name="Gold membreship acquirement" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-06-27T19:27:48" hostname="DESKTOP-2O2HPAS" time="0.015">
   <properties/>
-  <testcase name="An announcer acquire a gold membership and a client will see his services in the Home View" classname="Gold membreship acquirement" time="0.017">
+  <testcase name="An announcer acquire a gold membership and a client will see his services in the Home View" classname="Gold membreship acquirement" time="0.015">
     <failure message="org.openqa.selenium.WebDriverException: Cannot find firefox binary in PATH. Make sure firefox is installed. OS appears to be: WIN10&#10;Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'&#10;System info: host: 'DESKTOP-2O2HPAS', ip: '192.168.99.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'&#10;Driver info: driver.version: FirefoxDriver" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: Cannot find firefox binary in PATH. Make sure firefox is installed. OS appears to be: WIN10
 Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
 System info: host: 'DESKTOP-2O2HPAS', ip: '192.168.99.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'

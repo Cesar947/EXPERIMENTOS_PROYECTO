@@ -66,12 +66,11 @@ public class SolicitudServiceTest {
 
         userId = new Long(1);
     }
-/*
-    @Test
+
+ /*   @Test
     @Transactional
     public void reseñarServicioFinalizado() throws Exception{
 
-<<<<<<< HEAD
         List<Solicitud> solicitudesIni = new ArrayList<>(); //Tiene 0 solicitudes finalizdas
         List<Solicitud> solicitudesFin = new ArrayList<>(); //Tiene 1 solicitud finalizada
         solicitudesFin.add(new Solicitud());
@@ -85,23 +84,15 @@ public class SolicitudServiceTest {
         Reseña reseñaGuardada = reseñaService.publicarReseña(reseña, userId, serviceId);
         assertEquals(reseñaGuardada, new Reseña());
 
-=======
-        Reseña reseña = new Reseña("Buen servicio, gracias", 4.0);
 
-        Reseña reseñaGuardada = reseñaService.publicarReseña(reseña, userId, serviceId);
-        assertEquals(reseñaGuardada, new Reseña());
-
->>>>>>> master
         //Esta prueba esta hecha para probar que con estado Finalizado si se guarda la resena
-        solicitudService.actualizarEstadoSolicitud(estado, solicitudId);
+        solicitudService.actualizarEstadoSolicitud(estado, "09:00,", "Por feo", solicitudId);
         reseñaGuardada = reseñaService.publicarReseña(reseña, userId, serviceId);
         Reseña reseñaPrueba = reseñaRepository.findById(reseñaGuardada.getId()).get();
         //Probamos que la reseña si se guarda porque ahora si existe una solicitud finalizada
         assertEquals(reseñaGuardada, reseñaPrueba);
     }
 
-<<<<<<< HEAD
-=======
 
     @Test
     @Transactional
@@ -128,5 +119,4 @@ public class SolicitudServiceTest {
         assertEquals(reseñaGuardada, reseñaPrueba);
     }
 */
-
 }

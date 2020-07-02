@@ -65,17 +65,19 @@ public class ReseñaRepositoryTest {
                 paraInhabilitar = true;
             }
         }
-        assertTrue(paraInhabilitar);
+        assertEquals(true, paraInhabilitar);
     }
 
 
     @Test
-    public void saveTest() throws Exception{
+    public void inhabilitarServicio() throws Exception{
         String contenido = "Tu servicio es pésimo";
+
         Reseña reseña = this.entityManager.persist(new Reseña(contenido, 0,
                 servicio, new Usuario("jose", "pinillos",
                 "zenteno", "lima", "san miguel", "jr maypu 137",
                 "lima", new Cuenta(), null, "imagen")));
+
         Reseña r2 = this.reseñaRepository.findById(reseña.getId()).get();
         assertEquals(reseña.getId(), r2.getId());
         this.entityManager.refresh(servicio);
