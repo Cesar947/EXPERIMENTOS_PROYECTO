@@ -2,6 +2,7 @@ package com.myorg.ezdeal.repository;
 
 import com.myorg.ezdeal.models.Servicio;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -45,6 +46,11 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
 
     @Query("SELECT s FROM Servicio s JOIN Usuario u ON u.id = s.anunciante.id WHERE u.id = ?1")
     List<Servicio> listarPorAnunciante(Long anuncianteId) throws Exception;
+
+    @Modifying
+    @Query("UPDATE Servicio s SET s.valoracion = ?1 WHERE s.id = ?2")
+    int actualizarValoracion(Double valoracion, Long servicioId);
+
 
     List<Servicio> findByTituloLike(String titulo) throws Exception;
 

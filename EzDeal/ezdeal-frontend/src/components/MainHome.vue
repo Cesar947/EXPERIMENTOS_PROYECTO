@@ -2,13 +2,12 @@
   <div class="main-home-container">
     <h3>¿Buscas algun servicio?</h3>
     <p>Nosotros te podemos ayudar</p>
+
     <div class="list-publications-container">
-        
       <PublicationCard 
-      
       v-for="(value, key) in anuncios" 
       v-bind:key="key" 
-      v-bind:anuncio="value" 
+      v-bind:anuncio="value"
       ></PublicationCard>
     </div>
   </div>
@@ -36,7 +35,8 @@ export default {
         { id: 9, name: "Name 9", rol: "Wachiman", rating: 4.2 },
         { id: 10, name: "Name 10", rol: "Electricista", rating: 4.0 }
       ],
-      anuncios: []
+      anuncios: [],
+      prioritario: false
        
        
     };
@@ -89,7 +89,10 @@ export default {
           alert("error");
         });
 
-    }
+    },
+
+   
+
   }
 
   

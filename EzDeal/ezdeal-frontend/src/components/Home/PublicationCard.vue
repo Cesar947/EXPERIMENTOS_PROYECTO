@@ -7,11 +7,17 @@
     <h3 class="name">{{anuncio.titulo}}</h3>
     <p class="rol">{{anuncio.descripcion}}</p>
     <div class="rating">
-      <p class="rating-label">Costo del servicio</p>
-      <p class="rating-value">{{anuncio.costoServicio}}</p>
+      <div>
+        <p class="rating-label">Costo del servicio</p>
+        <p class="rating-value">{{anuncio.costoServicio}}</p>
+      </div> 
+       <div>
+         <p class="rating-label">Valoración</p>
+         <p class="rating-value">{{textoValoracion}}</p>
+      </div> 
     </div>
-    <div>
-
+    <div v-if="isGold">
+        <p class="servicio-destacado">Servicio destacado</p>
     </div>
     <div class="enlace">
       <a v-bind:name="'servicio' + anuncio.id" v-on:click="navigateToDetail()">Ver más</a>
@@ -26,17 +32,27 @@ export default {
   props: ["anuncio"],
   data(){
       return{
-        isGold: false
+        isGold: false,
+        sinResenas: "Sin reseñas",
+        textoValoracion: ""
   }
   },
   created(){
-      if (this.$props.anuncio.anunciante.infoAnunciante.membresia == "GOLD" &&
-          this.$props.anuncio.anunciante.infoAnunciante.membresia !== undefined
+      if (this.$props.anuncio.anunciante.infoAnunciante.membresia.id == 1 &&
+          this.$props.anuncio.anunciante.infoAnunciante.membresia.id !== undefined
       ){
           this.$data.isGold = true
       }
       else{
           this.$data.isGold = false
+      }
+      console.log(this.$data.isGold)
+      var valoracion = this.$props.anuncio.valoracion;
+      if (valoracion == 0){
+          this.$data.textoValoracion = this.$data.sinResenas
+      }
+      else{
+          this.$data.textoValoracion = valoracion
       }
   },
   methods: {
@@ -100,6 +116,11 @@ export default {
 }
 a {
   color:rgba(230, 129, 14, 0.05);
+}
+
+.servicio-destacado{
+  color: #e2800f;
+  text-align: center;
 }
 
 </style>

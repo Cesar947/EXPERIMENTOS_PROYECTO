@@ -76,8 +76,8 @@ SELECT * FROM anunciante;
 SELECT * FROM tipo_servicio;
 select * from servicio;
 UPDATE servicio SET descripcion = "Especialista en pasear patos de todo tipo" where servicio_id = 10;
-
 select * from cita;
+UPDATE cita SET /*costo_final = null, hora_fin = null, hora_inicio = null*/ estado='Creada' where cita_id = 10;
 select * from horario;
 select * from reseña;
 select * from inconveniente;
@@ -96,7 +96,7 @@ UPDATE ANUNCIANTE SET membresia_id = 2 WHERE ANUNCIANTE_ID > 0;
 #Para ver que usuario tiene membresía GOLD
 SELECT u.usuario_id as 'ID', u.nombres as 'NOMBRE', m.nombre as 'MEMBRESÍA' 
 FROM USUARIO u JOIN ANUNCIANTE a on a.anunciante_id = u.anunciante_id
-JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 1;
+JOIN MEMBRESIA m ON a.membresia_id = m.membresia_id where a.membresia_id = 2;
 
 #Para ver los servicios que son GOLD
 SELECT s.servicio_id as 'ID', s.titulo as 'TITULO', m.nombre as 'MEMBRESIA', a.anunciante_id as 'ID ANUNCIANTE', u.usuario_id as 'ID USUARIO'

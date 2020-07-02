@@ -43,6 +43,7 @@ public class ReseñaServiceImpl implements ReseñaService {
     @Override
     public Reseña publicarReseña(Reseña reseña, Long clienteId, Long servicioId) throws Exception {
 
+        Reseña nuevaReseña = new Reseña();
         Usuario cliente = usuarioRepository.findById(clienteId).get();
         Servicio servicio = servicioRepository.findById(servicioId).get();
         int cantidadCitasFinalizadas = citaRepository.cantidadCitasFinalizadasPorClienteYServicio(servicioId, clienteId);
@@ -53,11 +54,18 @@ public class ReseñaServiceImpl implements ReseñaService {
             reseña.setCliente(cliente);
             reseña.setServicio(servicio);
 
-            return this.reseñaRepository.save(reseña);
+            Double cantidadReseñasActual = this.reseñaRepository.cantidadReseñasPorServicio(servicioId);
+            Double nuevaValoracion = ((servicio.getValoracion()*cantidadReseñasActual) + reseña.getValoracion())/(cantidadReseñasActual + 1);
+            nuevaReseña = this.reseñaRepository.save(reseña);
+            this.servicioRepository.actualizarValoracion(nuevaValoracion, servicioId);
         }
-        else {
-            return new Reseña();
-        }
+
+
+
+
+
+        return nuevaReseña;
+
     }
 
     @Override

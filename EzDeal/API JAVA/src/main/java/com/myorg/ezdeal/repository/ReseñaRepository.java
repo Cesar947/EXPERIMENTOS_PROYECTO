@@ -22,4 +22,7 @@ public interface ReseñaRepository extends JpaRepository<Reseña, Long> {
     @Modifying
     @Query("UPDATE Reseña r SET r.contenido = ?1, r.valoracion = ?2 where r.servicio.id = ?3 and r.cliente.id = ?4")
     int actualizarReseña(String contenido, double valoracion, Long servicioId, Long clienteId);
+
+    @Query("SELECT COUNT(r.id) FROM Reseña r WHERE r.servicio.id = ?1")
+    Double cantidadReseñasPorServicio(Long servicioId);
 }

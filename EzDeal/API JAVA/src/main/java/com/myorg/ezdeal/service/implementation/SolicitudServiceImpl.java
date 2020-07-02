@@ -49,12 +49,17 @@ public class SolicitudServiceImpl implements SolicitudService {
         for (Solicitud sRealizada: solicitudesRealizadas){
                 //Si la hora pactada que está por enviarse está dentro del rango de horas de otra solicitud ya agendada,
                 //no se podrá enviar la solicitud
-                if(sRealizada.getEstado().equals("Aceptada") &&
+                if((sRealizada.getEstado().equals("Aceptada") &&
                   (!solicitud.getHoraPactada().isBefore(sRealizada.getHoraPactada()) ||
                    !solicitud.getHoraPactada().isAfter(sRealizada.getHoraFinEstimada())
-                   )){
+                   ))
+                        ||
+                   (sRealizada.getEstado().equals("Enviada") &&
+                    solicitud.getHoraPactada() == sRealizada.getHoraPactada()))
+                {
                     return new Solicitud();
                 }
+
         }
         Usuario cliente = usuarioRepository.findById(clienteId).get();
         Servicio servicio = servicioRepository.findById(servicioId).get();

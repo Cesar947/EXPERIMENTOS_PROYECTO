@@ -348,8 +348,7 @@ export default {
 .reserva-tu-cita-container .field input::placeholder {
   color: #aeaeae;
 }
-.hora-fecha {
-}
+
 
 .reserva-tu-cita-container .field input,
 .reserva-tu-cita-container .field textarea {
