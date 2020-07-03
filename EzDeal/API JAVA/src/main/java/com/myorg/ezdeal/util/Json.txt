@@ -108,8 +108,8 @@ Intento para registrar un anunciante
 }
 {
     "nombreUsuario": "slayz08",
-    "email": "slayr@gmail.com",
-    "contrasena": "xdxdxd5000",
+    "email": "slayz08@gmail.com",
+    "contrasena": "7777777",
     "nombres": "Juanelv",
     "apellidoPaterno": "Salgado",
     "apellidoMaterno": "Sánchez",
@@ -151,5 +151,30 @@ Cliente
 
 }
 
+{
+    "nombreUsuario": "jair777",
+    "email": "jair@gmail.com",
+    "contrasena": "135790",
+    "nombres": "Jair",
+    "apellidoPaterno": "Huaman",
+    "apellidoMaterno": "Bellido",
+    "departamento": "Lima",
+    "distrito": "San Juan de Lurigancho",
+    "direccion": "Av. Las Flores 782",
+    "provincia": "Lima",
+    "role": [
+    	 "anunciante",
+    	 "cliente"
+    	],
+    "imagenPerfil": "qwerqwergfadsg.jpg",
+    "infoAnunciante": {
+       "telefonoFijo": "5433432",
+       "celular": "992232512",
+       "dni": "73725611",
+       "urlContacto": "www.facebook.com/J",
+       "antecedentesPenales": "dsagsdgvcsasdgfsadadw.pdf"
+    },
+    "membresiaId": 2
 
+}
 

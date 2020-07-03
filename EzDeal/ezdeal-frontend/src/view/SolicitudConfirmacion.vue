@@ -3,7 +3,7 @@
     <img src="../assets/solicitar_confirmed.svg" alt="" />
     <h2>Enhorabuena</h2>
     <p>Su solicitud al anunciante ha sido enviado correctamente</p>
-    <button v-on:click="goToHome"> Ir al inicio </button>
+    <button name="irAInicio" v-on:click="goToHome"> Ir al inicio </button>
   </div>
 </template>
 

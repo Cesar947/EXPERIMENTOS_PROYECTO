@@ -50,7 +50,7 @@ public class SolicitudServiceImpl implements SolicitudService {
                 //Si la hora pactada que está por enviarse está dentro del rango de horas de otra solicitud ya agendada,
                 //no se podrá enviar la solicitud
                 if((sRealizada.getEstado().equals("Aceptada") &&
-                  (!solicitud.getHoraPactada().isBefore(sRealizada.getHoraPactada()) ||
+                  (!solicitud.getHoraPactada().isBefore(sRealizada.getHoraPactada()) &&
                    !solicitud.getHoraPactada().isAfter(sRealizada.getHoraFinEstimada())
                    ))
                         ||

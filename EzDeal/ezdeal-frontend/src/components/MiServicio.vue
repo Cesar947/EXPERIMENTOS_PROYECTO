@@ -1,8 +1,8 @@
 <template>
   <div class="card-contenedor">
     <div class="solicitudes-container">
-      <div v-bind:name="'iconoSolicitud' + servicio.id" class="message-icon">
-        <img src="../assets/ic_solicitud.svg" alt="" />
+      <div class="message-icon">
+        <img v-bind:name="'iconoSolicitud' + servicio.id" src="../assets/ic_solicitud.svg" alt="" />
         <p>{{ solicitudes.length }}</p>
       </div>
       <div class="card-list-solicitudes">
@@ -17,11 +17,6 @@
         ></MiSolicitud>
       </div>
     </div>
-
-    <img
-      src="https://vignette.wikia.nocookie.net/memes-pedia/images/f/fe/Suprised_Patrick.jpg/revision/latest/top-crop/width/360/height/450?cb=20160222150600&path-prefix=es"
-      alt
-    />
     <h3 class="name">{{ servicio.titulo }}</h3>
     <p class="rol">{{ servicio.descripcion }}</p>
 

@@ -90,12 +90,13 @@
         <div class="hora-fecha">
           <div class="field">
             <label for="">Hora inicio</label>
-            <input type="text" v-model="horaInicio" placeholder="Hora inicio" />
+            <input name="horaPacto" type="text" v-model="horaInicio" placeholder="Hora inicio" />
           </div>
           <div class="fecha">
             <div class="field">
               <label for="">Fecha</label>
               <input
+                name="fechaPacto"
                 type="date"
                 v-model="fechaPactada"
                 placeholder="Hora fin"
@@ -107,6 +108,7 @@
         <div class="field">
           <label for="">Mensaje</label>
           <textarea
+            name="mensaje"
             type="text"
             v-model="mensaje"
             placeholder="Escribe un mensaje..."
@@ -117,6 +119,7 @@
         <div>
           <button
             :disabled="isFormValid()"
+            name="solicitar"
             v-on:click="confirmation"
             class="btn-solicitar"
           >

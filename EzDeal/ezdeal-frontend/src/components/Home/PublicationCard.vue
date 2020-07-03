@@ -3,17 +3,13 @@
   class="card-container"
   >
    
-    <img src="https://vignette.wikia.nocookie.net/memes-pedia/images/f/fe/Suprised_Patrick.jpg/revision/latest/top-crop/width/360/height/450?cb=20160222150600&path-prefix=es" alt />
+    <img v-bind:src="anuncio.anunciante.imagenPerfil" alt />
     <h3 class="name">{{anuncio.titulo}}</h3>
     <p class="rol">{{anuncio.descripcion}}</p>
     <div class="rating">
       <div>
         <p class="rating-label">Costo del servicio</p>
         <p class="rating-value">{{anuncio.costoServicio}}</p>
-      </div> 
-       <div>
-         <p class="rating-label">Valoración</p>
-         <p class="rating-value">{{textoValoracion}}</p>
       </div> 
     </div>
     <div v-if="isGold">

@@ -22,7 +22,6 @@
       <div v-if="isAnunciante" class="nav-link">
         <a href="/public">Publicar</a>
         <a name="opcionMisServiciosNavBar" href="/mis-servicios">Mis Servicios</a>
-        <a>Mis Solicitudes</a>
         <a name="agendaLink" href="/mis-citas">Agenda</a>
         <a id="gold-btn" name="goldButton" href="/membresia">Quiero ser gold</a>
         
@@ -53,7 +52,7 @@
       </div>
 
       <div class="nav-link">
-        <a href="/login">Inciar Sesión</a>
+        <a href="/login">Iniciar Sesión</a>
         <a href="/register">Registrarse</a>
       </div>
     </div>

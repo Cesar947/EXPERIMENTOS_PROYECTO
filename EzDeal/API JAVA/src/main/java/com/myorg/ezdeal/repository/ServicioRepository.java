@@ -18,11 +18,11 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
 
     @Query(
             value = "select * from servicio " +
-                    "join usuario on servicio.anunciante_id = usuario.anunciante_id " +
+                    "join usuario on servicio.anunciante_id = usuario.usuario_id " +
                     "join anunciante on anunciante.anunciante_id = usuario.anunciante_id " +
                     "join membresia on membresia.membresia_id = anunciante.membresia_id " +
-                    "order by case when membresia.nombre = 'Gold' then '1' " +
-                    "when membresia.nombre = 'Free' then '2' else membresia.nombre end ",
+                    "order by case when membresia.nombre = 'GOLD' then '1' " +
+                    "when membresia.nombre = 'FREE' then '2' else membresia.nombre end ",
             nativeQuery = true
     )
     List<Servicio> listarOrdenandoPorMembresia() throws Exception;

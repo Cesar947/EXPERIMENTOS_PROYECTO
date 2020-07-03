@@ -52,7 +52,6 @@ public class ServicioServiceImpl  implements ServicioService {
             h.setServicio(servicio);
         }
        servicio.setFechaPublicacion(LocalDate.now());
-
        return this.servicioRepository.save(servicio);
     }
 

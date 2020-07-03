@@ -35,7 +35,7 @@ public class ServicioController {
     }
 
     //@CrossOrigin(origins = "*",allowCredentials = "*" ,allowedHeaders = "*" , exposedHeaders = "*", methods = "*" )
-    @CrossOrigin(origins = "http://localhost:8080/")
+
     @GetMapping("/lista")
     public List<Servicio> listarServicios() throws Exception{
         return this.servicioService.listarServicios();

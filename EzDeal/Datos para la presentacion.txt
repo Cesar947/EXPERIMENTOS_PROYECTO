@@ -1,0 +1,13 @@
+Log in: 
+
+//Anunciante 1
+nombreUsuario: cesar947
+contrasena: 3456789
+
+//Cliente 2
+nombreUsuario: slayz08
+contrasena: 7777777
+
+
+
+
