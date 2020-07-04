@@ -6,3 +6,5 @@ Feature: Evaluate a request
     Then He will write and send a message with the reason of rejection
     And The client will see his message in his request view
     And He will be able to make a request again
+
+
