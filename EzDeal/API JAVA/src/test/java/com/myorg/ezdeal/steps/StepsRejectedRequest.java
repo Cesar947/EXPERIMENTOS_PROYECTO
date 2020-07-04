@@ -23,7 +23,7 @@ public class StepsRejectedRequest {
     private String userAnnouncer = "cesar947";
     private String passAnnouncer = "3456789";
     private String userCustomer = "jair777";
-    private String passCustomer = "7777777";
+    private String passCustomer = "135790";
 
     @Given("An announcer in his services view")
     public void an_announcer_in_his_schedule_view() throws Throwable{
@@ -34,22 +34,16 @@ public class StepsRejectedRequest {
         driverFirefox1.findElement(By.name("usuario")).sendKeys(this.userAnnouncer);
         driverFirefox1.findElement(By.name("contraseña")).sendKeys(this.passAnnouncer);
         driverFirefox1.findElement(By.name("loginButton")).click();
-        driverFirefox2 = new FirefoxDriver();
-        driverFirefox2.manage().window().maximize();
-        driverFirefox2.get("http://localhost:8080/login");
-        driverFirefox2.findElement(By.name("usuario")).sendKeys(this.userCustomer);
-        driverFirefox2.findElement(By.name("contraseña")).sendKeys(this.passCustomer);
-        driverFirefox2.findElement(By.name("loginButton")).click();
-        WebDriverWait wait = new WebDriverWait(driverFirefox1, 3);
-        wait.until(ExpectedConditions.elementToBeClickable(By.name("agendaLink")));
-        driverFirefox1.findElement(By.name("agendaLink")).click();
+        driverFirefox1.findElement(By.name("opcionMisServiciosNavBar")).click();
+
+
 
     }
     @And("He has a service with at least one request that is not convinient")
     public void he_has_a_service_with_at_least_one_request_that_is_not_convinient() throws Throwable{
         WebDriverWait wait = new WebDriverWait(driverFirefox1, 3);
         Actions action = new Actions(driverFirefox1);
-        WebElement we = driverFirefox1.findElement(By.xpath("/html/body/div/div/main/div/div/div[2]/div/div/div[1]/div[1]/div[1]/img"));
+        WebElement we = driverFirefox1.findElement(By.xpath("/html/body/div/div/main/div/div/div[2]/div/div/div[2]/div[1]/div[1]/p"));
         action.moveToElement(we).build().perform();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("botonRechazarJair Orlando")));
 
@@ -68,14 +62,34 @@ public class StepsRejectedRequest {
 
     @And("The client will see his message in his request view")
     public void the_client_will_see_his_meesage_in_his_request_view() throws Throwable{
+        driverFirefox2 = new FirefoxDriver();
+        driverFirefox2.manage().window().maximize();
+        driverFirefox2.get("http://localhost:8080/login");
+        driverFirefox2.findElement(By.name("usuario")).sendKeys(this.userCustomer);
+        driverFirefox2.findElement(By.name("contraseña")).sendKeys(this.passCustomer);
+        driverFirefox2.findElement(By.name("loginButton")).click();
 
-        WebDriverWait wait = new WebDriverWait(driverFirefox2, 3);
-        wait.until(ExpectedConditions.elementToBeClickable(By.name("mis-solicitudes")));
+        WebDriverWait wait1 = new WebDriverWait(driverFirefox2, 3);
+        wait1.until(ExpectedConditions.elementToBeClickable(By.name("mis-solicitudes")));
         driverFirefox2.findElement(By.name("mis-solicitudes")).click();
 
         JavascriptExecutor jse = (JavascriptExecutor) driverFirefox2;
-        jse.executeScript("window.scrollBy(0,250)", "");
+        jse.executeScript("window.scrollBy(0,500)", "");
 
+    }
+
+    @And("He will be able to make a request again")
+    public void he_will_be_able_to_make_a_request_again(){
+        WebDriverWait wait2 = new WebDriverWait(driverFirefox2, 2);
+        wait2.until(ExpectedConditions.elementToBeClickable(By.name("volver-solicitar")));
+        driverFirefox2.findElement(By.name("volver-solicitar")).click();
+
+        driverFirefox2.findElement(By.name("horaPacto")).sendKeys("11:00");
+        driverFirefox2.findElement(By.name("fechaPacto")).sendKeys("2020-07-11");
+        driverFirefox2.findElement(By.name("mensaje")).sendKeys("Quiero que le enseñes a mi perro a ir al baño");
+        driverFirefox2.findElement(By.name("solicitar")).click();
+        driverFirefox1.close();
+        driverFirefox2.close();
 
     }
     /*@But("It will be rejected by the announcer")

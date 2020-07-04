@@ -42,8 +42,9 @@ DELETE FROM RESEÑA WHERE RESEÑA_ID > 8;
 INSERT INTO solicitud(fecha_pactada,hora_pactada, mensaje, servicio_id, cliente_id) 
 VALUES("2020-07-11", "15:00:00", "Quiero que revises la tubería del baño", 2, 2);
 UPDATE SOLICITUD SET ESTADO = "Enviada" WHERE servicio_id = 2;
-select * from solicitud;
+select * from solicitud where servicio_id = 3;
 DELETE FROM SOLICITUD WHERE SOLICITUD_ID > 2;
+UPDATE SOLICITUD SET ESTADO = 'Enviada' WHERE solicitud_id = 7;
 ALTER TABLE SOLICITUD AUTO_INCREMENT = 1;
 select * from cita;
 

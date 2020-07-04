@@ -23,7 +23,7 @@
     <p v-if="rechazado" name="motivoRechazo" class="rol">{{ solicitud.motivoRechazo }}</p>
 
     <div v-if="rechazado" class="enlace">
-      <a v-on:click="navigateToDetail()">Volver a solicitar</a>
+      <a name="volver-solicitar" v-on:click="navigateToDetail()">Volver a solicitar</a>
     </div>
   </div>
 </template>
@@ -44,10 +44,13 @@ export default {
       }
     
   },
-
-  navigateToDetail(){
-      this.$router.push("/servicio/" + this.$props.solicitud.servicio.id)
+  methods:{
+    navigateToDetail(){
+      console.log("aqui debería poder solicitarse el servicio #" + this.$props.solicitud.servicio.id);
+      this.$router.push("/servicio/" + this.$props.solicitud.servicio.id);
+    }
   }
+ 
 
   
  
