@@ -4,20 +4,21 @@
     <p class="name">Anuciante: {{cita.solicitud.servicio.anunciante.nombres}}</p>
     <p class="rating-label">Estado</p>
     <p class="rating-value">{{cita.estado}}</p>
-    <p class="rating-label">Costo</p>
-    <input v-if="cita.costoFinal === null" v-model="costo" class="input-cost" type=text/>
-    <button class="cost-button" v-if="cita.costoFinal === null" v-on:click="actualizarCostoFinal(costo)">Guardar</button>
-    <p class="rating-value" v-if="cita.costoFinal !== null">{{cita.costoFinal}}</p>
     <div class="rating">
       <p class="rating-label">Hora Inicio</p>
-      <p class="rating-value">{{cita.horaInicio}}</p>
+      <p v-if="cita.horaInicio" class="rating-value">{{cita.horaInicio}}</p>
+       <p v-if="!cita.horaInicio" class="rating-value">
+          Pendiente
+        </p>
+
       <p class="rating-label">Hora Fin</p>
-      <p class="rating-value">{{cita.horaFin}}</p>
+      <p v-if="cita.horaFin" class="rating-value">{{cita.horaFin}}</p>
+      <p v-if="!cita.horaFin" class="rating-value">
+          Pendiente
+        </p>
     </div>
     <div class="enlace">
       <a v-on:click="navigateToDetail()">Resenar</a>
-      <button v-bind:name="'cita ' + cita.id" v-on:click="actualizarCita('Iniciada')">Iniciar</button>
-      <button v-on:click="actualizarCita('Finalizada')">Finalizar</button>
     </div>
 
   </div>
@@ -26,14 +27,13 @@
 <script>
 import CitaService from "../services/cita.service"
 export default {
-  name: "MiCita",
+  name: "MiCitaCliente",
   props: ["cita"],
   methods: {
     navigateToDetail(){
        this.$router.push(`/cita/${this.$props.cita.id}`);
     },
     async actualizarCita(estado){
-      
       try {
         await CitaService.actualizarEstadoCita(estado, this.id);
         alert(`La cita ha sido ${estado}`)
@@ -41,23 +41,11 @@ export default {
       } catch (error) {
         console.log(error);
       }
-      
-    },
-    async actualizarCostoFinal(costo){
-      try{
-        await CitaService.actualizarCostoFinal(costo, this.id);
-        alert(`El nuevo costo de la cita es de ${costo} soles`)
-        this.tieneCosto = true
-      } catch(error){
-        console.log(error)
-      }
     }
   },
   data(){
     return {
       id: -1,
-      tieneCosto: false,
-      costo: ""
     }
   },
   mounted(){

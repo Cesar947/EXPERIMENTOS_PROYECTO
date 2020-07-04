@@ -22,7 +22,8 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
                     "join anunciante on anunciante.anunciante_id = usuario.anunciante_id " +
                     "join membresia on membresia.membresia_id = anunciante.membresia_id " +
                     "order by case when membresia.nombre = 'GOLD' then '1' " +
-                    "when membresia.nombre = 'FREE' then '2' else membresia.nombre end ",
+                    "when membresia.nombre = 'FREE' then '2' else membresia.nombre end"
+                    ,
             nativeQuery = true
     )
     List<Servicio> listarOrdenandoPorMembresia() throws Exception;
@@ -34,7 +35,8 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
                     "join membresia on membresia.membresia_id = anunciante.membresia_id " +
                     "where servicio.titulo like :keyword " +
                     "order by case when membresia.nombre = 'Gold' then '1' " +
-                    "when membresia.nombre = 'Free' then '2' else membresia.nombre end ",
+                    "when membresia.nombre = 'Free' then '2' else membresia.nombre end"
+                    ,
             nativeQuery = true
     )
     List<Servicio>listarServiciosPorTitulo(@Param("keyword") String keyword) throws Exception;

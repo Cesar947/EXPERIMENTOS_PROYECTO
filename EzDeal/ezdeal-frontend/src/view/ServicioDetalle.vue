@@ -37,7 +37,7 @@
         <div class="contact-info">
           <div>
             <p class="label-text">
-              Celular
+              Dirección
             </p>
             <p class="contact-number">
               {{ servicioDetalle.anunciante.direccion }}
@@ -46,7 +46,7 @@
 
           <div>
             <p class="label-text">
-              Teléfono
+              Distrito
             </p>
             <p class="contact-number">
               {{ servicioDetalle.anunciante.provincia }}

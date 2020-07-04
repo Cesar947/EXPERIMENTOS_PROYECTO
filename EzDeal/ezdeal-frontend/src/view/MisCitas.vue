@@ -22,8 +22,8 @@
     <div v-if="isCliente">
         <h1>Mis citas de cliente</h1>
         <div class="lista-citas">
-        <MiCita v-for="(cita, key) in citasClientes" v-bind:key="key" v-bind:cita="cita" 
-        @Listar="listarMisCitas"></MiCita>
+        <MiCitaCliente v-for="(cita, key) in citasClientes" v-bind:key="key" v-bind:cita="cita" 
+        @Listar="listarMisCitas"></MiCitaCliente>
         </div>
     </div>
   </div>
@@ -31,12 +31,13 @@
 
 <script>
 import MiCita from "../components/MiCita.vue";
+import MiCitaCliente from "../components/MiCitaCliente.vue";
 import axios from 'axios';
 import { environment } from '../environment/environment';
 export default {
     name: "MisCitas",
 
-    components: { MiCita },
+    components: { MiCita, MiCitaCliente },
     data(){
         return{
             citasAnunciantes: [],

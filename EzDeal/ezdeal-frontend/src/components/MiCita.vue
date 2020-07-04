@@ -10,12 +10,22 @@
     <p class="rating-value" v-if="cita.costoFinal !== null">{{cita.costoFinal}}</p>
     <div class="rating">
       <p class="rating-label">Hora Inicio</p>
-      <p class="rating-value">{{cita.horaInicio}}</p>
+      <p v-if="cita.horaInicio" class="rating-value">
+        {{cita.horaInicio}}
+        </p>
+        <p v-if="!cita.horaInicio" class="rating-value">
+          Pendiente
+        </p>
       <p class="rating-label">Hora Fin</p>
-      <p class="rating-value">{{cita.horaFin}}</p>
+      <p v-if="cita.horaInicio" class="rating-value">
+        {{cita.horaFin}}
+        </p>
+        <p v-if="cita.horaInicio" class="rating-value">
+         Pendiente
+        </p>
     </div>
     <div class="enlace">
-      <a v-on:click="navigateToDetail()">Resenar</a>
+      <a v-on:click="navigateToDetail()">Ver servicio</a>
       <button v-bind:name="'cita ' + cita.id" v-on:click="actualizarCita('Iniciada')">Iniciar</button>
       <button v-on:click="actualizarCita('Finalizada')">Finalizar</button>
     </div>
