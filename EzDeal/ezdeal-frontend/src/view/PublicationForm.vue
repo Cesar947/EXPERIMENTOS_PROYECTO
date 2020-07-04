@@ -16,7 +16,7 @@
         
         <div class="field titulo-servicio">
           <label for="">Titulo del servicio</label>
-          <input v-model="service.titulo" type="text" placeholder="Titulo" />
+          <input v-model="service.titulo" type="text" placeholder="Titulo" required />
         </div>
         <div class="field descripcion">
           <label for="">Descripción</label>
@@ -24,12 +24,14 @@
             v-model="service.descripcion"
             type="text"
             placeholder="Descripción"
+            required
           />
         </div>
         <div class="field-group">
           <div class="field">
             <label for="">Tipo de servicio</label>
-            <input type="text" placeholder="Electricista, pintor,etc" />
+            <input type="text" placeholder="Electricista, pintor,etc" 
+            required/>
           </div>
           <div class="field">
             <label for="">Costo (Soles)</label>
@@ -37,12 +39,13 @@
               v-model="service.costoServicio"
               type="text"
               placeholder="15.00"
+              required
             />
           </div>
         </div>
         <div class="field">
           <label for="">Modalidad</label>
-          <select v-model="service.modalidad">
+          <select v-model="service.modalidad" required>
             <option value="1">A domicilio</option>
             <option value="2">A local</option>
             <option value="3">A domicilio & En local </option>

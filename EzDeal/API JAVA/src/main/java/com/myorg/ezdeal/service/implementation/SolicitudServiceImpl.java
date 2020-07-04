@@ -116,5 +116,10 @@ public class SolicitudServiceImpl implements SolicitudService {
         return this.solicitudRepository.listarPorAnunciante(anuncianteId);
     }
 
+    @Override
+    public List<Solicitud> listarSolicitudesPorCliente(Long clienteId) throws Exception{
+        return this.solicitudRepository.listarPorCliente(clienteId);
+    }
+
 }
 

@@ -27,6 +27,10 @@ class SolicitudService {
     async rechazarSolicitud(idSolicitud, motivo) {
         return await Axios.put(`${environment.api}/solicitudes/${idSolicitud}?estado=Rechazada`, motivo, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
     }
+
+    async getSolicitudPorCliente(idCliente){
+        return await Axios.get(`${environment.api}/solicitudes/cliente/${idCliente}`, {}, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
+    }
 }
 
 

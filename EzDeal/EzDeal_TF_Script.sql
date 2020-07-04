@@ -14,6 +14,7 @@ SELECT * FROM Membresia;
 SELECT * FROM Usuario;
 SELECT * FROM Anunciante;
 SELECT * FROM cuenta;
+select * from horario;
 UPDATE USUARIO SET imagen_perfil = "https://m.guiadelocio.com/var/guiadelocio.com/storage/images/cine/personajes/jim-carrey/4307870-13-esl-ES/jim-carrey.jpg" WHERE usuario_id = 3;
 #ALTER TABLE Usuario AUTO_INCREMENT = 1
 
@@ -89,3 +90,16 @@ FOR EACH ROW BEGIN
 	SET @nuevaValoracion = (@valoracion*@cantidad + NEW.valoracion)/(@cantidad + 1); 
     UPDATE servicio s SET s.valoracion = @nuevaValoracion where s.servicio_id = @servicioId;
 END$$
+
+/*DELIMITER $$
+CREATE TRIGGER USUARIO_PRUEBA_SOLICITAR
+BEFORE UPDATE ON SOLICITUD
+FOR EACH ROW BEGIN
+	SET @nombre = (SELECT u.nombres FROM usuario u JOIN solicitud s ON s.cliente_id = u.usuario_id
+		WHERE s.solicitud_id = NEW.solicitud_id);
+	IF NEW.estado <> 'Rechazada' THEN
+		INSERT INTO solicitud(estado,fecha_pactada,fecha_solicitud,hora_pactada,mensaje,cliente_id,servicio_id)
+		VALUES ('Enviada', DATE_ADD(CURDATE(), INTERVAL 5 DAY), CURDATE(), '17:00:00', "Quiero que mi perro aprenda a esquiar",
+        NEW.cliente_id, NEW.servicio_id);
+	END IF;
+END$$*/

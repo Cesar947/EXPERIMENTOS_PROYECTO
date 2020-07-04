@@ -2,7 +2,7 @@
   <div class="modal-container-rechazar">
     <div class="card">
       <img v-on:click="closeModal" src="../assets/ic_close_black.svg" alt="" />
-      <h2>Confirmación {{ id }}</h2>
+      <h2>Motivo de rechazo</h2>
       <p>Por favor ingrese el motivo de su rechazo</p>
       <textarea name="contenidoMotivo" v-model="motivo" id=""></textarea>
       <div class="btn-container">

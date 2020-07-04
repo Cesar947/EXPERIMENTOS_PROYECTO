@@ -15,8 +15,8 @@
         <p>{{solicitud.fechaPactada}}</p>
     </div>
     <div class="decision-buttons">
-        <button v-bind:name="'botonAceptar' + solicitud.id" v-on:click="openModalAceptar()" class="aceptar-btn">Aceptar</button>
-        <button name="botonRechazar" v-on:click="cerrar()" class="rechazar-btn">Rechazar</button>
+        <button v-bind:name="'botonAceptar' + solicitud.cliente.nombres" v-on:click="openModalAceptar()" class="aceptar-btn">Aceptar</button>
+        <button v-bind:name="'botonRechazar' + solicitud.cliente.nombres" v-on:click="cerrar()" class="rechazar-btn">Rechazar</button>
     </div>
   </div>
 </template>

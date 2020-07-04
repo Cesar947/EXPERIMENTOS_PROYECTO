@@ -24,4 +24,6 @@ public interface SolicitudService {
     List<Solicitud> listarPorServicio(Long servicioId) throws Exception;
 
     List<Solicitud> listarSolicitudesPorAnunciante(Long anuncianteId) throws Exception;
+
+    List<Solicitud> listarSolicitudesPorCliente(Long clienteId)throws Exception;
 }

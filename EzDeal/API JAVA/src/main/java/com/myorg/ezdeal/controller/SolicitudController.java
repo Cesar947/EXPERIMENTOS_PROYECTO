@@ -55,5 +55,9 @@ public class SolicitudController {
         return this.solicitudService.listarSolicitudesPorAnunciante(anuncianteId);
     }
 
+    @GetMapping("cliente/{clienteId}")
+    public List<Solicitud> listarSolicitudesPorCliente(@PathVariable("clienteId") Long clienteId) throws Exception{
+        return this.solicitudService.listarSolicitudesPorCliente(clienteId);
+    }
 
 }

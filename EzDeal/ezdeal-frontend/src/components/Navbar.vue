@@ -27,6 +27,7 @@
         
       </div>
       <div v-if="isCliente" class="nav-link">
+        <a name="mis-solicitudes" href="/mis-solicitudes">Mis Solicitudes</a>
          <a name="agendaLink" href="/mis-citas">Agenda</a>
         <a id="anunciante-btn" href="/membresia">Quiero ser anunciante</a>
       </div>

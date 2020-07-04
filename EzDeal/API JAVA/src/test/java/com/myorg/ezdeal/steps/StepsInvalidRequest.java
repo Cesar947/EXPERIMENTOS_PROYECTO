@@ -16,11 +16,52 @@ public class StepsInvalidRequest {
 
     private String userCustomer = "jair777";
     private String passCustomer = "135790";
-    private String userAnnouncer = "pepino";
-    private String passAnnouncer = "1234567";
-
+    /*private String userAnnouncer = "pepino";
+    private String passAnnouncer = "1234567";*/
+/*Feature: Request a service
+  Scenario: Request submission error for hour already occupied
+    Given A client in the detail of a service
+    When He fill the request form with an agreed time that belongs to range of hours of a scheduled request
+    And He clicks in send request option
+    Then An alert will appear with a detailed message of error
+*/
     private WebDriver driverFirefox1;
-    private WebDriver driverFirefox2;
+
+
+    @Given("A client in the detail of a service")
+    public void a_client_in_the_detail_of_a_service() throws Throwable{
+        System.setProperty("webdriver.gecko.driver","D://7MO CICLO//DISEÑO_EXPERIMENTOS_SOFTWARE//GeckoDriver//geckodriver.exe");
+        driverFirefox1 = new FirefoxDriver();
+        driverFirefox1.manage().window().maximize();
+        driverFirefox1.get("http://localhost:8080/login");
+        driverFirefox1.findElement(By.name("usuario")).sendKeys(this.userCustomer);
+        driverFirefox1.findElement(By.name("contraseña")).sendKeys(this.passCustomer);
+        driverFirefox1.findElement(By.name("loginButton")).click();
+        WebDriverWait wait = new WebDriverWait(driverFirefox1, 3);
+        wait.until(ExpectedConditions.elementToBeClickable(By.name("servicio2")));
+
+        driverFirefox1.findElement(By.name("servicio2")).click();
+    }
+
+    @When("He fill the request form with an agreed time that belongs to range of hours of a scheduled request")
+    public void he_fill_the_request_form_with_an_agreed_time_that_belongs_to_range_of_hours_of_a_scheduled_request() throws Throwable{
+        driverFirefox1.findElement(By.name("horaPacto")).sendKeys("15:00");
+        driverFirefox1.findElement(By.name("fechaPacto")).sendKeys("2020-07-11");
+        driverFirefox1.findElement(By.name("mensaje")).sendKeys("Necesito que arregles el lavabo de mi cocina");
+
+    }
+
+    @And("He clicks in send request option")
+    public void he_clicks_in_send_request_option() throws Throwable {
+        driverFirefox1.findElement(By.name("solicitar")).click();
+    }
+
+    @Then("An alert will appear with a detailed message of error")
+    public void an_alert_will_appear_with_a_detailed_message_of_error() throws Throwable{
+        driverFirefox1.switchTo().alert().accept();
+    }
+
+    /*private WebDriver driverFirefox2;
 
     @Given("A client who wants to request a service")
     public void a_client_who_wants_to_request_a_service() throws Throwable{
@@ -91,5 +132,5 @@ public class StepsInvalidRequest {
         driverFirefox2.close();
 
     }
-
+*/
 }

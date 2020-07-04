@@ -170,8 +170,16 @@ export default {
         };
         const id = parseInt(localStorage.getItem("id"));
         const idService = parseInt(this.$data.idService);
-        await SolicitudService.solicitar( idService,id, body);
-        this.$router.push("/solicitud-confirmacion");
+        await SolicitudService.solicitar( idService,id, body)
+        .then((response) => {
+          if(response.data.id == null || response.data.id == undefined){
+            alert("Ya existe una solicitud con esa hora de pacto para la fecha ingresada")
+          }
+          else{
+            this.$router.push("/solicitud-confirmacion");
+          }
+        });
+        
       } catch (error) {
         console.log(error);
       }

@@ -8,6 +8,7 @@ import ServicioDetalle from "./view/ServicioDetalle.vue";
 import SolicitudConfirmacion from "./view/SolicitudConfirmacion.vue";
 import MisServicios from "./view/MisServicios.vue";
 import MisCitas from "./view/MisCitas.vue";
+import SolicitudesEnviadas from "./view/SolicitudesEnviadas.vue";
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -48,6 +49,10 @@ export default new Router({
                 {
                     path:'mis-citas',
                     component: MisCitas
+                },
+                {
+                    path:'mis-solicitudes',
+                    component: SolicitudesEnviadas
                 }
             ]
         },

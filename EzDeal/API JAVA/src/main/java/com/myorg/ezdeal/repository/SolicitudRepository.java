@@ -41,4 +41,6 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Long> {
     @Query("SELECT s FROM Solicitud s JOIN Servicio se ON se.id = s.servicio.id JOIN Usuario u ON u.id = se.anunciante.id WHERE u.id = ?1")
     List<Solicitud> listarPorAnunciante(Long anuncianteId);
 
+    @Query("SELECT s FROM Solicitud s WHERE s.cliente.id = ?1")
+    List<Solicitud> listarPorCliente(Long clienteId);
 }
