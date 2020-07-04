@@ -1,13 +1,20 @@
 Log in: 
 
 //Anunciante 1
-nombreUsuario: cesar947
-contrasena: 3456789
+"nombreUsuario": "cesar947"
+"contrasena": "3456789"
 
 //Cliente 2
-nombreUsuario: slayz08
-contrasena: 7777777
+"nombreUsuario": "slayz08"
+"contrasena": "7777777"
 
+//Anunciante 2
+"nombreUsuario": "pepino"
+"contrasena": "1234567"
+
+//Cliente 2
+"nombreUsuario": "jair777"
+"contrasena": "135790"
 
 
 

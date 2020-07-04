@@ -16,7 +16,7 @@
     <div v-if="isAnunciante">
         <h1>Mis citas de anunciante</h1>
         <div class="lista-citas">
-        <MiCita v-for="(cita, key) in citasAnunciantes" v-bind:key="key" v-bind:cita="cita"></MiCita>
+        <MiCita v-for="(cita, key) in citasAnunciantes" v-bind:key="key" v-bind:cita="cita" ></MiCita>
         </div>
     </div>
     <div v-if="isCliente">

@@ -1,7 +1,6 @@
 package com.myorg.ezdeal.steps;
 
 import io.cucumber.java.en.*;
-import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

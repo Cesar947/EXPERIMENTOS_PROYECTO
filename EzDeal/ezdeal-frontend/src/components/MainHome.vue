@@ -77,8 +77,13 @@ export default {
     },
 
     buscarServicios(keyword){
-      
-      axios.get(`${environment.api}/auth/servicios/titulo?keyword=${keyword}`)
+      const token = localStorage.getItem("token")
+      axios.get(`${environment.api}/servicios/titulo?keyword=${keyword}`,
+          {
+          headers : {
+            Authorization : `Bearer ${token}` 
+            }
+          })
         .then(response => {
           
           this.anuncios = response.data
@@ -86,7 +91,7 @@ export default {
         })
         .catch(error => {
           console.log(error)
-          alert("error");
+     
         });
 
     },
